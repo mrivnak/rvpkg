@@ -1,0 +1,4 @@
+[config]
+color = true
+confirm = true
+defaultyes = true
