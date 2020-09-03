@@ -127,6 +127,8 @@ def parse_pkgs(pkgs):
             print(f'Package "{package.entry}" not found in database. Exiting...')
             sys.exit(1)
 
+        package.installed = is_installed(package.entry)
+
         package.req_deps = data['packages'][package.entry].get('req_deps', [])
         package.rec_deps = data['packages'][package.entry].get('rec_deps', [])
         package.opt_deps = data['packages'][package.entry].get('opt_deps', [])
@@ -151,7 +153,7 @@ def add_pkgs(pkgs):
     # TODO: add packages
 
     print_header()
-    print_pkgs(pkgs)
+    print_pkgs(pkgs, True)
     print_footer()
 
     confirm()
@@ -159,6 +161,8 @@ def add_pkgs(pkgs):
     with open(log_path, 'a+') as file:
         for pkg in pkgs:
             file.write(f'{pkg.entry}\n')
+
+    print('Packages successfully added!')
 
 
 # Show information about multiple packages
@@ -185,6 +189,7 @@ def is_installed_before(pkg, dep_pkgs):
     with open(log_path, 'r') as file:
         reverse_log = reversed(file.readlines())
 
+    new_log = []
     for item, i in enumerate(reverse_log):
         if item == 'pkg':
             new_log = reversed(reverse_log[i:])
@@ -200,26 +205,48 @@ def is_installed_before(pkg, dep_pkgs):
         return 'Some'
     else:
         return 'None'
+    
+def is_installed(pkg):
+    with open(log_path, 'r') as file:
+        log = file.readlines()
+
+    new_log = []
+    for line in log:
+        new_log.append(line.rstrip('\n'))
+
+    log, new_log = new_log, None
+
+    return pkg in log
 
 # Display a package and details to the screen
 def print_pkgs(pkgs, print_deps=False):
     # TODO: print package
     
     for pkg in pkgs:
-        print('{0:<24}{1:<16}{2:<16}{3:<16}{4:<16}'.format(
+        print('{0:<24}{1:<16}{2:<16}{3:<16}{4:<16}{5:<16}'.format(
             pkg.name,
             pkg.version,
+            'Yes' if pkg.installed else 'No',
             pkg.has_req_deps,
             pkg.has_rec_deps, 
             pkg.has_opt_deps
         ))
+        if print_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
+            print(f'{pkg.name} build dependencies:')
+            for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
+                name, version = name_ver_split(item)
+                print('  {0:<22}{1:<16}{2:<16}'.format(
+                    name,
+                    version,
+                    'Yes' if is_installed(item) else 'No'
+                ))
 
 def print_header():
-    print('Package Name\t\tVersion\t\tReq. Deps\tRec. Deps\tOpt. Deps')
-    print('-------------------------------------------------------------------------------------')
+    print('Package Name\t\tVersion\t\tInstalled\tReq. Deps\tRec. Deps\tOpt. Deps')
+    print('-------------------------------------------------------------------------------------------------')
 
 def print_footer():
-    print('-------------------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------------------------------')
 
 # Prompt for confirmation
 def confirm():
