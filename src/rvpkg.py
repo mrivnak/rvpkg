@@ -31,8 +31,7 @@ def main() :
         help='Accepts changes without prompting for confirmation'
     )
 
-    # actions = parser.add_mutually_exclusive_group(required=True)
-    subparsers = parser.add_subparsers()
+    subparsers = parser.add_subparsers(help='rvpkg subcommands:')
     subparsers.required = True
     subparsers.dest = 'command'
     parser_add = subparsers.add_parser(
