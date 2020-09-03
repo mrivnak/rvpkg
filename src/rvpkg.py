@@ -1,16 +1,17 @@
 import argparse
+import re
+import sys
 
 from package import Package
 
 # global configuration
 verbose = False
 no_confirm = False
+default_yes = True
 
 def main() :
     # argparse setup
     global verbose, no_confirm
-    command = None
-    packages = []
 
     parser = argparse.ArgumentParser(prog='rvpkg')
     parser.add_argument(
@@ -67,7 +68,14 @@ def main() :
     args = parser.parse_args()
     
     verbose, no_confirm = args.verbose, args.no_confirm
-    command, packages = args.command, ((args.packages[0] if hasattr(args, 'packages') else None) if args.command != 'update' else args.package)
+    command = args.command
+
+    if command == 'update':
+        packages = args.package
+    elif command in ['add', 'check', 'remove']:
+        packages = args.packages[0]
+    else:
+        packages = None
 
     print(f'verbose: {verbose}, no_confirm: {no_confirm}')
     print(f'command: {command}, packages: {packages}')
@@ -75,124 +83,79 @@ def main() :
 if __name__ == '__main__':
     main()
 
+# Add multiple packages to the package list
 def add_packages(packages):
-    pass
+    pass  # TODO: add packages
 
+# Add package to the package list
 def add_package(package):
-    pass
+    pass  # TODO: add package
 
+# Show information about multiple packages
 def check_packages(packages):
-    pass
+    pass  # TODO: check packages
 
+# Show information about a package
 def check_package(package):
-    pass
-'''
+    pass  # TODO: check package
 
-// Add multiple packages to the package list
-fn add_packages(packages: Vec<String>) {
-    for package in packages {
-        
-    }
-    // TODO: add packages
-}
+# Displays number of installed packages
+def count():
+    pass  # TODO: count
 
-// Add package to the package list
-fn add_package(package: String) {
-    // TODO: add package
-}
+# Displays list of installed packages
+def list():
+    pass  # TODO: list
 
-// Show information about multiple packages
-fn check_packages(packages: Vec<String>) {
-    // TODO: check packages
-}
+# Remove multiple packages from the package list
+def remove_packages(packages):
+    pass  # TODO: remove packages
 
-// Show information about a package
-fn check_package(package: String) {
-    // TODO: check package
-}
+# Remove a package from the package list
+def remove_package(package):
+    pass  # TODO: remove package
 
-// Displays number of installed packages
-fn count() {
-    // TODO: count
-}
+# Update a package to reflect currently installed dependencies
+def update_package(packages):
+    pass  # TODO: update package
 
-// Displays list of installed packages
-fn list() {
-    // TODO: list
-}
+# Read package dependecies from packages db
+def get_deps(package):
+    pass  # TODO: get deps
 
-// Remove multiple packages from the package list
-fn remove_packages(packages: Vec<String>) {
-    // TODO: remove packages
-}
+# Read installed dependencies from package log
+def get_installed_deps(package):
+    pass  # TODO: get installed deps
 
-// Remove a package from the package list
-fn remove_package(package: String) {
-    // TODO: remove package
-}
+# Display a package and details to the screen
+def print_package(package, is_dep):
+    pass  # TODO: print package
 
-// Update a package to reflect currently installed dependencies
-fn update_package(packages: String) {
-    // TODO: update package
-}
-
-// Read package dependecies from packages db
-fn get_deps(package: &mut Package) -> Vec<String> {
-    // TODO: get deps
-    let db = fs::read_to_string("~/Documents/rvpkg/fs/usr/share/packages.toml").expect("Error database file not found");
-
-    let data = db.parse::<Value>().unwrap();
-
-    let deps: Vec<String> = data["meta"]["version"].as_str();
-    
-    return output;
-}
-
-// Read installed dependencies from package log
-fn get_installed_deps(package: &Package) {
-    // TODO: get installed deps
-}
-
-// Display a package and details to the screen
-fn print_package(package: &Package, is_dep: bool) {
-    // TODO: print package
-}
-
-fn print_header() {
-    print!(
+def print_header():
+    print(
         "Package Name\t\tVersion\tReq. Deps\tRec. Deps\tOpt. Deps\n\
         -----------------------------------------------------------------------------\n"
     )
-}
 
-fn print_footer() {
-    // TODO: print footer
-}
+def print_footer():
+    pass  # TODO: print footer
 
-fn confirm() {
-    // TODO: confirm process
+# Prompt for confirmation
+def confirm():
+    if not no_confirm:
+        print('Do you want to continue? {}'.format('[Y/n]' if default_yes else '[y/N]'), end='')
+        response = input()
 
-    let input: String = read!("{}\n");
+        if not (response.to_lowercase() == "y" or (input == "" and default_yes)):
+            print("Operation cancelled", file=sys.stderr)
+            sys.exit(1)
 
-    if input.to_lowercase() == "y" || input == "" {
-        
-    }
-    else {
-        println!("Operation cancelled");
-        std::process::exit(1);
-    }
-}
+def name_ver_split(entry):
+    pattern = re.compile(r'(.*)-((\d+.)*\d+(\w+)?)')
+    match = pattern.search(entry)
 
-fn name_ver_split(input: &String) -> (String, String) {
-    let re = Regex::new(r"(.*)-((\d+.)*\d+\w+)").unwrap();
+    if match is None:
+        print('Package "{entry}" not recognized! Must match format "<name>-<version>"', file=sys.stderr)
+        sys.exit(1)
 
-    if !re.is_match(input) {
-        println!("Package \"{}\" not recognized! Must match format \"<name>-<version>\"", input);
-        std::process::exit(1);
-    }
-
-    let matches = re.captures(input).unwrap();
-
-    return (String::from(matches.get(1).unwrap().as_str()), String::from(matches.get(2).unwrap().as_str()));
-}
-'''
+    return (match.group(1), match.group(2))
