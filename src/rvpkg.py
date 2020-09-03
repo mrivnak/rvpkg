@@ -9,6 +9,7 @@ no_confirm = False
 def main() :
     # argparse setup
     global verbose, no_confirm
+    command = None
     packages = []
 
     parser = argparse.ArgumentParser(prog='rvpkg')
@@ -29,123 +30,63 @@ def main() :
         help='Accepts changes without prompting for confirmation'
     )
 
-    actions = parser.add_mutually_exclusive_group(required=True)
-    actions.add_argument(
-        '-a',
-        '--add',
-        action="store_true",
-        dest='add',
-        default=False,
+    # actions = parser.add_mutually_exclusive_group(required=True)
+    subparsers = parser.add_subparsers()
+    subparsers.required = True
+    subparsers.dest = 'command'
+    parser_add = subparsers.add_parser(
+        'add',
         help='Adds package(s) to the system package list'
     )
+    parser_check = subparsers.add_parser(
+        'check',
+        help='Displays information about package(s)'
+    )
+    parser_count = subparsers.add_parser(
+        'count',
+        help='Displays the number of installed packages'
+    )
+    parser_list = subparsers.add_parser(
+        'list',
+        help='Displays the list of installed packages'
+    )
+    parser_remove = subparsers.add_parser(
+        'remove',
+        help='Removes package(s) from the system package list'
+    )
+    parser_update = subparsers.add_parser(
+        'update',
+        help='Updates a package to reflect currently installed dependencies'
+    )
+
+    parser_add.add_argument('packages', type=str, action='append', nargs='+')
+    parser_check.add_argument('packages', type=str, action='append', nargs='+')
+    parser_remove.add_argument('packages', type=str, action='append', nargs='+')
+    parser_update.add_argument('package', type=str)
 
     args = parser.parse_args()
-    print(args.add)
+    
+    verbose, no_confirm = args.verbose, args.no_confirm
+    command, packages = args.command, ((args.packages[0] if hasattr(args, 'packages') else None) if args.command != 'update' else args.package)
+
+    print(f'verbose: {verbose}, no_confirm: {no_confirm}')
+    print(f'command: {command}, packages: {packages}')
 
 if __name__ == '__main__':
     main()
 
+def add_packages(packages):
+    pass
+
+def add_package(package):
+    pass
+
+def check_packages(packages):
+    pass
+
+def check_package(package):
+    pass
 '''
-
-        .subcommand(
-            SubCommand::with_name("check")
-                .about("Displays information about a package")
-                .arg(Arg::with_name("packages")
-                    .help("package(s) to check")
-                    .takes_value(true)
-                    .multiple(true)
-                    .required(true)
-                )
-        )
-        .subcommand(
-            SubCommand::with_name("count")
-                .about("Displays the number of installed packages")
-        )
-        .subcommand(
-            SubCommand::with_name("list")
-                .about("Displays a list of installed packages")
-        )
-        .subcommand(
-            SubCommand::with_name("remove")
-                .about("Removes a package from the system package list")
-                .arg(Arg::with_name("packages")
-                    .help("package(s) to remove")
-                    .takes_value(true)
-                    .multiple(true)
-                    .required(true)
-                )
-        )
-        .subcommand(
-            SubCommand::with_name("update")
-                .about("Updates a package to reflect currently installed dependencies")
-                .arg(Arg::with_name("packages")
-                    .help("package to update")
-                    .takes_value(true)
-                    .multiple(false)
-                    .required(true)
-                )
-        )
-        .setting(AppSettings::SubcommandRequiredElseHelp)
-        .get_matches()
-    ;
-
-    let verbose: bool = if matches.is_present("verbose") { true } else { false };
-
-    match matches.subcommand() {
-        ("add", Some(add_matches)) => {
-            let packages: Vec<String> = add_matches
-                .values_of("packages")
-                .unwrap()
-                .map(|s| s.to_string())
-                .collect();
-
-            println!("Adding {}", packages.join(", "));
-
-            add_packages(packages);
-        }
-        ("check", Some(check_matches)) => {
-            let packages: Vec<String> = check_matches
-                .values_of("packages")
-                .unwrap()
-                .map(|s| s.to_string())
-                .collect();
-
-            println!("Checking {}", packages.join(", "));
-
-            check_packages(packages);
-        }
-        ("count", None) => {
-            count();
-        }
-        ("list", None) => {
-            list();
-        }
-        ("remove", Some(remove_matches)) => {
-            let packages: Vec<String> = remove_matches
-                .values_of("packages")
-                .unwrap()
-                .map(|s| s.to_string())
-                .collect();
-
-            println!("Remove {}", packages.join(", "));
-
-            remove_packages(packages);
-        }
-        ("update", Some(check_matches)) => {
-            let package: String = check_matches
-                .value_of("packages")
-                .unwrap()
-                .to_string();
-
-            println!("Checking {}", package);
-
-            update_package(package);
-        }
-        _ => unreachable!(),
-    }
-
-    name_ver_split(&String::from("test-"));
-}
 
 // Add multiple packages to the package list
 fn add_packages(packages: Vec<String>) {
