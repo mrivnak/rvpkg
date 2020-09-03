@@ -1,7 +1,5 @@
 config:
+  verbose: False
   default_yes: True
   no_confirm: False
-
-paths:
-  log_path: ../fs/var/lib/rvpkg/package.log
-  db_path: ../fs/usr/share/packages.yaml
+  color: True

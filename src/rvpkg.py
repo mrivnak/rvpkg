@@ -1,6 +1,8 @@
 import argparse
+import os
 import re
 import sys
+import yaml
 
 from package import Package
 
@@ -8,10 +10,28 @@ from package import Package
 verbose = False
 no_confirm = False
 default_yes = True
+color = True
 
-def main() :
+debug = True
+prefix = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fs') if debug else '/'
+config_path = os.path.join(prefix, 'etc', 'rvpkg.yaml')
+db_path = os.path.join(prefix, 'usr', 'share', 'packages.yaml')
+log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
+
+def load_config():
+    global verbose, default_yes, no_confirm, color
+
+    with open(config_path, 'r') as file:
+        data = yaml.load(file, Loader=yaml.FullLoader)
+        
+        verbose = data['config']['verbose']
+        default_yes = data['config']['default_yes']
+        no_confirm = data['config']['no_confirm']
+        # color = data['config']['color']
+
+def parse_args():
     # argparse setup
-    global verbose, no_confirm
+    global verbose, no_confirm, color
 
     parser = argparse.ArgumentParser(prog='rvpkg')
     parser.add_argument(
@@ -30,6 +50,16 @@ def main() :
         default=False,
         help='Accepts changes without prompting for confirmation'
     )
+    '''
+    parser.add_argument(
+        '-c',
+        '--color',
+        action="store_true",
+        dest='color',
+        default=False,
+        help='Prints output with color'
+    )
+    '''
 
     subparsers = parser.add_subparsers(help='rvpkg subcommands:')
     subparsers.required = True
@@ -66,86 +96,138 @@ def main() :
 
     args = parser.parse_args()
     
-    verbose, no_confirm = args.verbose, args.no_confirm
+    verbose = verbose or args.verbose
+    no_confirm = no_confirm or args.no_confirm
+    # color = color or args.color
+
     command = args.command
 
     if command == 'update':
-        packages = args.package
+        packages = [args.package]
     elif command in ['add', 'check', 'remove']:
         packages = args.packages[0]
     else:
         packages = None
 
-    print(f'verbose: {verbose}, no_confirm: {no_confirm}')
-    print(f'command: {command}, packages: {packages}')
+    return command, packages
 
-if __name__ == '__main__':
-    main()
+# Convert package strings to package objects
+def parse_pkgs(pkgs):
+    output = []
+    data = None
 
-# Add multiple packages to the package list
-def add_packages(packages):
-    pass  # TODO: add packages
+    with open(db_path, 'r') as file:
+        data = yaml.load(file, Loader=yaml.FullLoader)
 
-# Add package to the package list
-def add_package(package):
-    pass  # TODO: add package
+    for pkg in pkgs:
+        name, ver = name_ver_split(pkg)
+        package = Package(name, ver)
+
+        if not package.entry in data['packages']:
+            print(f'Package "{package.entry}" not found in database. Exiting...')
+            sys.exit(1)
+
+        package.req_deps = data['packages'][package.entry].get('req_deps', [])
+        package.rec_deps = data['packages'][package.entry].get('rec_deps', [])
+        package.opt_deps = data['packages'][package.entry].get('opt_deps', [])
+        package.req_run_deps = data['packages'][package.entry].get('req_run_deps', [])
+        package.rec_run_deps = data['packages'][package.entry].get('rec_run_deps', [])
+        package.opt_run_deps = data['packages'][package.entry].get('opt_run_deps', [])
+        
+        package.has_req_deps = is_installed_before(package.entry, package.req_deps)
+        package.has_rec_deps = is_installed_before(package.entry, package.rec_deps)
+        package.has_opt_deps = is_installed_before(package.entry, package.opt_deps)
+        package.has_req_run_deps = is_installed_before(package.entry, package.req_run_deps)
+        package.has_rec_run_deps = is_installed_before(package.entry, package.rec_run_deps)
+        package.has_opt_run_deps = is_installed_before(package.entry, package.opt_run_deps)
+
+        output.append(package)
+
+    return output
+
+
+# Add packages to the package list
+def add_pkgs(pkgs):
+    # TODO: add packages
+
+    print_header()
+    print_pkgs(pkgs)
+    print_footer()
+
+    confirm()
+
+    with open(log_path, 'a+') as file:
+        for pkg in pkgs:
+            file.write(f'{pkg.entry}\n')
+
 
 # Show information about multiple packages
-def check_packages(packages):
-    pass  # TODO: check packages
-
-# Show information about a package
-def check_package(package):
+def check_pkgs(pkgs):
     pass  # TODO: check package
 
 # Displays number of installed packages
-def count():
+def count_pkgs():
     pass  # TODO: count
 
 # Displays list of installed packages
-def list():
+def list_pkgs():
     pass  # TODO: list
 
-# Remove multiple packages from the package list
-def remove_packages(packages):
+# Remove packages from the package list
+def remove_pkgs(pkgs):
     pass  # TODO: remove packages
 
-# Remove a package from the package list
-def remove_package(package):
-    pass  # TODO: remove package
-
 # Update a package to reflect currently installed dependencies
-def update_package(packages):
+def update_pkg(pkgs):
     pass  # TODO: update package
 
-# Read package dependecies from packages db
-def get_deps(package):
-    pass  # TODO: get deps
+def is_installed_before(pkg, dep_pkgs):
+    with open(log_path, 'r') as file:
+        reverse_log = reversed(file.readlines())
 
-# Read installed dependencies from package log
-def get_installed_deps(package):
-    pass  # TODO: get installed deps
+    for item, i in enumerate(reverse_log):
+        if item == 'pkg':
+            new_log = reversed(reverse_log[i:])
+
+    count = 0
+    for pkg in dep_pkgs:
+        if pkg in new_log:
+            count += 1
+    
+    if count == len(dep_pkgs):
+        return 'All'
+    elif 0 < count < len(dep_pkgs):
+        return 'Some'
+    else:
+        return 'None'
 
 # Display a package and details to the screen
-def print_package(package, is_dep):
-    pass  # TODO: print package
+def print_pkgs(pkgs, print_deps=False):
+    # TODO: print package
+    
+    for pkg in pkgs:
+        print('{0:<24}{1:<16}{2:<16}{3:<16}{4:<16}'.format(
+            pkg.name,
+            pkg.version,
+            pkg.has_req_deps,
+            pkg.has_rec_deps, 
+            pkg.has_opt_deps
+        ))
 
 def print_header():
-    print(
-        "Package Name\t\tVersion\tReq. Deps\tRec. Deps\tOpt. Deps\n\
-        -----------------------------------------------------------------------------\n"
-    )
+    print('Package Name\t\tVersion\t\tReq. Deps\tRec. Deps\tOpt. Deps')
+    print('-------------------------------------------------------------------------------------')
 
 def print_footer():
-    pass  # TODO: print footer
+    print('-------------------------------------------------------------------------------------')
 
 # Prompt for confirmation
 def confirm():
     if not no_confirm:
-        print('Do you want to continue? {}'.format('[Y/n]' if default_yes else '[y/N]'), end='')
+        print('Do you want to continue? {}: '.format('[Y/n]' if default_yes else '[y/N]'), end='')
         response = input()
 
-        if not (response.to_lowercase() == "y" or (input == "" and default_yes)):
+        if not (response.lower() == "y" or (response == "" and default_yes)):
             print("Operation cancelled", file=sys.stderr)
             sys.exit(1)
 
@@ -154,7 +236,27 @@ def name_ver_split(entry):
     match = pattern.search(entry)
 
     if match is None:
-        print('Package "{entry}" not recognized! Must match format "<name>-<version>"', file=sys.stderr)
+        print(f'Package "{entry}" not recognized! Must match format "<name>-<version>"', file=sys.stderr)
         sys.exit(1)
 
-    return (match.group(1), match.group(2))
+    return match.group(1), match.group(2)
+
+
+def main():
+    load_config()
+    cmd, pkgs = parse_args()
+
+    pkgs = parse_pkgs(pkgs)
+
+    if cmd == 'add':
+        add_pkgs(pkgs)
+    elif cmd == 'check':
+        check_pkgs(pkgs)
+    elif cmd == 'count':
+        count_pkgs()
+    elif cmd == 'list':
+        list_pkgs()
+    
+
+if __name__ == '__main__':
+    main()
