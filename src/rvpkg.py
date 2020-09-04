@@ -150,8 +150,6 @@ def parse_pkgs(pkgs):
 
 # Add packages to the package list
 def add_pkgs(pkgs):
-    # TODO: add packages
-
     print_header()
     print_pkgs(pkgs, True)
     print_footer()
@@ -167,15 +165,27 @@ def add_pkgs(pkgs):
 
 # Show information about multiple packages
 def check_pkgs(pkgs):
-    pass  # TODO: check package
+    print_header()
+    print_pkgs(pkgs, True)
+    print_footer()
 
 # Displays number of installed packages
 def count_pkgs():
-    pass  # TODO: count
+    log = get_log()
+
+    uniq_log = list(set(log))
+
+    if verbose:
+        print(f'{len(uniq_log)} packages currently installed')
+    else:
+        print(len(uniq_log))
 
 # Displays list of installed packages
 def list_pkgs():
-    pass  # TODO: list
+    pkgs = list(set(get_log()))
+    pkgs.sort()
+    for item in pkgs:
+        print(item)
 
 # Remove packages from the package list
 def remove_pkgs(pkgs):
@@ -185,9 +195,20 @@ def remove_pkgs(pkgs):
 def update_pkg(pkgs):
     pass  # TODO: update package
 
-def is_installed_before(pkg, dep_pkgs):
+def get_log():
     with open(log_path, 'r') as file:
-        reverse_log = reversed(file.readlines())
+        log = file.readlines()
+
+    new_log = []
+    for line in log:
+        new_log.append(line.rstrip('\n'))
+
+    log, new_log = new_log, None
+
+    return log
+
+def is_installed_before(pkg, dep_pkgs):
+    reverse_log = reversed(get_log())
 
     new_log = []
     for item, i in enumerate(reverse_log):
@@ -207,16 +228,7 @@ def is_installed_before(pkg, dep_pkgs):
         return 'None'
     
 def is_installed(pkg):
-    with open(log_path, 'r') as file:
-        log = file.readlines()
-
-    new_log = []
-    for line in log:
-        new_log.append(line.rstrip('\n'))
-
-    log, new_log = new_log, None
-
-    return pkg in log
+    return pkg in get_log()
 
 # Display a package and details to the screen
 def print_pkgs(pkgs, print_deps=False):
@@ -273,7 +285,8 @@ def main():
     load_config()
     cmd, pkgs = parse_args()
 
-    pkgs = parse_pkgs(pkgs)
+    if pkgs:
+        pkgs = parse_pkgs(pkgs)
 
     if cmd == 'add':
         add_pkgs(pkgs)

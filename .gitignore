@@ -142,4 +142,4 @@ dmypy.json
 Pipfile.lock
 
 .vscode/settings.json
-!fs/var/
+!fs/var/lib/
