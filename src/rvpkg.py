@@ -10,16 +10,16 @@ from package import Package
 verbose = False
 no_confirm = False
 default_yes = True
-color = True
+runtime = False
 
-debug = True
+debug = False
 prefix = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fs') if debug else '/'
 config_path = os.path.join(prefix, 'etc', 'rvpkg.yaml')
 db_path = os.path.join(prefix, 'usr', 'share', 'packages.yaml')
 log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
 
 def load_config():
-    global verbose, default_yes, no_confirm, color
+    global verbose, default_yes, no_confirm, runtime
 
     with open(config_path, 'r') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
@@ -27,11 +27,11 @@ def load_config():
         verbose = data['config']['verbose']
         default_yes = data['config']['default_yes']
         no_confirm = data['config']['no_confirm']
-        # color = data['config']['color']
+        runtime = data['config']['runtime']
 
 def parse_args():
     # argparse setup
-    global verbose, no_confirm, color
+    global verbose, no_confirm, runtime
 
     parser = argparse.ArgumentParser(prog='rvpkg')
     parser.add_argument(
@@ -60,6 +60,14 @@ def parse_args():
         help='Prints output with color'
     )
     '''
+    parser.add_argument(
+        '-r',
+        '--runtime',
+        action="store_true",
+        dest='runtime',
+        default=False,
+        help='Display runtime dependencies'
+    )
 
     subparsers = parser.add_subparsers(help='rvpkg subcommands:')
     subparsers.required = True
@@ -84,27 +92,20 @@ def parse_args():
         'remove',
         help='Removes package(s) from the system package list'
     )
-    parser_update = subparsers.add_parser(
-        'update',
-        help='Updates a package to reflect currently installed dependencies'
-    )
 
     parser_add.add_argument('packages', type=str, action='append', nargs='+')
     parser_check.add_argument('packages', type=str, action='append', nargs='+')
     parser_remove.add_argument('packages', type=str, action='append', nargs='+')
-    parser_update.add_argument('package', type=str)
 
     args = parser.parse_args()
     
     verbose = verbose or args.verbose
     no_confirm = no_confirm or args.no_confirm
-    # color = color or args.color
+    runtime = runtime or args.runtime
 
     command = args.command
 
-    if command == 'update':
-        packages = [args.package]
-    elif command in ['add', 'check', 'remove']:
+    if command in ['add', 'check', 'remove']:
         packages = args.packages[0]
     else:
         packages = None
@@ -150,6 +151,15 @@ def parse_pkgs(pkgs):
 
 # Add packages to the package list
 def add_pkgs(pkgs):
+    installed_pkgs = []
+    for pkg in pkgs:
+        if is_installed(pkg.entry):
+            installed_pkgs.append(pkg.entry)
+
+    if installed_pkgs:
+        print('Package(s) "{}" already tracked, updating dependencies...'.format(
+            ', '.join(installed_pkgs)
+        ))
     print_header()
     print_pkgs(pkgs, True)
     print_footer()
@@ -186,14 +196,6 @@ def list_pkgs():
     pkgs.sort()
     for item in pkgs:
         print(item)
-
-# Remove packages from the package list
-def remove_pkgs(pkgs):
-    pass  # TODO: remove packages
-
-# Update a package to reflect currently installed dependencies
-def update_pkg(pkgs):
-    pass  # TODO: update package
 
 def get_log():
     with open(log_path, 'r') as file:
@@ -232,33 +234,78 @@ def is_installed(pkg):
 
 # Display a package and details to the screen
 def print_pkgs(pkgs, print_deps=False):
-    # TODO: print package
-    
-    for pkg in pkgs:
-        print('{0:<24}{1:<16}{2:<16}{3:<16}{4:<16}{5:<16}'.format(
-            pkg.name,
-            pkg.version,
-            'Yes' if pkg.installed else 'No',
-            pkg.has_req_deps,
-            pkg.has_rec_deps, 
-            pkg.has_opt_deps
-        ))
-        if print_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
-            print(f'{pkg.name} build dependencies:')
-            for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
-                name, version = name_ver_split(item)
-                print('  {0:<22}{1:<16}{2:<16}'.format(
-                    name,
-                    version,
-                    'Yes' if is_installed(item) else 'No'
-                ))
+    if runtime:
+        for pkg in pkgs:
+            print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}{6:<9}{7:<9}{8:<9}'.format(
+                pkg.name,
+                pkg.version,
+                'Yes' if pkg.installed else 'No',
+                pkg.has_req_deps,
+                pkg.has_rec_deps, 
+                pkg.has_opt_deps,
+                pkg.has_req_run_deps,
+                pkg.has_rec_run_deps,
+                pkg.has_opt_run_deps
+            ))
+            if print_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
+                print(f'{pkg.name} build dependencies:')
+                for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
+                    name, version = name_ver_split(item)
+                    print('  {0:<18}{1:<12}{2:<12}'.format(
+                        name,
+                        version,
+                        'Yes' if is_installed(item) else 'No'
+                    ))
+    else:
+        for pkg in pkgs:
+            print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}'.format(
+                pkg.name,
+                pkg.version,
+                'Yes' if pkg.installed else 'No',
+                pkg.has_req_deps,
+                pkg.has_rec_deps, 
+                pkg.has_opt_deps
+            ))
+            if print_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
+                print(f'{pkg.name} build dependencies:')
+                for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
+                    name, version = name_ver_split(item)
+                    print('  {0:<18}{1:<12}{2:<12}'.format(
+                        name,
+                        version,
+                        'Yes' if is_installed(item) else 'No'
+                    ))
 
 def print_header():
-    print('Package Name\t\tVersion\t\tInstalled\tReq. Deps\tRec. Deps\tOpt. Deps')
-    print('-------------------------------------------------------------------------------------------------')
+    if runtime:
+        print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}{6:<9}{7:<9}{8:<9}'.format(
+                'Package Name',
+                'Version',
+                'Installed',
+                'Req',
+                'Rec', 
+                'Opt',
+                'Req R',
+                'Rec R',
+                'Opt R'
+            ))
+        print('-------------------------------------------------------------------------------------------')
+    else:
+        print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}'.format(
+                'Package Name',
+                'Version',
+                'Installed',
+                'Req',
+                'Rec', 
+                'Opt'
+            ))
+        print('---------------------------------------------------------------')
 
 def print_footer():
-    print('-------------------------------------------------------------------------------------------------')
+    if runtime:
+        print('-------------------------------------------------------------------------------------------')
+    else:
+        print('---------------------------------------------------------------')
 
 # Prompt for confirmation
 def confirm():
@@ -271,7 +318,7 @@ def confirm():
             sys.exit(1)
 
 def name_ver_split(entry):
-    pattern = re.compile(r'(.*)-((\d+.)*\d+(\w+)?)')
+    pattern = re.compile(r'(.*)-((\d+.)*\d+(.*)?)')
     match = pattern.search(entry)
 
     if match is None:

@@ -16,9 +16,9 @@ class Package:
         self.has_rec_run_deps = 'None'
         self.has_opt_run_deps = 'None'
 
-    def __to_string__(self):
+    def __str__(self):
         return f'{self.name}-{self.version}'
 
     @property
     def entry(self):
-        return self.__to_string__()
+        return self.__str__()

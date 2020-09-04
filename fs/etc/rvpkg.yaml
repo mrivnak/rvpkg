@@ -2,4 +2,4 @@ config:
   verbose: False
   default_yes: True
   no_confirm: False
-  color: True
+  runtime: False
