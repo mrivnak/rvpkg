@@ -12,7 +12,7 @@ no_confirm = False
 default_yes = True
 runtime = False
 
-debug = False
+debug = True
 prefix = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fs') if debug else '/'
 config_path = os.path.join(prefix, 'etc', 'rvpkg.yaml')
 db_path = os.path.join(prefix, 'usr', 'share', 'packages.yaml')
@@ -88,9 +88,21 @@ def parse_args():
         'list',
         help='Displays the list of installed packages'
     )
+    parser_search = subparsers.add_parser(
+        'search',
+        help='Searches for a package'
+    )
+    parser_built_with = subparsers.add_parser(
+        'built-with',
+        help='Checks if one package is built with another'
+    )
 
     parser_add.add_argument('packages', type=str, action='append', nargs='+')
     parser_check.add_argument('packages', type=str, action='append', nargs='+')
+    parser_search.add_argument('query', type=str)
+
+    parser_built_with.add_argument('package', type=str)
+    parser_built_with.add_argument('dependency', type=str)
 
     args = parser.parse_args()
     
@@ -102,6 +114,10 @@ def parse_args():
 
     if command in ['add', 'check']:
         packages = args.packages[0]
+    elif command == 'search':
+        packages = [args.query]
+    elif command == 'built-with':
+        packages = [args.package, args.dependency]
     else:
         packages = None
 
@@ -132,12 +148,12 @@ def parse_pkgs(pkgs):
         package.rec_run_deps = data['packages'][package.entry].get('rec_run', [])
         package.opt_run_deps = data['packages'][package.entry].get('opt_run', [])
         
-        package.has_req_deps = is_installed_before(package.entry, package.req_deps)
-        package.has_rec_deps = is_installed_before(package.entry, package.rec_deps)
-        package.has_opt_deps = is_installed_before(package.entry, package.opt_deps)
-        package.has_req_run_deps = is_installed_before(package.entry, package.req_run_deps)
-        package.has_rec_run_deps = is_installed_before(package.entry, package.rec_run_deps)
-        package.has_opt_run_deps = is_installed_before(package.entry, package.opt_run_deps)
+        package.has_req_deps = has_deps(package.entry, package.req_deps)
+        package.has_rec_deps = has_deps(package.entry, package.rec_deps)
+        package.has_opt_deps = has_deps(package.entry, package.opt_deps)
+        package.has_req_run_deps = has_deps(package.entry, package.req_run_deps)
+        package.has_rec_run_deps = has_deps(package.entry, package.rec_run_deps)
+        package.has_opt_run_deps = has_deps(package.entry, package.opt_run_deps)
 
         output.append(package)
 
@@ -192,6 +208,22 @@ def list_pkgs():
     for item in pkgs:
         print(item)
 
+# Looks for packages with the query in the name
+def search(query):
+    with open(db_path, 'r') as file:
+        data = yaml.load(file, Loader=yaml.FullLoader)
+
+    for item in list(data['packages']):
+        if query in item:
+            print(item)
+
+# Checks if one package is built with another
+def is_built_with(pkg, dep):
+    if has_deps(pkg.entry, [dep.entry]) == 'All':
+        print(f'Package "{pkg}" is built with "{dep}"')
+    else:
+        print(f'Package "{pkg}" is NOT built with "{dep}"')
+
 def get_log():
     with open(log_path, 'r') as file:
         log = file.readlines()
@@ -204,13 +236,15 @@ def get_log():
 
     return log
 
-def is_installed_before(pkg, dep_pkgs):
-    reverse_log = reversed(get_log())
+def has_deps(pkg, dep_pkgs):
+    reverse_log = get_log()
+    reverse_log.reverse()
 
     new_log = []
-    for item, i in enumerate(reverse_log):
-        if item == 'pkg':
-            new_log = reversed(reverse_log[i:])
+    for i, item in enumerate(reverse_log):
+        if item == pkg:
+            new_log = list(reverse_log)[i:]
+            new_log.reverse()
 
     count = 0
     for pkg in dep_pkgs:
@@ -327,7 +361,7 @@ def main():
     load_config()
     cmd, pkgs = parse_args()
 
-    if pkgs:
+    if pkgs and cmd != 'search':
         pkgs = parse_pkgs(pkgs)
 
     if cmd == 'add':
@@ -338,6 +372,10 @@ def main():
         count_pkgs()
     elif cmd == 'list':
         list_pkgs()
+    elif cmd == 'search':
+        search(pkgs[0])
+    elif cmd == 'built-with':
+        is_built_with(pkgs[0], pkgs[1])
     
 
 if __name__ == '__main__':

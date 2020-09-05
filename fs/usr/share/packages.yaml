@@ -55,7 +55,15 @@ packages:
   libelf-0.180: {}
   libffi-3.3: {}
   openssl-1.1.1g: {}
-  python-3.8.5: {}
+  python-3.8.5:
+    rec:
+      - sqlite-3.33.0
+    opt:
+      - bluez-5.54
+      - gdb-9.2
+      - valgrind-3.16.1
+      - berkeley-db-5.3.28
+      - tk-8.6.10
   ninja-1.10.0: {}
   meson-0.55.0: {}
   coreutils-8.32: {}
@@ -505,7 +513,7 @@ packages:
       - vte-0.60.3
       - vte-0.28.2
   apr-1.7.0: {}
-  apt-util-1.6.1:
+  apr-util-1.6.1:
     req:
       - apr-1.7.0
     opt:
@@ -1311,7 +1319,6 @@ packages:
       - lxml-4.5.2
       - anytree-2.8.0
       - parameterized-0.7.4
-  lxml-4.5.2: {}
   anytree-2.8.0: {}
   parameterized-0.7.4: {}
   hd2u-1.0.4:
@@ -2401,3 +2408,325 @@ packages:
   xml-sax-base-1.09:
     req:
       - perl-5.32.0
+  php-7.4.9:
+    rec:
+      - apache-2.4.46
+      - libxml2-2.9.10
+    opt:
+      - aspell-0.60.8
+      - enchant-2.2.8
+      - libxslt-1.1.34
+      - sendmail-8.16.1
+      - pcre-8.44
+      - pth-2.0.7
+      - dmalloc-5.5.2
+      - freetype-2.10.2
+      - libexif-0.6.22
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libtiff-4.1.0
+      - x-7
+      - curl-7.71.1
+      - tidy-html5-5.6.0
+      - berkeley-db-5.3.28
+      - libiodbc-3.52.12
+      - lmdb-0.9.24
+      - mariadb-10.5.5
+      - openldap-2.4.51
+      - postgresql-12.4
+      - sqlite-3.33.0
+      - unixodbc-2.3.7
+      - minisql-4.2
+      - cyrus-sasl-2.1.27
+      - mit-kerberos-v5-1.18.2
+  python-2.7.18:
+    opt:
+      - bluez-5.54
+      - valgrind-3.16.1
+      - sqlite-3.33.0
+      - tk-8.6.10
+  dbus-python-1.2.16:
+    req:
+      - dbus-1.12.20
+      - glib-2.64.4
+      - python-3.8.5
+    rec:
+      - python-2.7.18
+    opt:
+      - pygobject-3.36.1
+      - docutils-0.16
+      - sphinx-3.2.1
+      - sphinx-rtd-theme-0.5.0
+  decorator-4.4.2:
+    req:
+      - python-3.8.5
+  docutils-0.16:
+    req:
+      - python-3.8.5
+    opt:
+      - python-2.7.18
+  py3c-1.2:
+    req:
+      - python-3.8.5
+  pyatspi2-2.36.0:
+    req:
+      - python-3.8.5
+      - pygobject-3.36.1
+    rec:
+      - at-spi-core-2.36.0
+    opt:
+      - python-2.7.18
+  pycairo-1.19.1:
+    req:
+      - python-3.8.5
+      - cairo-1.17.2+f93fc72c03e
+    opt:
+      - hypothesis-5.32.0
+  hypothesis-5.32.0:
+    req:
+      - python-3.8.5
+  pycairo-1.18.2:
+    req:
+      - python-2.7.18
+      - cairo-1.17.2+f93fc72c03e
+    opt:
+      - hypothesis-5.32.0
+  pycryptocode-3.9.8:
+    req:
+      - python-3.8.5
+    rec:
+      - python-2.7.18
+  dbusmock-0.19:
+    req:
+      - python-3.8.5
+    req_run:
+      - dbus-python-1.2.16
+  pygments-2.6.1:
+    req:
+      - python-3.8.5
+  pygobject-2.28.7:
+    req:
+      - python-2.7.18
+      - glib-2.64.4
+      - pycairo-1.18.2
+    opt:
+      - gobject-introspection-1.64.1
+      - libxslt-1.1.34
+  pygobject-3.36.1:
+    req:
+      - python-3.8.5
+      - gobject-introspection-1.64.1
+      - pycairo-1.19.1
+    rec:
+      - python-2.7.18
+      - pycairo-1.18.2
+      - pep8-1.7.1
+      - pyflakes-2.2.0
+      - pytest-6.0.1
+  pep8-1.7.1:
+    req:
+      - python-3.8.5
+    rec:
+      - python-2.7.18
+  pyflakes-2.2.0:
+    req:
+      - python-3.8.5
+    rec:
+      - python-2.7.18
+  pytest:
+    req:
+      - python-3.8.5
+  pygtk-2.24.0:
+    req:
+      - pygobject-2.28.7
+      - python-2.7.18
+      - atk-2.36.0
+      - pango-1.46.0
+      - pycairo-1.18.2 
+      - gtk+-2.24.32
+      - libglade-2.6.4
+    opt:
+      - numpy-1.19.0
+      - libxslt-1.1.34
+  pyxdg-0.25:
+    req:
+      - python-3.8.5
+    opt:
+      - python-2.7.18
+  python-libxml2-2.9.10:
+    req:
+      - python-2.7.18
+      - libxml2-2.9.10
+  lxml-4.5.2:
+    req:
+      - python-3.8.5
+      - libxslt-1.1.34
+    rec:
+      - python-2.7.18
+    opt:
+      - gdb-9.2
+      - valgrind-3.16.1
+      - cssselect-1.1.0
+  cssselect-1.1.0: {}
+  markupsafe-1.1.1:
+    req:
+      - python-3.8.5
+    opt:
+      - python-2.7.18
+  jinja2-2.11.2:
+    req:
+      - python-3.8.5
+      - markupsafe-1.1.1
+  mako-1.1.3:
+    req:
+      - python-3.8.5
+      - markupsafe-1.1.1
+  python-slip-0.6.5:
+    req:
+      - python-3.8.5
+      - dbus-python-1.2.16
+      - decorator-4.4.2
+      - six-1.15.0
+  pyyaml-5.3.1:
+    req:
+      - python-3.8.5
+      - libyaml-0.2.4
+    opt:
+      - python-2.7.18
+  scour-0.37:
+    req:
+      - python-3.8.5
+      - six-1.15.0
+    rec:
+      - python-2.7.18
+  six-1.15.0:
+    req:
+      - python-3.8.5
+    rec:
+      - python-2.7.18
+  ruby-2.7.1:
+    opt:
+      - berkeley-db-5.3.28
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+      - libyaml-0.2.4
+      - tk-8.6.10
+      - valgrind-3.16.1
+  rustc-1.42.0:
+    req:
+      - curl-7.71.1
+      - cmake-3.18.1
+      - libssh2-1.9.0
+    rec:
+      - clang-10.0.1
+    opt:
+      - gdb-9.2
+      - python-2.7.18
+  scons-4.0.1:
+    opt:
+      - docbook-xsl-1.79.2
+      - libxslt-1.1.34
+  slang-2.3.2:
+    opt:
+      - libpng-1.6.37
+      - pcre-8.44
+  subversion-1.14.0:
+    req:
+      - apr-util-1.6.1
+      - sqlite-3.33.0
+    rec:
+      - serf-1.3.9
+    opt:
+      - apache-2.4.46
+      - cyrus-sasl-2.1.27
+      - dbus-1.12.20
+      - gnome-keyring-3.36.0
+      - libsecret-0.20.3
+      - py3c-1.2
+      - python-2.7.18
+      - ruby-2.7.1
+      - swig-4.0.2
+      - lz4-1.9.2
+      - openjdk-14.0.1
+      - junit-4.13
+      - apache-ant-1.10.8
+  swig-4.0.2:
+    req:
+      - pcre-8.44
+      - boost-1.74.0
+  tk-8.6.10:
+    req:
+      - xorg-libraries-7
+  vala-0.48.9:
+    req:
+      - glib-2.64.4
+    rec:
+      - graphiz-2.44.1
+    opt:
+      - dbus-1.12.20
+      - libxslt-1.1.34
+      - help2man-1.47.16
+  valgrind-3.16.1:
+    opt:
+      - gdb-9.2
+      - llvm-10.0.1
+      - clang-10.0.1
+      - which-2.21
+  yasm-1.3.0:
+    opt:
+      - python-2.7.18
+      - cython-0.29.21
+  java-14.0.1:
+    req_run:
+      - alsa-lib-1.2.3.2
+      - cups-2.3.3
+      - giflib-5.2.1
+      - xorg-libraries-7
+  openjdk-14.0.1:
+    req:
+      - java-14.0.1
+      - alsa-lib-1.2.3.2
+      - cpio-2.13
+      - cups-2.3.3
+      - unzip-6.0
+      - which-2.21
+      - xorg-libraries-7
+      - zip-3.0
+    rec:
+      - make-ca-1.7
+      - giflib-5.2.1
+      - little-cms-2.11
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - wget-1.20.3
+    opt:
+      - git-2.28.0
+      - graphiz-2.44.1
+      - mercurial-5.5
+  apache-ant-1.10.8:
+    req:
+      - openjdk-14.0.1
+      - java-14.0.1
+      - glib-2.64.4
+  dhcpcd-9.1.4:
+    opt:
+      - llvm-10.0.1
+      - clang-10.0.1
+      - ntp-4.2.8p15
+      - chrony-3.5.1
+      - ypbind-2.7.2
+  chrony-3.5.1: {}
+  ypbind-2.7.2: {}
+  dhcp-4.4.2: {}
+  bridge-utils-1.6:
+    opt:
+      - net-tools-cvs-20101030
+  cifs-utils-6.10:
+    req:
+      - talloc-2.3.1
+    opt:
+      - keyutils-1.6.1
+      - linux-pam-1.4.0
+      - mit-kerberos-v5-1.18.2
+      - samba-4.12.6
+      - libcap-2.42
