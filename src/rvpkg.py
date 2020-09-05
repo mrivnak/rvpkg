@@ -88,14 +88,9 @@ def parse_args():
         'list',
         help='Displays the list of installed packages'
     )
-    parser_remove = subparsers.add_parser(
-        'remove',
-        help='Removes package(s) from the system package list'
-    )
 
     parser_add.add_argument('packages', type=str, action='append', nargs='+')
     parser_check.add_argument('packages', type=str, action='append', nargs='+')
-    parser_remove.add_argument('packages', type=str, action='append', nargs='+')
 
     args = parser.parse_args()
     
@@ -105,7 +100,7 @@ def parse_args():
 
     command = args.command
 
-    if command in ['add', 'check', 'remove']:
+    if command in ['add', 'check']:
         packages = args.packages[0]
     else:
         packages = None
@@ -130,12 +125,12 @@ def parse_pkgs(pkgs):
 
         package.installed = is_installed(package.entry)
 
-        package.req_deps = data['packages'][package.entry].get('req_deps', [])
-        package.rec_deps = data['packages'][package.entry].get('rec_deps', [])
-        package.opt_deps = data['packages'][package.entry].get('opt_deps', [])
-        package.req_run_deps = data['packages'][package.entry].get('req_run_deps', [])
-        package.rec_run_deps = data['packages'][package.entry].get('rec_run_deps', [])
-        package.opt_run_deps = data['packages'][package.entry].get('opt_run_deps', [])
+        package.req_deps = data['packages'][package.entry].get('req', [])
+        package.rec_deps = data['packages'][package.entry].get('rec', [])
+        package.opt_deps = data['packages'][package.entry].get('opt', [])
+        package.req_run_deps = data['packages'][package.entry].get('req_run', [])
+        package.rec_run_deps = data['packages'][package.entry].get('rec_run', [])
+        package.opt_run_deps = data['packages'][package.entry].get('opt_run', [])
         
         package.has_req_deps = is_installed_before(package.entry, package.req_deps)
         package.has_rec_deps = is_installed_before(package.entry, package.rec_deps)
@@ -236,7 +231,7 @@ def is_installed(pkg):
 def print_pkgs(pkgs, print_deps=False):
     if runtime:
         for pkg in pkgs:
-            print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}{6:<9}{7:<9}{8:<9}'.format(
+            print('{0:<24}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}{6:<9}{7:<9}{8:<9}'.format(
                 pkg.name,
                 pkg.version,
                 'Yes' if pkg.installed else 'No',
@@ -251,14 +246,14 @@ def print_pkgs(pkgs, print_deps=False):
                 print(f'{pkg.name} build dependencies:')
                 for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
                     name, version = name_ver_split(item)
-                    print('  {0:<18}{1:<12}{2:<12}'.format(
+                    print('  {0:<22}{1:<12}{2:<12}'.format(
                         name,
                         version,
                         'Yes' if is_installed(item) else 'No'
                     ))
     else:
         for pkg in pkgs:
-            print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}'.format(
+            print('{0:<24}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}'.format(
                 pkg.name,
                 pkg.version,
                 'Yes' if pkg.installed else 'No',
@@ -278,7 +273,7 @@ def print_pkgs(pkgs, print_deps=False):
 
 def print_header():
     if runtime:
-        print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}{6:<9}{7:<9}{8:<9}'.format(
+        print('{0:<24}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}{6:<9}{7:<9}{8:<9}'.format(
                 'Package Name',
                 'Version',
                 'Installed',
@@ -291,7 +286,7 @@ def print_header():
             ))
         print('-------------------------------------------------------------------------------------------')
     else:
-        print('{0:<20}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}'.format(
+        print('{0:<24}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}'.format(
                 'Package Name',
                 'Version',
                 'Installed',
