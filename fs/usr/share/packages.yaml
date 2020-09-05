@@ -1,521 +1,66 @@
+
 ---
 meta:
   version: LFS 10.0
 packages:
-  linux-headers-5.8.3: {}
-  man-pages-5.08: {}
-  tcl-8.6.10: {}
-  expect-5.45.4: {}
-  dejagnu-1.6.2: {}
-  iana-etc-20200821: {}
-  glibc-2.23: {}
-  zlib-1.2.11: {}
-  bzip2-1.0.8: {}
-  xz-5.2.5: {}
-  zstd-1.4.5: {}
-  file-5.39: {}
-  readline-8.0: {}
-  m4-1.4.18: {}
-  bc-3.1.5: {}
-  flex-2.6.4: {}
-  binutils-2.35: {}
-  gmp-6.2.0: {}
-  mpfr-4.1.0: {}
-  mpc-1.1.0: {}
-  attr-2.4.48: {}
+  aalib-1.4rc5:
+    opt:
+      - gpm-1.20.7
+      - slang-2.3.2
+      - xorg-7
+  accountsservice-0.6.55:
+    opt:
+      - gtk-doc-1.32
+      - xmlto-0.0.28
+    rec:
+      - gobject-introspection-1.64.1
+      - systemd-246
+    req:
+      - libgcrypt-1.8.6
+      - polkit-0.117
   acl-2.2.53: {}
-  shadow-4.8.1:
+  acpid-2.0.32: {}
+  adns-1.6.0: {}
+  algorithm-diff-1.1903:
     req:
-      - linux-pam-1.4.0
-      - cracklib-2.9.7
-  gcc-10.2.0:
-    opt:
-      - gdb-9.2
-      - valgrind-3.16.1
-      - isl-0.22.1
-  pkg-config-0.29.2: {}
-  ncurses-6.2: {}
-  sed-4.8: {}
-  psmisc-23.3: {}
-  gettext-0.21: {}
-  bison-3.7.1: {}
-  grep-3.4: {}
-  bash-5.0: {}
-  libtool-2.4.6: {}
-  gdbm-1.18.1: {}
-  gperf-3.1: {}
-  expat-2.2.9: {}
-  inetutils-1.9.4: {}
-  perl-5.32.0: {}
-  xml-parser-2.46: {}
-  intl-tool-0.51.0: {}
-  autoconf-2.69: {}
-  automake-1.16.2: {}
-  kmod-27: {}
-  libelf-0.180: {}
-  libffi-3.3: {}
-  openssl-1.1.1g: {}
-  python-3.8.5:
+      - perl-5.32.0
+  alien-build-2.26:
+    req:
+      - capture-tiny-0.48
+      - ffi-checklib-0.27
+      - file-chdir-0.1010
+      - file-which-1.23
+      - perl-5.32.0
+  alien-libxml2-0.16:
     rec:
-      - sqlite-3.33.0
-    opt:
-      - bluez-5.54
-      - gdb-9.2
-      - valgrind-3.16.1
-      - berkeley-db-5.3.28
-      - tk-8.6.10
-  ninja-1.10.0: {}
-  meson-0.55.0: {}
-  coreutils-8.32: {}
-  check-0.15.2: {}
-  diffutils-3.7: {}
-  gawk-5.1.0: {}
-  findutils-4.7.0: {}
-  groff-1.22.4: {}
-  grub-2.04: {}
-  less-551: {}
-  gzip-1.10: {}
-  iproute2-5.8.0: {}
-  kbd-2.3.0: {}
-  libpipeline-1.5.3: {}
-  make-4.3: {}
-  patch-2.7.6: {}
-  man-db-2.9.3: {}
-  tar-1.32: {}
-  texinfo-6.7: {}
-  vim-8.2.1361:
-    rec:
-      - x-7
-      - gtk+-3.24.22
-    opt:
-      - gpm-1.20.7
-      - lua-5.4.0
-      - python-2.7.18
-      - rsync-3.2.3
-      - ruby-2.7.1
-  systemd-246:
+      - test2-suite-0.00130
     req:
-      - linux-pam-1.4.0
-    rec:
-      - polkit-0.117
-    opt:
-      - btrfs-progs-5.7
-      - curl-7.71.1
-      - cryptsetup-2.3.3
-      - git-2.28.0
-      - gnutls-3.6.14
-      - iptables-1.8.5
-      - libgcrypt-1.8.6
-      - libidn-1.36
-      - libpwquality-1.4.2
-      - libseccomp-2.5.0
-      - libxkbcommon-0.10.0
-      - make-ca-1.7
-      - pcre2-10.35
-      - qemu-5.1.0
-      - valgrind-3.16.1
-      - zsh-5.8
-      - gnu-efi-3.0.12
-      - kexec-tools-2.0.20
-      - libmicrohttpd-0.9.71
-      - lz4-1.9.2
-      - qrencode-4.1.0
-      - quota-tools-4.05
-      - sphinx-3.2.1
-  dbus-1.12.20:
-    req:
-      - systemd-246
-    rec:
-      - xorg-libraries-7
-    opt:
-      - dbus-glib-0.110
-      - dbus-python-1.2.16
-      - pygobject-3.36.1
-      - valgrind-3.16.1
-      - doxygen-1.8.19
-      - xmlto-0.0.28
-  procps-ng-3.3.16: {}
-  util-linux-2.36: {}
-  e2fsprogs-1.45.6: {}
-  linux-5.8.3: {}
-  make-ca-1.7:
-    req:
-      - p11-kit-0.23.20
-    opt_run:
-      - nss-3.55
-  cracklib-2.9.7:
-    opt:
-      - python-2.7.18
-  cryptsetup-2.3.3:
-    req:
-      - json-c-0.15
-      - lvm2-2.03.10
-      - popt-1.18
-    opt:
-      - libpwquality-1.4.2
-      - python-2.7.18
-      - argon2-20190702
-      - passwdqc-1.4.0
-  cyrus-sasl-2.1.27:
-    rec:
-      - berkeley-db-5.3.28
-    opt:
-      - linux-pam-1.4.0
-      - mit-kerberos-v5-1.18.2
-      - mariadb-10.5.5
-      - openjdk-14.0.1
-      - openldap-2.4.51
-      - postgresql-12.4
-      - sqlite-3.33.0
-      - krb4-10.27.92
-      - dmalloc-5.5.2
-      - pod-pom-view-restructured-1.000002
-      - sphinx-3.2.1
-  gnupg-2.2.21:
-    req:
-      - libassuan-2.5.3
-      - libgcrypt-1.8.6
-      - libksba-1.4.0
-      - npth-1.6
-    rec:
-      - pinentry-1.1.0
-    opt:
-      - curl-7.71.1
-      - fuse-3.9.3
-      - gnutls-3.6.14
-      - imagemagick-7.0.10-27
-      - libusb-1.0.23
-      - sendmail-8.16.1
-      - openldap-2.4.51
-      - sqlite-3.33.0
-      - texlive-20200406
-      - fig2dev-3.2.7b
-      - adns-1.6.0
-  gnutls-3.6.14:
-    req:
-      - nettle-3.6
-    rec:
-      - make-ca-1.7
-      - libunistring-0.9.10
-      - libtasn1-4.16.0
-      - p11-kit-0.23.20
-    opt:
-      - doxygen-1.8.19
-      - gtk-doc-1.32
-      - guile-3.0.4
-      - libidn-1.36
-      - libidn2-2.3.0
-      - libseccomp-2.5.0
-      - net-tools-cvs-20101030
-      - texlive-20200406
-      - unbound-1.11.0
-      - valgrind-3.16.1
-      - autogen-5.18.16
-      - cmocka-1.1
-      - datefudge-1.24
-      - trousers-0.3.14
-  gpgme-1.14.0:
-    req:
-      - libassuan-2.5.3
-    opt:
-      - doxygen-1.8.19
-      - graphiz-2.44.1
-      - gnupg-2.2.21
-      - clisp-2.49
-      - python-2.7.18
-      - qt-5.15.0
-      - swig-4.0.2
-  haveged-1.9.13: {}
-  iptables-1.8.5:
-    opt:
-      - libpcap-1.9.1
-  libcap-2.42:
-    rec:
-      linux-pam-1.4.0
-  linux-pam-1.4.0:
-    opt:
-      - berkeley-db-5.3.28
-      - libnsl-1.2.0
-      - libtirpc-1.2.6
-      - libaudit-2.8.5
-      - prelude-5.1.0
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - fop-2.5
-      - libxslt-1.1.34
-      - lynx-2.8.9rel.1
-  liboauth-1.0.3:
-    req:
-      - curl-7.71.1
-    opt:
-      - nss-3.55
-      - doxygen-1.8.19
-  libpwquality-1.4.2:
-    req:
-      - cracklib-2.9.7
-    rec:
-      - linux-pam-1.4.0
-    opt:
-      - python-2.7.18
-  mit-kerberos-v5-1.18.2:
-    opt:
-      - gnupg-2.2.21
-      - keyutils-1.6.1
-      - openldap-2.4.51
-      - valgrind-3.16.1
-      - cmocka-1.1
-      - pyrad-2.3
-      - resolv-wrapper-1.1.7
-  nettle-3.6: {}
-  nss-3.55:
-    req:
-      - nspr-4.27
-    rec:
-      - sqlite-3.33.0
-    rec_run:
-      - p11-kit-0.23.20
-  openssh-8.3p1:
-    opt:
-      - gdb-9.2
-      - linux-pam-1.4.0
-      - x-7
-      - mit-kerberos-v5-1.18.2
-    opt_run:
-      - openjdk-14.0.1
-      - net-tools-cvs-20101030
-      - sysstat-12.4.0
-  p11-kit-0.23.20:
-    rec:
-      - libtasn1-4.16.0
-    rec_run:
-      - make-ca-1.7
-    opt:
-      - gtk-doc-1.32
-      - libxslt-1.1.34
-    opt_run:
-      - nss-3.55
-  polkit-0.117:
-    req:
-      - glib-2.64.4
-      - js-68.11.0
-    rec:
-      - linux-pam-1.4.0
-    opt:
-      - gobject-introspection-1.64.1
-      - dbus-python-1.2.16
-      - dbusmock-0.19
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - gtk-doc-1.32
-      - libxslt-1.1.34
-    req_run:
-      - systemd-246
-    opt_run:
-      - polkit-kde-agent-5.19.4
-      - gnome-shell-3.36.5
-      - polkit-gnome-0.105
-      - lxsession-0.5.5
-  polkit-gnome-0.105:
-    req:
-      - gtk+-3.24.22
-      - polkit-0.117
-  ssh-askpass-8.3p1:
-    req:
-      - gtk+-3.24.22
-      - xorg-libraries-7
-    req_run:
-      - sudo-1.9.2
-      - x-7
-  stunnel-5.56: {}
-  sudo-1.9.2:
-    opt:
-      - linux-pam-1.4.0
-      - mit-kerberos-v5-1.18.2
-      - openldap-2.4.51
-      - sendmail-8.16.1
-  tripwire-2.4.3.7:
-    opt:
-      - sendmail-8.16.1
-  volume-key-0.3.12:
-    req:
-      - cryptsetup-2.3.3
-      - glib-2.64.4
-      - gpgme-1.14.0
-      - nss-3.55
-    rec:
-      - swig-4.0.2
-    opt:
-      - python-2.7.18
-  btrfs-progs-5.7:
-    req:
-      - lzo-2.10
-    rec:
-      - asciidoc-9.0.2
-      - xmlto-0.0.28
-    opt:
-      - lvm2-2.03.10
-      - python-2.7.18
-      - reiserfsprogs-3.6.27
-  dosfstools-4.1: {}
-  fuse-3.9.3:
-    opt:
-      - doxygen-1.8.19
-      - pytest-6.0.1
-  jfsutils-1.1.15: {}
-  lvm2-2.03.10:
-    req:
-      - libaio-0.3.112
-    opt:
-      - mdadm-4.1
-      - reiserfsprogs-3.6.27
-      - valgrind-3.16.1
-      - which-2.21
-      - xfsprogs-5.7.0
-      - thin-provisioning-tools-0.9.0
-  mdadm-4.1:
-    opt:
-      - sendmail-8.16.1
-  ntfs-3g-2017.3.23: {}
-  gptfdisk-1.0.5:
-    req:
-      - popt-1.18
-    opt:
-      - icu-67.1
-  parted-3.3:
-    rec:
-      - lvm2-2.03.10
-    opt:
-      - dosfstools-4.1
-      - pth-2.0.7
-      - texlive-20200406
-  reiserfsprogs-3.6.27: {}
-  smartmontools-7.1:
-    opt_run:
-      - curl-7.71.1
-      - lynx-2.8.9rel.1
-      - wget-1.20.3
-      - gnupg-2.2.21
-  sshfs-3.7.0:
-    req:
-      - fuse-3.9.3
-      - glib-2.64.4
-      - openssh-8.3p1
-    opt:
-      - docutils-0.16
-  xfsprogs-5.7.0: {}
-  bluefish-2.2.11:
-    req:
-      - gtk+-3.24.22
-      - gtk+-2.24.32
-    rec:
-      - desktop-file-utils-0.26
-    opt:
-      - enchant-2.2.8
-      - gucharmap-12.0.1
-      - pcre-8.44
-  ed-1.16:
-    req:
-      - libarchive-3.4.3
-  emacs-27.1:
-    rec:
-      - giflib-5.2.1
-      - gnutls-3.6.14
-      - libtiff-4.1.0
-    opt:
-      - x-7
-      - alsa-lib-1.2.3.2
-      - dbus-1.12.20
-      - gconf-3.2.6
-      - gobject-introspection-1.64.1
-      - gsettings-desktop-schemas-3.36.1
-      - gpm-1.20.7
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-      - imagemagick-7.0.10-27
-      - jansson-2.13.1
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - libpng-1.6.37
-      - librsvg-2.48.8
+      - alien-build-2.26
       - libxml2-2.9.10
-      - mit-kerberos-v5-1.18.2
-      - valgrind-3.16.1
-      - intlfonts-1.2.1
-      - libungif-5.1.4
-      - libxaw3d-1.6.3
-  gedit-3.36.2:
+      - perl-5.32.0
+  anytree-2.8.0: {}
+  apache-2.4.46:
+    opt:
+      - berkeley-db-5.3.28
+      - brotli-1.0.7
+      - doxygen-1.8.19
+      - libxml2-2.9.10
+      - links-2.20.2
+      - lua-5.4.0
+      - lynx-2.8.9rel.1
+      - nghttp2-1.41.0
+      - openldap-2.4.51
+      - rsync-3.2.3
     req:
-      - git-2.28.0
-      - gsettings-desktop-schemas-3.36.1
-      - gspell-1.8.3
-      - gtksourceview4-4.6.1
-      - itstool-2.0.6
-      - libpeas-1.26.0
-      - tepl-4.4.0
-    rec:
-      - iso-codes-4.5.0
-      - pygobject-3.36.1
-    rec_run:
-      - gvfs-1.44.1
-    opt:
-      - gtk-doc-1.32
-      - vala-0.48.9
-  joe-4.6: {}
-  kate-20.08.0:
-    req:
-      - kde-frameworks-5.73.0
-    opt:
-      - libgit2-1.0.1
-  mousepad-0.4.2:
-    req:
-      - gtksourceview4-4.6.1
-      - xfconf-4.14.3
-    opt:
-      - gtksourceview-2.10.5
-      - dbus-glib-0.110
-    opt_run:
-      - dconf-0.36.0
-  nano-5.2: {}
-  dash-0.5.11.2:
-    opt:
-      - libedit-3.1
-  tcsh-6.22.02: {}
-  zsh-5.8:
-    opt:
-      - libcap-2.42
-      - linux-pam-1.4.0
+      - apr-util-1.6.1
       - pcre-8.44
-      - valgrind-3.16.1
-  qemu-5.1.0:
+  apache-ant-1.10.8:
     req:
       - glib-2.64.4
-      - x-7
-    rec:
-      - alsa-lib-1.2.3.2
-      - sdl2-2.0.12
-    opt:
-      - alsa-1.2.2
-      - python-3.8.5
-      - pulseaudio-13.0
-      - bluez-5.54
-      - curl-7.71.1
-      - cyrus-sasl-2.1.27
-      - gnutls-3.6.14
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-      - libusb-1.0.23
-      - libgcrypt-1.8.6
-      - libssh2-1.9.0
-      - lzo-2.10
-      - nettle-3.6
-      - mesa-20.1.5
-      - sdl-1.2.15
-      - vte-0.60.3
-      - vte-0.28.2
+      - java-14.0.1
+      - openjdk-14.0.1
   apr-1.7.0: {}
   apr-util-1.6.1:
-    req:
-      - apr-1.7.0
     opt:
       - berkeley-db-5.3.28
       - freetds-1.2.4
@@ -524,1256 +69,186 @@ packages:
       - postgresql-12.4
       - sqlite-3.33.0
       - unixodbc-2.3.7
+    req:
+      - apr-1.7.0
+  archive-zip-1.68:
+    opt:
+      - test-mockmodule-0.173.0
+    rec:
+      - unzip-6.0
+    req:
+      - perl-5.32.0
+  argon2-20190702: {}
+  argparse-1.4.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  asciidoc-9.0.2:
+    opt:
+      - dblatex-0.3.9
+      - docbook-xsl-1.79.2
+      - fop-2.5
+      - libxslt-1.1.34
+      - lynx-2.8.9rel.1
   aspell-0.60.8:
     req:
       - which-2.21
-  boost-1.74.0:
-    rec:
-      - which-2.21
-    opt:
-      - icu-67.1
-      - openmpi-4.0.5
-  brotli-1.0.7:
-    req:
-      - cmake-3.18.1
-    opt:
-      - python-2.7.18
-  clucene-2.3.3.4:
-    req:
-      - cmake-3.18.1
-    rec:
-      - boost-1.74.0
-  dbus-glib-0.110:
-    req:
-      - dbus-1.12.20
-      - glib-2.64.4
-    opt:
-      - gtk-doc-1.32
-  double-conversion-3.1.5:
-    req:
-      - cmake-3.18.1
-  enchant-2.2.8:
-    req:
-      - glib-2.64.4
-    rec:
-      - aspell-0.60.8
-    opt:
-      - dbus-glib-0.110
-      - doxygen-1.8.19
-  exempi-2.5.2:
-    req:
-      - boost-1.74.0
-    opt:
-      - valgrind-3.16.1
-  fftw-3.3.8: {}
-  glib-2.64.4:
-    rec:
-      - libxslt-1.1.34
-      - pcre-8.44
-    opt:
-      - dbus-1.12.20
-      - bindfs-1.14.7
-      - gdb-9.2
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - gtk-doc-1.32
-    opt_run:
-      - gobject-introspection-1.64.1
-      - shared-mime-info-2.0
-      - desktop-file-utils-0.26
-  glibmm-2.64.2:
-    req:
-      - glib-2.64.4
-      - libsigc++-2.10.3
-    opt:
-      - doxygen-1.8.19
-      - glib-networking-2.64.3
-      - gnutls-3.6.14
-      - libxslt-1.1.34
-  gmime-2.6.23:
-    req:
-      - glib-2.64.4
-      - libgpg-error-1.38
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - docbook-utils-0.6.14
-      - gpgme-1.14.0
-      - gtk-doc-1.32
-      - gtk#-2.12.4
-  gtk#-2.12.4:
-    req:
-      - mono-6.12.0.90
-  mono-6.12.0.90: {}
-  argon2-20190702: {}
-  passwdqc-1.4.0: {}
-  krb4-10.27.92: {}
-  dmalloc-5.5.2: {}
-  pod-pom-view-restructured-1.000002: {}
-  sphinx-3.2.1: {}
-  fig2dev-3.2.7b: {}
-  adns-1.6.0: {}
-  autogen-5.18.16: {}
-  cmocka-1.1: {}
-  datefudge-1.24: {}
-  trousers-0.3.14: {}
-  libaudit-2.8.5: {}
-  prelude-5.1.0: {}
-  libedit-3.1: {}
-  pyrad-2.3: {}
-  resolv-wrapper-1.1.7: {}
-  pytest-6.0.1: {}
-  thin-provisioning-tools-0.9.0: {}
-  intlfonts-1.2.1: {}
-  libungif-5.1.4: {}
-  libxaw3d-1.6.3: {}
-  libgit2-1.0.1: {}
-  gtksourceview-2.10.5: {}
-  freetds-1.2.4: {}
-  openmpi-4.0.5: {}
-  bindfs-1.14.7: {}
-  gobject-introspection-1.64.1:
-    req:
-      - glib-2.64.4
-    opt:
-      - cairo-1.17.2+f93fc72c03e
-      - gjs-1.64.4
-      - gtk-doc-1.32
-      - mako-1.1.3
-      - markdown-3.2.2
-  markdown-3.2.2: {}
-  grantlee-5.2.0:
-    req:
-      - cmake-3.18.1
-      - qt-5.15.0
-  gsl-2.6:
-    opt:
-      - sphinx-3.2.1
-      - sphinx-rtd-theme-0.5.0
-  sphinx-rtd-theme-0.5.0: {}
-  gspell-1.8.3:
-    req:
-      - enchant-2.2.8
-      - gtk+-3.24.22
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-      - iso-codes-4.5.0
-      - vala-0.48.9
-      - valgrind-3.16.1
-  icu-67.1:
-    opt:
-      - llvm-10.0.1
-      - clang-10.0.1
-      - doxygen-1.8.19
-  jansson-2.13.1: {}
-  js-68.11.0:
-    req:
-      - autoconf-2.13
-      - icu-67.1
-      - python-2.7.18
-      - which-2.21
-    opt:
-      - llvm-10.0.1
-      - clang-10.0.1
-      - nasm-2.15.03
-      - doxygen-1.8.19
-  json-c-0.15:
-    req:
-      - cmake-3.18.1
-  json-glib-1.4.4:
-    req:
-      - glib-2.64.4
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-  keyutils-1.6.1:
-    req:
-      - mit-kerberos-v5-1.18.2
-  libaio-0.3.112: {}
-  libarchive-3.4.3:
-    opt:
-      - libxml2-2.9.10
-      - lzo-2.10
-      - nettle-3.6
-  libassuan-2.5.3:
-    req:
-      - libgpg-error-1.38
-    opt:
-      - texlive-20200406
-  libatasmart-0.19: {}
-  libatomic-ops-7.6.10: {}
-  libblockdev-2.24:
-    req:
-      - gobject-introspection-1.64.1
-      - libbytesize-2.4
-      - libyaml-0.2.4
-      - parted-3.3
-      - volume-key-0.3.12
-    opt:
-      - btrfs-progs-5.7
-      - gtk-doc-1.32
-      - mdadm-4.1
-  libbytesize-2.4:
-    req:
-      - pcre-8.44
-      - pygments-2.6.1
-    opt:
-      - gtk-doc-1.32
-      - six-1.15.0
-  libdaemon-0.14:
-    opt:
-      - doxygen-1.8.19
-      - lynx-2.8.9rel.1
-  libgcrypt-1.8.6:
-    req:
-      - libgpg-error-1.38
-    opt:
-      - pth-2.0.7
-      - texlive-20200406
-  libgpg-error-1.38: {}
-  libgrss-0.7.0:
-    req:
-      - libsoup-2.70.0
-  libgsf-1.14.47:
-    req:
-      - glib-2.64.4
-      - libxml2-2.9.10
-    rec:
-      - gdk-pixbuf-2.40.0
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-  libgudev-233:
-    req:
-      - glib-2.64.4
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-      - umockdev-0.14.2
-  libgusb-0.3.5:
-    req:
-      - libusb-1.0.23
-    rec:
-      - gtk-doc-1.32
-      - gobject-introspection-1.64.1
-      - usbutils-012
-      - vala-0.48.9
-  libical-3.0.8:
-    req:
-      - cmake-3.18.1
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - berkeley-db-5.3.28
-      - doxygen-1.8.19
-      - icu-67.1
-      - pygobject-3.36.1
-  libidn-1.36:
-    opt:
-      - pth-2.0.7
-      - emacs-27.1
-      - gtk-doc-1.32
-      - openjdk-14.0.1
-      - valgrind-3.16.1
-      - mono-6.12.0.90
-  libidn2-2.3.0:
-    req:
-      - libunistring-0.9.10
-    opt:
-      - git-2.28.0
-      - gtk-doc-1.32
-  libiodbc-3.52.12:
-    rec:
-      gtk+-2.24.32
-  libksba-1.4.0:
-    req:
-      - libgpg-error-1.38
-    opt:
-      - valgrind-3.16.1
-  liblinear-241: {}
-  libmbim-1.24.2:
-    req:
-      - libgudev-233
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-      - help2man-1.47.16
-  help2man-1.47.16: {}
-  libnfsidmap-0.26:
-    opt:
-      - openldap-2.4.51
-  libpaper-1.1.24+nmu5: {}
-  libqmi-1.26.2:
-    req:
-      - glib-2.64.4
-    rec:
-      - gobject-introspection-1.64.1
-      - libmbim-1.24.2
-    opt:
-      - gtk-doc-1.32
-      - help2man-1.47.16
-  libseccomp-2.5.0:
-    opt:
-      - which-2.21
-      - valgrind-3.16.1
-      - cython-0.29.21
-  cython-0.29.21:
-    req:
-      - python-3.8.5
-    opt:
-      - python-2.7.18
-  libsigc++-2.10.3:
-    opt:
-      - doxygen-1.8.19
-      - libxslt-1.1.34
-  libsigsegv-2.12: {}
-  libssh2-1.9.0:
-    opt:
-      - gnupg-2.2.21
-      - libgcrypt-1.8.6
-      - openssh-8.3p1
-  libgstatgrab-0.92: {}
-  libtasn1-4.16.0:
-    opt:
-      - gtk-doc-1.32
-      - valgrind-3.16.1
-  libuninameslist-20200413: {}
-  libunique-1.1.6:
-    req:
-      - gtk+-2.24.32
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-  libunistring-0.9.10:
-    opt:
-      - texlive-20200406
-  libusb-1.0.23:
-    opt:
-      - doxygen-1.8.19
-  libuv-1.38.1: {}
-  libxkbcommon-0.10.0:
-    req:
-      - xkeyboard-config-2.30
-    rec:
-      - libxcb-1.14
-      - wayland-1.18.0
-    opt:
-      - doxygen-1.8.19
-  libxml2-2.9.10:
-    opt:
-      - python-2.7.18
-      - icu-67.1
-      - valgrind-3.16.1
-  libxslt-1.1.34:
-    req:
-      - libxml2-2.9.10
-    rec:
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-    opt:
-      - libgcrypt-1.8.6
-      - python-2.7.18
-      - python-libxml2-2.9.10
-  libwacom-1.4.1:
-    req:
-      - libgudev-233
-    rec:
-      - libxml2-2.9.10
-    opt:
-      - doxygen-1.8.19
-      - git-2.28.0
-      - gtk+-2.24.32
-      - librsvg-2.48.8
-  libyaml-0.2.4:
-    opt:
-      - doxygen-1.8.19
-  lzo-2.10: {}
-  mtdev-1.1.6: {}
-  nodejs-12.18.3:
-    req:
-      - python-2.7.18
-      - which-2.21
-    rec:
-      - c-ares-1.16.1
-      - icu-67.1
-      - libuv-1.38.1
-      - nghttp2-1.41.0
-    opt:
-      - http-parser-2.9.4
-      - npm-6.14.8
-  http-parser-2.9.4: {}
-  npm-6.14.8: {}
-  npth-1.6: {}
-  nspr-4.27: {}
-  pcre-8.44:
-    opt:
-      - valgrind-3.16.1
-  pcre2-10.35:
-    opt:
-      - valgrind-3.16.1
-      - libedit-3.1
-  popt-1.18:
-    opt:
-      - doxygen-1.8.19
-  pth-2.0.7: {}
-  qca-2.3.1:
-    req:
-      - make-ca-1.7
-      - cmake-3.18.1
-      - qt-5.15.0
-      - which-2.21
-    opt:
-      - cyrus-sasl-2.1.27
-      - gnupg-2.2.21
-      - libgcrypt-1.8.6
-      - libgpg-error-1.38
-      - nss-3.55
-      - nspr-4.27
-      - p11-kit-0.23.20
-      - doxygen-1.8.19
-      - which-2.21
-      - botan-2.15.0
-  botan-2.15.0: {}
-  talloc-2.3.1:
-    opt:
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - libxslt-1.1.34
-      - python-2.7.18
-      - gdb-9.2
-      - git-2.28.0
-      - xfsprogs-5.7.0
-      - libtirpc-1.2.6
-      - valgrind-3.16.1
-  telepathy-glib-0.24.1:
-    req:
-      - dbus-glib-0.110
-      - libxslt-1.1.34
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  uchardet-0.0.7:
-    req:
-      - cmake-3.18.1
-  umockdev-0.14.2:
-    req:
-      - libgudev-233
-      - vala-0.48.9
-  wayland-1.18.0:
-    req:
-      - libxml2-2.9.10
-    opt:
-      - doxygen-1.8.19
-      - graphiz-2.44.1
-      - xmlto-0.0.28
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - libxslt-1.1.34
-  wayland-protocols-1.20:
-    req:
-      - wayland-1.18.0
-  wv-1.2.9:
-    req:
-      - libgsf-1.14.47
-      - libpng-1.6.37
-  xapian-1.4.16:
-    opt:
-      - valgrind-3.16.1
-  aalib-1.4rc5:
-    opt:
-      - x-7
-      - slang-2.3.2
-      - gpm-1.20.7
-  babl-0.1.78:
-    rec:
-      - gobject-introspection-1.64.1
-      - librsvg-2.48.8
-    opt:
-      - little-cms-2.11
-  exiv2-0.27.3:
-    req:
-      - cmake-3.18.1
-    rec:
-      - curl-7.71.1
-    opt:
-      - libssh-0.9.4
-      - doxygen-1.8.19
-      - graphiz-2.44.1
-      - libxslt-1.1.34
-  freetype-2.10.2:
-    rec:
-      - harfbuzz-2.7.1
-      - libpng-1.6.37
-      - which-2.21
-    opt:
-      - brotli-1.0.7
-  fontconfig-2.13.1:
-    req:
-      - freetype-2.10.2
-    opt:
-      - json-c-0.15
-      - docbook-utils-0.6.14
-      - libxml2-2.9.10
-      - texlive-20200406
-  fribidi-1.0.9: {}
-  gegl-0.4.26:
-    req:
-      - babl-0.1.78
-      - json-c-0.15
-    rec:
-      - gobject-introspection-1.64.1
-      - pygments-2.6.1
-      - pygobject-3.36.1
-    opt:
-      - asciidoc-9.0.2
-      - cairo-1.17.2+f93fc72c03e
-      - exiv2-0.27.3
-      - ffmpeg-4.3.1
-      - gdk-pixbuf-2.40.0
-      - gexif2-0.12.1
-      - graphiz-2.44.1
-      - gtk-doc-1.32
-      - jasper-2.0.14
-      - little-cms-2.11
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - librsvg-2.48.8
-      - libtiff-4.1.0
-      - libwebp-1.1.0
-      - pango-1.46.0
-      - ruby-2.7.1
-      - sdl2-2.0.12
-      - v4l-utils-1.20.0
-      - vala-0.48.9
-  giflib-5.2.1:
-    req:
-      - xmlto-0.0.28
-  glm-0.9.9.8: {}
-  graphite2-1.3.14:
-    req:
-      - cmake-3.18.1
-    opt:
-      - freetype-2.10.2
-      - harfbuzz-2.7.1
-      - asciidoc-9.0.2
-      - doxygen-1.8.19
-      - texlive-20200406
-      - dblatex-0.3.9
-      - python-3.8.5
-      - fonttools-4.14.0
-  dblatex-0.3.9: {}
-  fonttools-4.14.0:
-    req:
-      python-3.8.5
-  harfbuzz-2.7.1:
-    rec:
-      - glib-2.64.4
-      - graphite2-1.3.14
-      - icu-67.1
-      - freetype-2.10.2
-    opt:
-      - cairo-1.17.2+f93fc72c03e
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-      - fonttools-4.14.0
-  jasper-2.0.14:
-    req:
-      - cmake-3.18.1
-    rec:
-      - libjpeg-turbo-2.0.5
-    opt:
-      - freeglut-3.2.1
-      - doxygen-1.8.19
-      - texlive-20200406
-  little-cms-1.19:
-    opt:
-      - libtiff-4.1.0
-      - libjpeg-turbo-2.0.5
-      - python-2.7.18
-      - swig-4.0.2
-  little-cms-2.11:
-    opt:
-      - libjpeg-turbo-2.0.5
-      - libtiff-4.1.0
-  libexif-0.6.22:
-    opt:
-      - doxygen-1.8.19
-      - graphiz-2.44.1
-  libgxps-0.3.1:
-    req:
-      - gtk+-3.24.22
-      - little-cms-2.11
-      - libarchive-3.4.3
-      - libjpeg-turbo-2.0.5
-      - libtiff-4.1.0
-      - libxslt-1.1.34
-    opt:
-      - git-2.28.0
-      - gtk-doc-1.32
-  libjpeg-turbo-2.0.5:
-    req:
-      - cmake-3.18.1
-      - nasm-2.15.03
-    opt:
-      - yasm-1.3.0
-  libmng-2.0.3:
-    req:
-      - libjpeg-turbo-2.0.5
-      - little-cms-2.11
-  libmypaint-1.6.1:
-    req:
-      - json-c-0.15
-    rec:
-      - glib-2.64.4
-      - gobject-introspection-1.64.1
-    opt:
-      - doxygen-1.8.19
-      - gegl-0.3.34
-      - gperftools-2.8
-  gegl-0.3.34: {}
-  gperftools-2.8: {}
-  libpng-1.6.37: {}
-  libraw-0.20.0:
-    rec:
-      - libjpeg-turbo-2.0.5
-      - jasper-2.0.14
-      - little-cms-2.11
-  librsvg-2.48.8:
-    req:
-      - gdk-pixbuf-2.40.0
-      - cairo-1.17.2+f93fc72c03e
-      - pango-1.46.0
-      - rustc-1.42.0
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  libspiro-20200505: {}
-  libtiff-4.1.0:
-    rec:
-      - cmake-3.18.1
-    opt:
-      - freeglut-3.2.1
-      - libjpeg-turbo-2.0.5
-      - libwebp-1.1.0
-  libwebp-1.1.0:
-    rec:
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - libtiff-4.1.0
-      - sdl-1.2.15
-    opt:
-      - freeglut-3.2.1
-      - giflib-5.2.1
-  mypaint-brushes-1.3.0:
-    req_run:
-      libmypaint-1.6.1
-  newt-0.52.21:
-    req:
-      - popt-1.18
-      - slang-2.3.2
-    rec_run:
-      - gpm-1.20.7
-    opt:
-      - python-2.7.18
-  opencv-4.4.0:
-    req:
-      - cmake-3.18.1
-      - unzip-6.0
-    rec:
-      - ffmpeg-4.3.1
-      - gst-plugins-base-1.16.2
-      - gtk+-3.24.22
-      - jasper-2.0.14
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - libtiff-4.1.0
-      - libwebp-1.1.0
-      - v4l-utils-1.20.0
-      - xine-lib-1.2.10
-    opt:
-      - apache-ant-1.10.8
-      - doxygen-1.8.19
-      - java-14.0.1
-      - python-2.7.18
-      - cuda-11.0.3
-      - libgphoto2-2.5.25
-      - numpy-1.19.0
-  cuda-11.0.3: {}
-  libgphoto2-2.5.25: {}
-  numpy-1.19.0: {}
-  openjpeg-2.3.1:
-    req:
-      - cmake-3.18.1
-    opt:
-      - little-cms-2.11
-      - libpng-1.6.37
-      - libtiff-4.1.0
-      - doxygen-1.8.19
-  pixman-0.40.0:
-    opt:
-      - gtk+-2.24.32
-      - libpng-1.6.37
-  poppler-20.08.0:
-    req:
-      - cmake-3.18.1
-      - fontconfig-2.13.1
-    rec:
-      - cairo-1.17.2+f93fc72c03e
-      - little-cms-2.11
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - nss-3.55
-      - openjpeg-2.3.1
-    opt:
-      - boost-1.74.0
-      - curl-7.71.1
-      - gdk-pixbuf-2.40.0
-      - git-2.28.0
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-      - gtk+-3.24.22
-      - libtiff-4.1.0
-      - qt-5.15.0
-  potrace-1.16:
-    rec:
-      - llvm-10.0.1
-      - clang-10.0.1
-  qpdf-10.0.1:
-    req:
-      - libjpeg-turbo-2.0.5
-    opt:
-      - fop-2.5
-      - libxslt-1.1.34
-  sassc-3.6.1: {}
-  woff-1.0.2:
-    req:
-      - brotli-1.0.7
-      - cmake-3.18.1
-  asciidoc-9.0.2:
-    opt:
-      - docbook-xsl-1.79.2
-      - fop-2.5
-      - libxslt-1.1.34
-      - lynx-2.8.9rel.1
-      - dblatex-0.3.9
-  bogofilter-1.2.5:
-    req:
-      - berkeley-db-5.3.28
-    rec:
-      - gsl-2.6
-      - libxml2-2.9.10
-    opt:
-      - lmdb-0.9.24
-      - sqlite-3.33.0
-      - xmlto-0.0.28
-  compface-1.5.2: {}
-  desktop-file-utils-0.26:
-    req:
-      - glib-2.64.4
-    opt:
-      - emacs-27.1
-  graphiz-2.44.1:
-    opt:
-      - pango-1.46.0
-      - cairo-1.17.2+f93fc72c03e
-      - xorg-libraries-7
-      - fontconfig-2.13.1
-      - libpng-1.6.37
-      - gtk+-2.24.32
-      - libjpeg-turbo-2.0.5
-      - libwebp-1.1.0
-      - ghostscript-9.52
-      - librsvg-2.48.8
-      - poppler-20.08.0
-      - swig-4.0.2
-      - gcc-10.2.0
-      - guile-3.0.4
-      - openjdk-14.0.1
-      - lua-5.4.0
-      - php-7.4.9
-      - python-2.7.18
-      - ruby-2.7.1
-      - tk-8.6.10
-      - mono-6.12.0.90
-  gtk-doc-1.32:
-    req:
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - itstool-2.0.6
-      - libxslt-1.1.34
-    rec:
-      - pygments-2.6.1
-    opt:
-      - dblatex-0.3.9
-      - fop-2.5
-      - glib-2.64.4
-      - which-2.21
-      - lxml-4.5.2
-      - anytree-2.8.0
-      - parameterized-0.7.4
-  anytree-2.8.0: {}
-  parameterized-0.7.4: {}
-  hd2u-1.0.4:
-    req:
-      - popt-1.18
-  highlight-3.57:
-    req:
-      - boost-1.74.0
-      - lua-5.4.0
-    opt:
-      - qt-5.15.0
-  ibus-1.5.22:
-    req:
-      - dconf-0.36.0
-      - iso-codes-4.5.0
-      - vala-0.48.9
-    rec:
-      - gobject-introspection-1.64.1
-      - gtk+-2.24.32
-      - libnotify-0.7.9
-    opt:
-      - dbus-python-1.2.16
-      - pygobject-3.36.1
-      - gtk-doc-1.32
-      - pyxdg-0.25
-      - libxkbcommon-0.10.0
-      - wayland-1.18.0
-      - joypixels-6.0
-  joypixels-6.0: {}
-  imagemagick-7.0.10-27:
-    rec:
-      - xorg-libraries-7
-    opt:
-      - clang-10.0.1
-      - cups-2.3.3
-      - curl-7.71.1
-      - ffmpeg-4.3.1
-      - fftw-3.3.8
-      - p7zip-16.02
-      - sane-1.0.29
-      - wget-1.20.3
-      - xdg-utils-1.1.3
-      - xterm-359
-      - jasper-2.0.14
-      - little-cms-1.19
-      - little-cms-2.11
-      - libexif-0.6.22
-      - libgxps-0.3.1
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - libraw-0.20.0
-      - librsvg-2.48.8
-      - libtiff-4.1.0
-      - libwebp-1.1.0
-      - openjpeg-2.3.1
-      - pango-1.46.0
-      - ghostscript-9.52
-      - gimp-2.10.20
-      - graphiz-2.44.1
-      - inkscape-1.0
-      - enscript-1.6.6
-      - texlive-20200406
-  iso-codes-4.5.0: {}
-  lsof-4.91:
-    req:
-      - libtirpc-1.2.6
-  pinentry-1.1.0:
-    req:
-      - libassuan-2.5.3
-      - libgpg-error-1.38
-    opt:
-      - emacs-27.1
-      - fltk-1.3.5
-      - gcr-3.36.0
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-      - libsecret-0.20.3
-      - qt-5.15.0
-  rarian-0.8.1:
-    rec:
-      - libxslt-1.1.34
-      - docbook-xml-4.5
-  rep-gtk-0.90.8.3:
-    req:
-      - gtk+-2.24.32
-      - librep-0.92.7
-  screen-4.8.0:
+  at-3.2.1:
     opt:
       - linux-pam-1.4.0
-  shared-mime-info-2.0:
-    req:
-      - glib-2.64.4
-      - itstool-2.0.6
-      - libxml2-2.9.10
-      - xmlto-0.0.28
-  sharutils-4.15.2: {}
-  telepathy-logger-0.8.2:
-    req:
-      - python-2.7.18
-      - sqlite-3.33.0
-      - telepathy-glib-0.24.1
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-  telepathy-mission-control-5.16.5:
-    req:
-      - telepathy-glib-0.24.1
-    rec:
-      - networkmanager-1.26.0
-    opt:
-      - gtk-doc-1.32
-      - libgnome-keyring-3.12.0
-      - upower-0.99.11
-  libgnome-keyring-3.12.0: {}
-  tidy-html5-5.6.0:
-    req:
-      - cmake-3.18.1
-    rec:
-      - libxslt-1.1.34
-  time-1.9: {}
-  tree-1.8.0: {}
-  unixodbc-2.3.7:
-    opt:
-      - minisql-4.2
-      - pth-2.0.7
-  minisql-4.2: {}
-  xdg-user-dirs-0.17: {}
-  accountsservice-0.6.55:
-    req:
-      - libgcrypt-1.8.6
-      - polkit-0.117
-    rec:
-      - gobject-introspection-1.64.1
-      - systemd-246
-    opt:
-      - gtk-doc-1.32
-      - xmlto-0.0.28
-  acpid-2.0.32: {}
-  at-3.2.1:
     req:
       - sendmail-8.16.1
-    opt:
-      - linux-pam-1.4.0
+  attr-2.4.48: {}
+  autoconf-2.13: {}
+  autoconf-2.69: {}
   autofs-5.1.6:
+    opt:
+      - cyrus-sasl-2.1.27
+      - libxml2-2.9.10
+      - mit-kerberos-v5-1.18.2
+      - nfs-utils-2.5.1
+      - openldap-2.4.51
     req:
       - libtirpc-1.2.6
       - rpcsvc-proto-1.4.2
+  autogen-5.18.16: {}
+  automake-1.16.2: {}
+  autovivification-0.18:
+    req:
+      - perl-5.32.0
+  avahi-0.8:
     opt:
-      - nfs-utils-2.5.1
+      - dbus-python-1.2.16
+      - doxygen-1.8.19
+      - libevent-2.1.12
+      - pygtk-2.24.0
+    rec:
+      - gobject-introspection-1.64.1
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - libdaemon-0.14
+      - libglade-2.6.4
+      - qt-5.15.0
+    req:
+      - glib-2.64.4
+  b-cow-0.004:
+    req:
+      - perl-5.32.0
+  b-hooks-endofscope-0.24:
+    rec:
+      - try-tiny-0.30
+    req:
+      - module-implementation-0.09
+      - perl-5.32.0
+      - sub-exporter-progressive-0.001013
+      - variable-magic-0.62
+  babl-0.1.78:
+    opt:
+      - little-cms-2.11
+    rec:
+      - gobject-introspection-1.64.1
+      - librsvg-2.48.8
+  bash-5.0: {}
+  bash-completion-2.11: {}
+  bc-3.1.5: {}
+  berkeley-db-5.3.28:
+    opt:
+      - sharutils-4.15.2
+  bind-9.16.5:
+    opt:
+      - berkeley-db-5.3.28
+      - cmocka-1.1
+      - curl-7.71.1
+      - doxygen-1.8.19
+      - libidn2-2.3.0
       - libxml2-2.9.10
+      - libxslt-1.1.34
+      - mariadb-10.5.5
       - mit-kerberos-v5-1.18.2
+      - net-dns-1.26
       - openldap-2.4.51
-      - cyrus-sasl-2.1.27
+      - postgresql-12.4
+      - sphinx-3.2.1
+      - texlive-20200406
+      - unixodbc-2.3.7
+    rec:
+      - json-c-0.15
+      - libcap-2.42
+      - linux-pam-1.4.0
+    req:
+      - libuv-1.38.1
+  bind-utilities-9.16.5:
+    opt:
+      - libcap-2.42
+      - libxml2-2.9.10
+      - sphinx-3.2.1
+    rec:
+      - json-c-0.15
+    req:
+      - libuv-1.38.1
+  bindfs-1.14.7: {}
+  binutils-2.35: {}
+  bison-3.7.1: {}
+  bluefish-2.2.11:
+    opt:
+      - enchant-2.2.8
+      - gucharmap-12.0.1
+      - pcre-8.44
+    rec:
+      - desktop-file-utils-0.26
+    req:
+      - gtk+-2.24.32
+      - gtk+-3.24.22
   bluez-5.54:
     req:
       - dbus-1.12.20
       - glib-2.64.4
       - libical-3.0.8
-  bubblewrap-0.4.1: {}
-  colord:
-    req:
-      - dbus-1.12.20
-      - glib-2.64.4
-      - little-cms-2.11
-      - polkit-0.117
+  bogofilter-1.2.5:
+    opt:
+      - lmdb-0.9.24
       - sqlite-3.33.0
-    rec:
-      - gobject-introspection-1.64.1
-      - libgudev-233
-      - libgusb-0.3.5
-      - systemd-246
-      - vala-0.48.9
-    opt:
-      - gnome-desktop-3.36.5
-      - colord-gtk-0.2.0
-      - libxslt-1.1.34
-      - sane-1.0.29
-      - bash-completion-2.11
-  bash-completion-2.11: {}
-  cpio-2.13:
-    opt:
-      - texlive-20200406
-  cups-pk-helper-0.2.6:
-    req:
-      - cups-2.3.3
-      - polkit-0.117
-  fcron-3.2.1:
-    opt:
-      - sendmail-8.16.1
-      - vim-8.2.1361
-      - linux-pam-1.4.0
-      - docbook-utils-0.6.14
-  gpm-1.20.7: {}
-  hdparm-9.58: {}
-  lsb-tools-0.7: {}
-  lm-sensors-3.6.0:
-    req:
-      - which-2.21
-      - rrdtool-1.7.2
-  rrdtool-1.7.2:
-    req:
-      - libxml2-2.9.10
-      - pango-1.46.0
-  logrotate-3.17.0:
-    req:
-      - popt-1.18
-    opt:
-      - sendmail-8.16.1
-  mc-4.8.25:
-    req:
-      - glib-2.64.4
-      - pcre-8.44
-    rec:
-      - slang-2.3.2
-    opt:
-      - doxygen-1.8.19
-      - gpm-1.20.7
-      - samba-4.12.6
-      - unzip-6.0
-      - x-7
-      - zip-3.0
-  modemmanager-1.14.0:
-    req:
-      - libgudev-233
-    rec:
-      - gobject-introspection-1.64.1
-      - libmbim-1.24.2
-      - libqmi-1.26.2
-      - polkit-0.117
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  notification-daemon-3.20.0:
-    req:
-      - gtk+-3.24.22
-      - libcanberra-0.30
-  p7zip-16.02:
-    opt:
-      - wxwidgets-3.1.4
-  wxwidgets-3.1.4:
-    req:
-      - x-7
-  pax-20161104:
-    req:
-      - cpio-2.13
-  pciutils-3.7.0:
-    rec:
-      - curl-7.71.1
-      - wget-1.20.3
-      - lynx-2.8.9rel.1
-  pm-utils-1.4.1:
-    opt:
       - xmlto-0.0.28
-    opt_run:
-      - hdparm-9.58
-      - wireless-tools-29
-      - ethtool-5.8
-  ethtool-5.8: {}
-  raptor-2.0.15:
+    rec:
+      - gsl-2.6
+      - libxml2-2.9.10
     req:
-      - curl-7.71.1
-      - libxslt-1.1.34
-    opt:
-      - gtk-doc-1.32
-      - icu-67.1
-      - yajl-2.1.0
-  rasqal-0.9.33:
-    req:
-      - raptor-2.0.15
-    opt:
-      - pcre-8.44
-      - libgcrypt-1.8.6
-  redland-1.0.17:
-    req:
-      - rasqal-0.9.33
-    opt:
       - berkeley-db-5.3.28
-      - libiodbc-3.52.12
-      - sqlite-3.33.0
-      - mariadb-10.5.5
-      - postgresql-12.4
-  sg3-utils-1.45: {}
-  sysstat-12.4.0: {}
-  gnu-efi-3.0.12: {}
-  kexec-tools-2.0.20: {}
-  libmicrohttpd-0.9.71: {}
-  lz4-1.9.2: {}
-  qrencode-4.1.0: {}
-  quota-tools-4.05: {}
-  udisks-2.9.1:
-    req:
-      - libatasmart-0.19
-      - libblockdev-2.24
-      - libgudev-233
-      - libxslt-1.1.34
-      - polkit-0.117
-    req_run:
-      - btrfs-progs-5.7
-      - dosfstools-4.1
-      - gptfdisk-1.0.5
-      - mdadm-4.1
-      - xfsprogs-5.7.0
-    rec:
-      - systemd-246
+  bonjour-1096.40.7: {}
+  boost-1.74.0:
     opt:
-      - gobject-introspection-1.64.1
-      - dbus-python-1.2.16
-      - gtk-doc-1.32
+      - icu-67.1
+      - openmpi-4.0.5
+    rec:
+      - which-2.21
+  botan-2.15.0: {}
+  bridge-utils-1.6:
+    opt:
+      - net-tools-cvs-20101030
+  brotli-1.0.7:
+    opt:
+      - python-2.7.18
+    req:
+      - cmake-3.18.1
+  btrfs-progs-5.7:
+    opt:
       - lvm2-2.03.10
-      - ntfs-3g-2017.3.23
-      - pygobject-3.36.1
-      - exfat-1.3.0
-      - libiscsi-1.19.0
-  exfat-1.3.0: {}
-  libiscsi-1.19.0: {}
-  unrar-5.9.4: {}
-  unzip-6.0: {}
-  upower-0.99.11:
-    req:
-      - dbus-glib-0.110
-      - libgudev-233
-      - libusb-1.0.23
-      - polkit-0.117
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-      - dbusmock-0.19
-      - umockdev-0.14.2
-  usbutils-012:
-    req:
-      - libusb-1.0.23
-      - wget-1.20.3
-  zip-3.0: {}
-  autoconf-2.13: {}
-  cbindgetn-0.14.3:
-    req:
-      - rustc-1.42.0
-  clisp-2.49:
-    rec:
-      - libsigsegv-2.12
-    opt:
-      - libffcall-2.2
-  libffcall-2.2: {}
-  cmake-3.18.1:
-    req:
-      - libuv-1.38.1
-    rec:
-      - curl-7.71.1
-      - libarchive-3.4.3
-      - nghttp2-1.41.0
-    opt:
-      - git-2.28.0
-      - qt-5.15.0
-      - subversion-1.14.0
-      - sphinx-3.2.1
-  doxygen-1.8.19:
-    req:
-      - cmake-3.18.1
-      - git-2.28.0
-    opt:
-      - graphiz-2.44.1
-      - ghostscript-9.52
-      - libxml2-2.9.10
-      - llvm-10.0.1
-      - clang-10.0.1
       - python-2.7.18
-      - qt-5.15.0
-      - texlive-20200406
-      - xapian-1.4.16
-  isl-0.22.1: {}
-  gc-8.0.4:
-    req:
-      - libatomic-ops-7.6.10
-  gdb-9.2:
-    rec_run:
-      - six-1.15.0
-    opt:
-      - doxygen-1.8.19
-      - gcc-10.2.0
-      - guile-3.0.4
-      - python-2.7.18
-      - rustc-1.42.0
-      - valgrind-3.16.1
-  git-2.28.0:
+      - reiserfsprogs-3.6.27
     rec:
-      - curl-7.71.1
-    opt:
-      - pcre2-10.35
-      - pcre-8.44
-      - subversion-1.14.0
-      - tk-8.6.10
-      - valgrind-3.16.1
-      - xmlto-0.0.28
-      - asciidoc-9.0.2
-      - dblatex-0.3.9
-  guile-3.0.4:
-    req:
-      - gc-8.0.4
-      - libunistring-0.9.10
-    opt_run:
-      - emacs-27.1
-      - gdb-9.2
-  librep-0.92.7: {}
-  llvm-10.0.1:
-    req:
-      - cmake-3.18.1
-    opt:
-      - doxygen-1.8.19
-      - git-2.28.0
-      - graphiz-2.44.1
-      - libxml2-2.9.10
-      - python-2.7.18
-      - rsync-3.2.3
-      - texlive-20200406
-      - valgrind-3.16.1
-      - pyyaml-5.3.1
-      - zip-3.0
-  clang-10.0.1:
-    req:
-      - llvm-10.0.1
-  compiler-rt-10.0.1:
-    req:
-      - llvm-10.0.1
-  lua-5.4.0: {}
-  lua-5.2: {}
-  mercurial-5.5:
-    opt:
-      - docutils-0.16
-      - git-2.28.0
-      - gnupg-2.2.21
-      - openssh-8.3p1
-      - pygments-2.6.1
-      - rustc-1.42.0
-      - subversion-1.14.0
-      - pyopenssl-19.1.0
-  pyopenssl-19.1.0: {}
-  nasm-2.15.03:
-    opt:
       - asciidoc-9.0.2
       - xmlto-0.0.28
-  archive-zip-1.68:
     req:
-      - perl-5.32.0
-    rec:
-      - unzip-6.0
-    opt:
-      - test-mockmodule-0.173.0
-  autovivification-0.18:
-    req:
-      - perl-5.32.0
+      - lzo-2.10
+  bubblewrap-0.4.1: {}
   business-isbn-3.005:
     req:
-      - perl-5.32.0
       - business-isbn-data-20191107
+      - perl-5.32.0
+  business-isbn-data-20191107:
+    req:
+      - perl-5.32.0
   business-ismn-1.201:
     req:
       - perl-5.32.0
@@ -1781,197 +256,31 @@ packages:
   business-issn-1.004:
     req:
       - perl-5.32.0
-  class-accessor-0.51:
+  bzip2-1.0.8: {}
+  c-ares-1.16.1:
     req:
-      - perl-5.32.0
-  data-compare-1.27:
-    req:
-      - perl-5.32.0
-      - clone-0.45
-      - find-find-rule-0.34
-  data-dump-1.23:
-    req:
-      - perl-5.32.0
-  data-uniqid-0.12:
-    req:
-      - perl-5.32.0
-  datetime-calendar-julian-0.102:
-    req:
-      - perl-5.32.0
-      - datetime-1.52
-  datetime-format-builder-0.83:
-    req:
-      - perl-5.32.0
-      - datetime-format-strptime-1.77
-      - params-validate-1.29
-  encode-eucjpascii-0.03:
-    req:
-      - perl-5.32.0
-  encode-hanextra-0.23:
-    req:
-      - perl-5.32.0
-  encode-jis2k-0.03:
-    req:
-      - perl-5.32.0
-  file-slurper-0.012:
-    req:
-      - perl-5.32.0
-    rec:
-      - test-warnings-0.030
-  file-which-1.23:
-    req:
-      - perl-5.32.0
-  html-parser-3.72:
-    req:
-      - perl-5.32.0
-      - html-tagset-3.20
-    req_run:
-      - http-message-6.25
-  http-daemon-6.12:
-    req:
-      - perl-5.32.0
-      - http-message-6.25
-  io-socket-ssl-2.068:
-    req:
-      - perl-5.32.0
-      - make-ca-1.7
-      - net-ssleay-1.88
-    rec:
-      - uri-1.76
-  io-string-1.08:
-    req:
-      - perl-5.32.0
-  ipc-run3-0.048:
-    req:
-      - perl-5.32.0
-  lingua-translit-0.28:
-    req:
-      - perl-5.32.0
-  list-allutils-0.16:
-    req:
-      - perl-5.32.0
-  list-moreutils-0.428:
-    req:
-      - perl-5.32.0
-  log-log4perl-1.50:
-    req:
-      - perl-5.32.0
-  lwp-protocol-https-6.09:
-    req:
-      - perl-5.32.0
-      - io-socket-ssl-2.068
-      - libwww-perl-6.46
-      - make-ca-1.7
-  module-build-0.4231:
-    req:
-      - perl-5.32.0
-  net-dns-1.26:
-    req:
-      - perl-5.32.0
-  parse-recdescent-1.967015:
-    req:
-      - perl-5.32.0
-  parse-yapp-1.21:
-    req:
-      - perl-5.32.0
-  perlio-utf8-strict-0.007:
-    req:
-      - perl-5.32.0
-    rec:
-      - test-exception-0.43
-  regexp-common-2017060201:
-    req:
-      - perl-5.32.0
-  sgmlspm-1.1:
-    req:
-      - perl-5.32.0
-  sort-key-1.33:
-    req:
-      - perl-5.32.0
-  test-command-0.11:
-    req:
-      - perl-5.32.0
-  test-differences-0.67:
-    req:
-      - perl-5.32.0
-      - text-diff-1.45
-    rec:
-      - capture-tiny-0.48
-  text-bibtex-0.88:
-    req:
-      - perl-5.32.0
-      - config-autoconf-0.318
-      - extutils-libbuilder-0.08
-  text-csv-2.00:
-    req:
-      - perl-5.32.0
-    rec:
-      - text-csv-xs-1.44
-  text-roman-3.5:
-    req:
-      - perl-5.32.0
-  unicode-collate-1.27:
-    req:
-      - perl-5.32.0
-  unicode-linebreak-2019.001:
-    req:
-      - perl-5.32.0
-      - mime-charset-1.012.2
-      - wget-1.20.3
-  uri-1.76:
-    req:
-      - perl-5.32.0
-    rec:
-      - test-needs-0.002006
-  xml-libxml-simple-1.01:
-    req:
-      - perl-5.32.0
-      - xml-libxml-2.0205
-  xml-libxslt-1.99:
-    req:
-      - perl-5.32.0
-      - libxslt-1.1.34
-      - xml-libxml-2.0205
-  xml-simple-2.25:
-    req:
-      - perl-5.32.0
-    opt:
-      - xml-sax-1.02
-  xml-writer-0.625:
-    req:
-      - perl-5.32.0
-  algorithm-diff-1.1903:
-    req:
-      - perl-5.32.0
-  alien-build-2.26:
-    req:
-      - perl-5.32.0
-      - capture-tiny-0.48
-      - file-which-1.23
-      - ffi-checklib-0.27
-      - file-chdir-0.1010
-  alien-libxml2-0.16:
-    req:
-      - perl-5.32.0
-      - alien-build-2.26
-      - libxml2-2.9.10
-    rec:
-      - test2-suite-0.00130
-  b-cow-0.004:
-    req:
-      - perl-5.32.0
-  b-hooks-endofscope-0.24:
-    req:
-      - perl-5.32.0
-      - module-implementation-0.09
-      - sub-exporter-progressive-0.001013
-      - variable-magic-0.62
-    rec:
-      - try-tiny-0.30
-  business-isbn-data-20191107:
-    req:
-      - perl-5.32.0
+      - cmake-3.18.1
   capture-tiny-0.48:
+    req:
+      - perl-5.32.0
+  cbindgetn-0.14.3:
+    req:
+      - rustc-1.42.0
+  check-0.15.2: {}
+  chrony-3.5.1: {}
+  cifs-utils-6.10:
+    opt:
+      - keyutils-1.6.1
+      - libcap-2.42
+      - linux-pam-1.4.0
+      - mit-kerberos-v5-1.18.2
+      - samba-4.12.6
+    req:
+      - talloc-2.3.1
+  clang-10.0.1:
+    req:
+      - llvm-10.0.1
+  class-accessor-0.51:
     req:
       - perl-5.32.0
   class-data-inheritable-0.08:
@@ -1986,288 +295,2674 @@ packages:
   class-tiny-1.006:
     req:
       - perl-5.32.0
+  clisp-2.49:
+    opt:
+      - libffcall-2.2
+    rec:
+      - libsigsegv-2.12
   clone-0.45:
-    req:
-      - perl-5.32.0
     rec:
       - b-cow-0.004
+    req:
+      - perl-5.32.0
+  clucene-2.3.3.4:
+    rec:
+      - boost-1.74.0
+    req:
+      - cmake-3.18.1
+  cmake-3.18.1:
+    opt:
+      - git-2.28.0
+      - qt-5.15.0
+      - sphinx-3.2.1
+      - subversion-1.14.0
+    rec:
+      - curl-7.71.1
+      - libarchive-3.4.3
+      - nghttp2-1.41.0
+    req:
+      - libuv-1.38.1
+  cmocka-1.1: {}
+  colord:
+    opt:
+      - bash-completion-2.11
+      - colord-gtk-0.2.0
+      - gnome-desktop-3.36.5
+      - libxslt-1.1.34
+      - sane-1.0.29
+    rec:
+      - gobject-introspection-1.64.1
+      - libgudev-233
+      - libgusb-0.3.5
+      - systemd-246
+      - vala-0.48.9
+    req:
+      - dbus-1.12.20
+      - glib-2.64.4
+      - little-cms-2.11
+      - polkit-0.117
+      - sqlite-3.33.0
+  compface-1.5.2: {}
+  compiler-rt-10.0.1:
+    req:
+      - llvm-10.0.1
   config-autoconf-0.318:
     req:
-      - perl-5.32.0
       - capture-tiny-0.48
       - file-slurper-0.012
-  cpan-meta-check-0.014:
-    req:
       - perl-5.32.0
+  contextlib2-0.6.0.post1:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  coreutils-8.32: {}
+  coverage-5.2.1:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  cpan-meta-check-0.014:
     rec:
       - test-deep-1.130
-  datetime-1.52:
     req:
       - perl-5.32.0
-      - datetime-locale-1.26
-      - datatime-timezone-2.39
+  cpio-2.13:
+    opt:
+      - texlive-20200406
+  cracklib-2.9.7:
+    opt:
+      - python-2.7.18
+  cryptsetup-2.3.3:
+    opt:
+      - argon2-20190702
+      - libpwquality-1.4.2
+      - passwdqc-1.4.0
+      - python-2.7.18
+    req:
+      - json-c-0.15
+      - lvm2-2.03.10
+      - popt-1.18
+  cssselect-1.1.0: {}
+  cuda-11.0.3: {}
+  cunit-2.1.3: {}
+  cups-pk-helper-0.2.6:
+    req:
+      - cups-2.3.3
+      - polkit-0.117
+  curl-7.71.1:
+    opt:
+      - brotli-1.0.7
+      - c-ares-1.16.1
+      - gnutls-3.6.14
+      - libidn2-2.3.0
+      - libpsl-0.21.1
+      - libssh2-1.9.0
+      - mit-kerberos-v5-1.18.2
+      - nghttp2-1.41.0
+      - openldap-2.4.51
+      - samba-4.12.6
+      - stunnel-5.56
+      - valgrind-3.16.1
+    rec:
+      - make-ca-1.7
+  cyrus-sasl-2.1.27:
+    opt:
+      - dmalloc-5.5.2
+      - krb4-10.27.92
+      - linux-pam-1.4.0
+      - mariadb-10.5.5
+      - mit-kerberos-v5-1.18.2
+      - openjdk-14.0.1
+      - openldap-2.4.51
+      - pod-pom-view-restructured-1.000002
+      - postgresql-12.4
+      - sphinx-3.2.1
+      - sqlite-3.33.0
+    rec:
+      - berkeley-db-5.3.28
+  cython-0.29.21:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  dash-0.5.11.2:
+    opt:
+      - libedit-3.1
+  data-compare-1.27:
+    req:
+      - perl-5.32.0
+      - clone-0.45
+      - find-find-rule-0.34
+  data-dump-1.23:
+    req:
+      - perl-5.32.0
+  data-uniqid-0.12:
+    req:
+      - perl-5.32.0
+  datefudge-1.24: {}
+  datetime-1.52:
     rec:
       - cpan-meta-check-0.014
       - test-fatal-0.014
       - test-warnings-0.030
+    req:
+      - datatime-timezone-2.39
+      - datetime-locale-1.26
+      - perl-5.32.0
+  datetime-calendar-julian-0.102:
+    req:
+      - datetime-1.52
+      - perl-5.32.0
+  datetime-format-builder-0.83:
+    req:
+      - datetime-format-strptime-1.77
+      - params-validate-1.29
+      - perl-5.32.0
   datetime-format-strptime-1.77:
     req:
-      - perl-5.32.0
       - datetime-1.52
-  datetime-locale-1.26:
-    req:
       - perl-5.32.0
-      - dist-checkconflicts-0.11
-      - file-sharedir-1.116
-      - namespace-autoclean-0.29
-      - params-validationcompiler-0.30
+  datetime-locale-1.26:
     rec:
       - cpan-meta-check-0.014
       - ipc-system-simple-1.30
       - test-file-sharedir-1.001002
       - test-warnings-0.030
-  datetime-timezone-2.39:
     req:
+      - dist-checkconflicts-0.11
+      - file-sharedir-1.116
+      - namespace-autoclean-0.29
+      - params-validationcompiler-0.30
       - perl-5.32.0
+  datetime-timezone-2.39:
+    rec:
+      - test-fatal-0.014
+      - test-requires-0.11
+    req:
       - class-singleton-1.5
       - module-runtime-0.016
       - params-validationcompiler-0.30
+      - perl-5.32.0
+  dblatex-0.3.9: {}
+  dbus-1.12.20:
+    opt:
+      - dbus-glib-0.110
+      - dbus-python-1.2.16
+      - doxygen-1.8.19
+      - pygobject-3.36.1
+      - valgrind-3.16.1
+      - xmlto-0.0.28
     rec:
-      - test-fatal-0.014
-      - test-requires-0.11
+      - xorg-libraries-7
+    req:
+      - systemd-246
+  dbus-glib-0.110:
+    opt:
+      - gtk-doc-1.32
+    req:
+      - dbus-1.12.20
+      - glib-2.64.4
+  dbus-python-1.2.16:
+    opt:
+      - docutils-0.16
+      - pygobject-3.36.1
+      - sphinx-3.2.1
+      - sphinx-rtd-theme-0.5.0
+    rec:
+      - python-2.7.18
+    req:
+      - dbus-1.12.20
+      - glib-2.64.4
+      - python-3.8.5
+  dbusmock-0.19:
+    req:
+      - python-3.8.5
+    req_run:
+      - dbus-python-1.2.16
+  decorator-4.4.2:
+    req:
+      - python-3.8.5
+  dejagnu-1.6.2: {}
+  desktop-file-utils-0.26:
+    opt:
+      - emacs-27.1
+    req:
+      - glib-2.64.4
   devel-stacktrace-2.04:
     req:
       - perl-5.32.0
+  dhcp-4.4.2: {}
+  dhcpcd-9.1.4:
+    opt:
+      - chrony-3.5.1
+      - clang-10.0.1
+      - llvm-10.0.1
+      - ntp-4.2.8p15
+      - ypbind-2.7.2
+  diffutils-3.7: {}
   dist-checkconflicts-0.11:
-    req:
-      - perl-5.32.0
-      - module-runtime-0.016
     rec:
       - test-fatal-0.014
+    req:
+      - module-runtime-0.016
+      - perl-5.32.0
+  dmalloc-5.5.2: {}
+  doctools-0.2.2:
+    req:
+      - python-2.7.18
+  docutils-0.16:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  dosfstools-4.1: {}
+  double-conversion-3.1.5:
+    req:
+      - cmake-3.18.1
+  dovecot-2.3.11.3:
+    opt:
+      - clucene-2.3.3.4
+      - icu-67.1
+      - libcap-2.42
+      - linux-pam-1.4.0
+      - lua-5.4.0
+      - mariadb-10.5.5
+      - openldap-2.4.51
+      - postgresql-12.4
+      - sqlite-3.33.0
+      - valgrind-3.16.1
+      - xfsprogs-5.7.0
+    req:
+      - libtirpc-1.2.6
+  doxygen-1.8.19:
+    opt:
+      - clang-10.0.1
+      - ghostscript-9.52
+      - graphiz-2.44.1
+      - libxml2-2.9.10
+      - llvm-10.0.1
+      - python-2.7.18
+      - qt-5.15.0
+      - texlive-20200406
+      - xapian-1.4.16
+    req:
+      - cmake-3.18.1
+      - git-2.28.0
+  e2fsprogs-1.45.6: {}
+  ed-1.16:
+    req:
+      - libarchive-3.4.3
+  emacs-27.1:
+    opt:
+      - alsa-lib-1.2.3.2
+      - dbus-1.12.20
+      - gconf-3.2.6
+      - gobject-introspection-1.64.1
+      - gpm-1.20.7
+      - gsettings-desktop-schemas-3.36.1
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - imagemagick-7.0.10-27
+      - intlfonts-1.2.1
+      - jansson-2.13.1
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libpng-1.6.37
+      - librsvg-2.48.8
+      - libungif-5.1.4
+      - libxaw3d-1.6.3
+      - libxml2-2.9.10
+      - mit-kerberos-v5-1.18.2
+      - valgrind-3.16.1
+      - xorg-7
+    rec:
+      - giflib-5.2.1
+      - gnutls-3.6.14
+      - libtiff-4.1.0
+  enchant-2.2.8:
+    opt:
+      - dbus-glib-0.110
+      - doxygen-1.8.19
+    rec:
+      - aspell-0.60.8
+    req:
+      - glib-2.64.4
+  encode-eucjpascii-0.03:
+    req:
+      - perl-5.32.0
+  encode-hanextra-0.23:
+    req:
+      - perl-5.32.0
+  encode-jis2k-0.03:
+    req:
+      - perl-5.32.0
   encode-locale-1.05:
     req:
       - perl-5.32.0
-  eval-closure-0.14:
+  enum34-1.1.10:
     req:
-      - perl-5.32.0
+      - python-2.7.18
+  ethtool-5.8: {}
+  eval-closure-0.14:
     rec:
       - test-fatal-0.014
       - test-requires-0.11
-  exception-class-1.44:
     req:
       - perl-5.32.0
+  exception-class-1.44:
+    req:
       - class-data-inheritable-0.08
       - devel-stacktrace-2.04
+      - perl-5.32.0
+  exempi-2.5.2:
+    opt:
+      - valgrind-3.16.1
+    req:
+      - boost-1.74.0
+  exfat-1.3.0: {}
+  exim-4.94:
+    opt:
+      - cyrus-sasl-2.1.27
+      - gnutls-3.6.14
+      - libidn-1.36
+      - linux-pam-1.4.0
+      - mariadb-10.5.5
+      - openldap-2.4.51
+      - postgresql-12.4
+      - sqlite-3.33.0
+      - tdb-1.0.6
+      - xorg-7
+    req:
+      - libnsl-1.2.0
+      - pcre-8.44
+  exiv2-0.27.3:
+    opt:
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+      - libssh-0.9.4
+      - libxslt-1.1.34
+    rec:
+      - curl-7.71.1
+    req:
+      - cmake-3.18.1
+  expat-2.2.9: {}
+  expect-5.45.4: {}
   exporter-tiny-1.002002:
     req:
       - perl-5.32.0
+  extras-1.0.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
   extutils-libbuilder-0.08:
     req:
-      - perl-5.32.0
       - module-build-0.4231
-  ffi-checklib-0.27:
-    req:
       - perl-5.32.0
+  fcron-3.2.1:
+    opt:
+      - docbook-utils-0.6.14
+      - linux-pam-1.4.0
+      - sendmail-8.16.1
+      - vim-8.2.1361
+  fetchmail-6.4.8:
+    opt:
+      - mit-kerberos-v5-1.18.2
+      - py-future-0.16.0
+      - python-3.8.5
+      - tk-8.6.10
+    rec:
+      - procmail-3.22
+  ffi-checklib-0.27:
     rec:
       - capture-tiny-0.48
       - path-tiny-0.114
       - test2-suite-0.00130
+    req:
+      - perl-5.32.0
+  fftw-3.3.8: {}
+  fig2dev-3.2.7b: {}
+  file-5.39: {}
   file-chdir-0.1010:
     req:
       - perl-5.32.0
   file-copy-recursive-0.45:
-    req:
-      - perl-5.32.0
     rec:
       - path-tiny-0.114
       - test-deep-1.130
       - test-fatal-0.014
       - test-file-1.443
       - test-warnings-0.030
-  find-find-rule-0.34:
     req:
       - perl-5.32.0
-      - number-compare-0.03
-      - text-glob-0.11
   file-listing-6.04:
     req:
-      - perl-5.32.0
       - http-date-6.05
+      - perl-5.32.0
   file-sharedir-1.116:
     req:
-      - perl-5.32.0
       - class-inspector-1.36
       - file-sharedir-install-0.13
+      - perl-5.32.0
   file-sharedir-install-0.13:
     req:
       - perl-5.32.0
+  file-slurper-0.012:
+    rec:
+      - test-warnings-0.030
+    req:
+      - perl-5.32.0
+  file-which-1.23:
+    req:
+      - perl-5.32.0
+  find-find-rule-0.34:
+    req:
+      - number-compare-0.03
+      - perl-5.32.0
+      - text-glob-0.11
+  findutils-4.7.0: {}
+  fixtures-3.0.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  flex-2.6.4: {}
+  fontconfig-2.13.1:
+    opt:
+      - docbook-utils-0.6.14
+      - json-c-0.15
+      - libxml2-2.9.10
+      - texlive-20200406
+    req:
+      - freetype-2.10.2
+  fonttools-4.14.0:
+    req: python-3.8.5
+  freetds-1.2.4: {}
+  freetype-2.10.2:
+    opt:
+      - brotli-1.0.7
+    rec:
+      - harfbuzz-2.7.1
+      - libpng-1.6.37
+      - which-2.21
+  fribidi-1.0.9: {}
+  fuse-3.9.3:
+    opt:
+      - doxygen-1.8.19
+      - pytest-6.0.1
+  gawk-5.1.0: {}
+  gc-8.0.4:
+    req:
+      - libatomic-ops-7.6.10
+  gcc-10.2.0:
+    opt:
+      - gdb-9.2
+      - isl-0.22.1
+      - valgrind-3.16.1
+  gdb-9.2:
+    opt:
+      - doxygen-1.8.19
+      - gcc-10.2.0
+      - guile-3.0.4
+      - python-2.7.18
+      - rustc-1.42.0
+      - valgrind-3.16.1
+    rec_run:
+      - six-1.15.0
+  gdbm-1.18.1: {}
+  gedit-3.36.2:
+    opt:
+      - gtk-doc-1.32
+      - vala-0.48.9
+    rec:
+      - iso-codes-4.5.0
+      - pygobject-3.36.1
+    rec_run:
+      - gvfs-1.44.1
+    req:
+      - git-2.28.0
+      - gsettings-desktop-schemas-3.36.1
+      - gspell-1.8.3
+      - gtksourceview4-4.6.1
+      - itstool-2.0.6
+      - libpeas-1.26.0
+      - tepl-4.4.0
+  gegl-0.3.34: {}
+  gegl-0.4.26:
+    opt:
+      - asciidoc-9.0.2
+      - cairo-1.17.2+f93fc72c03e
+      - exiv2-0.27.3
+      - ffmpeg-4.3.1
+      - gdk-pixbuf-2.40.0
+      - gexif2-0.12.1
+      - graphiz-2.44.1
+      - gtk-doc-1.32
+      - jasper-2.0.14
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - librsvg-2.48.8
+      - libtiff-4.1.0
+      - libwebp-1.1.0
+      - little-cms-2.11
+      - pango-1.46.0
+      - ruby-2.7.1
+      - sdl2-2.0.12
+      - v4l-utils-1.20.0
+      - vala-0.48.9
+    rec:
+      - gobject-introspection-1.64.1
+      - pygments-2.6.1
+      - pygobject-3.36.1
+    req:
+      - babl-0.1.78
+      - json-c-0.15
+  geoclue-2.5.6:
+    opt:
+      - gtk-doc-1.32
+      - libnotify-0.7.9
+    rec:
+      - avahi-0.8
+      - modemmanager-1.14.0
+      - vala-0.48.9
+    req:
+      - json-glib-1.4.4
+      - libsoup-2.70.0
+  gettext-0.21: {}
+  giflib-5.2.1:
+    req:
+      - xmlto-0.0.28
+  git-2.28.0:
+    opt:
+      - asciidoc-9.0.2
+      - dblatex-0.3.9
+      - pcre-8.44
+      - pcre2-10.35
+      - subversion-1.14.0
+      - tk-8.6.10
+      - valgrind-3.16.1
+      - xmlto-0.0.28
+    rec:
+      - curl-7.71.1
+  glib-2.64.4:
+    opt:
+      - bindfs-1.14.7
+      - dbus-1.12.20
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - gdb-9.2
+      - gtk-doc-1.32
+    opt_run:
+      - desktop-file-utils-0.26
+      - gobject-introspection-1.64.1
+      - shared-mime-info-2.0
+    rec:
+      - libxslt-1.1.34
+      - pcre-8.44
+  glib-networking-2.64.3:
+    rec:
+      - make-ca-1.7
+    req:
+      - glib-2.64.4
+      - gnutls-3.6.14
+      - gsettings-desktop-schemas-3.36.1
+  glibc-2.23: {}
+  glibmm-2.64.2:
+    opt:
+      - doxygen-1.8.19
+      - glib-networking-2.64.3
+      - gnutls-3.6.14
+      - libxslt-1.1.34
+    req:
+      - glib-2.64.4
+      - libsigc++-2.10.3
+  glm-0.9.9.8: {}
+  gmime-2.6.23:
+    opt:
+      - 'gtk#-2.12.4'
+      - docbook-utils-0.6.14
+      - gpgme-1.14.0
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - glib-2.64.4
+      - libgpg-error-1.38
+  gmp-6.2.0: {}
+  gnu-efi-3.0.12: {}
+  gnupg-2.2.21:
+    opt:
+      - adns-1.6.0
+      - curl-7.71.1
+      - fig2dev-3.2.7b
+      - fuse-3.9.3
+      - gnutls-3.6.14
+      - imagemagick-7.0.10-27
+      - libusb-1.0.23
+      - openldap-2.4.51
+      - sendmail-8.16.1
+      - sqlite-3.33.0
+      - texlive-20200406
+    rec:
+      - pinentry-1.1.0
+    req:
+      - libassuan-2.5.3
+      - libgcrypt-1.8.6
+      - libksba-1.4.0
+      - npth-1.6
+  gnutls-3.6.14:
+    opt:
+      - autogen-5.18.16
+      - cmocka-1.1
+      - datefudge-1.24
+      - doxygen-1.8.19
+      - gtk-doc-1.32
+      - guile-3.0.4
+      - libidn-1.36
+      - libidn2-2.3.0
+      - libseccomp-2.5.0
+      - net-tools-cvs-20101030
+      - texlive-20200406
+      - trousers-0.3.14
+      - unbound-1.11.0
+      - valgrind-3.16.1
+    rec:
+      - libtasn1-4.16.0
+      - libunistring-0.9.10
+      - make-ca-1.7
+      - p11-kit-0.23.20
+    req:
+      - nettle-3.6
+  gobject-introspection-1.64.1:
+    opt:
+      - cairo-1.17.2+f93fc72c03e
+      - gjs-1.64.4
+      - gtk-doc-1.32
+      - mako-1.1.3
+      - markdown-3.2.2
+    req:
+      - glib-2.64.4
+  gperf-3.1: {}
+  gperftools-2.8: {}
+  gpgme-1.14.0:
+    opt:
+      - clisp-2.49
+      - doxygen-1.8.19
+      - gnupg-2.2.21
+      - graphiz-2.44.1
+      - python-2.7.18
+      - qt-5.15.0
+      - swig-4.0.2
+    req:
+      - libassuan-2.5.3
+  gpm-1.20.7: {}
+  gptfdisk-1.0.5:
+    opt:
+      - icu-67.1
+    req:
+      - popt-1.18
+  grantlee-5.2.0:
+    req:
+      - cmake-3.18.1
+      - qt-5.15.0
+  graphite2-1.3.14:
+    opt:
+      - asciidoc-9.0.2
+      - dblatex-0.3.9
+      - doxygen-1.8.19
+      - fonttools-4.14.0
+      - freetype-2.10.2
+      - harfbuzz-2.7.1
+      - python-3.8.5
+      - texlive-20200406
+    req:
+      - cmake-3.18.1
+  graphiz-2.44.1:
+    opt:
+      - cairo-1.17.2+f93fc72c03e
+      - fontconfig-2.13.1
+      - gcc-10.2.0
+      - ghostscript-9.52
+      - gtk+-2.24.32
+      - guile-3.0.4
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - librsvg-2.48.8
+      - libwebp-1.1.0
+      - lua-5.4.0
+      - mono-6.12.0.90
+      - openjdk-14.0.1
+      - pango-1.46.0
+      - php-7.4.9
+      - poppler-20.08.0
+      - python-2.7.18
+      - ruby-2.7.1
+      - swig-4.0.2
+      - tk-8.6.10
+      - xorg-libraries-7
+  grep-3.4: {}
+  groff-1.22.4: {}
+  grub-2.04: {}
+  gsl-2.6:
+    opt:
+      - sphinx-3.2.1
+      - sphinx-rtd-theme-0.5.0
+  gspell-1.8.3:
+    opt:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - iso-codes-4.5.0
+      - vala-0.48.9
+      - valgrind-3.16.1
+    req:
+      - enchant-2.2.8
+      - gtk+-3.24.22
+  'gtk#-2.12.4':
+    req:
+      - mono-6.12.0.90
+  gtk-doc-1.32:
+    opt:
+      - anytree-2.8.0
+      - dblatex-0.3.9
+      - fop-2.5
+      - glib-2.64.4
+      - lxml-4.5.2
+      - parameterized-0.7.4
+      - which-2.21
+    rec:
+      - pygments-2.6.1
+    req:
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - itstool-2.0.6
+      - libxslt-1.1.34
+  gtksourceview-2.10.5: {}
+  guile-3.0.4:
+    opt_run:
+      - emacs-27.1
+      - gdb-9.2
+    req:
+      - gc-8.0.4
+      - libunistring-0.9.10
+  gzip-1.10: {}
+  harfbuzz-2.7.1:
+    opt:
+      - cairo-1.17.2+f93fc72c03e
+      - fonttools-4.14.0
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+    rec:
+      - freetype-2.10.2
+      - glib-2.64.4
+      - graphite2-1.3.14
+      - icu-67.1
+  haveged-1.9.13: {}
+  hd2u-1.0.4:
+    req:
+      - popt-1.18
+  hdparm-9.58: {}
+  help2man-1.47.16: {}
+  highlight-3.57:
+    opt:
+      - qt-5.15.0
+    req:
+      - boost-1.74.0
+      - lua-5.4.0
+  html-parser-3.72:
+    req:
+      - html-tagset-3.20
+      - perl-5.32.0
+    req_run:
+      - http-message-6.25
   html-tagset-3.20:
     req:
       - perl-5.32.0
   http-cookies-6.08:
     req:
-      - perl-5.32.0
       - http-message-6.25
-  http-date-6.05:
-    req:
       - perl-5.32.0
+  http-daemon-6.12:
+    req:
+      - http-message-6.25
+      - perl-5.32.0
+  http-date-6.05:
     rec:
       - timedate-2.33
-  http-message-6.25:
     req:
       - perl-5.32.0
+  http-message-6.25:
+    rec:
+      - try-tiny-0.30
+    req:
       - encode-locale-1.05
       - http-date-6.05
       - io-html-1.001
       - lwp-mediatypes-6.04
-      - uri-1.76
-    rec:
-      - try-tiny-0.30
-  http-negotiate-6.01:
-    req:
       - perl-5.32.0
+      - uri-1.76
+  http-negotiate-6.01:
     rec:
       - http-message-6.25
+    req:
+      - perl-5.32.0
+  http-parser-2.9.4: {}
+  hypothesis-5.32.0:
+    req:
+      - python-3.8.5
+  iana-etc-20200821: {}
+  ibus-1.5.22:
+    opt:
+      - dbus-python-1.2.16
+      - gtk-doc-1.32
+      - joypixels-6.0
+      - libxkbcommon-0.10.0
+      - pygobject-3.36.1
+      - pyxdg-0.25
+      - wayland-1.18.0
+    rec:
+      - gobject-introspection-1.64.1
+      - gtk+-2.24.32
+      - libnotify-0.7.9
+    req:
+      - dconf-0.36.0
+      - iso-codes-4.5.0
+      - vala-0.48.9
+  icu-67.1:
+    opt:
+      - clang-10.0.1
+      - doxygen-1.8.19
+      - llvm-10.0.1
+  idns-1.7.1:
+    opt:
+      - doxygen-1.8.19
+      - libpcap-1.9.1
+      - make-ca-1.7
+      - python-2.7.18
+      - swig-4.0.2
+  imagemagick-7.0.10-27:
+    opt:
+      - clang-10.0.1
+      - cups-2.3.3
+      - curl-7.71.1
+      - enscript-1.6.6
+      - ffmpeg-4.3.1
+      - fftw-3.3.8
+      - ghostscript-9.52
+      - gimp-2.10.20
+      - graphiz-2.44.1
+      - inkscape-1.0
+      - jasper-2.0.14
+      - libexif-0.6.22
+      - libgxps-0.3.1
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libraw-0.20.0
+      - librsvg-2.48.8
+      - libtiff-4.1.0
+      - libwebp-1.1.0
+      - little-cms-1.19
+      - little-cms-2.11
+      - openjpeg-2.3.1
+      - p7zip-16.02
+      - pango-1.46.0
+      - sane-1.0.29
+      - texlive-20200406
+      - wget-1.20.3
+      - xdg-utils-1.1.3
+      - xterm-359
+    rec:
+      - xorg-libraries-7
   importer-0.025:
     req:
       - perl-5.32.0
+  inetutils-1.9.4: {}
+  intl-tool-0.51.0: {}
+  intlfonts-1.2.1: {}
   io-html-1.001:
+    req:
+      - perl-5.32.0
+  io-socket-ssl-2.068:
+    rec:
+      - uri-1.76
+    req:
+      - make-ca-1.7
+      - net-ssleay-1.88
+      - perl-5.32.0
+  io-string-1.08:
+    req:
+      - perl-5.32.0
+  ipc-run3-0.048:
     req:
       - perl-5.32.0
   ipc-system-simple-1.30:
     req:
       - perl-5.32.0
-  libwww-perl-6.46:
+  iproute2-5.8.0: {}
+  iptables-1.8.5:
+    opt:
+      - libpcap-1.9.1
+  isl-0.22.1: {}
+  iso-codes-4.5.0: {}
+  iw-5.4:
     req:
-      - perl-5.32.0
-      - file-listing-6.04
-      - http-cookies-6.08
-      - http-daemon-6.12
-      - http-negotiate-6.01
-      - html-parser-3.72
-      - net-http-6.19
-      - try-tiny-0.30
-      - www-robotrules-6.02
+      - libnl-3.5.0
+  jansson-2.13.1: {}
+  jasper-2.0.14:
+    opt:
+      - doxygen-1.8.19
+      - freeglut-3.2.1
+      - texlive-20200406
+    rec:
+      - libjpeg-turbo-2.0.5
+    req:
+      - cmake-3.18.1
+  java-14.0.1:
+    req_run:
+      - alsa-lib-1.2.3.2
+      - cups-2.3.3
+      - giflib-5.2.1
+      - xorg-libraries-7
+  jfsutils-1.1.15: {}
+  jinja2-2.11.2:
+    req:
+      - markupsafe-1.1.1
+      - python-3.8.5
+  joe-4.6: {}
+  joypixels-6.0: {}
+  js-68.11.0:
+    opt:
+      - clang-10.0.1
+      - doxygen-1.8.19
+      - llvm-10.0.1
+      - nasm-2.15.03
+    req:
+      - autoconf-2.13
+      - icu-67.1
+      - python-2.7.18
+      - which-2.21
+  json-c-0.15:
+    req:
+      - cmake-3.18.1
+  json-glib-1.4.4:
+    opt:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+    req:
+      - glib-2.64.4
+  kate-20.08.0:
+    opt:
+      - libgit2-1.0.1
+    req:
+      - kde-frameworks-5.73.0
+  kbd-2.3.0: {}
+  kexec-tools-2.0.20: {}
+  keyutils-1.6.1:
+    req:
+      - mit-kerberos-v5-1.18.2
+  kmod-27: {}
+  krb4-10.27.92: {}
+  less-551: {}
+  libaio-0.3.112: {}
+  libappindicator-12.10.0:
+    rec:
+      - gtk+-2.24.32
+    req:
+      - gtk+-3.24.22
+  libarchive-3.4.3:
+    opt:
+      - libxml2-2.9.10
+      - lzo-2.10
+      - nettle-3.6
+  libassuan-2.5.3:
+    opt:
+      - texlive-20200406
+    req:
+      - libgpg-error-1.38
+  libatasmart-0.19: {}
+  libatomic-ops-7.6.10: {}
+  libaudit-2.8.5: {}
+  libblockdev-2.24:
+    opt:
+      - btrfs-progs-5.7
+      - gtk-doc-1.32
+      - mdadm-4.1
+    req:
+      - gobject-introspection-1.64.1
+      - libbytesize-2.4
+      - libyaml-0.2.4
+      - parted-3.3
+      - volume-key-0.3.12
+  libbytesize-2.4:
+    opt:
+      - gtk-doc-1.32
+      - six-1.15.0
+    req:
+      - pcre-8.44
+      - pygments-2.6.1
+  libcap-2.42:
+    rec:
+      - linux-pam-1.4.0
+  libdaemon-0.14:
+    opt:
+      - doxygen-1.8.19
+      - lynx-2.8.9rel.1
+  libdmx-1.1.4:
+    req:
+      - xorg-libraries-7
+  libedit-3.1: {}
+  libelf-0.180: {}
+  libevent-2.1.12:
+    opt:
+      - doxygen-1.8.19
+  libexif-0.6.22:
+    opt:
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+  libffcall-2.2: {}
+  libffi-3.3: {}
+  libfontenc-1.1.4:
+    req:
+      - xorg-libraries-7
+  libfs-1.0.8:
+    req:
+      - xorg-libraries-7
+  libgcrypt-1.8.6:
+    opt:
+      - pth-2.0.7
+      - texlive-20200406
+    req:
+      - libgpg-error-1.38
+  libgit2-1.0.1: {}
+  libgnome-keyring-3.12.0: {}
+  libgpg-error-1.38: {}
+  libgphoto2-2.5.25: {}
+  libgrss-0.7.0:
+    req:
+      - libsoup-2.70.0
+  libgsf-1.14.47:
+    opt:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+    rec:
+      - gdk-pixbuf-2.40.0
+    req:
+      - glib-2.64.4
+      - libxml2-2.9.10
+  libgstatgrab-0.92: {}
+  libgudev-233:
+    opt:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - umockdev-0.14.2
+    req:
+      - glib-2.64.4
+  libgusb-0.3.5:
+    rec:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - usbutils-012
+      - vala-0.48.9
+    req:
+      - libusb-1.0.23
+  libgxps-0.3.1:
+    opt:
+      - git-2.28.0
+      - gtk-doc-1.32
+    req:
+      - gtk+-3.24.22
+      - libarchive-3.4.3
+      - libjpeg-turbo-2.0.5
+      - libtiff-4.1.0
+      - libxslt-1.1.34
+      - little-cms-2.11
+  libical-3.0.8:
+    opt:
+      - berkeley-db-5.3.28
+      - doxygen-1.8.19
+      - icu-67.1
+      - pygobject-3.36.1
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - cmake-3.18.1
+  libice-1.0.10:
+    req:
+      - xorg-libraries-7
+  libidn-1.36:
+    opt:
+      - emacs-27.1
+      - gtk-doc-1.32
+      - mono-6.12.0.90
+      - openjdk-14.0.1
+      - pth-2.0.7
+      - valgrind-3.16.1
+  libidn2-2.3.0:
+    opt:
+      - git-2.28.0
+      - gtk-doc-1.32
+    req:
+      - libunistring-0.9.10
+  libiodbc-3.52.12:
+    rec:
+      - gtk+-2.24.32
+  libiscsi-1.19.0: {}
+  libjpeg-turbo-2.0.5:
+    opt:
+      - yasm-1.3.0
+    req:
+      - cmake-3.18.1
+      - nasm-2.15.03
+  libksba-1.4.0:
+    opt:
+      - valgrind-3.16.1
+    req:
+      - libgpg-error-1.38
+  liblinear-241: {}
+  libmbim-1.24.2:
+    opt:
+      - gtk-doc-1.32
+      - help2man-1.47.16
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - libgudev-233
+  libmicrohttpd-0.9.71: {}
+  libmng-2.0.3:
+    req:
+      - libjpeg-turbo-2.0.5
+      - little-cms-2.11
+  libmnl-1.0.4: {}
+  libmypaint-1.6.1:
+    opt:
+      - doxygen-1.8.19
+      - gegl-0.3.34
+      - gperftools-2.8
+    rec:
+      - glib-2.64.4
+      - gobject-introspection-1.64.1
+    req:
+      - json-c-0.15
+  libndp-1.7: {}
+  libnfsidmap-0.26:
+    opt:
+      - openldap-2.4.51
+  libnl-3.5.0: {}
+  libnma-1.8.30:
+    rec:
+      - vala-0.48.9
+    req:
+      - gcr-3.36.0
+      - gtk+-3.24.22
+      - iso-codes-4.5.0
+      - networkmanager-1.26.0
+  libnsl-1.2.0:
+    req:
+      - libtirpc-1.2.6
+      - rpcsvc-proto-1.4.2
+  liboauth-1.0.3:
+    opt:
+      - doxygen-1.8.19
+      - nss-3.55
+    req:
+      - curl-7.71.1
+  libpaper-1.1.24+nmu5: {}
+  libpcap-1.9.1:
+    opt:
+      - bluez-5.54
+      - libnl-3.5.0
+      - libusb-1.0.23
+  libpciaccess-0.16:
+    req:
+      - xorg-libraries-7
+  libpipeline-1.5.3: {}
+  libpng-1.6.37: {}
+  libpsl-0.21.1:
+    opt:
+      - gtk-doc-1.32
+      - valgrind-3.16.1
+    req:
+      - libidn2-2.3.0
+  libpwquality-1.4.2:
+    opt:
+      - python-2.7.18
+    rec:
+      - linux-pam-1.4.0
+    req:
+      - cracklib-2.9.7
+  libqmi-1.26.2:
+    opt:
+      - gtk-doc-1.32
+      - help2man-1.47.16
+    rec:
+      - gobject-introspection-1.64.1
+      - libmbim-1.24.2
+    req:
+      - glib-2.64.4
+  libraw-0.20.0:
+    rec:
+      - jasper-2.0.14
+      - libjpeg-turbo-2.0.5
+      - little-cms-2.11
+  librep-0.92.7: {}
+  librsvg-2.48.8:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - cairo-1.17.2+f93fc72c03e
+      - gdk-pixbuf-2.40.0
+      - pango-1.46.0
+      - rustc-1.42.0
+  libseccomp-2.5.0:
+    opt:
+      - cython-0.29.21
+      - valgrind-3.16.1
+      - which-2.21
+  libsigc++-2.10.3:
+    opt:
+      - doxygen-1.8.19
+      - libxslt-1.1.34
+  libsigsegv-2.12: {}
+  libsm-1.2.3:
+    req:
+      - xorg-libraries-7
+  libsoup-2.70.0:
+    opt:
+      - apache-2.4.46
+      - brotli-1.0.7
+      - curl-7.71.1
+      - mit-kerberos-v5-1.18.2
+      - gtk-doc-1.32
+      - php-7.4.9
+      - samba-4.12.6
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - glib-networking-2.64.3
+      - libpsl-0.21.1
+      - libxml2-2.9.10
+      - sqlite-3.33.0
+  libspiro-20200505: {}
+  libssh2-1.9.0:
+    opt:
+      - gnupg-2.2.21
+      - libgcrypt-1.8.6
+      - openssh-8.3p1
+  libtasn1-4.16.0:
+    opt:
+      - gtk-doc-1.32
+      - valgrind-3.16.1
+  libtiff-4.1.0:
+    opt:
+      - freeglut-3.2.1
+      - libjpeg-turbo-2.0.5
+      - libwebp-1.1.0
+    rec:
+      - cmake-3.18.1
+  libtirpc-1.2.6:
+    opt:
+      - mit-kerberos-v5-1.18.2
+  libtool-2.4.6: {}
+  libungif-5.1.4: {}
+  libuninameslist-20200413: {}
+  libunique-1.1.6:
+    opt:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+    req:
+      - gtk+-2.24.32
+  libunistring-0.9.10:
+    opt:
+      - texlive-20200406
+  libusb-1.0.23:
+    opt:
+      - doxygen-1.8.19
+  libuv-1.38.1: {}
+  libwacom-1.4.1:
+    opt:
+      - doxygen-1.8.19
+      - git-2.28.0
+      - gtk+-2.24.32
+      - librsvg-2.48.8
+    rec:
+      - libxml2-2.9.10
+    req:
+      - libgudev-233
+  libwebp-1.1.0:
+    opt:
+      - freeglut-3.2.1
+      - giflib-5.2.1
+    rec:
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libtiff-4.1.0
+      - sdl-1.2.15
+  libwww-perl-6.46:
     rec:
       - test-fatal-0.014
       - test-needs-0.002006
       - test-requiresinternet-0.05
+    req:
+      - file-listing-6.04
+      - html-parser-3.72
+      - http-cookies-6.08
+      - http-daemon-6.12
+      - http-negotiate-6.01
+      - net-http-6.19
+      - perl-5.32.0
+      - try-tiny-0.30
+      - www-robotrules-6.02
+  libx11-1.6.11:
+    req:
+      - xorg-libraries-7
+  libxau-1.0.9:
+    req:
+      - xorgproto-2020.1
+  libxaw-1.0.13:
+    req:
+      - xorg-libraries-7
+  libxaw3d-1.6.3: {}
+  libxcb-1.14:
+    opt:
+      - doxygen-1.8.19
+      - libxslt-1.1.34
+    rec:
+      - libxdmcp-1.1.3
+    req:
+      - libxau-1.0.9
+      - xcb-proto-1.14
+  libxcomposite-0.4.5:
+    req:
+      - xorg-libraries-7
+  libxcursor-1.2.0:
+    req:
+      - xorg-libraries-7
+  libxdamage-1.1.5:
+    req:
+      - xorg-libraries-7
+  libxdmcp-1.1.3:
+    opt:
+      - xmlto-0.0.28
+      - fop-2.5
+      - libxslt-1.1.34
+    req:
+      - xorgproto-2020.1
+  libxext-1.3.4:
+    req:
+      - xorg-libraries-7
+  libxfixes-5.0.3:
+    req:
+      - xorg-libraries-7
+  libxfont2-2.0.4:
+    req:
+      - xorg-libraries-7
+  libxft-2.3.3:
+    req:
+      - xorg-libraries-7
+  libxi-1.7.10:
+    req:
+      - xorg-libraries-7
+  libxinerama-1.1.3:
+    req:
+      - xorg-libraries-7
+  libxkbcommon-0.10.0:
+    opt:
+      - doxygen-1.8.19
+    rec:
+      - libxcb-1.14
+      - wayland-1.18.0
+    req:
+      - xkeyboard-config-2.30
+  libxkbfile-1.1.0:
+    req:
+      - xorg-libraries-7
+  libxml2-2.9.10:
+    opt:
+      - icu-67.1
+      - python-2.7.18
+      - valgrind-3.16.1
+  libxmu-1.1.3:
+    req:
+      - xorg-libraries-7
+  libxpm-3.5.13:
+    req:
+      - xorg-libraries-7
+  libxrandr-1.5.2:
+    req:
+      - xorg-libraries-7
+  libxrender-0.9.10:
+    req:
+      - xorg-libraries-7
+  libxres-1.2.0:
+    req:
+      - xorg-libraries-7
+  libxscrnsaver-1.2.3:
+    req:
+      - xorg-libraries-7
+  libxshmfence-1.3:
+    req:
+      - xorg-libraries-7
+  libxslt-1.1.34:
+    opt:
+      - libgcrypt-1.8.6
+      - python-2.7.18
+      - python-libxml2-2.9.10
+    rec:
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+    req:
+      - libxml2-2.9.10
+  libxt-1.2.0:
+    req:
+      - xorg-libraries-7
+  libxtst-1.2.3:
+    req:
+      - xorg-libraries-7
+  libxv-1.0.11:
+    req:
+      - xorg-libraries-7
+  libxvmc-1.0.12:
+    req:
+      - xorg-libraries-7
+  libxxf86dga-1.1.5:
+    req:
+      - xorg-libraries-7
+  libxxf86vm-1.1.4:
+    req:
+      - xorg-libraries-7
+  libyaml-0.2.4:
+    opt:
+      - doxygen-1.8.19
+  linecache2-1.0.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  lingua-translit-0.28:
+    req:
+      - perl-5.32.0
+  links-2.20.2:
+    opt:
+      - gpm-1.20.7
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - librsvg-2.48.8
+      - libtiff-4.1.0
+      - xorg-7
+    rec:
+      - libevent-2.1.12
+  linux-5.8.3: {}
+  linux-headers-5.8.3: {}
+  linux-pam-1.4.0:
+    opt:
+      - berkeley-db-5.3.28
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - fop-2.5
+      - libaudit-2.8.5
+      - libnsl-1.2.0
+      - libtirpc-1.2.6
+      - libxslt-1.1.34
+      - lynx-2.8.9rel.1
+      - prelude-5.1.0
+  list-allutils-0.16:
+    req:
+      - perl-5.32.0
+  list-moreutils-0.428:
+    req:
+      - perl-5.32.0
   list-moreutils-xs-0.428:
     req:
       - perl-5.32.0
   list-someutils-0.58:
     req:
-      - perl-5.32.0
-      - module-implementation-0.09
       - list-someutils-xs-0.58
-  list-someutils-xs-0.58:
-    req:
+      - module-implementation-0.09
       - perl-5.32.0
+  list-someutils-xs-0.58:
     rec:
       - test-leaktrace-0.16
       - test-warnings-0.030
+    req:
+      - perl-5.32.0
   list-utilsby-0.11:
     req:
       - perl-5.32.0
-  lwp-mediatypes-6.04:
+  little-cms-1.19:
+    opt:
+      - libjpeg-turbo-2.0.5
+      - libtiff-4.1.0
+      - python-2.7.18
+      - swig-4.0.2
+  little-cms-2.11:
+    opt:
+      - libjpeg-turbo-2.0.5
+      - libtiff-4.1.0
+  llvm-10.0.1:
+    opt:
+      - doxygen-1.8.19
+      - git-2.28.0
+      - graphiz-2.44.1
+      - libxml2-2.9.10
+      - python-2.7.18
+      - pyyaml-5.3.1
+      - rsync-3.2.3
+      - texlive-20200406
+      - valgrind-3.16.1
+      - zip-3.0
+    req:
+      - cmake-3.18.1
+  lm-sensors-3.6.0:
+    req:
+      - rrdtool-1.7.2
+      - which-2.21
+  lmdb-0.9.24: {}
+  log-log4perl-1.50:
     req:
       - perl-5.32.0
+  logrotate-3.17.0:
+    opt:
+      - sendmail-8.16.1
+    req:
+      - popt-1.18
+  lsb-tools-0.7: {}
+  lsof-4.91:
+    req:
+      - libtirpc-1.2.6
+  lua-5.2.4: {}
+  lua-5.4.0: {}
+  lvm2-2.03.10:
+    opt:
+      - mdadm-4.1
+      - reiserfsprogs-3.6.27
+      - thin-provisioning-tools-0.9.0
+      - valgrind-3.16.1
+      - which-2.21
+      - xfsprogs-5.7.0
+    req:
+      - libaio-0.3.112
+  lwp-mediatypes-6.04:
     rec:
       - test-fatal-0.014
-  mime-charset-1.012.2:
     req:
       - perl-5.32.0
+  lwp-protocol-https-6.09:
+    req:
+      - io-socket-ssl-2.068
+      - libwww-perl-6.46
+      - make-ca-1.7
+      - perl-5.32.0
+  lxml-4.5.2:
+    opt:
+      - cssselect-1.1.0
+      - gdb-9.2
+      - valgrind-3.16.1
+    rec:
+      - python-2.7.18
+    req:
+      - libxslt-1.1.34
+      - python-3.8.5
+  lynx-2.8.9rel.1:
+    opt:
+      - gnutls-3.6.14
+      - sendmail-8.16.1
+      - sharutils-4.15.2
+      - unzip-6.0
+      - zip-3.0
+  lz4-1.9.2: {}
+  lzo-2.10: {}
+  m4-1.4.18: {}
+  make-4.3: {}
+  make-ca-1.7:
+    opt_run:
+      - nss-3.55
+    req:
+      - p11-kit-0.23.20
+  mako-1.1.3:
+    req:
+      - markupsafe-1.1.1
+      - python-3.8.5
+  malix-12.5:
+    opt:
+      - mit-kerberos-v5-1.18.2
+      - nss-3.55
+      - sendmail-8.16.1
+  man-db-2.9.3: {}
+  man-pages-5.08: {}
+  mariadb-10.5.5:
+    opt:
+      - boost-1.74.0
+      - libaio-0.3.112
+      - libxml2-2.9.10
+      - linux-pam-1.4.0
+      - lz4-1.9.2
+      - mit-kerberos-v5-1.18.2
+      - pcre-8.44
+      - ruby-2.7.1
+      - sphinx-3.2.1
+      - unixodbc-2.3.7
+      - valgrind-3.16.1
+    rec:
+      - libevent-2.1.12
+    req:
+      - cmake-3.18.1
+  markdown-3.2.2: {}
+  markupsafe-1.1.1:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  mc-4.8.25:
+    opt:
+      - doxygen-1.8.19
+      - gpm-1.20.7
+      - samba-4.12.6
+      - unzip-6.0
+      - xorg-7
+      - zip-3.0
+    rec:
+      - slang-2.3.2
+    req:
+      - glib-2.64.4
+      - pcre-8.44
+  mdadm-4.1:
+    opt:
+      - sendmail-8.16.1
+  mercurial-5.5:
+    opt:
+      - docutils-0.16
+      - git-2.28.0
+      - gnupg-2.2.21
+      - openssh-8.3p1
+      - pygments-2.6.1
+      - pyopenssl-19.1.0
+      - rustc-1.42.0
+      - subversion-1.14.0
+  meson-0.55.0: {}
+  mime-charset-1.012.2:
     rec:
       - encode-eucjpascii-0.03
       - encode-hanextra-0.23
       - encode-jis2k-0.03
-  module-implementation-0.09:
     req:
       - perl-5.32.0
-      - module-runtime-0.016
-      - try-tiny-0.30
+  minisql-4.2: {}
+  mit-kerberos-v5-1.18.2:
+    opt:
+      - cmocka-1.1
+      - gnupg-2.2.21
+      - keyutils-1.6.1
+      - openldap-2.4.51
+      - pyrad-2.3
+      - resolv-wrapper-1.1.7
+      - valgrind-3.16.1
+  modemmanager-1.14.0:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - libmbim-1.24.2
+      - libqmi-1.26.2
+      - polkit-0.117
+      - vala-0.48.9
+    req:
+      - libgudev-233
+  module-build-0.4231:
+    req:
+      - perl-5.32.0
+  module-implementation-0.09:
     rec:
       - test-fatal-0.014
       - test-requires-0.11
+    req:
+      - module-runtime-0.016
+      - perl-5.32.0
+      - try-tiny-0.30
   module-pluggable-5.2:
     req:
       - perl-5.32.0
   module-runtime-0.016:
     req:
       - perl-5.32.0
+  mono-6.12.0.90: {}
+  mousepad-0.4.2:
+    opt:
+      - dbus-glib-0.110
+      - gtksourceview-2.10.5
+    opt_run:
+      - dconf-0.36.0
+    req:
+      - gtksourceview4-4.6.1
+      - xfconf-4.14.3
+  mpc-1.1.0: {}
+  mpfr-4.1.0: {}
   mro-compat-0.13:
     req:
       - perl-5.32.0
+  mtdev-1.1.6: {}
+  mutt-1.14.6:
+    opt:
+      - aspell-0.60.8
+      - cyrus-sasl-2.1.27
+      - gdb-9.2
+      - gnupg-2.2.21
+      - gnutls-3.6.14
+      - gpgme-1.14.0
+      - libidn-1.36
+      - mit-kerberos-v5-1.18.2
+      - sendmail-8.16.1
+      - slang-2.3.2
+      - sqlite-3.33.0
+    rec:
+      - links-2.20.2
+      - lynx-2.8.9rel.1
+  mypaint-brushes-1.3.0:
+    req_run:
+      - libmypaint-1.6.1
   namespace-autoclean-0.29:
-    req:
-      - perl-5.32.0
-      - namespace-clean-0.27
-      - sub-identify-0.14
     rec:
       - test-needs-0.002006
+    req:
+      - namespace-clean-0.27
+      - perl-5.32.0
+      - sub-identify-0.14
   namespace-clean-0.27:
     req:
-      - perl-5.32.0
       - b-hooks-endofscope-0.24
       - package-stash-0.38
+      - perl-5.32.0
+  nano-5.2: {}
+  nasm-2.15.03:
+    opt:
+      - asciidoc-9.0.2
+      - xmlto-0.0.28
+  ncftp-3.2.6:
+    opt:
+      - clang-10.0.1
+      - llvm-10.0.1
+  ncurses-6.2: {}
+  neon-0.31.2:
+    opt:
+      - gnutls-3.6.14
+      - libxml2-2.9.10
+      - mit-kerberos-v5-1.18.2
+  net-dns-1.26:
+    req:
+      - perl-5.32.0
   net-http-6.19:
     req:
       - perl-5.32.0
       - uri-1.76
+  net-ssh2-0.71:
+    req:
+      - perl-5.32.0
   net-ssleay-1.88:
     req:
       - perl-5.32.0
+  net-tools-cvs-20101030: {}
+  nettle-3.6: {}
+  network-manager-applet-1.18.0:
+    opt:
+      - gnome-bluetooth-3.34.1
+      - jansson-2.13.1
+      - libappindicator-12.10.0
+    rec:
+      - gobject-introspection-1.64.1
+      - modemmanager-1.14.0
+    req:
+      - gtk+-3.24.22
+      - libnma-1.8.30
+      - libnotify-0.7.9
+      - libsecret-0.20.3
+    req_run:
+      - polkit-0.117
+      - polkit-kde-agent-5.19.4
+  networkmanager-1.26.0:
+    opt:
+      - bluez-5.54
+      - dbus-python-1.2.16
+      - gnutls-3.6.14
+      - gtk-doc-1.32
+      - libpsl-0.21.1
+      - modemmanager-1.14.0
+      - qt-5.15.0
+      - valgrind-3.16.1
+    rec:
+      - curl-7.71.1
+      - dhcp-4.4.2
+      - gobject-introspection-1.64.1
+      - iptables-1.8.5
+      - jansson-2.13.1
+      - newt-0.52.21
+      - nss-3.55
+      - polkit-0.117
+      - pygobject-3.36.1
+      - systemd-246
+      - upower-0.99.11
+      - vala-0.48.9
+      - wpa-supplicant-2.9
+    req:
+      - dbus-glib-0.110
+      - libndp-1.7
+  newt-0.52.21:
+    opt:
+      - python-2.7.18
+    rec_run:
+      - gpm-1.20.7
+    req:
+      - popt-1.18
+      - slang-2.3.2
+  nfs-utils-2.5.1:
+    opt:
+      - libcap-2.42
+      - libnfsidmap-0.26
+      - libnsl-1.2.0
+      - lvm2-2.03.10
+      - mit-kerberos-v5-1.18.2
+      - sqlite-3.33.0
+    req:
+      - libtirpc-1.2.6
+      - rpcsvc-proto-1.4.2
+    req_run:
+      - rpcbind-1.2.5
+  nghttp2-1.41.0:
+    opt:
+      - boost-1.74.0
+      - cunit-2.1.3
+      - cython-0.29.21
+      - jansson-2.13.1
+      - libevent-2.1.12
+      - python-2.7.18
+    rec:
+      - libxml2-2.9.10
+  ninja-1.10.0: {}
+  nmap-7.80:
+    opt:
+      - libssh2-1.9.0
+      - pygtk-2.24.0
+      - python-2.7.18
+      - subversion-1.14.0
+    rec:
+      - liblinear-241
+      - libpcap-1.9.1
+      - lua-5.4.0
+      - pcre-8.44
+  nodejs-12.18.3:
+    opt:
+      - http-parser-2.9.4
+      - npm-6.14.8
+    rec:
+      - c-ares-1.16.1
+      - icu-67.1
+      - libuv-1.38.1
+      - nghttp2-1.41.0
+    req:
+      - python-2.7.18
+      - which-2.21
+  notification-daemon-3.20.0:
+    req:
+      - gtk+-3.24.22
+      - libcanberra-0.30
+  npm-6.14.8: {}
+  npth-1.6: {}
+  nspr-4.27: {}
+  nss-3.55:
+    rec:
+      - sqlite-3.33.0
+    rec_run:
+      - p11-kit-0.23.20
+    req:
+      - nspr-4.27
+  ntfs-3g-2017.3.23: {}
+  ntp-4.2.8p15:
+    opt:
+      - libcap-2.42
+      - libedit-3.1
+      - libevent-2.1.12
+    req:
+      - io-socket-ssl-2.068
   number-compare-0.03:
     req:
       - perl-5.32.0
-  package-stash-0.38:
+  numpy-1.19.0: {}
+  opencv-4.4.0:
+    opt:
+      - apache-ant-1.10.8
+      - cuda-11.0.3
+      - doxygen-1.8.19
+      - java-14.0.1
+      - libgphoto2-2.5.25
+      - numpy-1.19.0
+      - python-2.7.18
+    rec:
+      - ffmpeg-4.3.1
+      - gst-plugins-base-1.16.2
+      - gtk+-3.24.22
+      - jasper-2.0.14
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libtiff-4.1.0
+      - libwebp-1.1.0
+      - v4l-utils-1.20.0
+      - xine-lib-1.2.10
     req:
-      - perl-5.32.0
+      - cmake-3.18.1
+      - unzip-6.0
+  openjdk-14.0.1:
+    opt:
+      - git-2.28.0
+      - graphiz-2.44.1
+      - mercurial-5.5
+    rec:
+      - giflib-5.2.1
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - little-cms-2.11
+      - make-ca-1.7
+      - wget-1.20.3
+    req:
+      - alsa-lib-1.2.3.2
+      - cpio-2.13
+      - cups-2.3.3
+      - java-14.0.1
+      - unzip-6.0
+      - which-2.21
+      - xorg-libraries-7
+      - zip-3.0
+  openjpeg-2.3.1:
+    opt:
+      - doxygen-1.8.19
+      - libpng-1.6.37
+      - libtiff-4.1.0
+      - little-cms-2.11
+    req:
+      - cmake-3.18.1
+  openldap-2.4.51:
+    opt:
+      - berkeley-db-5.3.28
+      - gnutls-3.6.14
+      - mariadb-10.5.5
+      - openslp-2.0.0
+      - postgresql-12.4
+      - pth-2.0.7
+      - unixodbc-2.3.7
+    rec:
+      - cyrus-sasl-2.1.27
+  openmpi-4.0.5: {}
+  openslp-2.0.0: {}
+  openssh-8.3p1:
+    opt:
+      - gdb-9.2
+      - linux-pam-1.4.0
+      - mit-kerberos-v5-1.18.2
+      - xorg-7
+    opt_run:
+      - net-tools-cvs-20101030
+      - openjdk-14.0.1
+      - sysstat-12.4.0
+  openssl-1.1.1g: {}
+  p11-kit-0.23.20:
+    opt:
+      - gtk-doc-1.32
+      - libxslt-1.1.34
+    opt_run:
+      - nss-3.55
+    rec:
+      - libtasn1-4.16.0
+    rec_run:
+      - make-ca-1.7
+  p7zip-16.02:
+    opt:
+      - wxwidgets-3.1.4
+  package-stash-0.38:
+    rec:
+      - test-fatal-0.014
+      - test-requires-0.11
+    req:
       - dist-checkconflicts-0.11
       - module-implementation-0.09
+      - perl-5.32.0
+  parameterized-0.7.4: {}
+  params-validate-1.29:
     rec:
       - test-fatal-0.014
       - test-requires-0.11
-  params-validate-1.29:
     req:
-      - perl-5.32.0
       - module-build-0.4231
       - module-implementation-0.09
-    rec:
-      - test-fatal-0.014
-      - test-requires-0.11
-  params-validationcompiler-0.30:
-    req:
       - perl-5.32.0
-      - exception-class-1.44
-      - specio-0.46
+  params-validationcompiler-0.30:
     rec:
       - test-without-module-0.20
       - test2-plugin-nowarnings-0.09
+    req:
+      - exception-class-1.44
+      - perl-5.32.0
+      - specio-0.46
+  parse-recdescent-1.967015:
+    req:
+      - perl-5.32.0
+  parse-yapp-1.21:
+    req:
+      - perl-5.32.0
+  parted-3.3:
+    opt:
+      - dosfstools-4.1
+      - pth-2.0.7
+      - texlive-20200406
+    rec:
+      - lvm2-2.03.10
+  passwdqc-1.4.0: {}
+  patch-2.7.6: {}
   path-tiny-0.114:
     req:
       - perl-5.32.0
+  pax-20161104:
+    req:
+      - cpio-2.13
+  pbr-5.5.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  pciutils-3.7.0:
+    rec:
+      - curl-7.71.1
+      - lynx-2.8.9rel.1
+      - wget-1.20.3
+  pcre-8.44:
+    opt:
+      - valgrind-3.16.1
+  pcre2-10.35:
+    opt:
+      - valgrind-3.16.1
+      - libedit-3.1
+  pep8-1.7.1:
+    rec:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  perl-5.32.0: {}
+  perlio-utf8-strict-0.007:
+    rec:
+      - test-exception-0.43
+    req:
+      - perl-5.32.0
+  php-7.4.9:
+    opt:
+      - aspell-0.60.8
+      - berkeley-db-5.3.28
+      - curl-7.71.1
+      - cyrus-sasl-2.1.27
+      - dmalloc-5.5.2
+      - enchant-2.2.8
+      - freetype-2.10.2
+      - libexif-0.6.22
+      - libiodbc-3.52.12
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libtiff-4.1.0
+      - libxslt-1.1.34
+      - lmdb-0.9.24
+      - mariadb-10.5.5
+      - minisql-4.2
+      - mit-kerberos-v5-1.18.2
+      - openldap-2.4.51
+      - pcre-8.44
+      - postgresql-12.4
+      - pth-2.0.7
+      - sendmail-8.16.1
+      - sqlite-3.33.0
+      - tidy-html5-5.6.0
+      - unixodbc-2.3.7
+      - xorg-7
+    rec:
+      - apache-2.4.46
+      - libxml2-2.9.10
+  pinentry-1.1.0:
+    opt:
+      - emacs-27.1
+      - fltk-1.3.5
+      - gcr-3.36.0
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - libsecret-0.20.3
+      - qt-5.15.0
+    req:
+      - libassuan-2.5.3
+      - libgpg-error-1.38
+  pixman-0.40.0:
+    opt:
+      - gtk+-2.24.32
+      - libpng-1.6.37
+  pkg-config-0.29.2: {}
+  pm-utils-1.4.1:
+    opt:
+      - xmlto-0.0.28
+    opt_run:
+      - ethtool-5.8
+      - hdparm-9.58
+      - wireless-tools-29
+  pod-pom-view-restructured-1.000002: {}
+  polkit-0.117:
+    opt:
+      - dbus-python-1.2.16
+      - dbusmock-0.19
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - libxslt-1.1.34
+    opt_run:
+      - gnome-shell-3.36.5
+      - lxsession-0.5.5
+      - polkit-gnome-0.105
+      - polkit-kde-agent-5.19.4
+    rec:
+      - linux-pam-1.4.0
+    req:
+      - glib-2.64.4
+      - js-68.11.0
+    req_run:
+      - systemd-246
+  polkit-gnome-0.105:
+    req:
+      - gtk+-3.24.22
+      - polkit-0.117
+  poppler-20.08.0:
+    opt:
+      - boost-1.74.0
+      - curl-7.71.1
+      - gdk-pixbuf-2.40.0
+      - git-2.28.0
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - gtk+-3.24.22
+      - libtiff-4.1.0
+      - qt-5.15.0
+    rec:
+      - cairo-1.17.2+f93fc72c03e
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - little-cms-2.11
+      - nss-3.55
+      - openjpeg-2.3.1
+    req:
+      - cmake-3.18.1
+      - fontconfig-2.13.1
+  popt-1.18:
+    opt:
+      - doxygen-1.8.19
+  postfix-3.5.6:
+    opt:
+      - icu-67.1
+      - mariadb-10.5.5
+      - openldap-2.4.51
+      - pcre-8.44
+      - postgresql-12.4
+      - sqlite-3.33.0
+    rec:
+      - berkeley-db-5.3.28
+      - cyrus-sasl-2.1.27
+      - libnsl-1.2.0
+  postgresql-12.4:
+    opt:
+      - bonjour-1096.40.7
+      - docbook-dsssl-1.79
+      - docbook-dtd-4.5
+      - docbook-utils-0.6.14
+      - fop-2.5
+      - libxml2-2.9.10
+      - libxslt-1.1.34
+      - linux-pam-1.4.0
+      - mit-kerberos-v5-1.18.2
+      - openjade-1.3.2
+      - openldap-2.4.51
+      - python-2.7.18
+      - sgmlspm-1.1
+  potrace-1.16:
+    rec:
+      - clang-10.0.1
+      - llvm-10.0.1
+  prelude-5.1.0: {}
+  procmail-3.22:
+    opt:
+      - libnsl-1.2.0
+    rec:
+      - sendmail-8.16.1
+  procps-ng-3.3.16: {}
+  proftpd-1.3.7a:
+    opt:
+      - libcap-2.42
+      - libssh2-1.9.0
+      - linux-pam-1.4.0
+      - mariadb-10.5.5
+      - net-ssh2-0.71
+      - pcre-8.44
+      - postgresql-12.4
+  psmisc-23.3: {}
+  pth-2.0.7: {}
+  py-1.9.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  py-future-0.16.0: {}
+  py3c-1.2:
+    req:
+      - python-3.8.5
+  pyatspi2-2.36.0:
+    opt:
+      - python-2.7.18
+    rec:
+      - at-spi-core-2.36.0
+    req:
+      - pygobject-3.36.1
+      - python-3.8.5
+  pycairo-1.18.2:
+    opt:
+      - hypothesis-5.32.0
+    req:
+      - cairo-1.17.2+f93fc72c03e
+      - python-2.7.18
+  pycairo-1.19.1:
+    opt:
+      - hypothesis-5.32.0
+    req:
+      - cairo-1.17.2+f93fc72c03e
+      - python-3.8.5
+  pycryptodome-3.9.8:
+    rec:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  pyflakes-2.2.0:
+    rec:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  pygments-2.6.1:
+    req:
+      - python-3.8.5
+  pygobject-2.28.7:
+    opt:
+      - gobject-introspection-1.64.1
+      - libxslt-1.1.34
+    req:
+      - glib-2.64.4
+      - pycairo-1.18.2
+      - python-2.7.18
+  pygobject-3.36.1:
+    rec:
+      - pep8-1.7.1
+      - pycairo-1.18.2
+      - pyflakes-2.2.0
+      - pytest-6.0.1
+      - python-2.7.18
+    req:
+      - gobject-introspection-1.64.1
+      - pycairo-1.19.1
+      - python-3.8.5
+  pygtk-2.24.0:
+    opt:
+      - libxslt-1.1.34
+      - numpy-1.19.0
+    req:
+      - atk-2.36.0
+      - gtk+-2.24.32
+      - libglade-2.6.4
+      - pango-1.46.0
+      - pycairo-1.18.2
+      - pygobject-2.28.7
+      - python-2.7.18
+  pyopenssl-19.1.0: {}
+  pyrad-2.3: {}
+  pytest-6.0.1:
+    rec:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  pytest-cov-2.10.1:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  python-2.7.18:
+    opt:
+      - bluez-5.54
+      - sqlite-3.33.0
+      - tk-8.6.10
+      - valgrind-3.16.1
+  python-3.8.5:
+    opt:
+      - berkeley-db-5.3.28
+      - bluez-5.54
+      - gdb-9.2
+      - tk-8.6.10
+      - valgrind-3.16.1
+    rec:
+      - sqlite-3.33.0
+  python-libxml2-2.9.10:
+    req:
+      - libxml2-2.9.10
+      - python-2.7.18
+  python-mimeparse-1.6.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  python-slip-0.6.5:
+    req:
+      - dbus-python-1.2.16
+      - decorator-4.4.2
+      - python-3.8.5
+      - six-1.15.0
+  python-subunit-1.4.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  pyxdg-0.25:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  pyyaml-5.3.1:
+    opt:
+      - python-2.7.18
+    req:
+      - libyaml-0.2.4
+      - python-3.8.5
+  qca-2.3.1:
+    opt:
+      - botan-2.15.0
+      - cyrus-sasl-2.1.27
+      - doxygen-1.8.19
+      - gnupg-2.2.21
+      - libgcrypt-1.8.6
+      - libgpg-error-1.38
+      - nspr-4.27
+      - nss-3.55
+      - p11-kit-0.23.20
+      - which-2.21
+    req:
+      - cmake-3.18.1
+      - make-ca-1.7
+      - qt-5.15.0
+      - which-2.21
+  qemu-5.1.0:
+    opt:
+      - alsa-1.2.2
+      - bluez-5.54
+      - curl-7.71.1
+      - cyrus-sasl-2.1.27
+      - gnutls-3.6.14
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - libgcrypt-1.8.6
+      - libssh2-1.9.0
+      - libusb-1.0.23
+      - lzo-2.10
+      - mesa-20.1.5
+      - nettle-3.6
+      - pulseaudio-13.0
+      - python-3.8.5
+      - sdl-1.2.15
+      - vte-0.28.2
+      - vte-0.60.3
+    rec:
+      - alsa-lib-1.2.3.2
+      - sdl2-2.0.12
+    req:
+      - glib-2.64.4
+      - xorg-7
+  qpdf-10.0.1:
+    opt:
+      - fop-2.5
+      - libxslt-1.1.34
+    req:
+      - libjpeg-turbo-2.0.5
+  qrencode-4.1.0: {}
+  quota-tools-4.05: {}
+  raptor-2.0.15:
+    opt:
+      - gtk-doc-1.32
+      - icu-67.1
+      - yajl-2.1.0
+    req:
+      - curl-7.71.1
+      - libxslt-1.1.34
+  rarian-0.8.1:
+    rec:
+      - docbook-xml-4.5
+      - libxslt-1.1.34
+  rasqal-0.9.33:
+    opt:
+      - libgcrypt-1.8.6
+      - pcre-8.44
+    req:
+      - raptor-2.0.15
+  readline-8.0: {}
+  redland-1.0.17:
+    opt:
+      - berkeley-db-5.3.28
+      - libiodbc-3.52.12
+      - mariadb-10.5.5
+      - postgresql-12.4
+      - sqlite-3.33.0
+    req:
+      - rasqal-0.9.33
+  regexp-common-2017060201:
+    req:
+      - perl-5.32.0
+  reiserfsprogs-3.6.27: {}
+  rep-gtk-0.90.8.3:
+    req:
+      - gtk+-2.24.32
+      - librep-0.92.7
+  resolv-wrapper-1.1.7: {}
   role-tiny-2.001004:
     req:
       - perl-5.32.0
+  rpcbind-1.2.5:
+    req:
+      - libtirpc-1.2.6
+  rpcsvc-proto-1.4.2: {}
+  rrdtool-1.7.2:
+    req:
+      - libxml2-2.9.10
+      - pango-1.46.0
+  rsync-3.2.3:
+    opt:
+      - doxygen-1.8.19
+      - lz4-1.9.2
+      - xxhash-0.8.0
+    rec:
+      - popt-1.18
+  ruby-2.7.1:
+    opt:
+      - berkeley-db-5.3.28
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+      - libyaml-0.2.4
+      - tk-8.6.10
+      - valgrind-3.16.1
+  rustc-1.42.0:
+    opt:
+      - gdb-9.2
+      - python-2.7.18
+    rec:
+      - clang-10.0.1
+    req:
+      - cmake-3.18.1
+      - curl-7.71.1
+      - libssh2-1.9.0
+  samba-4.12.6:
+    opt:
+      - argparse-1.4.0
+      - avahi-0.8
+      - bind-9.16.5
+      - cmocka-1.1
+      - contextlib2-0.6.0.post1
+      - coverage-5.2.1
+      - cups-2.3.3
+      - cyrus-sasl-2.1.27
+      - doctools-0.2.2
+      - enum34-1.1.10
+      - extras-1.0.0
+      - fixtures-3.0.0
+      - gdb-9.2
+      - git-2.28.0
+      - gnupg-2.2.21
+      - hypothesis-5.32.0
+      - libaio-0.3.112
+      - libarchive-3.4.3
+      - libcap-2.42
+      - libgcrypt-1.8.6
+      - libnsl-1.2.0
+      - linecache2-1.0.0
+      - mit-kerberos-v5-1.18.2
+      - nss-3.55
+      - pbr-5.5.0
+      - popt-1.18
+      - py-1.9.0
+      - pytest-6.0.1
+      - pytest-cov-2.10.1
+      - python-mimeparse-1.6.0
+      - python-subunit-1.4.0
+      - six-1.15.0
+      - talloc-2.3.1
+      - testresources-2.0.1
+      - testscenarios-0.5.0
+      - testtools-2.4.0
+      - traceback2-1.4.0
+      - unittest2-1.1.0
+      - vala-0.48.9
+      - valgrind-3.16.1
+      - virtualenv-20.0.31
+      - xfsprogs-5.7.0
+    rec:
+      - fuse-3.9.3
+      - gpgme-1.14.0
+      - libxslt-1.1.34
+      - linux-pam-1.4.0
+      - openldap-2.4.51
+      - parse-yapp-1.21
+      - pycryptodome-3.9.8
+    req:
+      - gnutls-3.6.14
+      - jansson-2.13.1
+      - libtirpc-1.2.6
+      - lmdb-0.9.24
+      - rpcsvc-proto-1.4.2
+  sassc-3.6.1: {}
+  scons-4.0.1:
+    opt:
+      - docbook-xsl-1.79.2
+      - libxslt-1.1.34
   scope-guard-0.21:
     req:
       - perl-5.32.0
-  specio-0.46:
+  scour-0.37:
+    rec:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+      - six-1.15.0
+  screen-4.8.0:
+    opt:
+      - linux-pam-1.4.0
+  sed-4.8: {}
+  sendmail-8.16.1:
+    opt:
+      - ghostscript-9.52
+    rec:
+      - cyrus-sasl-2.1.27
+    req:
+      - openldap-2.4.51
+    req_run:
+      - procmail-3.22
+  serf-1.3.9:
+    opt:
+      - mit-kerberos-v5-1.18.2
+    req:
+      - apr-util-1.6.1
+      - scons-4.0.1
+  sg3-utils-1.45: {}
+  sgmlspm-1.1:
     req:
       - perl-5.32.0
-      - devel-stacktrace-2.04
-      - eval-closure-0.14
-      - module-runtime-0.016
-      - role-tiny-2.001004
-      - sub-quote-2.006006
-      - try-tiny-0.30
+  shadow-4.8.1:
+    req:
+      - cracklib-2.9.7
+      - linux-pam-1.4.0
+  shared-mime-info-2.0:
+    req:
+      - glib-2.64.4
+      - itstool-2.0.6
+      - libxml2-2.9.10
+      - xmlto-0.0.28
+  sharutils-4.15.2: {}
+  six-1.15.0:
+    rec:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  slang-2.3.2:
+    opt:
+      - libpng-1.6.37
+      - pcre-8.44
+  smartmontools-7.1:
+    opt_run:
+      - curl-7.71.1
+      - gnupg-2.2.21
+      - lynx-2.8.9rel.1
+      - wget-1.20.3
+  sort-key-1.33:
+    req:
+      - perl-5.32.0
+  specio-0.46:
+    opt:
+      - namespace-autoclean-0.29
     rec:
       - mro-compat-0.13
       - test-fatal-0.014
       - test-needs-0.002006
+    req:
+      - devel-stacktrace-2.04
+      - eval-closure-0.14
+      - module-runtime-0.016
+      - perl-5.32.0
+      - role-tiny-2.001004
+      - sub-quote-2.006006
+      - try-tiny-0.30
+  sphinx-3.2.1: {}
+  sphinx-rtd-theme-0.5.0: {}
+  sqlite-3.33.0:
     opt:
-      - namespace-autoclean-0.29
+      - libedit-3.1
+      - unzip-6.0
+  ssh-askpass-8.3p1:
+    req:
+      - gtk+-3.24.22
+      - xorg-libraries-7
+    req_run:
+      - sudo-1.9.2
+      - xorg-7
+  sshfs-3.7.0:
+    opt:
+      - docutils-0.16
+    req:
+      - fuse-3.9.3
+      - glib-2.64.4
+      - openssh-8.3p1
+  stunnel-5.56: {}
   sub-exporter-progressive-0.001013:
     req:
       - perl-5.32.0
@@ -2276,28 +2971,139 @@ packages:
       - perl-5.32.0
   sub-info-0.002:
     req:
-      - perl-5.32.0
       - importer-0.025
-  sub-quote-2.006006:
-    req:
       - perl-5.32.0
+  sub-quote-2.006006:
     rec:
       - test-fatal-0.014
+    req:
+      - perl-5.32.0
   sub-uplevel-0.2800:
     req:
       - perl-5.32.0
-  super-1.20190531:
+  subversion-1.14.0:
+    opt:
+      - apache-2.4.46
+      - apache-ant-1.10.8
+      - cyrus-sasl-2.1.27
+      - dbus-1.12.20
+      - gnome-keyring-3.36.0
+      - junit-4.13
+      - libsecret-0.20.3
+      - lz4-1.9.2
+      - openjdk-14.0.1
+      - py3c-1.2
+      - python-2.7.18
+      - ruby-2.7.1
+      - swig-4.0.2
+    rec:
+      - serf-1.3.9
     req:
-      - perl-5.32.0
+      - apr-util-1.6.1
+      - sqlite-3.33.0
+  sudo-1.9.2:
+    opt:
+      - linux-pam-1.4.0
+      - mit-kerberos-v5-1.18.2
+      - openldap-2.4.51
+      - sendmail-8.16.1
+  super-1.20190531:
     rec:
       - sub-identify-0.14
-  term-table-0.015:
     req:
       - perl-5.32.0
+  swig-4.0.2:
+    req:
+      - pcre-8.44
+      - boost-1.74.0
+  sysstat-12.4.0: {}
+  systemd-246:
+    opt:
+      - btrfs-progs-5.7
+      - cryptsetup-2.3.3
+      - curl-7.71.1
+      - git-2.28.0
+      - gnu-efi-3.0.12
+      - gnutls-3.6.14
+      - iptables-1.8.5
+      - kexec-tools-2.0.20
+      - libgcrypt-1.8.6
+      - libidn-1.36
+      - libmicrohttpd-0.9.71
+      - libpwquality-1.4.2
+      - libseccomp-2.5.0
+      - libxkbcommon-0.10.0
+      - lz4-1.9.2
+      - make-ca-1.7
+      - pcre2-10.35
+      - qemu-5.1.0
+      - qrencode-4.1.0
+      - quota-tools-4.05
+      - sphinx-3.2.1
+      - valgrind-3.16.1
+      - zsh-5.8
+    rec:
+      - polkit-0.117
+    req:
+      - linux-pam-1.4.0
+  talloc-2.3.1:
+    opt:
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - gdb-9.2
+      - git-2.28.0
+      - libtirpc-1.2.6
+      - libxslt-1.1.34
+      - python-2.7.18
+      - valgrind-3.16.1
+      - xfsprogs-5.7.0
+  tar-1.32: {}
+  tcl-8.6.10: {}
+  tcsh-6.22.02: {}
+  tdb-1.0.6: {}
+  telepathy-glib-0.24.1:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - dbus-glib-0.110
+      - libxslt-1.1.34
+  telepathy-logger-0.8.2:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - python-2.7.18
+      - sqlite-3.33.0
+      - telepathy-glib-0.24.1
+  telepathy-mission-control-5.16.5:
+    opt:
+      - gtk-doc-1.32
+      - libgnome-keyring-3.12.0
+      - upower-0.99.11
+    rec:
+      - networkmanager-1.26.0
+    req:
+      - telepathy-glib-0.24.1
+  term-table-0.015:
+    req:
       - importer-0.025
+      - perl-5.32.0
+  test-command-0.11:
+    req:
+      - perl-5.32.0
   test-deep-1.130:
     req:
       - perl-5.32.0
+  test-differences-0.67:
+    rec:
+      - capture-tiny-0.48
+    req:
+      - perl-5.32.0
+      - text-diff-1.45
   test-exception-0.43:
     req:
       - perl-5.32.0
@@ -2307,30 +3113,30 @@ packages:
       - perl-5.32.0
       - try-tiny-0.30
   test-file-1.443:
-    req:
-      - perl-5.32.0
     rec:
       - test-utf8-1.02
-  test-file-sharedir-1.001002:
     req:
       - perl-5.32.0
+  test-file-sharedir-1.001002:
+    rec:
+      - test-fatal-0.014
+    req:
       - class-tiny-1.006
       - file-copy-recursive-0.45
       - file-sharedir-1.116
       - path-tiny-0.114
+      - perl-5.32.0
       - scope-guard-0.21
-    rec:
-      - test-fatal-0.014
   test-leaktrace-0.16:
     req:
       - perl-5.32.0
   test-mockmodule-0.173.0:
-    req:
-      - perl-5.32.0
-      - module-build-0.4231
-      - super-1.20190531
     rec:
       - test-warnings-0.030
+    req:
+      - module-build-0.4231
+      - perl-5.32.0
+      - super-1.20190531
   test-needs-0.002006:
     req:
       - perl-5.32.0
@@ -2350,383 +3156,379 @@ packages:
     req:
       - perl-5.32.0
   test2-plugin-nowarnings-0.09:
+    rec:
+      - ipc-run3-0.048
     req:
       - perl-5.32.0
       - test2-suite-0.00130
-    rec:
-      - ipc-run3-0.048
   test2-suite-0.00130:
     req:
-      - perl-5.32.0
       - module-pluggable-5.2
+      - perl-5.32.0
       - scope-guard-0.21
       - sub-info-0.002
       - term-table-0.015
+  testresources-2.0.1:
+    req:
+      - fixtures-3.0.0
+      - python-2.7.18
+      - python-3.8.5
+      - testtools-2.4.0
+  testscenarios-0.5.0:
+    req:
+      - python-2.7.18
+      - testtools-2.4.0
+  testtools-2.4.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  texinfo-6.7: {}
+  text-bibtex-0.88:
+    req:
+      - config-autoconf-0.318
+      - extutils-libbuilder-0.08
+      - perl-5.32.0
+  text-csv-2.00:
+    rec:
+      - text-csv-xs-1.44
+    req:
+      - perl-5.32.0
   text-csv-xs-1.44:
     req:
       - perl-5.32.0
   text-diff-1.45:
     req:
-      - perl-5.32.0
       - algorithm-diff-1.1903
+      - perl-5.32.0
   text-glob-0.11:
     req:
       - perl-5.32.0
+  text-roman-3.5:
+    req:
+      - perl-5.32.0
+  thin-provisioning-tools-0.9.0: {}
+  tidy-html5-5.6.0:
+    rec:
+      - libxslt-1.1.34
+    req:
+      - cmake-3.18.1
   tie-cycle-1.225:
     req:
       - perl-5.32.0
+  time-1.9: {}
   timedate-2.33:
     req:
       - perl-5.32.0
-  try-tiny-0.30:
+  tk-8.6.10:
     req:
-      - perl-5.32.0
+      - xorg-libraries-7
+  traceback2-1.4.0:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  traceroute-2.1.0: {}
+  tree-1.8.0: {}
+  tripwire-2.4.3.7:
+    opt:
+      - sendmail-8.16.1
+  trousers-0.3.14: {}
+  try-tiny-0.30:
     opt:
       - capture-tiny-0.48
+    req:
+      - perl-5.32.0
+  uchardet-0.0.7:
+    req:
+      - cmake-3.18.1
+  udisks-2.9.1:
+    opt:
+      - dbus-python-1.2.16
+      - exfat-1.3.0
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - libiscsi-1.19.0
+      - lvm2-2.03.10
+      - ntfs-3g-2017.3.23
+      - pygobject-3.36.1
+    rec:
+      - systemd-246
+    req:
+      - libatasmart-0.19
+      - libblockdev-2.24
+      - libgudev-233
+      - libxslt-1.1.34
+      - polkit-0.117
+    req_run:
+      - btrfs-progs-5.7
+      - dosfstools-4.1
+      - gptfdisk-1.0.5
+      - mdadm-4.1
+      - xfsprogs-5.7.0
+  uhttpmock-0.5.3:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - libsoup-2.70.0
+  umockdev-0.14.2:
+    req:
+      - libgudev-233
+      - vala-0.48.9
+  unbound-1.11.0:
+    opt:
+      - doxygen-1.8.19
+      - libevent-2.1.12
+      - nettle-3.6
+      - python-2.7.18
+      - sphinx-3.2.1
+      - swig-4.0.2
+  unicode-collate-1.27:
+    req:
+      - perl-5.32.0
+  unicode-linebreak-2019.001:
+    req:
+      - mime-charset-1.012.2
+      - perl-5.32.0
+      - wget-1.20.3
+  unittest2-1.1.0:
+    req:
+      - python-2.7.18
+  unixodbc-2.3.7:
+    opt:
+      - minisql-4.2
+      - pth-2.0.7
+  unrar-5.9.4: {}
+  unzip-6.0: {}
+  upower-0.99.11:
+    opt:
+      - dbusmock-0.19
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - umockdev-0.14.2
+    req:
+      - dbus-glib-0.110
+      - libgudev-233
+      - libusb-1.0.23
+      - polkit-0.117
+  uri-1.76:
+    rec:
+      - test-needs-0.002006
+    req:
+      - perl-5.32.0
+  usbutils-012:
+    req:
+      - libusb-1.0.23
+      - wget-1.20.3
+  util-linux-2.36: {}
+  util-macros-1.19.2: {}
+  vala-0.48.9:
+    opt:
+      - dbus-1.12.20
+      - help2man-1.47.16
+      - libxslt-1.1.34
+    rec:
+      - graphiz-2.44.1
+    req:
+      - glib-2.64.4
+  valgrind-3.16.1:
+    opt:
+      - clang-10.0.1
+      - gdb-9.2
+      - llvm-10.0.1
+      - which-2.21
   variable-magic-0.62:
     req:
       - perl-5.32.0
+  vim-8.2.1361:
+    opt:
+      - gpm-1.20.7
+      - lua-5.4.0
+      - python-2.7.18
+      - rsync-3.2.3
+      - ruby-2.7.1
+    rec:
+      - gtk+-3.24.22
+      - xorg-7
+  virtualenv-20.0.31:
+    opt:
+      - python-2.7.18
+    req:
+      - python-3.8.5
+  volume-key-0.3.12:
+    opt:
+      - python-2.7.18
+    rec:
+      - swig-4.0.2
+    req:
+      - cryptsetup-2.3.3
+      - glib-2.64.4
+      - gpgme-1.14.0
+      - nss-3.55
+  vsftpd-3.0.3:
+    opt:
+      - libcap-2.42
+    rec:
+      - linux-pam-1.4.0
+    req:
+      - libnsl-1.2.0
+  wayland-1.18.0:
+    opt:
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+      - libxslt-1.1.34
+      - xmlto-0.0.28
+    req:
+      - libxml2-2.9.10
+  wayland-protocols-1.20:
+    req:
+      - wayland-1.18.0
+  wget-1.20.3:
+    opt:
+      - gnutls-3.6.14
+      - http-daemon-6.12
+      - io-socket-ssl-2.068
+      - libidn2-2.3.0
+      - libpsl-0.21.1
+      - pcre-8.44
+      - pcre2-10.35
+      - valgrind-3.16.1
+    rec:
+      - make-ca-1.7
+  whois-5.4.3:
+    opt:
+      - libidn-1.36
+      - libidn2-2.3.0
+  wireless-tools-29: {}
+  wireshark-3.2.6:
+    opt:
+      - brotli-1.0.7
+      - c-ares-1.16.1
+      - doxygen-1.8.19
+      - git-2.28.0
+      - gnutls-3.6.14
+      - libnl-3.5.0
+      - libssh-0.9.4
+      - libxml2-2.9.10
+      - libxslt-1.1.34
+      - lua-5.2.4
+      - lz4-1.9.2
+      - mit-kerberos-v5-1.18.2
+      - nghttp2-1.41.0
+      - sbc-1.4
+      - speex-1.2.0
+      - v5-1.18.2
+    rec:
+      - libpcap-1.9.1
+    req:
+      - glib-2.64.4
+      - libgcrypt-1.8.6
+      - qt-5.15.0
+  woff-1.0.2:
+    req:
+      - brotli-1.0.7
+      - cmake-3.18.1
+  wpa-supplicant-2.9:
+    opt:
+      - dbus-1.12.20
+      - libxml2-2.9.10
+      - qt-5.15.0
+    rec:
+      - desktop-file-utils-0.26
+      - libnl-3.5.0
+  wv-1.2.9:
+    req:
+      - libgsf-1.14.47
+      - libpng-1.6.37
   www-robotrules-6.02:
     req:
       - perl-5.32.0
     req_run:
       - libwww-perl-6.46
+  wxwidgets-3.1.4:
+    req:
+      - xorg-7
+  xapian-1.4.16:
+    opt:
+      - valgrind-3.16.1
+  xcb-proto-1.14:
+    opt:
+      - libxml2-2.9.10
+  xdg-user-dirs-0.17: {}
+  xfsprogs-5.7.0: {}
   xml-libxml-2.0205:
     req:
-      - perl-5.32.0
       - alien-libxml2-0.16
+      - perl-5.32.0
       - xml-sax-1.02
+  xml-libxml-simple-1.01:
+    req:
+      - perl-5.32.0
+      - xml-libxml-2.0205
+  xml-libxslt-1.99:
+    req:
+      - libxslt-1.1.34
+      - perl-5.32.0
+      - xml-libxml-2.0205
   xml-namespace-support-1.12:
     req:
       - perl-5.32.0
+  xml-parser-2.46: {}
   xml-sax-1.02:
     req:
-      - perl-5.32.0
       - libxml2-2.9.10
+      - perl-5.32.0
       - xml-namespace-support-1.12
       - xml-sax-base-1.09
   xml-sax-base-1.09:
     req:
       - perl-5.32.0
-  php-7.4.9:
-    rec:
-      - apache-2.4.46
-      - libxml2-2.9.10
+  xml-simple-2.25:
     opt:
-      - aspell-0.60.8
-      - enchant-2.2.8
+      - xml-sax-1.02
+    req:
+      - perl-5.32.0
+  xml-writer-0.625:
+    req:
+      - perl-5.32.0
+  xorg-libraries-7:
+    opt:
+      - xmlto-0.0.28
+      - fop-2.5
+      - links-2.20.2
+      - lynx-2.8.9rel.1
+    req:
+      - fontconfig-2.13.1
+      - libxcb-1.14
+  xorgproto-2020.1:
+    opt:
+      - fop-2.5
       - libxslt-1.1.34
-      - sendmail-8.16.1
-      - pcre-8.44
-      - pth-2.0.7
-      - dmalloc-5.5.2
-      - freetype-2.10.2
-      - libexif-0.6.22
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - libtiff-4.1.0
-      - x-7
-      - curl-7.71.1
-      - tidy-html5-5.6.0
-      - berkeley-db-5.3.28
-      - libiodbc-3.52.12
-      - lmdb-0.9.24
-      - mariadb-10.5.5
-      - openldap-2.4.51
-      - postgresql-12.4
-      - sqlite-3.33.0
-      - unixodbc-2.3.7
-      - minisql-4.2
-      - cyrus-sasl-2.1.27
-      - mit-kerberos-v5-1.18.2
-  python-2.7.18:
-    opt:
-      - bluez-5.54
-      - valgrind-3.16.1
-      - sqlite-3.33.0
-      - tk-8.6.10
-  dbus-python-1.2.16:
+      - xmlto-0.0.28
+      - asciidoc-9.0.2
     req:
-      - dbus-1.12.20
-      - glib-2.64.4
-      - python-3.8.5
-    rec:
-      - python-2.7.18
-    opt:
-      - pygobject-3.36.1
-      - docutils-0.16
-      - sphinx-3.2.1
-      - sphinx-rtd-theme-0.5.0
-  decorator-4.4.2:
-    req:
-      - python-3.8.5
-  docutils-0.16:
-    req:
-      - python-3.8.5
-    opt:
-      - python-2.7.18
-  py3c-1.2:
-    req:
-      - python-3.8.5
-  pyatspi2-2.36.0:
-    req:
-      - python-3.8.5
-      - pygobject-3.36.1
-    rec:
-      - at-spi-core-2.36.0
-    opt:
-      - python-2.7.18
-  pycairo-1.19.1:
-    req:
-      - python-3.8.5
-      - cairo-1.17.2+f93fc72c03e
-    opt:
-      - hypothesis-5.32.0
-  hypothesis-5.32.0:
-    req:
-      - python-3.8.5
-  pycairo-1.18.2:
-    req:
-      - python-2.7.18
-      - cairo-1.17.2+f93fc72c03e
-    opt:
-      - hypothesis-5.32.0
-  pycryptocode-3.9.8:
-    req:
-      - python-3.8.5
-    rec:
-      - python-2.7.18
-  dbusmock-0.19:
-    req:
-      - python-3.8.5
-    req_run:
-      - dbus-python-1.2.16
-  pygments-2.6.1:
-    req:
-      - python-3.8.5
-  pygobject-2.28.7:
-    req:
-      - python-2.7.18
-      - glib-2.64.4
-      - pycairo-1.18.2
-    opt:
-      - gobject-introspection-1.64.1
-      - libxslt-1.1.34
-  pygobject-3.36.1:
-    req:
-      - python-3.8.5
-      - gobject-introspection-1.64.1
-      - pycairo-1.19.1
-    rec:
-      - python-2.7.18
-      - pycairo-1.18.2
-      - pep8-1.7.1
-      - pyflakes-2.2.0
-      - pytest-6.0.1
-  pep8-1.7.1:
-    req:
-      - python-3.8.5
-    rec:
-      - python-2.7.18
-  pyflakes-2.2.0:
-    req:
-      - python-3.8.5
-    rec:
-      - python-2.7.18
-  pytest:
-    req:
-      - python-3.8.5
-  pygtk-2.24.0:
-    req:
-      - pygobject-2.28.7
-      - python-2.7.18
-      - atk-2.36.0
-      - pango-1.46.0
-      - pycairo-1.18.2 
-      - gtk+-2.24.32
-      - libglade-2.6.4
-    opt:
-      - numpy-1.19.0
-      - libxslt-1.1.34
-  pyxdg-0.25:
-    req:
-      - python-3.8.5
-    opt:
-      - python-2.7.18
-  python-libxml2-2.9.10:
-    req:
-      - python-2.7.18
-      - libxml2-2.9.10
-  lxml-4.5.2:
-    req:
-      - python-3.8.5
-      - libxslt-1.1.34
-    rec:
-      - python-2.7.18
-    opt:
-      - gdb-9.2
-      - valgrind-3.16.1
-      - cssselect-1.1.0
-  cssselect-1.1.0: {}
-  markupsafe-1.1.1:
-    req:
-      - python-3.8.5
-    opt:
-      - python-2.7.18
-  jinja2-2.11.2:
-    req:
-      - python-3.8.5
-      - markupsafe-1.1.1
-  mako-1.1.3:
-    req:
-      - python-3.8.5
-      - markupsafe-1.1.1
-  python-slip-0.6.5:
-    req:
-      - python-3.8.5
-      - dbus-python-1.2.16
-      - decorator-4.4.2
-      - six-1.15.0
-  pyyaml-5.3.1:
-    req:
-      - python-3.8.5
-      - libyaml-0.2.4
-    opt:
-      - python-2.7.18
-  scour-0.37:
-    req:
-      - python-3.8.5
-      - six-1.15.0
-    rec:
-      - python-2.7.18
-  six-1.15.0:
-    req:
-      - python-3.8.5
-    rec:
-      - python-2.7.18
-  ruby-2.7.1:
-    opt:
-      - berkeley-db-5.3.28
-      - doxygen-1.8.19
-      - graphiz-2.44.1
-      - libyaml-0.2.4
-      - tk-8.6.10
-      - valgrind-3.16.1
-  rustc-1.42.0:
-    req:
-      - curl-7.71.1
-      - cmake-3.18.1
-      - libssh2-1.9.0
-    rec:
-      - clang-10.0.1
-    opt:
-      - gdb-9.2
-      - python-2.7.18
-  scons-4.0.1:
-    opt:
-      - docbook-xsl-1.79.2
-      - libxslt-1.1.34
-  slang-2.3.2:
-    opt:
-      - libpng-1.6.37
-      - pcre-8.44
-  subversion-1.14.0:
-    req:
-      - apr-util-1.6.1
-      - sqlite-3.33.0
-    rec:
-      - serf-1.3.9
-    opt:
-      - apache-2.4.46
-      - cyrus-sasl-2.1.27
-      - dbus-1.12.20
-      - gnome-keyring-3.36.0
-      - libsecret-0.20.3
-      - py3c-1.2
-      - python-2.7.18
-      - ruby-2.7.1
-      - swig-4.0.2
-      - lz4-1.9.2
-      - openjdk-14.0.1
-      - junit-4.13
-      - apache-ant-1.10.8
-  swig-4.0.2:
-    req:
-      - pcre-8.44
-      - boost-1.74.0
-  tk-8.6.10:
+      - util-macros-1.19.2
+  xtrans-1.4.0:
     req:
       - xorg-libraries-7
-  vala-0.48.9:
-    req:
-      - glib-2.64.4
-    rec:
-      - graphiz-2.44.1
-    opt:
-      - dbus-1.12.20
-      - libxslt-1.1.34
-      - help2man-1.47.16
-  valgrind-3.16.1:
-    opt:
-      - gdb-9.2
-      - llvm-10.0.1
-      - clang-10.0.1
-      - which-2.21
+  xxhash-0.8.0: {}
+  xz-5.2.5: {}
   yasm-1.3.0:
     opt:
-      - python-2.7.18
       - cython-0.29.21
-  java-14.0.1:
-    req_run:
-      - alsa-lib-1.2.3.2
-      - cups-2.3.3
-      - giflib-5.2.1
-      - xorg-libraries-7
-  openjdk-14.0.1:
-    req:
-      - java-14.0.1
-      - alsa-lib-1.2.3.2
-      - cpio-2.13
-      - cups-2.3.3
-      - unzip-6.0
-      - which-2.21
-      - xorg-libraries-7
-      - zip-3.0
-    rec:
-      - make-ca-1.7
-      - giflib-5.2.1
-      - little-cms-2.11
-      - libjpeg-turbo-2.0.5
-      - libpng-1.6.37
-      - wget-1.20.3
-    opt:
-      - git-2.28.0
-      - graphiz-2.44.1
-      - mercurial-5.5
-  apache-ant-1.10.8:
-    req:
-      - openjdk-14.0.1
-      - java-14.0.1
-      - glib-2.64.4
-  dhcpcd-9.1.4:
-    opt:
-      - llvm-10.0.1
-      - clang-10.0.1
-      - ntp-4.2.8p15
-      - chrony-3.5.1
-      - ypbind-2.7.2
-  chrony-3.5.1: {}
+      - python-2.7.18
   ypbind-2.7.2: {}
-  dhcp-4.4.2: {}
-  bridge-utils-1.6:
+  zip-3.0: {}
+  zlib-1.2.11: {}
+  zsh-5.8:
     opt:
-      - net-tools-cvs-20101030
-  cifs-utils-6.10:
-    req:
-      - talloc-2.3.1
-    opt:
-      - keyutils-1.6.1
-      - linux-pam-1.4.0
-      - mit-kerberos-v5-1.18.2
-      - samba-4.12.6
       - libcap-2.42
+      - linux-pam-1.4.0
+      - pcre-8.44
+      - valgrind-3.16.1
+  zstd-1.4.5: {}

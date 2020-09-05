@@ -11,6 +11,7 @@ verbose = False
 no_confirm = False
 default_yes = True
 runtime = False
+show_deps = False
 
 debug = True
 prefix = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fs') if debug else '/'
@@ -19,7 +20,7 @@ db_path = os.path.join(prefix, 'usr', 'share', 'packages.yaml')
 log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
 
 def load_config():
-    global verbose, default_yes, no_confirm, runtime
+    global verbose, default_yes, no_confirm, runtime, show_deps
 
     with open(config_path, 'r') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
@@ -28,10 +29,11 @@ def load_config():
         default_yes = data['config']['default_yes']
         no_confirm = data['config']['no_confirm']
         runtime = data['config']['runtime']
+        show_deps = data['config']['show_deps']
 
 def parse_args():
     # argparse setup
-    global verbose, no_confirm, runtime
+    global verbose, no_confirm, runtime, show_deps
 
     parser = argparse.ArgumentParser(prog='rvpkg')
     parser.add_argument(
@@ -97,9 +99,30 @@ def parse_args():
         help='Checks if one package is built with another'
     )
 
-    parser_add.add_argument('packages', type=str, action='append', nargs='+')
-    parser_check.add_argument('packages', type=str, action='append', nargs='+')
-    parser_search.add_argument('query', type=str)
+    parser_add.add_argument(
+        'packages',
+        type=str,
+        action='append',
+        nargs='+'
+    )
+    parser_check.add_argument(
+        '-d',
+        '--show-deps',
+        action='store_true',
+        dest='show_deps',
+        default=False,
+        help='Display package dependencies'
+    )
+    parser_check.add_argument(
+        'packages',
+        type=str,
+        action='append',
+        nargs='+'
+    )
+    parser_search.add_argument(
+        'query',
+        type=str
+    )
 
     parser_built_with.add_argument('package', type=str)
     parser_built_with.add_argument('dependency', type=str)
@@ -109,6 +132,7 @@ def parse_args():
     verbose = verbose or args.verbose
     no_confirm = no_confirm or args.no_confirm
     runtime = runtime or args.runtime
+    show_deps = show_deps or args.show_deps
 
     command = args.command
 
@@ -172,7 +196,7 @@ def add_pkgs(pkgs):
             ', '.join(installed_pkgs)
         ))
     print_header()
-    print_pkgs(pkgs, True)
+    print_pkgs(pkgs)
     print_footer()
 
     confirm()
@@ -187,7 +211,7 @@ def add_pkgs(pkgs):
 # Show information about multiple packages
 def check_pkgs(pkgs):
     print_header()
-    print_pkgs(pkgs, True)
+    print_pkgs(pkgs)
     print_footer()
 
 # Displays number of installed packages
@@ -262,7 +286,7 @@ def is_installed(pkg):
     return pkg in get_log()
 
 # Display a package and details to the screen
-def print_pkgs(pkgs, print_deps=False):
+def print_pkgs(pkgs):
     if runtime:
         for pkg in pkgs:
             print('{0:<24}{1:<12}{2:<12}{3:<8}{4:<8}{5:<8}{6:<9}{7:<9}{8:<9}'.format(
@@ -276,7 +300,7 @@ def print_pkgs(pkgs, print_deps=False):
                 pkg.has_rec_run_deps,
                 pkg.has_opt_run_deps
             ))
-            if print_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
+            if show_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
                 print(f'{pkg.name} build dependencies:')
                 for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
                     name, version = name_ver_split(item)
@@ -295,11 +319,11 @@ def print_pkgs(pkgs, print_deps=False):
                 pkg.has_rec_deps, 
                 pkg.has_opt_deps
             ))
-            if print_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
+            if show_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
                 print(f'{pkg.name} build dependencies:')
                 for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
                     name, version = name_ver_split(item)
-                    print('  {0:<18}{1:<12}{2:<12}'.format(
+                    print('  {0:<22}{1:<12}{2:<12}'.format(
                         name,
                         version,
                         'Yes' if is_installed(item) else 'No'
