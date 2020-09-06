@@ -38,6 +38,12 @@ packages:
       - alien-build-2.26
       - libxml2-2.9.10
       - perl-5.32.0
+  amtk-5.1.1:
+    opt:
+      - gtk-doc-1.32
+      - valgrind-3.16.1
+    req:
+      - gtk+-3.24.22
   anytree-2.8.0: {}
   apache-2.4.46:
     opt:
@@ -640,6 +646,7 @@ packages:
   encode-locale-1.05:
     req:
       - perl-5.32.0
+  encodings-1.0.5: {}
   enum34-1.1.10:
     req:
       - python-2.7.18
@@ -768,6 +775,14 @@ packages:
     req:
       - python-3.8.5
   flex-2.6.4: {}
+  font-adobe-utopia-type1-1.0.4: {}
+  font-alias-1.0.4: {}
+  font-bh-ttf-1.0.3: {}
+  font-bh-type1-1.0.3: {}
+  font-ibm-type1-1.0.3: {}
+  font-misc-ethiopic-1.0.4: {}
+  font-util-1.3.2: {}
+  font-xfree86-type1-1.0.4: {}
   fontconfig-2.13.1:
     opt:
       - docbook-utils-0.6.14
@@ -1169,6 +1184,7 @@ packages:
       - dconf-0.36.0
       - iso-codes-4.5.0
       - vala-0.48.9
+  iceauth-1.0.8: {}
   icu-67.1:
     opt:
       - clang-10.0.1
@@ -1181,6 +1197,7 @@ packages:
       - make-ca-1.7
       - python-2.7.18
       - swig-4.0.2
+  igt-gpu-tools-1.25: {}
   imagemagick-7.0.10-27:
     opt:
       - clang-10.0.1
@@ -1348,11 +1365,14 @@ packages:
     opt:
       - doxygen-1.8.19
       - lynx-2.8.9rel.1
-  libdmx-1.1.4:
-    req:
-      - xorg-libraries-7
+  libdmx-1.1.4: {}
   libedit-3.1: {}
   libelf-0.180: {}
+  libevdev-1.9.1:
+    opt:
+      - doxygen-1.8.19
+      - python-2.7.18
+      - valgrind-3.16.1
   libevent-2.1.12:
     opt:
       - doxygen-1.8.19
@@ -1362,12 +1382,8 @@ packages:
       - graphiz-2.44.1
   libffcall-2.2: {}
   libffi-3.3: {}
-  libfontenc-1.1.4:
-    req:
-      - xorg-libraries-7
-  libfs-1.0.8:
-    req:
-      - xorg-libraries-7
+  libfontenc-1.1.4: {}
+  libfs-1.0.8: {}
   libgcrypt-1.8.6:
     opt:
       - pth-2.0.7
@@ -1428,9 +1444,7 @@ packages:
       - vala-0.48.9
     req:
       - cmake-3.18.1
-  libice-1.0.10:
-    req:
-      - xorg-libraries-7
+  libice-1.0.10: {}
   libidn-1.36:
     opt:
       - emacs-27.1
@@ -1445,6 +1459,15 @@ packages:
       - gtk-doc-1.32
     req:
       - libunistring-0.9.10
+  libinput-1.16.1:
+    opt:
+      - valgrind-3.16.1
+      - sphinx-3.2.1
+      - gtk+-3.24.22
+      - libwacom-1.4.1
+    req:
+      - libevdev-1.9.1
+      - mtdev-1.1.6
   libiodbc-3.52.12:
     rec:
       - gtk+-2.24.32
@@ -1514,9 +1537,7 @@ packages:
       - bluez-5.54
       - libnl-3.5.0
       - libusb-1.0.23
-  libpciaccess-0.16:
-    req:
-      - xorg-libraries-7
+  libpciaccess-0.16: {}
   libpipeline-1.5.3: {}
   libpng-1.6.37: {}
   libpsl-0.21.1:
@@ -1568,9 +1589,7 @@ packages:
       - doxygen-1.8.19
       - libxslt-1.1.34
   libsigsegv-2.12: {}
-  libsm-1.2.3:
-    req:
-      - xorg-libraries-7
+  libsm-1.2.3: {}
   libsoup-2.70.0:
     opt:
       - apache-2.4.46
@@ -1624,6 +1643,36 @@ packages:
     opt:
       - doxygen-1.8.19
   libuv-1.38.1: {}
+  libva-2.8.0:
+    opt:
+      - doxygen-1.8.19
+      - wayland-1.18.0
+      - igt-gpu-tools-1.25
+    rec:
+      - mesa-20.1.5
+    req:
+      - libdrm-2.4.102
+  libvdpau-1.4:
+    opt:
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+      - texlive-20200406
+    req:
+      - xorg-libraries-7
+    req_run:
+      - mesa-20.1.5
+  libvdpau-va-gl-0.4.0:
+    opt:
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+      - texlive-20200406
+    req:
+      - cmake-3.18.1
+      - ffmpeg-4.3.1
+      - libvdpau-1.4
+      - libva-2.8.0
+    req_run:
+      - mesa-20.1.5
   libwacom-1.4.1:
     opt:
       - doxygen-1.8.19
@@ -1658,15 +1707,11 @@ packages:
       - perl-5.32.0
       - try-tiny-0.30
       - www-robotrules-6.02
-  libx11-1.6.11:
-    req:
-      - xorg-libraries-7
+  libx11-1.6.11: {}
   libxau-1.0.9:
     req:
       - xorgproto-2020.1
-  libxaw-1.0.13:
-    req:
-      - xorg-libraries-7
+  libxaw-1.0.13: {}
   libxaw3d-1.6.3: {}
   libxcb-1.14:
     opt:
@@ -1677,15 +1722,9 @@ packages:
     req:
       - libxau-1.0.9
       - xcb-proto-1.14
-  libxcomposite-0.4.5:
-    req:
-      - xorg-libraries-7
-  libxcursor-1.2.0:
-    req:
-      - xorg-libraries-7
-  libxdamage-1.1.5:
-    req:
-      - xorg-libraries-7
+  libxcomposite-0.4.5: {}
+  libxcursor-1.2.0: {}
+  libxdamage-1.1.5: {}
   libxdmcp-1.1.3:
     opt:
       - xmlto-0.0.28
@@ -1693,24 +1732,12 @@ packages:
       - libxslt-1.1.34
     req:
       - xorgproto-2020.1
-  libxext-1.3.4:
-    req:
-      - xorg-libraries-7
-  libxfixes-5.0.3:
-    req:
-      - xorg-libraries-7
-  libxfont2-2.0.4:
-    req:
-      - xorg-libraries-7
-  libxft-2.3.3:
-    req:
-      - xorg-libraries-7
-  libxi-1.7.10:
-    req:
-      - xorg-libraries-7
-  libxinerama-1.1.3:
-    req:
-      - xorg-libraries-7
+  libxext-1.3.4: {}
+  libxfixes-5.0.3: {}
+  libxfont2-2.0.4: {}
+  libxft-2.3.3: {}
+  libxi-1.7.10: {}
+  libxinerama-1.1.3: {}
   libxkbcommon-0.10.0:
     opt:
       - doxygen-1.8.19
@@ -1719,35 +1746,19 @@ packages:
       - wayland-1.18.0
     req:
       - xkeyboard-config-2.30
-  libxkbfile-1.1.0:
-    req:
-      - xorg-libraries-7
+  libxkbfile-1.1.0: {}
   libxml2-2.9.10:
     opt:
       - icu-67.1
       - python-2.7.18
       - valgrind-3.16.1
-  libxmu-1.1.3:
-    req:
-      - xorg-libraries-7
-  libxpm-3.5.13:
-    req:
-      - xorg-libraries-7
-  libxrandr-1.5.2:
-    req:
-      - xorg-libraries-7
-  libxrender-0.9.10:
-    req:
-      - xorg-libraries-7
-  libxres-1.2.0:
-    req:
-      - xorg-libraries-7
-  libxscrnsaver-1.2.3:
-    req:
-      - xorg-libraries-7
-  libxshmfence-1.3:
-    req:
-      - xorg-libraries-7
+  libxmu-1.1.3: {}
+  libxpm-3.5.13: {}
+  libxrandr-1.5.2: {}
+  libxrender-0.9.10: {}
+  libxres-1.2.0: {}
+  libxscrnsaver-1.2.3: {}
+  libxshmfence-1.3: {}
   libxslt-1.1.34:
     opt:
       - libgcrypt-1.8.6
@@ -1758,24 +1769,12 @@ packages:
       - docbook-xsl-1.79.2
     req:
       - libxml2-2.9.10
-  libxt-1.2.0:
-    req:
-      - xorg-libraries-7
-  libxtst-1.2.3:
-    req:
-      - xorg-libraries-7
-  libxv-1.0.11:
-    req:
-      - xorg-libraries-7
-  libxvmc-1.0.12:
-    req:
-      - xorg-libraries-7
-  libxxf86dga-1.1.5:
-    req:
-      - xorg-libraries-7
-  libxxf86vm-1.1.4:
-    req:
-      - xorg-libraries-7
+  libxt-1.2.0: {}
+  libxtst-1.2.3: {}
+  libxv-1.0.11: {}
+  libxvmc-1.0.12: {}
+  libxxf86dga-1.1.5: {}
+  libxxf86vm-1.1.4: {}
   libyaml-0.2.4:
     opt:
       - doxygen-1.8.19
@@ -1877,6 +1876,7 @@ packages:
       - libtirpc-1.2.6
   lua-5.2.4: {}
   lua-5.4.0: {}
+  luit-1.1.1: {}
   lvm2-2.03.10:
     opt:
       - mdadm-4.1
@@ -1984,6 +1984,20 @@ packages:
       - pyopenssl-19.1.0
       - rustc-1.42.0
       - subversion-1.14.0
+  mesa-20.1.5:
+    opt:
+      - libgcrypt-1.8.6
+      - lm-sensors-3.6.0
+      - nettle-3.6
+      - valgrind-3.16.1
+    rec:
+      - libva-2.8.0
+      - libvdpau-1.4
+      - llvm-10.0.1
+      - wayland-protocols-1.20
+    req:
+      - xorg-libraries-7
+      - libdrm-2.4.102
   meson-0.55.0: {}
   mime-charset-1.012.2:
     rec:
@@ -2002,6 +2016,8 @@ packages:
       - pyrad-2.3
       - resolv-wrapper-1.1.7
       - valgrind-3.16.1
+  mkfontdir-1.0.7: {}
+  mkfontscale-1.2.1: {}
   modemmanager-1.14.0:
     opt:
       - gtk-doc-1.32
@@ -2894,6 +2910,8 @@ packages:
     req:
       - apr-util-1.6.1
       - scons-4.0.1
+  sessreg-1.1.2: {}
+  setxkbmap-1.3.2: {}
   sg3-utils-1.45: {}
   sgmlspm-1.1:
     req:
@@ -2924,6 +2942,7 @@ packages:
       - gnupg-2.2.21
       - lynx-2.8.9rel.1
       - wget-1.20.3
+  smproxy-1.0.6: {}
   sort-key-1.33:
     req:
       - perl-5.32.0
@@ -3239,6 +3258,11 @@ packages:
       - capture-tiny-0.48
     req:
       - perl-5.32.0
+  twm-1.0.11:
+    rec:
+      - xorg-legacy-1
+    req:
+      - xorg-server-1.20.8
   uchardet-0.0.7:
     req:
       - cmake-3.18.1
@@ -3453,14 +3477,81 @@ packages:
   wxwidgets-3.1.4:
     req:
       - xorg-7
+  x11perf-1.6.1: {}
   xapian-1.4.16:
     opt:
       - valgrind-3.16.1
+  xauth-1.1: {}
+  xbacklight-1.2.3: {}
+  xbitmaps-1.1.2:
+    req:
+      - util-macros-1.19.2
   xcb-proto-1.14:
     opt:
       - libxml2-2.9.10
+  xcb-util-0.4.0:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - libxcb-1.14
+  xcb-util-cursor-0.1.3:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - xcb-util-0.4.0
+  xcb-util-image-0.4.0:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - xcb-util-0.4.0
+  xcb-util-keysyms-0.4.0:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - libxcb-1.14
+  xcb-util-renderutil-0.3.9:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - libxcb-1.14
+  xcb-util-wm-0.4.1:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - libxcb-1.14
+  xclock-1.0.9:
+    req:
+      - xorg-libraries-7
+  xcmsdb-1.0.5: {}
+  xcursor-themes-1.0.6:
+    req:
+      - xorg-applications-7
+  xcursorgen-1.0.7: {}
   xdg-user-dirs-0.17: {}
+  xdpyinfo-1.3.2: {}
+  xdriinfo-1.0.6: {}
+  xev-1.2.4: {}
   xfsprogs-5.7.0: {}
+  xgamma-1.0.6: {}
+  xhost-1.0.8: {}
+  xinit-1.4.1:
+    rec:
+      - twm-1.0.11
+      - xclock-1.0.9
+      - xterm-359
+    req:
+      - xorg-libraries-7
+  xinput-1.6.3: {}
+  xkbcomp-1.4.3: {}
+  xkbevd-1.1.4: {}
+  xkbutils-1.0.4: {}
+  xkeyboard-config-2.30:
+    req:
+      - xorg-libraries-7
+  xkill-1.0.5: {}
+  xlsatoms-1.1.3: {}
+  xlsclients-1.1.4: {}
+  xmessage-1.0.5: {}
   xml-libxml-2.0205:
     req:
       - alien-libxml2-0.16
@@ -3496,26 +3587,248 @@ packages:
   xml-writer-0.625:
     req:
       - perl-5.32.0
-  xorg-libraries-7:
+  xmodmap-1.0.10: {}
+  xorg-7:
+    req:
+      - libxau-1.0.9
+      - libxcb-1.14
+      - libxdmcp-1.1.3
+      - mesa-20.1.5
+      - twm-1.0.11
+      - util-macros-1.19.2
+      - xbitmaps-1.1.2
+      - xcb-proto-1.14
+      - xcb-util-0.4.0
+      - xcb-util-cursor-0.1.3
+      - xcb-util-image-0.4.0
+      - xcb-util-keysyms-0.4.0
+      - xcb-util-renderutil-0.3.9
+      - xcb-util-wm-0.4.1
+      - xclock-1.0.9
+      - xcursor-themes-1.0.6
+      - xinit-1.4.1
+      - xkeyboard-config-2.30
+      - xorg-applications-7
+      - xorg-drivers-7
+      - xorg-fonts-7
+      - xorg-legacy-1
+      - xorg-libraries-7
+      - xorg-server-1.20.8
+      - xorgproto-2020.1
+      - xterm-359
+  xorg-amdgpu-driver-19.1.0:
+    req:
+      - xorg-server-1.20.8
+  xorg-applications-7:
+    req:
+      - iceauth-1.0.8
+      - luit-1.1.1
+      - mkfontdir-1.0.7
+      - mkfontscale-1.2.1
+      - sessreg-1.1.2
+      - setxkbmap-1.3.2
+      - smproxy-1.0.6
+      - x11perf-1.6.1
+      - xauth-1.1
+      - xbacklight-1.2.3
+      - xcmsdb-1.0.5
+      - xcursorgen-1.0.7
+      - xdpyinfo-1.3.2
+      - xdriinfo-1.0.6
+      - xev-1.2.4
+      - xgamma-1.0.6
+      - xhost-1.0.8
+      - xinput-1.6.3
+      - xkbcomp-1.4.3
+      - xkbevd-1.1.4
+      - xkbutils-1.0.4
+      - xkill-1.0.5
+      - xlsatoms-1.1.3
+      - xlsclients-1.1.4
+      - xmessage-1.0.5
+      - xmodmap-1.0.10
+      - xorg-applications-deps-7
+      - xpr-1.0.5
+      - xprop-1.2.4
+      - xrandr-1.5.1
+      - xrdb-1.2.0
+      - xrefresh-1.0.6
+      - xset-1.2.4
+      - xsetroot-1.1.2
+      - xvinfo-1.1.4
+      - xwd-1.0.7
+      - xwinfo-1.1.5
+      - xwud-1.0.5
+  xorg-applications-deps-7:
     opt:
-      - xmlto-0.0.28
+      - linux-pam-1.4.0
+    req:
+      - libpng-1.6.37
+      - mesa-20.1.5
+      - xbitmaps-1.1.2
+      - xcb-util-0.4.0
+  xorg-ati-driver-19.1.0:
+    req:
+      - xorg-server-1.20.8
+  xorg-drivers-7:
+    req:
+      - libevdev-1.9.1
+      - libinput-1.16.1
+      - libva-2.8.0
+      - libvdpau-1.4
+      - libvdpau-va-gl-0.4.0
+      - xorg-amdgpu-driver-19.1.0
+      - xorg-ati-driver-19.1.0
+      - xorg-evdev-driver-2.10.6
+      - xorg-fbdev-driver-0.5.0
+      - xorg-intel-driver-20200817
+      - xorg-libinput-driver-0.30.0
+      - xorg-nouveau-driver-1.0.16
+      - xorg-synaptics-driver-1.9.1
+      - xorg-vmware-driver-13.3.0
+      - xorg-wacom-driver-0.39.0
+  xorg-evdev-driver-2.10.6:
+    req:
+      - libevdev-1.9.1
+      - mtdev-1.1.6
+      - xorg-server-1.20.8
+  xorg-fbdev-driver-0.5.0:
+    req:
+      - xorg-server-1.20.8
+  xorg-fonts-7:
+    req:
+      - encodings-1.0.5
+      - font-adobe-utopia-type1-1.0.4
+      - font-alias-1.0.4
+      - font-bh-ttf-1.0.3
+      - font-bh-type1-1.0.3
+      - font-ibm-type1-1.0.3
+      - font-misc-ethiopic-1.0.4
+      - font-util-1.3.2
+      - font-xfree86-type1-1.0.4
+      - xorg-fonts-deps-7
+  xorg-fonts-deps-7:
+    req:
+      - xcursor-themes-1.0.6
+  xorg-intel-driver-20200817:
+    req:
+      - xcb-util-0.4.0
+      - xorg-server-1.20.8
+  xorg-legacy-1:
+    req:
+      - xcursor-themes-1.0.6
+  xorg-libinput-driver-0.30.0:
+    req:
+      - libinput-1.16.1
+      - xorg-server-1.20.8
+  xorg-libraries-7:
+    req:
+      - libdmx-1.1.4
+      - libfontenc-1.1.4
+      - libfs-1.0.8
+      - libice-1.0.10
+      - libpciaccess-0.16
+      - libsm-1.2.3
+      - libx11-1.6.11
+      - libxaw-1.0.13
+      - libxcomposite-0.4.5
+      - libxcursor-1.2.0
+      - libxdamage-1.1.5
+      - libxext-1.3.4
+      - libxfixes-5.0.3
+      - libxfont2-2.0.4
+      - libxft-2.3.3
+      - libxi-1.7.10
+      - libxinerama-1.1.3
+      - libxkbfile-1.1.0
+      - libxmu-1.1.3
+      - libxpm-3.5.13
+      - libxrandr-1.5.2
+      - libxrender-0.9.10
+      - libxres-1.2.0
+      - libxscrnsaver-1.2.3
+      - libxshmfence-1.3
+      - libxt-1.2.0
+      - libxtst-1.2.3
+      - libxv-1.0.11
+      - libxvmc-1.0.12
+      - libxxf86dga-1.1.5
+      - libxxf86vm-1.1.4
+      - xorg-libraries-deps-7
+      - xtrans-1.4.0
+  xorg-libraries-deps-7:
+    opt:
       - fop-2.5
       - links-2.20.2
       - lynx-2.8.9rel.1
+      - xmlto-0.0.28
     req:
       - fontconfig-2.13.1
       - libxcb-1.14
+  xorg-nouveau-driver-1.0.16:
+    req:
+      - xorg-server-1.20.8
+  xorg-server-1.20.8:
+    opt:
+      - acpid-2.0.32
+      - doxygen-1.8.19
+      - fop-2.5
+      - libgcrypt-1.8.6
+      - nettle-3.6
+      - xcb-util-image-0.4.0
+      - xcb-util-keysyms-0.4.0
+      - xcb-util-renderutil-0.3.9
+      - xcb-util-wm-0.4.1
+      - xmlto-0.0.28
+    rec:
+      - libepoxy-1.5.4
+      - systemd-246
+      - wayland-1.18.0
+      - wayland-protocols-1.20
+    req:
+      - pixman-0.40.0
+      - xkeyboard-config-2.30
+      - xorg-fonts-7
+  xorg-synaptics-driver-1.9.1:
+    req:
+      - libevdev-1.9.1
+      - xorg-server-1.20.8
+  xorg-vmware-driver-13.3.0:
+    req:
+      - xorg-server-1.20.8
+  xorg-wacom-driver-0.39.0:
+    opt:
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+    req:
+      - xorg-server-1.20.8
   xorgproto-2020.1:
     opt:
+      - asciidoc-9.0.2
       - fop-2.5
       - libxslt-1.1.34
       - xmlto-0.0.28
-      - asciidoc-9.0.2
     req:
       - util-macros-1.19.2
-  xtrans-1.4.0:
+  xpr-1.0.5: {}
+  xprop-1.2.4: {}
+  xrandr-1.5.1: {}
+  xrdb-1.2.0: {}
+  xrefresh-1.0.6: {}
+  xset-1.2.4: {}
+  xsetroot-1.1.2: {}
+  xterm-359:
+    opt:
+      - pcre-8.44
+      - pcre2-10.35
+      - valgrind-3.16.1
     req:
-      - xorg-libraries-7
+      - xorg-applications-7
+  xtrans-1.4.0: {}
+  xvinfo-1.1.4: {}
+  xwd-1.0.7: {}
+  xwinfo-1.1.5: {}
+  xwud-1.0.5: {}
   xxhash-0.8.0: {}
   xz-5.2.5: {}
   yasm-1.3.0:
