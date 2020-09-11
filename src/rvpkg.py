@@ -70,6 +70,14 @@ def parse_args():
         default=False,
         help='Display runtime dependencies'
     )
+    parser.add_argument(
+        '-d',
+        '--show-deps',
+        action='store_true',
+        dest='show_deps',
+        default=False,
+        help='Display package dependencies'
+    )
 
     subparsers = parser.add_subparsers(help='rvpkg subcommands:')
     subparsers.required = True
@@ -106,14 +114,6 @@ def parse_args():
         nargs='+'
     )
     parser_check.add_argument(
-        '-d',
-        '--show-deps',
-        action='store_true',
-        dest='show_deps',
-        default=False,
-        help='Display package dependencies'
-    )
-    parser_check.add_argument(
         'packages',
         type=str,
         action='append',
@@ -124,8 +124,16 @@ def parse_args():
         type=str
     )
 
-    parser_built_with.add_argument('package', type=str)
-    parser_built_with.add_argument('dependency', type=str)
+    parser_built_with.add_argument(
+        'package',
+        type=str
+    )
+    parser_built_with.add_argument(
+        'dependencies',
+        type=str,
+        action='append',
+        nargs='+'
+    )
 
     args = parser.parse_args()
     
@@ -141,7 +149,7 @@ def parse_args():
     elif command == 'search':
         packages = [args.query]
     elif command == 'built-with':
-        packages = [args.package, args.dependency]
+        packages = [args.package] + args.dependencies[0]
     else:
         packages = None
 
@@ -242,11 +250,12 @@ def search(query):
             print(item)
 
 # Checks if one package is built with another
-def is_built_with(pkg, dep):
-    if has_deps(pkg.entry, [dep.entry]) == 'All':
-        print(f'Package "{pkg}" is built with "{dep}"')
-    else:
-        print(f'Package "{pkg}" is NOT built with "{dep}"')
+def is_built_with(pkg, deps):
+    for item in deps:
+        if has_deps(pkg.entry, [item.entry]) == 'All':
+            print(f'Package "{pkg}" is built with "{item}"')
+        else:
+            print(f'Package "{pkg}" is NOT built with "{item}"')
 
 def get_log():
     with open(log_path, 'r') as file:
@@ -399,7 +408,7 @@ def main():
     elif cmd == 'search':
         search(pkgs[0])
     elif cmd == 'built-with':
-        is_built_with(pkgs[0], pkgs[1])
+        is_built_with(pkgs[0], pkgs[1:])
     
 
 if __name__ == '__main__':
