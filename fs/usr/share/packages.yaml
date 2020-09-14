@@ -5764,4 +5764,182 @@ packages:
       - vte-0.60.3
     opt:
       - avahi-0.8
+  libxfce4util-4.14.0:
+    req:
+      - glib-2.64.4
+    opt:
+      - gtk-doc-1.32
+  xfconf-4.14.3:
+    req:
+      - libxfce4util-4.14.0
+    opt:
+      - gtk-doc-1.32
+  libxfce4ui-4.14.1:
+    req:
+      - gtk+-3.24.22
+      - xfconf-4.14.3
+    rec:
+      - gtk+-2.24.32
+      - startup-notification-0.12
+    opt:
+      - gtk-doc-1.32
+      - html-parser-3.72
+  exo-0.12.11:
+    req:
+      - gtk+-3.24.22
+      - libxfce4ui-4.14.1
+      - libxfce4util-4.14.0
+      - uri-1.76
+    opt:
+      - gtk-doc-1.32
+  garcon-0.7.0:
+    req:
+      - libxfce4ui-4.14.1
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+    opt:
+      - gtk-doc-1.32
+  xfce4-panel-4.14.4:
+    req:
+      - exo-0.12.11
+      - garcon-0.7.0
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
+    opt:
+      - gtk-doc-1.32
+  thunar-1.8.15:
+    req:
+      - exo-0.12.11
+      - libxfce4ui-4.14.1
+    req_run:
+      - gnome-icon-theme-3.12.0
+      - lxde-icon-theme-0.5.1
+    rec:
+      - libgudev-233
+      - libnotify-0.7.9
+      - xfce4-panel-4.14.4
+    opt:
+      - gtk-doc-1.32
+      - gvfs-1.44.1
+      - libexif-0.6.22
+      - tumbler-0.3.0
+  thunar-volman-0.9.5:
+    req:
+      - exo-0.12.11
+      - libgudev-233
+      - libxfce4ui-4.14.1
+    rec:
+      - libnotify-0.7.9
+      - startup-notification-0.12
+    rec_run:
+      - gvfs-1.44.1
+      - polkit-gnome-0.105
+  tumbler-0.3.0:
+    req:
+      - glib-2.64.4
+    opt:
+      - curl-7.71.1
+      - freetype-2.10.2
+      - gdk-pixbuf-2.40.0
+      - gst-plugins-base-1.16.2
+      - gtk-doc-1.32
+      - libjpeg-turbo-2.0.5
+      - libgsf-1.14.47
+      - libpng-1.6.37
+      - poppler-20.08.0
+  xfce4-appfinder-4.14.0:
+    req:
+      - garcon-0.7.0
+      - libxfce4ui-4.14.1
+  xfce4-power-manager-1.6.6:
+    req:
+      - libnotify-0.7.9
+      - upower-0.99.11
+      - xfce4-panel-4.14.4
+  xfce4-settings-4.14.3:
+    req:
+      - exo-0.12.11
+      - garcon-0.7.0
+      - libxfce4ui-4.14.1
+    req_run:
+      - gnome-icon-theme-3.12.0
+      - lxde-icon-theme-0.5.1
+    rec:
+      - libcanberra-0.30
+      - libnotify-0.7.9
+      - libxklavier-5.4
+    opt:
+      - colord-1.4.4
+      - libinput-1.16.1
+  xfdesktop-4.14.2:
+    req:
+      - exo-0.12.11
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
+    rec:
+      - libnotify-0.7.9
+      - startup-notification-0.12
+      - thunar-1.8.15
+  xfwm4-4.14.5:
+    req:
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
+      - libxfce4util-4.14.0
+    rec:
+      - startup-notification-0.12
+  xfce4-session-4.14.2:
+    req:
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
+      - which-2.21
+      - xorg-applications-7
+    rec:
+      - desktop-file-utils-0.26
+      - shared-mime-info-2.0
+      - polkit-gnome-0.105
+    req_run:
+      - xfdesktop-4.14.2
+  parole-1.0.5:
+    req:
+      - gst-plugins-base-1.16.2
+      - gst-plugins-good-1.16.2
+      - libxfce4ui-4.14.1
+    rec:
+      - libnotify-0.7.9
+      - taglib-1.11.1
+  xfce4-terminal-0.8.9.2:
+    req:
+      - libxfce4ui-4.14.1
+      - vte-0.60.3
+  xfburn-0.6.2:
+    req:
+      - exo-0.12.11
+      - libburn-1.5.2
+      - libisofs-1.5.2
+      - libxfce4ui-4.14.1
+    opt:
+      - gst-plugins-base-1.16.2
+    opt_run:
+      - cdrdao-1.2.4
+  ristretto-0.10.0:
+    req:
+      - libexif-0.6.22
+      - libxfce4ui-4.14.1
+    opt_run:
+      - tumbler-0.3.0
+  xfce4-notifyd-0.6.1:
+    req:
+      - libnotify-0.7.9
+      - libxfce4ui-4.14.1
+      - xfce4-panel-4.14.4
+  xfce4-pulseaudio-plugin-0.4.3:
+    req:
+      - dbus-glib-0.110
+      - libnotify-0.7.9
+      - pulseaudio-13.0
+      - xfce4-panel-4.14.4
+    rec:
+      - keybinder-3.0-0.3.2
+    rec_run:
+      - pavucontrol-4.0
   
