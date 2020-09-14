@@ -357,7 +357,7 @@ packages:
   capture-tiny-0.48:
     req:
       - perl-5.32.0
-  cbindgetn-0.14.3:
+  cbindgen-0.14.3:
     req:
       - rustc-1.42.0
   check-0.15.2: {}
@@ -2546,8 +2546,8 @@ packages:
       - xorg-7
     rec:
       - libevent-2.1.12
-  linux-5.8.3: {}
-  linux-headers-5.8.3: {}
+  linux-5.8.9: {}
+  linux-headers-5.8.9: {}
   linux-pam-1.4.0:
     opt:
       - berkeley-db-5.3.28
@@ -6067,4 +6067,423 @@ packages:
       - libxslt-1.1.34
       - docbook-xml-4.5
       - docbook-xsl-1.79.2
+  abiword-3.0.4:
+    req:
+      - boost-1.74.0
+      - curl-7.71.1
+      - fribidi-1.0.9
+      - goffice-0.10.48
+      - wv-1.2.9
+    rec:
+      - enchant-2.2.8
+    opt:
+      - dbus-glib-0.110
+      - evolution-data-server-3.36.5
+      - gobject-introspection-1.64.1
+      - libchamplain-0.12.20
+      - libgcrypt-1.8.6
+      - libical-3.0.8
+      - libsoup-2.70.0
+      - redland-1.0.17
+      - telepathy-glib-0.24.1
+      - valgrind-3.16.1
+  gnumeric-1.12.48:
+    req:
+      - goffice-0.10.48
+      - itstool-2.0.6
+    rec_run:
+      - adwaita-icon-theme-3.36.1
+      - oxygen-icons5-5.73.0
+      - gnome-icon-theme-3.12.0
+      - xorg-7
+      - yelp-3.36.0
+    opt:
+      - dconf-0.36.0
+      - gobject-introspection-1.64.1
+      - pygobject-3.36.1
+      - valgrind-3.16.1
+      - dblatex-0.3.9
+  libreoffice-7.0.0:
+    req:
+      - archive-zip-1.68
+      - unzip-6.0
+      - wget-1.20.3
+      - which-2.21
+      - zip-3.0
+    rec:
+      - apache-ant-1.10.8
+      - apr-1.7.0
+      - boost-1.74.0
+      - clucene-2.3.3.4
+      - cups-2.3.3
+      - curl-7.71.1
+      - dbus-glib-0.110
+      - libepoxy-1.5.4
+      - libjpeg-turbo-2.0.5
+      - clang-10.0.1
+      - glm-0.9.9.8
+      - glu-9.0.1
+      - gpgme-1.14.0
+      - graphite2-1.3.14
+      - gst-plugins-base-1.16.2
+      - gtk+-3.24.22
+      - harfbuzz-2.7.1
+      - icu-67.1
+      - libatomic-ops-7.6.10
+      - little-cms-2.11
+      - librsvg-2.48.8
+      - libxml2-2.9.10
+      - libxslt-1.1.34
+      - lxml-4.5.2
+      - mesa-20.1.5
+      - neon-0.31.2
+      - nss-3.55
+      - openldap-2.4.51
+      - poppler-20.08.0
+      - postgresql-12.4
+      - redland-1.0.17
+      - serf-1.3.9
+      - unixodbc-2.3.7
+    opt:
+      - avahi-0.8
+      - bluez-5.54
+      - dconf-0.36.0
+      - desktop-file-utils-0.26
+      - doxygen-1.8.19
+      - evolution-data-server-3.36.5
+      - gdb-9.2
+      - gnutls-3.6.14
+      - kde-frameworks-5.73.0
+      - libpaper-1.1.24+nmu5
+      - mariadb-10.5.5
+      - mit-kerberos-v5-1.18.2
+      - nasm-2.15.03
+      - sane-1.0.29
+      - telepathy-glib-0.24.1
+      - valgrind-3.16.1
+      - vlc-3.0.11.1
+      - zenity-3.32.0
+  epiphany-3.36.4:
+    req:
+      - gcr-3.36.0
+      - gnome-desktop-3.36.5
+      - iso-codes-4.5.0
+      - json-glib-1.4.4
+      - libnotify-0.7.9
+      - nettle-3.6
+      - webkitgtk+-2.28.4
+    rec:
+      - libdazzle-3.36.0
+      - libhandy-0.0.13
+    req_run:
+      - gnome-keyring-3.36.0
+      - seahorse-3.36.2
+  falkon-3.1.0:
+    req:
+      - extra-cmake-modules-5.73.0
+      - qtwebengine-5.15.0
+    opt:
+      - gnome-keyring-3.36.0
+      - kde-frameworks-5.73.0
+  firefox-78.2.0:
+    req:
+      - autoconf-2.13
+      - cbindgen-0.14.3
+      - dbus-glib-0.110
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - libnotify-0.7.9
+      - nodejs-12.18.3
+      - nss-3.55
+      - pulseaudio-13.0
+      - python-3.8.5
+      - sqlite-3.33.0
+      - startup-notification-0.12
+      - unzip-6.0
+      - yasm-1.3.0
+      - zip-3.0
+    rec:
+      - icu-67.1
+      - libevent-2.1.12
+      - libwebp-1.1.0
+      - nasm-2.15.03
+    opt:
+      - curl-7.71.1
+      - doxygen-1.8.19
+      - ffmpeg-4.3.1
+      - liboauth-1.0.3
+      - openjdk-14.0.1
+      - valgrind-3.16.1
+      - wget-1.20.3
+      - wireless-tools-29
+  seamonkey-2.53.3:
+    req:
+      - autoconf-2.13
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - rustc-1.42.0
+      - unzip-6.0
+      - yasm-1.3.0
+      - zip-3.0
+    rec:
+      - icu-67.1
+      - libevent-2.1.12
+      - nspr-4.27
+      - nss-3.55
+      - pulseaudio-13.0
+      - sqlite-3.33.0
+    opt:
+      - alsa-lib-1.2.3.2
+      - curl-7.71.1
+      - dbus-glib-0.110
+      - doxygen-1.8.19
+      - gconf-3.2.6
+      - gst-plugins-base-1.16.2
+      - openjdk-14.0.1
+      - startup-notification-0.12
+      - valgrind-3.16.1
+      - wget-1.20.3
+      - wireless-tools-29
+  balsa-2.5.11:
+    req:
+      - aspell-0.60.8
+      - enchant-2.2.8
+      - gmime-2.6.23
+      - gpgme-1.14.0
+      - gtk+-3.24.22
+      - rarian-0.8.1
+    req_run:
+      - sendmail-8.16.1
+    rec:
+      - pcre-8.44
+    opt:
+      - compface-1.5.2
+      - gcr-3.36.0
+      - gtksourceview-3.24.11
+      - libcanberra-0.30
+      - libnotify-0.7.9
+      - libsecret-0.20.3
+      - mit-kerberos-v5-1.18.2
+      - openldap-2.4.51
+      - procmail-3.22
+      - sqlite-3.33.0
+      - webkitgtk+-2.28.4
+  feh-3.4.1:
+    req:
+      - libpng-1.6.37
+      - imlib2-1.7.0
+      - giflib-5.2.1
+    rec:
+      - curl-7.71.1
+    opt:
+      - libexif-0.6.22
+      - test-command-0.11
+    opt_run:
+      - libjpeg-turbo-2.0.5
+      - imagemagick-7.0.10-27
+  fontforge-20200314:
+    req:
+      - libspiro-20200505
+      - libuninameslist-20200413
+      - libxml2-2.9.10
+    rec:
+      - gtk+-3.24.22
+    opt:
+      - giflib-5.2.1
+      - git-2.28.0
+      - libjpeg-turbo-2.0.5
+      - libtiff-4.1.0
+      - woff-1.0.2
+      - sphinx-3.2.1
+  gimp-2.10.20:
+    req:
+      - gegl-0.3.34
+      - gexiv2-0.12.1
+      - glib-networking-2.64.3
+      - gtk+-2.24.32
+      - harfbuzz-2.7.1
+      - libjpeg-turbo-2.0.5
+      - libmypaint-1.6.1
+      - librsvg-2.48.8
+      - libtiff-4.1.0
+      - python-libxml2-2.9.10
+      - little-cms-2.11
+      - mypaint-brushes-1.3.0
+      - poppler-20.08.0
+      - xorg-7
+    rec:
+      - dbus-glib-0.110
+      - ghostscript-9.52
+      - gvfs-1.44.1
+      - iso-codes-4.5.0
+      - libgudev-233
+      - pygtk-2.24.0
+      - xdg-utils-1.1.3
+    opt:
+      - aalib-1.4rc5
+      - alsa-lib-1.2.3.2
+      - libmng-2.0.3
+      - libwebp-1.1.0
+      - openjpeg-2.3.1
+      - sendmail-8.16.1
+      - gtk-doc-1.32
+  gparted-1.1.0:
+    req:
+      - gtkmm-3.24.2
+      - parted-3.3
+    opt:
+      - btrfs-progs-5.7
+  hexchat-2.14.3:
+    req:
+      - glib-2.64.4
+    rec:
+      - gtk+-2.24.32
+      - libcanberra-0.30
+      - lua-5.4.0
+    opt:
+      - dbus-glib-0.110
+      - iso-codes-4.5.0
+      - libnotify-0.7.9
+      - pciutils-3.7.0
+  inkscape-1.0:
+    req:
+      - boost-1.74.0
+      - double-conversion-3.1.5
+      - gc-8.0.4
+      - gdl-3.34.0
+      - gsl-2.6
+      - gtkmm-3.24.2
+      - libsoup-2.70.0
+      - libxslt-1.1.34
+      - poppler-20.08.0
+      - popt-1.18
+      - wget-1.20.3
+    rec:
+      - imagemagick-7.0.10-27
+      - little-cms-2.11
+      - little-cms-1.19
+      - libcanberra-0.30
+      - potrace-1.16
+    rec_run:
+      - lxml-4.5.2
+      - scour-0.37
+    opt:
+      - aspell-0.60.8
+      - dbus-1.12.20
+      - doxygen-1.8.19
+  pidgin-2.14.1:
+    req:
+      - gtk+-2.24.32
+    rec:
+      - libgcrypt-1.8.6
+      - gstreamer-1.16.2
+      - gnutls-3.6.14
+      - nss-3.55
+    opt:
+      - avahi-0.8
+      - cyrus-sasl-2.1.27
+      - dbus-1.12.20
+      - evolution-data-server-3.36.5
+      - gconf-3.2.6
+      - libidn-1.36
+      - networkmanager-1.26.0
+      - sqlite-3.33.0
+      - startup-notification-0.12
+      - tk-8.6.10
+      - mit-kerberos-v5-1.18.2
+      - mono-6.12.0.90
+    opt_run:
+      - xdg-utils-1.1.3
+  rox-filer-2.11:
+    req:
+      - libglade-2.6.4
+      - shared-mime-info-2.0
+  rxvt-unicode-9.22:
+    req:
+      - xorg-7
+    opt:
+      - gdk-pixbuf-2.40.0
+      - startup-notification-0.12
+  thunderbird-78.1.1:
+    req:
+      - autoconf-2.13
+      - cbindgen-0.14.3
+      - dbus-glib-0.110
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - llvm-10.0.1
+      - clang-10.0.1
+      - nodejs-12.18.3
+      - pulseaudio-13.0
+      - python-3.8.5
+      - sqlite-3.33.0
+      - startup-notification-0.12
+      - zip-3.0
+      - unzip-6.0
+      - yasm-1.3.0
+    rec:
+      - icu-67.1
+      - libevent-2.1.12
+      - nspr-4.27
+      - nss-3.55
+    opt:
+      - cyrus-sasl-2.1.27
+      - doxygen-1.8.19
+      - gconf-3.2.6
+      - wget-1.20.3
+      - wireless-tools-29
+  tigervnc-1.10.1:
+    req:
+      - cmake-3.18.1
+      - fltk-1.3.5
+      - gnutls-3.6.14
+      - libgcrypt-1.8.6
+      - libjpeg-turbo-2.0.5
+      - pixman-0.40.0
+      - xorg-applications-7
+      - xorg-legacy-1
+    rec:
+      - imagemagick-7.0.10-27
+      - linux-pam-1.4.0
+  transmission-3.00:
+    req:
+      - curl-7.71.1
+      - libevent-2.1.12
+    rec:
+      - gtk+-3.24.22
+      - qt-5.15.0
+    opt:
+      - doxygen-1.8.19
+      - gdb-9.2
+  xarchiver-0.5.4.15:
+    req:
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+    opt_run:
+      - cpio-2.13
+      - lzo-2.10
+      - p7zip-16.02
+      - unrar-5.9.4
+      - unzip-6.0
+      - zip-3.0
+  xdg-utils-1.1.3:
+    req:
+      - xmlto-0.0.28
+      - lynx-2.8.9rel.1
+    req_run:
+      - xorg-applications-7
+    opt_run:
+      - dbus-1.12.20
+  xscreensaver-5.44:
+    req:
+      - libglade-2.6.4
+      - xorg-applications-7
+    rec:
+      - glu-9.0.1
+    opt:
+      - gdm-3.36.3
+      - linux-pam-1.4.0
+    opt_run:
+      - xorg-legacy-1
+  alsa-1.2.2: {}
   
