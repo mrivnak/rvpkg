@@ -8,6 +8,26 @@ packages:
       - gpm-1.20.7
       - slang-2.3.2
       - xorg-7
+  abiword-3.0.4:
+    opt:
+      - dbus-glib-0.110
+      - evolution-data-server-3.36.5
+      - gobject-introspection-1.64.1
+      - libchamplain-0.12.20
+      - libgcrypt-1.8.6
+      - libical-3.0.8
+      - libsoup-2.70.0
+      - redland-1.0.17
+      - telepathy-glib-0.24.1
+      - valgrind-3.16.1
+    rec:
+      - enchant-2.2.8
+    req:
+      - boost-1.74.0
+      - curl-7.71.1
+      - fribidi-1.0.9
+      - goffice-0.10.48
+      - wv-1.2.9
   accountsservice-0.6.55:
     opt:
       - gtk-doc-1.32
@@ -46,6 +66,41 @@ packages:
       - alien-build-2.26
       - libxml2-2.9.10
       - perl-5.32.0
+  alsa-1.2.2: {}
+  alsa-firmware-1.2.1:
+    req:
+      - alsa-tools-1.2.2
+  alsa-lib-1.2.3.2:
+    opt:
+      - doxygen-1.8.19
+      - python-2.7.18
+    req:
+      - alsa-1.2.2
+  alsa-oss-1.1.8:
+    req:
+      - alsa-lib-1.2.3.2
+  alsa-plugins-1.2.2:
+    opt:
+      - ffmpeg-4.3.1
+      - libsamplerate-0.1.9
+      - pulseaudio-13.0
+      - speex-1.2.0
+    req:
+      - alsa-lib-1.2.3.2
+  alsa-tools-1.2.2:
+    opt:
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - fltk-1.3.5
+    req:
+      - alsa-lib-1.2.3.2
+  alsa-utils-1.2.3:
+    opt:
+      - fftw-3.3.8
+      - libsamplerate-0.1.9
+      - xmlto-0.0.28
+    req:
+      - alsa-lib-1.2.3.2
   amtk-5.1.1:
     opt:
       - gtk-doc-1.32
@@ -112,6 +167,26 @@ packages:
   aspell-0.60.8:
     req:
       - which-2.21
+  asymptote-2.67:
+    opt:
+      - fftw-3.3.8
+      - gsl-2.6
+      - libsigsegv-2.12
+    opt_run:
+      - imagemagick-7.0.10-27
+      - qt-5.15.0
+    rec:
+      - curl-7.71.1
+      - freeglut-3.2.1
+      - gc-8.0.4
+      - glew-2.1.0
+      - glm-0.9.9.8
+      - libtirpc-1.2.6
+    rec_run:
+      - dvisvgm-2.10
+    req:
+      - ghostscript-9.52
+      - texlive-20200406
   at-3.2.1:
     opt:
       - linux-pam-1.4.0
@@ -142,6 +217,41 @@ packages:
       - glibmm-2.64.2
   attica-5.73.0: {}
   attr-2.4.48: {}
+  audacious-4.0.5:
+    opt:
+      - valgrind-3.16.1
+      - curl-7.71.1
+      - faad2-2.9.2
+      - ffmpeg-4.3.1
+      - flac-1.3.3
+      - lame-3.100
+      - libcdio-2.1.0
+      - libnotify-0.7.9
+      - libsamplerate-0.1.9
+      - libsndfile-1.0.28
+      - libvorbis-1.3.7
+      - pulseaudio-13.0
+      - sdl-1.2.15
+    rec:
+      - alsa-1.2.2
+      - dbus-1.12.20
+      - gnome-icon-theme-3.12.0
+      - mpg123-1.26.3
+      - neon-0.31.2
+    req:
+      - gtk+-2.24.32
+      - qt-5.15.0
+      - libxml2-2.9.10
+    req_run:
+      - xorg-7
+  audiofile-0.3.6:
+    opt:
+      - asciidoc-9.0.2
+      - valgrind-3.16.1
+    rec:
+      - flac-1.3.3
+    req:
+      - alsa-lib-1.2.3.2
   autoconf-2.13: {}
   autoconf-2.69: {}
   autofs-5.1.6:
@@ -192,12 +302,82 @@ packages:
       - gobject-introspection-1.64.1
       - librsvg-2.48.8
   baloo-5.73.0: {}
+  balsa-2.5.11:
+    opt:
+      - compface-1.5.2
+      - gcr-3.36.0
+      - gtksourceview-3.24.11
+      - libcanberra-0.30
+      - libnotify-0.7.9
+      - libsecret-0.20.3
+      - mit-kerberos-v5-1.18.2
+      - openldap-2.4.51
+      - procmail-3.22
+      - sqlite-3.33.0
+      - webkitgtk+-2.28.4
+    rec:
+      - pcre-8.44
+    req:
+      - aspell-0.60.8
+      - enchant-2.2.8
+      - gmime-2.6.23
+      - gpgme-1.14.0
+      - gtk+-3.24.22
+      - rarian-0.8.1
+    req_run:
+      - sendmail-8.16.1
+  baobab-3.34.1:
+    req:
+      - adwaita-icon-theme-3.36.1
+      - gtk+-3.24.22
+      - itstool-2.0.6
+      - vala-0.48.9
   bash-5.0: {}
   bash-completion-2.11: {}
   bc-3.1.5: {}
   berkeley-db-5.3.28:
     opt:
       - sharutils-4.15.2
+  biber-2.14:
+    rec:
+      - file-which-1.23
+      - test-differences-0.67
+    req:
+      - autovivification-0.18
+      - business-isbn-3.005
+      - business-ismn-1.201
+      - business-issn-1.004
+      - class-accessor-0.51
+      - data-compare-1.27
+      - data-dump-1.23
+      - data-uniqid-0.12
+      - datetime-calendar-julian-0.102
+      - datetime-format-builder-0.83
+      - encode-eucjpascii-0.03
+      - encode-hanextra-0.23
+      - encode-jis2k-0.03
+      - file-slurper-0.012
+      - io-string-1.08
+      - ipc-run3-0.048
+      - lingua-translit-0.28
+      - list-allutils-0.16
+      - list-moreutils-0.428
+      - log-log4perl-1.50
+      - lwp-protocol-https-6.09
+      - module-build-0.4231
+      - parse-recdescent-1.967015
+      - perlio-utf8-strict-0.007
+      - regexp-common-2017060201
+      - sort-key-1.33
+      - text-bibtex-0.88
+      - text-csv-2.00
+      - text-roman-3.5
+      - unicode-collate-1.27
+      - unicode-linebreak-2019.001
+      - xml-libxml-simple-1.01
+      - xml-libxslt-1.99
+      - xml-writer-0.625
+      - texlive-20200406
   bind-9.16.5:
     opt:
       - berkeley-db-5.3.28
@@ -268,6 +448,29 @@ packages:
     rec:
       - which-2.21
   botan-2.15.0: {}
+  brasero-3.12.2:
+    opt:
+      - gtk-doc-1.32
+      - tracker-2.3.4
+    opt_run:
+      - cdrdao-1.2.4
+      - libdvdcss-1.4.2
+      - cdrtools-3.02a09
+    rec:
+      - gobject-introspection-1.64.1
+      - libburn-1.5.2
+      - libisoburn-1.5.2
+      - libisofs-1.5.2
+      - nautilus-3.36.3
+      - totem-pl-parser-3.26.5
+    rec_run:
+      - dvd+rw-tools-7.1
+      - gvfs-1.44.1
+    req:
+      - gst-plugins-base-1.16.2
+      - itstool-2.0.6
+      - libcanberra-0.30
+      - libnotify-0.7.9
   breeze-5.19.4: {}
   breeze-grub-5.19.4: {}
   breeze-gtk-5.19.4: {}
@@ -360,7 +563,35 @@ packages:
   cbindgen-0.14.3:
     req:
       - rustc-1.42.0
+  cdparanoia-iii-10.2: {}
+  cdrdao-1.2.4:
+    rec:
+      - gtkmm-2.24.5
+      - libao-1.2.0
+      - libvorbis-1.3.7
+      - libmad-0.15.1b
+      - lame-3.100
+  cdrtools-3.02a09:
+    req:
+      - alsa-lib-1.2.3.2
   check-0.15.2: {}
+  cheese-3.34.0:
+    opt:
+      - gtk-doc-1.32
+      - libxslt-1.1.34
+    rec:
+      - gnome-video-effects-0.5.0
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - clutter-gst-3.0.27
+      - clutter-gtk-1.8.4
+      - gnome-desktop-3.36.5
+      - gst-plugins-bad-1.16.2
+      - gst-plugins-good-1.16.2
+      - v4l-utils-1.20.0
+      - libcanberra-0.30
+      - libgudev-233
   chrony-3.5.1: {}
   cifs-utils-6.10:
     opt:
@@ -557,6 +788,45 @@ packages:
   cssselect-1.1.0: {}
   cuda-11.0.3: {}
   cunit-2.1.3: {}
+  cups-2.3.3:
+    opt:
+      - avahi-0.8
+      - libpaper-1.1.24+nmu5
+      - mit-kerberos-v5-1.18.2
+      - openjdk-14.0.1
+      - php-7.4.9
+      - python-2.7.18
+    opt_run:
+      - gutenprint-5.3.3
+    rec:
+      - colord-1.4.4
+      - dbus-1.12.20
+      - libusb-1.0.23
+      - linux-pam-1.4.0
+      - xdg-utils-1.1.3
+    req:
+      - gnutls-3.6.14
+    req_run:
+      - cups-filters-1.27.5
+  cups-filters-1.27.5:
+    opt:
+      - avahi-0.8
+      - openldap-2.4.51
+      - php-7.4.9
+    opt_run:
+      - gutenprint-5.3.3
+    rec:
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libtiff-4.1.0
+      - mupdf-1.17.0
+    req:
+      - cups-2.3.3
+      - glib-2.64.4
+      - ghostscript-9.52
+      - little-cms-2.11
+      - poppler-20.08.0
+      - qpdf-10.0.1
   cups-pk-helper-0.2.6:
     req:
       - cups-2.3.3
@@ -691,6 +961,22 @@ packages:
       - python-3.8.5
     req_run:
       - dbus-python-1.2.16
+  dconf-0.36.0:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - libxslt-1.1.34
+      - vala-0.48.9
+    req:
+      - dbus-1.12.20
+      - glib-2.64.4
+  dconf-editor-3.36.4:
+    opt:
+      - gtk-doc-1.32
+    req:
+      - dconf-0.36.0
+      - gtk+-3.24.22
+      - libxml2-2.9.10
   decorator-4.4.2:
     req:
       - python-3.8.5
@@ -720,6 +1006,54 @@ packages:
       - module-runtime-0.016
       - perl-5.32.0
   dmalloc-5.5.2: {}
+  docbook-dsssl-1.79:
+    req:
+      - sgml-common-0.6.3
+      - docbook-dtd-3.1
+      - docbook-dtd-4.5
+      - opensp-1.5.2
+      - openjade-1.3.2
+  docbook-dtd-3.1:
+    req:
+      - sgml-common-0.6.3
+      - unzip-6.0
+  docbook-dtd-4.5:
+    req:
+      - sgml-common-0.6.3
+      - unzip-6.0
+  docbook-utils-0.6.14:
+    opt_run:
+      - sgmlspm-1.1
+      - lynx-2.8.9rel.1
+      - links-2.20.2
+    req:
+      - openjade-1.3.2
+      - docbook-dsssl-1.79
+      - docbook-dtd-3.1
+  docbook-xml-4.5:
+    req:
+      - libxml2-2.9.10
+      - sgml-common-0.6.3
+      - unzip-6.0
+  docbook-xml-5.0:
+    req:
+      - libxml2-2.9.10
+      - sgml-common-0.6.3
+      - unzip-6.0
+  docbook-xml-5.1:
+    req:
+      - libxml2-2.9.10
+      - sgml-common-0.6.3
+      - unzip-6.0
+  docbook-xsl-nons-1.79.2:
+    opt_run:
+      - apache-ant-1.10.8
+      - libxslt-1.1.34
+      - python-2.7.18
+      - ruby-2.7.1
+      - zip-3.0
+    rec_run:
+      - libxml2-2.9.10
   doctools-0.2.2:
     req:
       - python-2.7.18
@@ -768,6 +1102,21 @@ packages:
       - cmake-3.18.1
       - git-2.28.0
   drkonqi-5.19.4: {}
+  dvd+rw-tools-7.1:
+    req_run:
+      - cdrtools-3.02a09
+  dvisvgm-2.10:
+    opt:
+      - asciidoc-9.0.2
+      - xmlto-0.0.28
+      - libxslt-1.1.34
+      - dblatex-0.3.9
+    rec:
+      - woff-1.0.2
+    req:
+      - brotli-1.0.7
+      - ghostscript-9.52
+      - potrace-1.16
   e2fsprogs-1.45.6: {}
   ed-1.16:
     req:
@@ -820,9 +1169,52 @@ packages:
     req:
       - perl-5.32.0
   encodings-1.0.5: {}
+  enscript-1.6.6:
+    opt:
+      - texlive-20200406
   enum34-1.1.10:
     req:
       - python-2.7.18
+  eog-3.36.3:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - little-cms-2.11
+      - libexif-0.6.22
+      - librsvg-2.48.8
+    req:
+      - adwaita-icon-theme-3.36.1
+      - exempi-2.5.2
+      - gnome-desktop-3.36.5
+      - itstool-2.0.6
+      - libjpeg-turbo-2.0.5
+      - libpeas-1.26.0
+      - shared-mime-info-2.0
+  epdfview-0.1.8:
+    opt:
+      - cups-2.3.3
+    rec:
+      - desktop-file-utils-0.26
+      - hicolor-icon-theme-0.17
+    req:
+      - gtk+-2.24.32
+      - poppler-20.08.0
+  epiphany-3.36.4:
+    rec:
+      - libdazzle-3.36.0
+      - libhandy-0.0.13
+    req:
+      - gcr-3.36.0
+      - gnome-desktop-3.36.5
+      - iso-codes-4.5.0
+      - json-glib-1.4.4
+      - libnotify-0.7.9
+      - nettle-3.6
+      - webkitgtk+-2.28.4
+    req_run:
+      - gnome-keyring-3.36.0
+      - seahorse-3.36.2
   ethtool-5.8: {}
   eval-closure-0.14:
     rec:
@@ -830,6 +1222,78 @@ packages:
       - test-requires-0.11
     req:
       - perl-5.32.0
+  evince-3.36.7:
+    opt:
+      - cups-2.3.3
+      - gnome-desktop-3.36.5
+      - gspell-1.8.3
+      - gst-plugins-base-1.16.2
+      - gtk-doc-1.32
+      - libgxps-0.3.1
+      - libtiff-4.1.0
+      - texlive-20200406
+    rec:
+      - gnome-keyring-3.36.0
+      - gobject-introspection-1.64.1
+      - libarchive-3.4.3
+      - libsecret-0.20.3
+      - nautilus-3.36.3
+      - poppler-20.08.0
+    req:
+      - adwaita-icon-theme-3.36.1
+      - gsettings-desktop-schemas-3.36.1
+      - gtk+-3.24.22
+      - itstool-2.0.6
+      - libxml2-2.9.10
+      - openjpeg-2.3.1
+  evolution-3.36.5:
+    opt:
+      - clutter-gtk-1.8.4
+      - geoclue-2.5.6
+      - geocode-glib-3.26.2
+      - libchamplain-0.12.20
+      - gtk-doc-1.32
+    rec:
+      - bogofilter-1.2.5
+      - enchant-2.2.8
+      - gnome-desktop-3.36.5
+      - gspell-1.8.3
+      - highlight-3.57
+      - libcanberra-0.30
+      - libgweather-3.36.1
+      - libnotify-0.7.9
+      - openldap-2.4.51
+      - seahorse-3.36.2
+    req:
+      - adwaita-icon-theme-3.36.1
+      - evolution-data-server-3.36.5
+      - gnome-autoar-0.2.4
+      - itstool-2.0.6
+      - libgdata-0.17.12
+      - shared-mime-info-2.0
+      - webkitgtk+-2.28.4
+  evolution-data-server-3.36.5:
+    opt:
+      - gtk-doc-1.32
+      - mit-kerberos-v5-1.18.2
+      - sendmail-8.16.1
+      - openldap-2.4.51
+    rec:
+      - gnome-online-accounts-3.36.0
+      - gobject-introspection-1.64.1
+      - gtk+-3.24.22
+      - icu-67.1
+      - libcanberra-0.30
+      - libgdata-0.17.12
+      - libgweather-3.36.1
+      - vala-0.48.9
+    req:
+      - berkeley-db-5.3.28
+      - gcr-3.36.0
+      - libical-3.0.8
+      - libsecret-0.20.3
+      - nss-3.55
+      - sqlite-3.33.0
   exception-class-1.44:
     req:
       - class-data-inheritable-0.08
@@ -866,6 +1330,14 @@ packages:
       - curl-7.71.1
     req:
       - cmake-3.18.1
+  exo-0.12.11:
+    opt:
+      - gtk-doc-1.32
+    req:
+      - gtk+-3.24.22
+      - libxfce4ui-4.14.1
+      - libxfce4util-4.14.0
+      - uri-1.76
   expat-2.2.9: {}
   expect-5.45.4: {}
   exporter-tiny-1.002002:
@@ -885,12 +1357,35 @@ packages:
     req:
       - module-build-0.4231
       - perl-5.32.0
+  faac-1.30: {}
+  faad2-2.9.2: {}
+  falkon-3.1.0:
+    opt:
+      - gnome-keyring-3.36.0
+      - kde-frameworks-5.73.0
+    req:
+      - extra-cmake-modules-5.73.0
+      - qtwebengine-5.15.0
   fcron-3.2.1:
     opt:
       - docbook-utils-0.6.14
       - linux-pam-1.4.0
       - sendmail-8.16.1
       - vim-8.2.1361
+  fdk-aac-2.0.1: {}
+  feh-3.4.1:
+    opt:
+      - libexif-0.6.22
+      - test-command-0.11
+    opt_run:
+      - libjpeg-turbo-2.0.5
+      - imagemagick-7.0.10-27
+    rec:
+      - curl-7.71.1
+    req:
+      - libpng-1.6.37
+      - imlib2-1.7.0
+      - giflib-5.2.1
   fetchmail-6.4.8:
     opt:
       - mit-kerberos-v5-1.18.2
@@ -906,6 +1401,38 @@ packages:
       - test2-suite-0.00130
     req:
       - perl-5.32.0
+  ffmpeg-4.3.1:
+    opt:
+      - fontconfig-2.13.1
+      - frei0r-plugins-1.7.0
+      - libcdio-2.1.0
+      - libdrm-2.4.102
+      - libwebp-1.1.0
+      - opencv-4.4.0
+      - openjpeg-2.3.1
+      - gnutls-3.6.14
+      - pulseaudio-13.0
+      - speex-1.2.0
+      - texlive-20200406
+      - v4l-utils-1.20.0
+      - xvid-1.3.7
+      - xorg-7
+    rec:
+      - libass-0.14.0
+      - fdk-aac-2.0.1
+      - freetype-2.10.2
+      - lame-3.100
+      - libtheora-1.1.1
+      - libvorbis-1.3.7
+      - libvpx-1.9.0
+      - opus-1.3.1
+      - x264-20200819
+      - x265-3.4
+      - yasm-1.3.0
+      - alsa-lib-1.2.3.2
+      - libva-2.8.0
+      - libvdpau-1.4
+      - sdl2-2.0.12
   fftw-3.3.8: {}
   fig2dev-3.2.7b: {}
   file-5.39: {}
@@ -925,6 +1452,21 @@ packages:
     req:
       - http-date-6.05
       - perl-5.32.0
+  file-roller-3.36.3:
+    opt_run:
+      - unrar-5.9.4
+      - unzip-6.0
+      - zip-3.0
+    rec:
+      - cpio-2.13
+      - desktop-file-utils-0.26
+      - json-glib-1.4.4
+      - libarchive-3.4.3
+      - libnotify-0.7.9
+      - nautilus-3.36.3
+    req:
+      - gtk+-3.24.22
+      - itstool-2.0.6
   file-sharedir-1.116:
     req:
       - class-inspector-1.36
@@ -947,11 +1489,49 @@ packages:
       - perl-5.32.0
       - text-glob-0.11
   findutils-4.7.0: {}
+  firefox-78.2.0:
+    opt:
+      - curl-7.71.1
+      - doxygen-1.8.19
+      - ffmpeg-4.3.1
+      - liboauth-1.0.3
+      - openjdk-14.0.1
+      - valgrind-3.16.1
+      - wget-1.20.3
+      - wireless-tools-29
+    rec:
+      - icu-67.1
+      - libevent-2.1.12
+      - libwebp-1.1.0
+      - nasm-2.15.03
+    req:
+      - autoconf-2.13
+      - cbindgen-0.14.3
+      - dbus-glib-0.110
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - libnotify-0.7.9
+      - nodejs-12.18.3
+      - nss-3.55
+      - pulseaudio-13.0
+      - python-3.8.5
+      - sqlite-3.33.0
+      - startup-notification-0.12
+      - unzip-6.0
+      - yasm-1.3.0
+      - zip-3.0
   fixtures-3.0.0:
     opt:
       - python-2.7.18
     req:
       - python-3.8.5
+  flac-1.3.3:
+    opt:
+      - libogg-1.3.4
+      - nasm-2.15.03
+      - docbook-utils-0.6.14
+      - doxygen-1.8.19
+      - valgrind-3.16.1
   flex-2.6.4: {}
   fltk-1.3.5:
     opt:
@@ -975,6 +1555,18 @@ packages:
       - dbus-1.12.20
     req:
       - xorg-7
+  folks-0.14.0:
+    opt:
+      - tracker-2.3.4
+    rec:
+      - bluez-5.54
+      - vala-0.48.9
+    req:
+      - evolution-data-server-3.36.5
+      - gobject-introspection-1.64.1
+      - libgee-0.20.3
+      - dbusmock-0.19
+      - telepathy-glib-0.24.1
   font-adobe-utopia-type1-1.0.4: {}
   font-alias-1.0.4: {}
   font-bh-ttf-1.0.3: {}
@@ -991,8 +1583,27 @@ packages:
       - texlive-20200406
     req:
       - freetype-2.10.2
+  fontforge-20200314:
+    opt:
+      - giflib-5.2.1
+      - git-2.28.0
+      - libjpeg-turbo-2.0.5
+      - libtiff-4.1.0
+      - woff-1.0.2
+      - sphinx-3.2.1
+    rec:
+      - gtk+-3.24.22
+    req:
+      - libspiro-20200505
+      - libuninameslist-20200413
+      - libxml2-2.9.10
   fonttools-4.14.0:
     req: python-3.8.5
+  fop-2.5:
+    opt:
+      - xorg-7
+    req:
+      - apache-ant-1.10.8
   frameworkintegration-5.73.0: {}
   freeglut-3.2.1:
     rec:
@@ -1008,11 +1619,29 @@ packages:
       - harfbuzz-2.7.1
       - libpng-1.6.37
       - which-2.21
+  frei0r-plugins-1.7.0:
+    opt:
+      - doxygen-1.8.19
+      - opencv-4.4.0
+    rec:
+      - gavl-1.4.0
   fribidi-1.0.9: {}
   fuse-3.9.3:
     opt:
       - doxygen-1.8.19
       - pytest-6.0.1
+  garcon-0.7.0:
+    opt:
+      - gtk-doc-1.32
+    req:
+      - libxfce4ui-4.14.1
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+  gavl-1.4.0:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - libpng-1.6.37
   gawk-5.1.0: {}
   gc-8.0.4:
     req:
@@ -1022,6 +1651,30 @@ packages:
       - gdb-9.2
       - isl-0.22.1
       - valgrind-3.16.1
+  gconf-3.2.6:
+    opt:
+      - openldap-2.4.51
+    rec:
+      - gobject-introspection-1.64.1
+      - gtk+-3.24.22
+      - polkit-0.117
+    req:
+      - dbus-glib-0.110
+      - libxml2-2.9.10
+  gcr-3.36.0:
+    opt:
+      - gtk-doc-1.32
+      - valgrind-3.16.1
+    rec:
+      - gnupg-2.2.21
+      - gobject-introspection-1.64.1
+      - gtk+-3.24.22
+      - libxslt-1.1.34
+      - vala-0.48.9
+    req:
+      - glib-2.64.4
+      - libgcrypt-1.8.6
+      - p11-kit-0.23.20
   gdb-9.2:
     opt:
       - doxygen-1.8.19
@@ -1050,6 +1703,19 @@ packages:
   gdl-3.34.0:
     req:
       - gtk+-3.24.22
+  gdm-3.36.3:
+    opt:
+      - keyutils-1.6.1
+    req:
+      - accountsservice-0.6.55
+      - gtk+-3.24.22
+      - iso-codes-4.5.0
+      - itstool-2.0.6
+      - libcanberra-0.30
+      - libdaemon-0.14
+      - linux-pam-1.4.0
+    req_run:
+      - systemd-246
   gedit-3.36.2:
     opt:
       - gtk-doc-1.32
@@ -1108,10 +1774,81 @@ packages:
     req:
       - json-glib-1.4.4
       - libsoup-2.70.0
+  geocode-glib-3.26.2:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - json-glib-1.4.4
+      - libsoup-2.70.0
   gettext-0.21: {}
+  gexiv2-0.12.1:
+    opt:
+      - gtk-doc-1.32
+      - python-2.7.18
+    rec:
+      - vala-0.48.9
+    req:
+      - exiv2-0.27.3
+  gfbgraph-0.2.4:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - gnome-online-accounts-3.36.0
+      - rest-0.8.1
+  ghostscript-9.52:
+    opt:
+      - cairo-1.17.2+f93fc72c03e
+      - gtk+-3.24.22
+      - libidn-1.36
+      - libpaper-1.1.24+nmu5
+      - xorg-7
+    rec:
+      - cups-2.3.3
+      - fontconfig-2.13.1
+      - freetype-2.10.2
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libtiff-4.1.0
+      - openjpeg-2.3.1
   giflib-5.2.1:
     req:
       - xmlto-0.0.28
+  gimp-2.10.20:
+    opt:
+      - aalib-1.4rc5
+      - alsa-lib-1.2.3.2
+      - libmng-2.0.3
+      - libwebp-1.1.0
+      - openjpeg-2.3.1
+      - sendmail-8.16.1
+      - gtk-doc-1.32
+    rec:
+      - dbus-glib-0.110
+      - ghostscript-9.52
+      - gvfs-1.44.1
+      - iso-codes-4.5.0
+      - libgudev-233
+      - pygtk-2.24.0
+      - xdg-utils-1.1.3
+    req:
+      - gegl-0.3.34
+      - gexiv2-0.12.1
+      - glib-networking-2.64.3
+      - gtk+-2.24.32
+      - harfbuzz-2.7.1
+      - libjpeg-turbo-2.0.5
+      - libmypaint-1.6.1
+      - librsvg-2.48.8
+      - libtiff-4.1.0
+      - python-libxml2-2.9.10
+      - little-cms-2.11
+      - mypaint-brushes-1.3.0
+      - poppler-20.08.0
+      - xorg-7
   git-2.28.0:
     opt:
       - asciidoc-9.0.2
@@ -1124,6 +1861,16 @@ packages:
       - xmlto-0.0.28
     rec:
       - curl-7.71.1
+  gjs-1.64.4:
+    opt:
+      - valgrind-3.16.1
+    rec:
+      - gtk+-3.24.22
+    req:
+      - cairo-1.17.2+f93fc72c03e
+      - dbus-1.12.20
+      - gobject-introspection-1.64.1
+      - js-68.11.0
   glew-2.1.0:
     req:
       - mesa-20.1.5
@@ -1176,6 +1923,100 @@ packages:
       - glib-2.64.4
       - libgpg-error-1.38
   gmp-6.2.0: {}
+  gnome-autoar-0.2.4:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - vala-0.48.9
+    req:
+      - libarchive-3.4.3
+      - gtk+-3.24.22
+  gnome-backgrounds-3.36.0: {}
+  gnome-bluetooth-3.34.1:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - gtk+-3.24.22
+      - itstool-2.0.6
+      - libcanberra-0.30
+      - libnotify-0.7.9
+    req_run:
+      - bluez-5.54
+      - systemd-246
+  gnome-calculator-3.36.0:
+    rec:
+      - vala-0.48.9
+    req:
+      - gtk+-3.24.22
+      - gtksourceview4-4.6.1
+      - itstool-2.0.6
+      - libgee-0.20.3
+      - libsoup-2.70.0
+  gnome-color-manager-3.36.0:
+    opt:
+      - docbook-utils-0.6.14
+    rec:
+      - desktop-file-utils-0.26
+    req:
+      - colord-1.4.4
+      - gtk+-3.24.22
+      - itstool-2.0.6
+      - little-cms-2.11
+      - libcanberra-0.30
+      - libexif-0.6.22
+  gnome-control-center-3.36.4:
+    opt:
+      - dbusmock-0.19
+    opt_run:
+      - cups-pk-helper-0.2.6
+      - gnome-color-manager-3.36.0
+      - sound-theme-freedesktop-0.8
+    rec:
+      - cheese-3.34.0
+      - cups-2.3.3
+      - samba-4.12.6
+      - gnome-bluetooth-3.34.1
+      - ibus-1.5.22
+      - libhandy-0.0.13
+      - modemmanager-1.14.0
+      - libnma-1.8.30
+    req:
+      - accountsservice-0.6.55
+      - clutter-gtk-1.8.4
+      - colord-gtk-0.2.0
+      - gnome-online-accounts-3.36.0
+      - gnome-settings-daemon-3.36.1
+      - grilo-0.3.12
+      - gsound-1.0.2
+      - libgtop-2.40.0
+      - libpwquality-1.4.2
+      - mit-kerberos-v5-1.18.2
+      - shared-mime-info-2.0
+      - udisks-2.9.1
+  gnome-desktop-3.36.5:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - bubblewrap-0.4.1
+      - gobject-introspection-1.64.1
+    req:
+      - gsettings-desktop-schemas-3.36.1
+      - gtk+-3.24.22
+      - iso-codes-4.5.0
+      - itstool-2.0.6
+      - libseccomp-2.5.0
+      - libxml2-2.9.10
+      - xkeyboard-config-2.30
+  gnome-disk-utility-3.36.3:
+    req:
+      - gnome-settings-daemon-3.36.1
+      - itstool-2.0.6
+      - libdvdread-6.1.1
+      - libpwquality-1.4.2
+      - libsecret-0.20.3
+      - udisks-2.9.1
   gnome-icon-theme-3.12.0:
     req:
       - gtk+-3.24.22
@@ -1194,12 +2035,210 @@ packages:
       - inkscape-1.0
     req:
       - gnome-icon-theme-3.12.0
+  gnome-keyring-3.36.0:
+    opt:
+      - gnupg-2.2.21
+      - valgrind-3.16.1
+    rec:
+      - linux-pam-1.4.0
+      - libxslt-1.1.34
+      - openssh-8.3p1
+    req:
+      - dbus-1.12.20
+      - gcr-3.36.0
+  gnome-logs-3.36.0:
+    opt:
+      - desktop-file-utils-0.26
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - libxslt-1.1.34
+    req:
+      - gtk+-3.24.22
+      - gsettings-desktop-schemas-3.36.1
+      - itstool-2.0.6
+  gnome-maps-3.36.4:
+    req:
+      - clutter-gtk-1.8.4
+      - folks-0.14.0
+      - geoclue-2.5.6
+      - geocode-glib-3.26.2
+      - gfbgraph-0.2.4
+      - gjs-1.64.4
+      - libchamplain-0.12.20
+      - libgee-0.20.3
+      - rest-0.8.1
+  gnome-menus-3.36.0:
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - glib-2.64.4
+  gnome-nettool-3.8.1:
+    req:
+      - gtk+-3.24.22
+      - itstool-2.0.6
+      - libgtop-2.40.0
+    req_run:
+      - bind-utilities-9.16.5
+      - nmap-7.80
+      - net-tools-cvs-20101030
+      - traceroute-2.1.0
+      - whois-5.4.3
+  gnome-online-accounts-3.36.0:
+    opt:
+      - gtk-doc-1.32
+      - mit-kerberos-v5-1.18.2
+      - valgrind-3.16.1
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - gcr-3.36.0
+      - json-glib-1.4.4
+      - rest-0.8.1
+      - vala-0.48.9
+      - webkitgtk+-2.28.4
+  gnome-power-manager-3.32.0:
+    opt:
+      - docbook-utils-0.6.14
+    req:
+      - gtk+-3.24.22
+      - upower-0.99.11
+  gnome-screenshot-3.36.0:
+    req:
+      - gtk+-3.24.22
+      - libcanberra-0.30
+  gnome-session-3.36.0:
+    opt:
+      - gconf-3.2.6
+      - xmlto-0.0.28
+      - libxslt-1.1.34
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+    req:
+      - dbus-glib-0.110
+      - gnome-desktop-3.36.5
+      - json-glib-1.4.4
+      - mesa-20.1.5
+      - systemd-246
+      - upower-0.99.11
+  gnome-settings-daemon-3.36.1:
+    opt:
+      - mutter-3.36.5
+      - dbusmock-0.19
+      - umockdev-0.14.2
+    rec:
+      - alsa-1.2.2
+      - cups-2.3.3
+      - networkmanager-1.26.0
+      - nss-3.55
+      - wayland-1.18.0
+    req:
+      - colord-1.4.4
+      - fontconfig-2.13.1
+      - gcr-3.36.0
+      - geoclue-2.5.6
+      - geocode-glib-3.26.2
+      - gnome-desktop-3.36.5
+      - little-cms-2.11
+      - libcanberra-0.30
+      - libgweather-3.36.1
+      - libnotify-0.7.9
+      - librsvg-2.48.8
+      - libwacom-1.4.1
+      - pulseaudio-13.0
+      - systemd-246
+      - upower-0.99.11
+      - xorg-wacom-driver-0.39.0
+  gnome-shell-3.36.5:
+    opt:
+      - gtk-doc-1.32
+      - bash-completion-2.11
+    rec:
+      - asciidoc-9.0.2
+      - desktop-file-utils-0.26
+      - gnome-bluetooth-3.34.1
+      - gst-plugins-base-1.16.2
+      - networkmanager-1.26.0
+    req:
+      - evolution-data-server-3.36.5
+      - gjs-1.64.4
+      - gnome-autoar-0.2.4
+      - gnome-control-center-3.36.4
+      - mutter-3.36.5
+      - sassc-3.6.1
+      - startup-notification-0.12
+      - systemd-246
+    req_run:
+      - adwaita-icon-theme-3.36.1
+      - dconf-0.36.0
+      - gdm-3.36.3
+      - gnome-backgrounds-3.36.0
+      - gnome-menus-3.36.0
+      - telepathy-mission-control-5.16.5
+  gnome-shell-extensions-3.36.3:
+    opt:
+      - sassc-3.6.1
+    req:
+      - js-68.11.0
+      - libgtop-2.40.0
+  gnome-system-monitor-3.36.1:
+    opt:
+      - desktop-file-utils-0.26
+    req:
+      - adwaita-icon-theme-3.36.1
+      - gtkmm-3.24.2
+      - itstool-2.0.6
+      - libgtop-2.40.0
+      - librsvg-2.48.8
+  gnome-terminal-3.36.2:
+    opt:
+      - desktop-file-utils-0.26
+    rec:
+      - nautilus-3.36.3
+    req:
+      - dconf-0.36.0
+      - gnome-shell-3.36.5
+      - gsettings-desktop-schemas-3.36.1
+      - itstool-2.0.6
+      - pcre2-10.35
+      - vte-0.60.3
   gnome-themes-extra-3.28:
     req:
       - gtk+-2.24.32
       - gtk+-3.24.22
       - librsvg-2.48.8
+  gnome-tweaks-3.34.0:
+    req:
+      - gtk+-3.24.22
+      - gsettings-desktop-schemas-3.36.1
+      - libhandy-0.0.13
+      - pygobject-3.36.1
+      - sound-theme-freedesktop-0.8
+  gnome-user-docs-3.36.2:
+    req:
+      - itstool-2.0.6
+      - libxml2-2.9.10
+  gnome-video-effects-0.5.0: {}
+  gnome-weather-3.36.1:
+    req:
+      - gjs-1.64.4
+      - libgweather-3.36.1
   gnu-efi-3.0.12: {}
+  gnumeric-1.12.48:
+    opt:
+      - dconf-0.36.0
+      - gobject-introspection-1.64.1
+      - pygobject-3.36.1
+      - valgrind-3.16.1
+      - dblatex-0.3.9
+    rec_run:
+      - adwaita-icon-theme-3.36.1
+      - oxygen-icons5-5.73.0
+      - gnome-icon-theme-3.12.0
+      - xorg-7
+      - yelp-3.36.0
+    req:
+      - goffice-0.10.48
+      - itstool-2.0.6
   gnupg-2.2.21:
     opt:
       - adns-1.6.0
@@ -1264,6 +2303,12 @@ packages:
       - librsvg-2.48.8
       - libxslt-1.1.34
       - which-2.21
+  gparted-1.1.0:
+    opt:
+      - btrfs-progs-5.7
+    req:
+      - gtkmm-3.24.2
+      - parted-3.3
   gperf-3.1: {}
   gperftools-2.8: {}
   gpgme-1.14.0:
@@ -1280,6 +2325,9 @@ packages:
   gpgmepp-16.08.3:
     req:
       - gpgme-1.14.0
+  gpicview-0.2.5:
+    req:
+      - gtk+-2.24.32
   gpm-1.20.7: {}
   gptfdisk-1.0.5:
     opt:
@@ -1330,12 +2378,37 @@ packages:
       - tk-8.6.10
       - xorg-libraries-7
   grep-3.4: {}
+  grilo-0.3.12:
+    opt:
+      - avahi-0.8
+      - docbook-utils-0.6.14
+      - liboauth-1.0.3
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - gtk+-3.24.22
+      - libsoup-2.70.0
+      - totem-pl-parser-3.26.5
+      - vala-0.48.9
+    req:
+      - glib-2.64.4
+      - libxml2-2.9.10
   groff-1.22.4: {}
   grub-2.04: {}
+  gsettings-desktop-schemas-3.36.1:
+    req:
+      - glib-2.64.4
+      - gobject-introspection-1.64.1
   gsl-2.6:
     opt:
       - sphinx-3.2.1
       - sphinx-rtd-theme-0.5.0
+  gsound-1.0.2:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
   gspell-1.8.3:
     opt:
       - gobject-introspection-1.64.1
@@ -1346,6 +2419,130 @@ packages:
     req:
       - enchant-2.2.8
       - gtk+-3.24.22
+  gst-libav-1.16.2:
+    opt:
+      - valgrind-3.16.1
+    rec:
+      - yasm-1.3.0
+    req:
+      - ffmpeg-4.3.1
+      - gst-plugins-base-1.16.2
+  gst-plugins-bad-1.16.2:
+    opt:
+      - bluez-5.54
+      - clutter-1.26.4
+      - curl-7.71.1
+      - faac-1.30
+      - faad2-2.9.2
+      - fdk-aac-2.0.1
+      - gnutls-3.6.14
+      - gtk-doc-1.32
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - little-cms-2.11
+      - libass-0.14.0
+      - libexif-0.6.22
+      - libgcrypt-1.8.6
+      - libgudev-233
+      - libmpeg2-0.5.1
+      - libssh2-1.9.0
+      - libusb-1.0.23
+      - libvdpau-1.4
+      - libwebp-1.1.0
+      - neon-0.31.2
+      - nettle-3.6
+      - opencv-4.4.0
+      - openjpeg-2.3.1
+      - opus-1.3.1
+      - qt-5.15.0
+      - sdl-1.2.15
+      - valgrind-3.16.1
+      - wayland-1.18.0
+      - x265-3.4
+      - xorg-libraries-7
+    rec:
+      - libdvdread-6.1.1
+      - libdvdnav-6.1.0
+      - soundtouch-2.1.2
+    req:
+      - gst-plugins-base-1.16.2
+  gst-plugins-base-1.16.2:
+    opt:
+      - graphene-1.10.2
+      - gtk+-3.24.22
+      - gtk-doc-1.32
+      - opus-1.3.1
+      - qt-5.15.0
+      - sdl-1.2.15
+      - valgrind-3.16.1
+    rec:
+      - alsa-lib-1.2.3.2
+      - cdparanoia-iii-10.2
+      - gobject-introspection-1.64.1
+      - iso-codes-4.5.0
+      - libogg-1.3.4
+      - libtheora-1.1.1
+      - libvorbis-1.3.7
+      - xorg-libraries-7
+    req:
+      - gstreamer-1.16.2
+  gst-plugins-good-1.16.2:
+    opt:
+      - aalib-1.4rc5
+      - alsa-oss-1.1.8
+      - gtk+-3.24.22
+      - gtk-doc-1.32
+      - libdv-1.0.0
+      - pulseaudio-13.0
+      - qt-5.15.0
+      - speex-1.2.0
+      - taglib-1.11.1
+      - valgrind-3.16.1
+      - v4l-utils-1.20.0
+      - wayland-1.18.0
+    rec:
+      - cairo-1.17.2+f93fc72c03e
+      - flac-1.3.3
+      - lame-3.100
+      - mpg123-1.26.3
+      - mesa-20.1.5
+      - gdk-pixbuf-2.40.0
+      - libgudev-233
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libsoup-2.70.0
+      - libvpx-1.9.0
+      - xorg-libraries-7
+    req:
+      - gst-plugins-base-1.16.2
+  gst-plugins-ugly-1.16.2:
+    opt:
+      - gtk-doc-1.32
+      - libmpeg2-0.5.1
+      - libcdio-2.1.0
+      - valgrind-3.16.1
+    rec:
+      - liba52-0.7.4
+      - libdvdread-6.1.1
+      - x264-20200819
+    req:
+      - gst-plugins-base-1.16.2
+  gstreamer-1.16.2:
+    opt:
+      - gtk+-3.24.22
+      - gsl-2.6
+      - gtk-doc-1.32
+      - valgrind-3.16.1
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - glib-2.64.4
+  gstreamer-vaapi-1.16.2:
+    req:
+      - gstreamer-1.16.2
+      - gst-plugins-base-1.16.2
+      - gst-plugins-bad-1.16.2
+      - libva-2.8.0
   'gtk#-2.12.4':
     req:
       - mono-6.12.0.90
@@ -1454,6 +2651,18 @@ packages:
       - libxml2-2.9.10
     req:
       - gtk+-3.24.22
+  gucharmap-12.0.1:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - desktop-file-utils-0.26
+      - gtk+-3.24.22
+      - itstool-2.0.6
+      - unzip-6.0
+      - wget-1.20.3
   guile-3.0.4:
     opt_run:
       - emacs-27.1
@@ -1461,6 +2670,44 @@ packages:
     req:
       - gc-8.0.4
       - libunistring-0.9.10
+  gutenprint-5.3.3:
+    opt:
+      - imagemagick-7.0.10-27
+      - texlive-20200406
+      - doxygen-1.8.19
+      - docbook-utils-0.6.14
+    rec:
+      - cups-2.3.3
+      - gimp-2.10.20
+  gvfs-1.44.1:
+    opt:
+      - apache-2.4.46
+      - avahi-0.8
+      - bluez-5.54
+      - dbus-glib-0.110
+      - fuse-3.9.3
+      - gnome-online-accounts-3.36.0
+      - gtk-doc-1.32
+      - libarchive-3.4.3
+      - libgcrypt-1.8.6
+      - libxml2-2.9.10
+      - libxslt-1.1.34
+      - openssh-8.3p1
+      - samba-4.12.6
+    rec:
+      - gcr-3.36.0
+      - gtk+-3.24.22
+      - libcdio-2.1.0
+      - libgdata-0.17.12
+      - libgudev-233
+      - systemd-246
+      - udisks-2.9.1
+    req:
+      - dbus-1.12.20
+      - glib-2.64.4
+      - libusb-1.0.23
+      - libsecret-0.20.3
+      - libsoup-2.70.0
   gwenview-20.08.0:
     rec:
       - libkdcraw-20.08.0
@@ -1486,6 +2733,18 @@ packages:
       - popt-1.18
   hdparm-9.58: {}
   help2man-1.47.16: {}
+  hexchat-2.14.3:
+    opt:
+      - dbus-glib-0.110
+      - iso-codes-4.5.0
+      - libnotify-0.7.9
+      - pciutils-3.7.0
+    rec:
+      - gtk+-2.24.32
+      - libcanberra-0.30
+      - lua-5.4.0
+    req:
+      - glib-2.64.4
   hicolor-icon-theme-0.17: {}
   highlight-3.57:
     opt:
@@ -1571,6 +2830,7 @@ packages:
       - clang-10.0.1
       - doxygen-1.8.19
       - llvm-10.0.1
+  id3lib-3.8.3: {}
   idns-1.7.1:
     opt:
       - doxygen-1.8.19
@@ -1624,6 +2884,32 @@ packages:
     req:
       - perl-5.32.0
   inetutils-1.9.4: {}
+  inkscape-1.0:
+    opt:
+      - aspell-0.60.8
+      - dbus-1.12.20
+      - doxygen-1.8.19
+    rec:
+      - imagemagick-7.0.10-27
+      - little-cms-2.11
+      - little-cms-1.19
+      - libcanberra-0.30
+      - potrace-1.16
+    rec_run:
+      - lxml-4.5.2
+      - scour-0.37
+    req:
+      - boost-1.74.0
+      - double-conversion-3.1.5
+      - gc-8.0.4
+      - gdl-3.34.0
+      - gsl-2.6
+      - gtkmm-3.24.2
+      - libsoup-2.70.0
+      - libxslt-1.1.34
+      - poppler-20.08.0
+      - popt-1.18
+      - wget-1.20.3
   intl-tool-0.51.0: {}
   intlfonts-1.2.1: {}
   io-html-1.001:
@@ -1651,6 +2937,9 @@ packages:
       - libpcap-1.9.1
   isl-0.22.1: {}
   iso-codes-4.5.0: {}
+  itstool-2.0.6:
+    req:
+      - docbook-xml-4.5
   iw-5.4:
     req:
       - libnl-3.5.0
@@ -1872,7 +3161,7 @@ packages:
       - breeze-icons-5.73.0
     req:
       - kde-frameworks-5.73.0
-      - mlt06.22.1
+      - mlt-6.22.1
       - v4l-utils-1.20.0
   kdeplasma-addons-5.19.4: {}
   kdesignerplugin-5.73.0: {}
@@ -1966,6 +3255,19 @@ packages:
   kunitconversion-5.73.0: {}
   kwallet-5.73.0: {}
   kwallet-pam-5.19.4: {}
+  kwave-20.08.0:
+    opt:
+      - doxygen-1.8.19
+    rec:
+      - alsa-lib-1.2.3.2
+      - flac-1.3.3
+      - libogg-1.3.4
+      - pulseaudio-13.0
+    req:
+      - audiofile-0.3.6
+      - fftw-3.3.8
+      - id3lib-3.8.3
+      - kde-frameworks-5.73.0
   kwayland-5.73.0: {}
   kwayland-integration-5.19.4: {}
   kwayland-server-5.19.4: {}
@@ -1975,8 +3277,19 @@ packages:
   kwrited-5.19.4: {}
   kxmlgui-5.73.0: {}
   kxmlrpcclient-5.73.0: {}
+  lame-3.100:
+    opt:
+      - dmalloc-5.5.2
+      - libsndfile-1.0.28
+      - nasm-2.15.03
   less-551: {}
+  liba52-0.7.4: {}
   libaio-0.3.112: {}
+  libao-1.2.0:
+    opt:
+      - xorg-7
+      - alsa-1.2.2
+      - pulseaudio-13.0
   libappindicator-12.10.0:
     rec:
       - gtk+-2.24.32
@@ -1987,6 +3300,15 @@ packages:
       - libxml2-2.9.10
       - lzo-2.10
       - nettle-3.6
+  libass-0.14.0:
+    opt:
+      - harfbuzz-2.7.1
+    rec:
+      - fontconfig-2.13.1
+    req:
+      - freetype-2.10.2
+      - fribidi-1.0.9
+      - nasm-2.15.03
   libassuan-2.5.3:
     opt:
       - texlive-20200406
@@ -2006,6 +3328,7 @@ packages:
       - libyaml-0.2.4
       - parted-3.3
       - volume-key-0.3.12
+  libburn-1.5.2: {}
   libbytesize-2.4:
     opt:
       - gtk-doc-1.32
@@ -2013,9 +3336,35 @@ packages:
     req:
       - pcre-8.44
       - pygments-2.6.1
+  libcanberra-0.30:
+    opt:
+      - gtk+-2.24.32
+      - pulseaudio-13.0
+    rec:
+      - alsa-lib-1.2.3.2
+      - gstreamer-1.16.2
+      - gtk+-3.24.22
+    req:
+      - libvorbis-1.3.7
   libcap-2.42:
     rec:
       - linux-pam-1.4.0
+  libcddb-1.3.2: {}
+  libcdio-2.1.0:
+    opt:
+      - libcddb-1.3.2
+  libchamplain-0.12.20:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - clutter-1.26.4
+      - clutter-gtk-1.8.4
+      - gtk+-3.24.22
+      - libsoup-2.70.0
+      - sqlite-3.33.0
   libdaemon-0.14:
     opt:
       - doxygen-1.8.19
@@ -2030,6 +3379,9 @@ packages:
       - doxygen-1.8.19
     req:
       - qt-5.15.0
+  libdiscid-0.6.2:
+    opt:
+      - doxygen-1.8.19
   libdmx-1.1.4: {}
   libdrm-2.4.102:
     opt:
@@ -2043,6 +3395,18 @@ packages:
       - cunit-2.1.3
     rec:
       - xorg-libraries-7
+  libdv-1.0.0:
+    opt:
+      - popt-1.18
+      - sdl-1.2.15
+      - xorg-7
+  libdvdcss-1.4.2:
+    opt:
+      - doxygen-1.8.19
+  libdvdnav-6.1.0:
+    req:
+      - libdvdread-6.1.1
+  libdvdread-6.1.1: {}
   libedit-3.1: {}
   libelf-0.180: {}
   libepoxy-1.5.4:
@@ -2064,6 +3428,22 @@ packages:
       - graphiz-2.44.1
   libffcall-2.2: {}
   libffi-3.3: {}
+  libfm-1.3.1:
+    opt:
+      - gtk-doc-1.32
+      - dbus-glib-0.110
+      - gvfs-1.44.1
+    rec:
+      - libexif-0.6.22
+      - vala-0.48.9
+      - lxmenu-data-0.1.5
+    req:
+      - gtk+-3.24.22
+      - gtk+-2.24.32
+      - menu-cache-1.1.0
+  libfm-extra-1.3.1:
+    req:
+      - glib-2.64.4
   libfontenc-1.1.4: {}
   libfs-1.0.8: {}
   libgcrypt-1.8.6:
@@ -2072,6 +3452,29 @@ packages:
       - texlive-20200406
     req:
       - libgpg-error-1.38
+  libgdata-0.17.12:
+    opt:
+      - gtk-doc-1.32
+      - liboauth-1.0.3
+      - uhttpmock-0.5.3
+    rec:
+      - gcr-3.36.0
+      - git-2.28.0
+      - gobject-introspection-1.64.1
+    req:
+      - libsoup-2.70.0
+      - gnome-online-accounts-3.36.0
+      - gtk+-3.24.22
+      - json-glib-1.4.4
+      - vala-0.48.9
+  libgee-0.20.3:
+    opt:
+      - vala-0.48.9
+    rec:
+      - gobject-introspection-1.64.1
+      - vala-0.48.9
+    req:
+      - glib-2.64.4
   libgit2-1.0.1: {}
   libglade-2.6.4:
     opt:
@@ -2095,6 +3498,14 @@ packages:
     req:
       - glib-2.64.4
       - libxml2-2.9.10
+  libgtop-2.40.0:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - glib-2.64.4
+      - xorg-libraries-7
   libgudev-233:
     opt:
       - gobject-introspection-1.64.1
@@ -2110,6 +3521,17 @@ packages:
       - vala-0.48.9
     req:
       - libusb-1.0.23
+  libgweather-3.36.1:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - libxml2-2.9.10
+      - vala-0.48.9
+    req:
+      - geocode-glib-3.26.2
+      - gtk+-3.24.22
+      - libsoup-2.70.0
   libgxps-0.3.1:
     opt:
       - git-2.28.0
@@ -2168,6 +3590,14 @@ packages:
     rec:
       - gtk+-2.24.32
   libiscsi-1.19.0: {}
+  libisoburn-1.5.2:
+    opt:
+      - doxygen-1.8.19
+      - tk-8.6.10
+    req:
+      - libburn-1.5.2
+      - libisofs-1.5.2
+  libisofs-1.5.2: {}
   libjpeg-turbo-2.0.5:
     opt:
       - yasm-1.3.0
@@ -2194,6 +3624,7 @@ packages:
   libkscreen-5.19.4: {}
   libksysguard-5.19.4: {}
   liblinear-241: {}
+  libmad-0.15.1b: {}
   libmbim-1.24.2:
     opt:
       - gtk-doc-1.32
@@ -2208,6 +3639,20 @@ packages:
       - libjpeg-turbo-2.0.5
       - little-cms-2.11
   libmnl-1.0.4: {}
+  libmpeg2-0.5.1:
+    opt:
+      - xorg-7
+      - sdl-1.2.15
+  libmusicbrainz-2.1.5:
+    opt:
+      - python-2.7.18
+  libmusicbrainz-5.1.0:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - cmake-3.18.1
+      - libxml2-2.9.10
+      - neon-0.31.2
   libmypaint-1.6.1:
     opt:
       - doxygen-1.8.19
@@ -2251,6 +3696,7 @@ packages:
       - nss-3.55
     req:
       - curl-7.71.1
+  libogg-1.3.4: {}
   libpaper-1.1.24+nmu5: {}
   libpcap-1.9.1:
     opt:
@@ -2258,6 +3704,15 @@ packages:
       - libnl-3.5.0
       - libusb-1.0.23
   libpciaccess-0.16: {}
+  libpeas-1.26.0:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - libxml2-2.9.10
+      - pygobject-3.36.1
+    req:
+      - gobject-introspection-1.64.1
+      - gtk+-3.24.22
   libpipeline-1.5.3: {}
   libpng-1.6.37: {}
   libpsl-0.21.1:
@@ -2282,11 +3737,86 @@ packages:
       - libmbim-1.24.2
     req:
       - glib-2.64.4
+  libquicktime-1.2.4:
+    opt:
+      - alsa-lib-1.2.3.2
+      - doxygen-1.8.19
+      - faac-1.30
+      - faad2-2.9.2
+      - ffmpeg-4.3.1
+      - gtk+-2.24.32
+      - lame-3.100
+      - libdv-1.0.0
+      - libjpeg-turbo-2.0.5
+      - libpng-1.6.37
+      - libvorbis-1.3.7
+      - x264-20200819
+      - xorg-libraries-7
   libraw-0.20.0:
     rec:
       - jasper-2.0.14
       - libjpeg-turbo-2.0.5
       - little-cms-2.11
+  libreoffice-7.0.0:
+    opt:
+      - avahi-0.8
+      - bluez-5.54
+      - dconf-0.36.0
+      - desktop-file-utils-0.26
+      - doxygen-1.8.19
+      - evolution-data-server-3.36.5
+      - gdb-9.2
+      - gnutls-3.6.14
+      - kde-frameworks-5.73.0
+      - libpaper-1.1.24+nmu5
+      - mariadb-10.5.5
+      - mit-kerberos-v5-1.18.2
+      - nasm-2.15.03
+      - sane-1.0.29
+      - telepathy-glib-0.24.1
+      - valgrind-3.16.1
+      - vlc-3.0.11.1
+      - zenity-3.32.0
+    rec:
+      - apache-ant-1.10.8
+      - apr-1.7.0
+      - boost-1.74.0
+      - clucene-2.3.3.4
+      - cups-2.3.3
+      - curl-7.71.1
+      - dbus-glib-0.110
+      - libepoxy-1.5.4
+      - libjpeg-turbo-2.0.5
+      - clang-10.0.1
+      - glm-0.9.9.8
+      - glu-9.0.1
+      - gpgme-1.14.0
+      - graphite2-1.3.14
+      - gst-plugins-base-1.16.2
+      - gtk+-3.24.22
+      - harfbuzz-2.7.1
+      - icu-67.1
+      - libatomic-ops-7.6.10
+      - little-cms-2.11
+      - librsvg-2.48.8
+      - libxml2-2.9.10
+      - libxslt-1.1.34
+      - lxml-4.5.2
+      - mesa-20.1.5
+      - neon-0.31.2
+      - nss-3.55
+      - openldap-2.4.51
+      - poppler-20.08.0
+      - postgresql-12.4
+      - redland-1.0.17
+      - serf-1.3.9
+      - unixodbc-2.3.7
+    req:
+      - archive-zip-1.68
+      - unzip-6.0
+      - wget-1.20.3
+      - which-2.21
+      - zip-3.0
   librep-0.92.7: {}
   librsvg-2.48.8:
     opt:
@@ -2299,17 +3829,47 @@ packages:
       - gdk-pixbuf-2.40.0
       - pango-1.46.0
       - rustc-1.42.0
+  libsamplerate-0.1.9:
+    opt:
+      - libsndfile-1.0.28
+      - fftw-3.3.8
   libseccomp-2.5.0:
     opt:
       - cython-0.29.21
       - valgrind-3.16.1
       - which-2.21
+  libsecret-0.20.3:
+    opt:
+      - gtk-doc-1.32
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - libxslt-1.1.34
+      - valgrind-3.16.1
+      - dbus-python-1.2.16
+      - gjs-1.64.4
+      - pygobject-3.36.1
+    rec:
+      - gobject-introspection-1.64.1
+      - libgcrypt-1.8.6
+      - vala-0.48.9
+    req:
+      - glib-2.64.4
+    req_run:
+      - gnome-keyring-3.36.0
   libsigc++-2.10.3:
     opt:
       - doxygen-1.8.19
       - libxslt-1.1.34
   libsigsegv-2.12: {}
   libsm-1.2.3: {}
+  libsndfile-1.0.28:
+    opt:
+      - alsa-lib-1.2.3.2
+      - sqlite-3.33.0
+    rec:
+      - flac-1.3.3
+      - libogg-1.3.4
+      - libvorbis-1.3.7
   libsoup-2.70.0:
     opt:
       - apache-2.4.46
@@ -2338,6 +3898,17 @@ packages:
     opt:
       - gtk-doc-1.32
       - valgrind-3.16.1
+  libtheora-1.1.1:
+    opt:
+      - sdl-1.2.15
+      - libpng-1.6.37
+      - doxygen-1.8.19
+      - texlive-20200406
+      - valgrind-3.16.1
+    rec:
+      - libvorbis-1.3.7
+    req:
+      - libogg-1.3.4
   libtiff-4.1.0:
     opt:
       - freeglut-3.2.1
@@ -2394,6 +3965,21 @@ packages:
       - libva-2.8.0
     req_run:
       - mesa-20.1.5
+  libvorbis-1.3.7:
+    opt:
+      - doxygen-1.8.19
+      - texlive-20200406
+    req:
+      - libogg-1.3.4
+  libvpx-1.9.0:
+    opt:
+      - curl-7.71.1
+      - doxygen-1.8.19
+      - php-7.4.9
+    req:
+      - yasm-1.3.0
+      - nasm-2.15.03
+      - which-2.21
   libwacom-1.4.1:
     opt:
       - doxygen-1.8.19
@@ -2413,6 +3999,22 @@ packages:
       - libpng-1.6.37
       - libtiff-4.1.0
       - sdl-1.2.15
+  libwnck-2.30.7:
+    opt:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+    rec:
+      - startup-notification-0.12
+    req:
+      - gtk+-2.24.32
+  libwnck-3.36.0:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - startup-notification-0.12
+    req:
+      - gtk+-3.24.22
   libwww-perl-6.46:
     rec:
       - test-fatal-0.014
@@ -2454,6 +4056,21 @@ packages:
     req:
       - xorgproto-2020.1
   libxext-1.3.4: {}
+  libxfce4ui-4.14.1:
+    opt:
+      - gtk-doc-1.32
+      - html-parser-3.72
+    rec:
+      - gtk+-2.24.32
+      - startup-notification-0.12
+    req:
+      - gtk+-3.24.22
+      - xfconf-4.14.3
+  libxfce4util-4.14.0:
+    opt:
+      - gtk-doc-1.32
+    req:
+      - glib-2.64.4
   libxfixes-5.0.3: {}
   libxfont2-2.0.4: {}
   libxft-2.3.3: {}
@@ -2648,6 +4265,36 @@ packages:
       - libwww-perl-6.46
       - make-ca-1.7
       - perl-5.32.0
+  lxappearance-0.6.3:
+    opt:
+      - libxslt-1.1.34
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+    rec:
+      - dbus-glib-0.110
+    req:
+      - gtk+-2.24.32
+  lxappearance-obconf-0.2.3:
+    req:
+      - lxappearance-0.6.3
+      - openbox-3.6.1
+  lxde-common-0.99.2:
+    opt_run:
+      - notification-daemon-3.20.0
+      - xfce4-notifyd-0.6.1
+      - lxdm-0.5.3
+      - lightdm-1.30.0
+    rec:
+      - desktop-file-utils-0.26
+      - hicolor-icon-theme-0.17
+      - shared-mime-info-2.0
+    req:
+      - lxde-icon-theme-0.5.1
+      - lxpanel-0.10.0
+      - lxsession-0.5.5
+      - pcmanfm-1.3.1
+    req_run:
+      - openbox-3.6.1
   lxde-icon-theme-0.5.1:
     opt:
       - gtk+-2.24.32
@@ -2662,6 +4309,10 @@ packages:
       - gtk+-2.24.32
       - iso-codes-4.5.0
       - librsvg-2.48.8
+  lxinput-0.3.5:
+    req:
+      - gtk+-2.24.32
+  lxmenu-data-0.1.5: {}
   lxml-4.5.2:
     opt:
       - cssselect-1.1.0
@@ -2672,6 +4323,49 @@ packages:
     req:
       - libxslt-1.1.34
       - python-3.8.5
+  lxpanel-0.10.0:
+    opt:
+      - libindicator-12.10.1
+    rec:
+      - alsa-lib-1.2.3.2
+      - gnome-screenshot-3.36.0
+      - libxml2-2.9.10
+      - wireless-tools-29
+    req:
+      - keybinder-0.3.1
+      - libwnck-2.30.7
+      - lxmenu-data-0.1.5
+      - menu-cache-1.1.0
+  lxrandr-0.3.2:
+    opt:
+      - libxslt-1.1.34
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+    req:
+      - gtk+-2.24.32
+      - xrandr-1.5.1
+  lxsession-0.5.5:
+    opt:
+      - lsb-tools-0.7
+      - gtk+-3.24.22
+      - libxslt-1.1.34
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+    req:
+      - dbus-glib-0.110
+      - libunique-1.1.6
+      - polkit-0.117
+      - vala-0.48.9
+  lxtask-0.1.9:
+    req:
+      - gtk+-2.24.32
+  lxterminal-0.3.2:
+    opt:
+      - libxslt-1.1.34
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+    req:
+      - vte-0.28.2
   lynx-2.8.9rel.1:
     opt:
       - gnutls-3.6.14
@@ -2738,6 +4432,12 @@ packages:
   mdadm-4.1:
     opt:
       - sendmail-8.16.1
+  menu-cache-1.1.0:
+    opt:
+      - gtk-doc-1.32
+      - xdg-utils-1.1.3
+    req:
+      - libfm-extra-1.3.1
   mercurial-5.5:
     opt:
       - docutils-0.16
@@ -2783,6 +4483,16 @@ packages:
       - valgrind-3.16.1
   mkfontdir-1.0.7: {}
   mkfontscale-1.2.1: {}
+  mlt-6.22.1:
+    opt:
+      - doxygen-1.8.19
+      - fftw-3.3.8
+      - libexif-0.6.22
+      - sdl-1.2.15
+      - sdl2-2.0.12
+    req:
+      - frei0r-plugins-1.7.0
+      - qt-5.15.0
   modemmanager-1.14.0:
     opt:
       - gtk-doc-1.32
@@ -2824,10 +4534,73 @@ packages:
       - xfconf-4.14.3
   mpc-1.1.0: {}
   mpfr-4.1.0: {}
+  mpg123-1.26.3:
+    opt:
+      - pulseaudio-13.0
+      - sdl-1.2.15
+    rec:
+      - alsa-lib-1.2.3.2
+  mplayer-1.4:
+    opt:
+      - cdparanoia-iii-10.2
+      - libcdio-2.1.0
+      - libdvdread-6.1.1
+      - libdvdnav-6.1.0
+      - libdvdcss-1.4.2
+      - samba-4.12.6
+      - alsa-1.2.2
+      - pulseaudio-13.0
+      - sdl-1.2.15
+      - aalib-1.4rc5
+      - giflib-5.2.1
+      - libjpeg-turbo-2.0.5
+      - libmng-2.0.3
+      - libpng-1.6.37
+      - faac-1.30
+      - faad2-2.9.2
+      - lame-3.100
+      - liba52-0.7.4
+      - libdv-1.0.0
+      - libmad-0.15.1b
+      - libmpeg2-0.5.1
+      - libtheora-1.1.1
+      - libvpx-1.9.0
+      - lzo-2.10
+      - mpg123-1.26.3
+      - speex-1.2.0
+      - xvid-1.3.7
+      - x264-20200819
+      - fontconfig-2.13.1
+      - freetype-2.10.2
+      - fribidi-1.0.9
+      - gnutls-3.6.14
+      - opus-1.3.1
+      - unrar-5.9.4
+      - libxslt-1.1.34
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+    rec:
+      - gtk+-2.24.32
+      - libvdpau-va-gl-0.4.0
+    req:
+      - yasm-1.3.0
   mro-compat-0.13:
     req:
       - perl-5.32.0
   mtdev-1.1.6: {}
+  mupdf-1.17.0:
+    opt_run:
+      - xdg-utils-1.1.3
+    rec:
+      - freeglut-3.2.1
+      - harfbuzz-2.7.1
+      - libjpeg-turbo-2.0.5
+      - openjpeg-2.3.1
+      - curl-7.71.1
+    req:
+      - xorg-libraries-7
+    req_run:
+      - xorg-7
   mutt-1.14.6:
     opt:
       - aspell-0.60.8
@@ -2844,6 +4617,26 @@ packages:
     rec:
       - links-2.20.2
       - lynx-2.8.9rel.1
+  mutter-3.36.5:
+    rec:
+      - desktop-file-utils-0.26
+      - gobject-introspection-1.64.1
+      - startup-notification-0.12
+      - libinput-1.16.1
+      - wayland-1.18.0
+      - wayland-protocols-1.20
+      - xorg-server-1.20.8
+      - gtk+-3.24.22
+    req:
+      - gnome-desktop-3.36.5
+      - gnome-settings-daemon-3.36.1
+      - graphene-1.10.2
+      - libcanberra-0.30
+      - libwacom-1.4.1
+      - libxkbcommon-0.10.0
+      - pipewire-0.3.9
+      - upower-0.99.11
+      - zenity-3.32.0
   mypaint-brushes-1.3.0:
     req_run:
       - libmypaint-1.6.1
@@ -2864,6 +4657,26 @@ packages:
     opt:
       - asciidoc-9.0.2
       - xmlto-0.0.28
+  nautilus-3.36.3:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - desktop-file-utils-0.26
+      - exempi-2.5.2
+      - gobject-introspection-1.64.1
+      - gst-plugins-base-1.16.2
+      - libexif-0.6.22
+    rec_run:
+      - adwaita-icon-theme-3.36.1
+      - gvfs-1.44.1
+    req:
+      - bubblewrap-0.4.1
+      - gexiv2-0.12.1
+      - gnome-autoar-0.2.4
+      - gnome-desktop-3.36.5
+      - libnotify-0.7.9
+      - libseccomp-2.5.0
+      - tracker-miners-2.3.3
   ncftp-3.2.6:
     opt:
       - clang-10.0.1
@@ -3058,6 +4871,9 @@ packages:
     req:
       - cmake-3.18.1
       - unzip-6.0
+  openjade-1.3.2:
+    req:
+      - opensp-1.5.2
   openjdk-14.0.1:
     opt:
       - git-2.28.0
@@ -3100,6 +4916,11 @@ packages:
       - cyrus-sasl-2.1.27
   openmpi-4.0.5: {}
   openslp-2.0.0: {}
+  opensp-1.5.2:
+    opt:
+      - xmlto-0.0.28
+    req:
+      - sgml-common-0.6.3
   openssh-8.3p1:
     opt:
       - gdb-9.2
@@ -3111,6 +4932,10 @@ packages:
       - openjdk-14.0.1
       - sysstat-12.4.0
   openssl-1.1.1g: {}
+  opus-1.3.1:
+    opt:
+      - doxygen-1.8.19
+      - texlive-20200406
   oxygen-5.19.4: {}
   oxygen-icons5-5.73.0:
     req:
@@ -3160,6 +4985,11 @@ packages:
       - cairomm-1.12.2
       - glibmm-2.64.2
       - pango-1.46.0
+  paps-0.7.1:
+    opt:
+      - doxygen-1.8.19
+    req:
+      - pango-1.46.0
   parameterized-0.7.4: {}
   params-validate-1.29:
     rec:
@@ -3177,6 +5007,14 @@ packages:
       - exception-class-1.44
       - perl-5.32.0
       - specio-0.46
+  parole-1.0.5:
+    rec:
+      - libnotify-0.7.9
+      - taglib-1.11.1
+    req:
+      - gst-plugins-base-1.16.2
+      - gst-plugins-good-1.16.2
+      - libxfce4ui-4.14.1
   parse-recdescent-1.967015:
     req:
       - perl-5.32.0
@@ -3195,6 +5033,12 @@ packages:
   path-tiny-0.114:
     req:
       - perl-5.32.0
+  pavucontrol-4.0:
+    req:
+      - gtkmm-3.24.2
+      - libcanberra-0.30
+      - libsigc++-2.10.3
+      - pulseaudio-13.0
   pax-20161104:
     req:
       - cpio-2.13
@@ -3208,6 +5052,14 @@ packages:
       - curl-7.71.1
       - lynx-2.8.9rel.1
       - wget-1.20.3
+  pcmanfm-1.3.1:
+    rec:
+      - adwaita-icon-theme-3.36.1
+      - oxygen-icons5-5.73.0
+      - lxde-icon-theme-0.5.1
+      - fribidi-1.0.9
+    req:
+      - libfm-1.3.1
   pcre-8.44:
     opt:
       - valgrind-3.16.1
@@ -3282,6 +5134,29 @@ packages:
     rec:
       - apache-2.4.46
       - libxml2-2.9.10
+  pidgin-2.14.1:
+    opt:
+      - avahi-0.8
+      - cyrus-sasl-2.1.27
+      - dbus-1.12.20
+      - evolution-data-server-3.36.5
+      - gconf-3.2.6
+      - libidn-1.36
+      - networkmanager-1.26.0
+      - sqlite-3.33.0
+      - startup-notification-0.12
+      - tk-8.6.10
+      - mit-kerberos-v5-1.18.2
+      - mono-6.12.0.90
+    opt_run:
+      - xdg-utils-1.1.3
+    rec:
+      - libgcrypt-1.8.6
+      - gstreamer-1.16.2
+      - gnutls-3.6.14
+      - nss-3.55
+    req:
+      - gtk+-2.24.32
   pinentry-1.1.0:
     opt:
       - emacs-27.1
@@ -3294,6 +5169,22 @@ packages:
     req:
       - libassuan-2.5.3
       - libgpg-error-1.38
+  pipewire-0.3.9:
+    opt:
+      - valgrind-3.16.1
+      - doxygen-1.8.19
+      - graphiz-2.44.1
+      - vulkan-1.2.148.1
+    req:
+      - bluez-5.54
+      - ffmpeg-4.3.1
+      - gstreamer-1.16.2
+      - gst-plugins-base-1.16.2
+      - libva-2.8.0
+      - pulseaudio-13.0
+      - sbc-1.4
+      - sdl2-2.0.12
+      - v4l-utils-1.20.0
   pixman-0.40.0:
     opt:
       - gtk+-2.24.32
@@ -3408,6 +5299,11 @@ packages:
       - ethtool-5.8
       - hdparm-9.58
       - wireless-tools-29
+  pnmixer-0.7.2:
+    req:
+      - alsa-utils-1.2.3
+      - gtk+-3.24.22
+      - libnotify-0.7.9
   pod-pom-view-restructured-1.000002: {}
   polkit-0.117:
     opt:
@@ -3515,6 +5411,26 @@ packages:
       - postgresql-12.4
   psmisc-23.3: {}
   pth-2.0.7: {}
+  pulseaudio-13.0:
+    opt:
+      - avahi-0.8
+      - bluez-5.54
+      - fftw-3.3.8
+      - gconf-3.2.6
+      - gtk+-3.24.22
+      - libsamplerate-0.1.9
+      - sbc-1.4
+      - valgrind-3.16.1
+    rec:
+      - alsa-lib-1.2.3.2
+      - dbus-1.12.20
+      - glib-2.64.4
+      - libcap-2.42
+      - linux-pam-1.4.0
+      - speex-1.2.0
+      - xorg-libraries-7
+    req:
+      - libsndfile-1.0.28
   purpose-5.73.0: {}
   py-1.9.0:
     opt:
@@ -3793,9 +5709,27 @@ packages:
       - gtk+-2.24.32
       - librep-0.92.7
   resolv-wrapper-1.1.7: {}
+  rest-0.8.1:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+    req:
+      - make-ca-1.7
+      - libsoup-2.70.0
+  ristretto-0.10.0:
+    opt_run:
+      - tumbler-0.3.0
+    req:
+      - libexif-0.6.22
+      - libxfce4ui-4.14.1
   role-tiny-2.001004:
     req:
       - perl-5.32.0
+  rox-filer-2.11:
+    req:
+      - libglade-2.6.4
+      - shared-mime-info-2.0
   rpcbind-1.2.5:
     req:
       - libtirpc-1.2.6
@@ -3829,6 +5763,12 @@ packages:
       - cmake-3.18.1
       - curl-7.71.1
       - libssh2-1.9.0
+  rxvt-unicode-9.22:
+    opt:
+      - gdk-pixbuf-2.40.0
+      - startup-notification-0.12
+    req:
+      - xorg-7
   samba-4.12.6:
     opt:
       - argparse-1.4.0
@@ -3887,11 +5827,26 @@ packages:
       - libtirpc-1.2.6
       - lmdb-0.9.24
       - rpcsvc-proto-1.4.2
+  sane-1.0.29:
+    opt:
+      - avahi-0.8
+      - cups-2.3.3
+      - libjpeg-turbo-2.0.5
+      - libtiff-4.1.0
+      - libusb-1.0.23
+      - v4l-utils-1.20.0
+      - texlive-20200406
+      - xorg-7
+      - gtk+-2.24.32
+      - gimp-2.10.20
   sassc-3.6.1: {}
   sawfish-1.12.0:
     req:
       - rep-gtk-0.90.8.3
       - which-2.21
+  sbc-1.4:
+    opt:
+      - libsndfile-1.0.28
   scons-4.0.1:
     opt:
       - docbook-xsl-1.79.2
@@ -3921,6 +5876,71 @@ packages:
     req_run:
       - consolekit2-1.2.1
   sddm-kcm-5.19.4: {}
+  sdl-1.2.15:
+    opt:
+      - aalib-1.4rc5
+      - alsa-1.2.2
+      - glu-9.0.1
+      - nasm-2.15.03
+      - pulseaudio-13.0
+      - pth-2.0.7
+      - xorg-7
+  sdl2-2.0.12:
+    opt:
+      - alsa-1.2.2
+      - doxygen-1.8.19
+      - ibus-1.5.22
+      - nasm-2.15.03
+      - pulseaudio-13.0
+      - libsamplerate-0.1.9
+      - xorg-7
+  seahorse-3.36.2:
+    opt:
+      - avahi-0.8
+    rec:
+      - libsoup-2.70.0
+      - p11-kit-0.23.20
+      - openldap-2.4.51
+      - openssh-8.3p1
+      - vala-0.48.9
+    req:
+      - gcr-3.36.0
+      - gnupg-2.2.21
+      - gpgme-1.14.0
+      - itstool-2.0.6
+      - libhandy-0.0.13
+      - libpwquality-1.4.2
+      - libsecret-0.20.3
+    req_run:
+      - gnome-keyring-3.36.0
+  seamonkey-2.53.3:
+    opt:
+      - alsa-lib-1.2.3.2
+      - curl-7.71.1
+      - dbus-glib-0.110
+      - doxygen-1.8.19
+      - gconf-3.2.6
+      - gst-plugins-base-1.16.2
+      - openjdk-14.0.1
+      - startup-notification-0.12
+      - valgrind-3.16.1
+      - wget-1.20.3
+      - wireless-tools-29
+    rec:
+      - icu-67.1
+      - libevent-2.1.12
+      - nspr-4.27
+      - nss-3.55
+      - pulseaudio-13.0
+      - sqlite-3.33.0
+    req:
+      - autoconf-2.13
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - rustc-1.42.0
+      - unzip-6.0
+      - yasm-1.3.0
+      - zip-3.0
   sed-4.8: {}
   sendmail-8.16.1:
     opt:
@@ -3940,6 +5960,7 @@ packages:
   sessreg-1.1.2: {}
   setxkbmap-1.3.2: {}
   sg3-utils-1.45: {}
+  sgml-common-0.6.3: {}
   sgmlspm-1.1:
     req:
       - perl-5.32.0
@@ -3975,6 +5996,8 @@ packages:
   sort-key-1.33:
     req:
       - perl-5.32.0
+  sound-theme-freedesktop-0.8: {}
+  soundtouch-2.1.2: {}
   specio-0.46:
     opt:
       - namespace-autoclean-0.29
@@ -3990,6 +6013,11 @@ packages:
       - role-tiny-2.001004
       - sub-quote-2.006006
       - try-tiny-0.30
+  speex-1.2.0:
+    opt:
+      - valgrind-3.16.1
+    req:
+      - libogg-1.3.4
   sphinx-3.2.1: {}
   sphinx-rtd-theme-0.5.0: {}
   sqlite-3.33.0:
@@ -4102,6 +6130,11 @@ packages:
     req:
       - linux-pam-1.4.0
   systemsettings-5.19.4: {}
+  taglib-1.11.1:
+    opt:
+      - boost-1.74.0
+    req:
+      - cmake-3.18.1
   talloc-2.3.1:
     opt:
       - docbook-xml-4.5
@@ -4249,6 +6282,23 @@ packages:
     req:
       - python-3.8.5
   texinfo-6.7: {}
+  texlive-20200406:
+    rec:
+      - ghostscript-9.52
+      - xorg-7
+      - fontconfig-2.13.1
+      - freetype-2.10.2
+      - gc-8.0.4
+      - graphite2-1.3.14
+      - harfbuzz-2.7.1
+      - icu-67.1
+      - libpaper-1.1.24+nmu5
+      - libpng-1.6.37
+      - poppler-20.08.0
+    req_run:
+      - python-2.7.18
+      - ruby-2.7.1
+      - tk-8.6.10
   text-bibtex-0.88:
     req:
       - config-autoconf-0.318
@@ -4274,6 +6324,61 @@ packages:
       - perl-5.32.0
   thin-provisioning-tools-0.9.0: {}
   threadweaver-5.73.0: {}
+  thunar-1.8.15:
+    opt:
+      - gtk-doc-1.32
+      - gvfs-1.44.1
+      - libexif-0.6.22
+      - tumbler-0.3.0
+    rec:
+      - libgudev-233
+      - libnotify-0.7.9
+      - xfce4-panel-4.14.4
+    req:
+      - exo-0.12.11
+      - libxfce4ui-4.14.1
+    req_run:
+      - gnome-icon-theme-3.12.0
+      - lxde-icon-theme-0.5.1
+  thunar-volman-0.9.5:
+    rec:
+      - libnotify-0.7.9
+      - startup-notification-0.12
+    rec_run:
+      - gvfs-1.44.1
+      - polkit-gnome-0.105
+    req:
+      - exo-0.12.11
+      - libgudev-233
+      - libxfce4ui-4.14.1
+  thunderbird-78.1.1:
+    opt:
+      - cyrus-sasl-2.1.27
+      - doxygen-1.8.19
+      - gconf-3.2.6
+      - wget-1.20.3
+      - wireless-tools-29
+    rec:
+      - icu-67.1
+      - libevent-2.1.12
+      - nspr-4.27
+      - nss-3.55
+    req:
+      - autoconf-2.13
+      - cbindgen-0.14.3
+      - dbus-glib-0.110
+      - gtk+-2.24.32
+      - gtk+-3.24.22
+      - llvm-10.0.1
+      - clang-10.0.1
+      - nodejs-12.18.3
+      - pulseaudio-13.0
+      - python-3.8.5
+      - sqlite-3.33.0
+      - startup-notification-0.12
+      - zip-3.0
+      - unzip-6.0
+      - yasm-1.3.0
   tidy-html5-5.6.0:
     rec:
       - libxslt-1.1.34
@@ -4282,6 +6387,19 @@ packages:
   tie-cycle-1.225:
     req:
       - perl-5.32.0
+  tigervnc-1.10.1:
+    rec:
+      - imagemagick-7.0.10-27
+      - linux-pam-1.4.0
+    req:
+      - cmake-3.18.1
+      - fltk-1.3.5
+      - gnutls-3.6.14
+      - libgcrypt-1.8.6
+      - libjpeg-turbo-2.0.5
+      - pixman-0.40.0
+      - xorg-applications-7
+      - xorg-legacy-1
   time-1.9: {}
   timedate-2.33:
     req:
@@ -4289,12 +6407,96 @@ packages:
   tk-8.6.10:
     req:
       - xorg-libraries-7
+  totem-pl-parser-3.26.5:
+    opt:
+      - cmake-3.18.1
+      - gtk-doc-1.32
+      - gvfs-1.44.1
+    rec:
+      - gobject-introspection-1.64.1
+      - libarchive-3.4.3
+      - libgcrypt-1.8.6
+    req:
+      - libsoup-2.70.0
   traceback2-1.4.0:
     opt:
       - python-2.7.18
     req:
       - python-3.8.5
   traceroute-2.1.0: {}
+  tracker-2.3.4:
+    opt:
+      - gtk-doc-1.32
+      - bash-completion-2.11
+    rec:
+      - gobject-introspection-1.64.1
+      - icu-67.1
+      - networkmanager-1.26.0
+      - sqlite-3.33.0
+      - upower-0.99.11
+    req:
+      - json-glib-1.4.4
+      - libseccomp-2.5.0
+      - libsoup-2.70.0
+      - vala-0.48.9
+  tracker-miners-2.3.3:
+    opt:
+      - cmake-3.18.1
+      - dconf-0.36.0
+      - libgsf-1.14.47
+      - libseccomp-2.5.0
+      - taglib-1.11.1
+      - totem-pl-parser-3.26.5
+      - upower-0.99.11
+    rec:
+      - ffmpeg-4.3.1
+      - flac-1.3.3
+      - giflib-5.2.1
+      - icu-67.1
+      - libexif-0.6.22
+      - libgrss-0.7.0
+      - libgxps-0.3.1
+      - poppler-20.08.0
+    req:
+      - gst-plugins-base-1.16.2
+      - tracker-2.3.4
+      - exempi-2.5.2
+      - gexiv2-0.12.1
+  transcode-1.1.7:
+    opt:
+      - faac-1.30
+      - freetype-2.10.2
+      - liba52-0.7.4
+      - libdv-1.0.0
+      - libjpeg-turbo-2.0.5
+      - libogg-1.3.4
+      - libquicktime-1.2.4
+      - libtheora-1.1.1
+      - libvorbis-1.3.7
+      - libxml2-2.9.10
+      - lzo-2.10
+      - sdl-1.2.15
+      - v4l-utils-1.20.0
+      - x264-20200819
+      - xvid-1.3.7
+    rec:
+      - alsa-lib-1.2.3.2
+      - lame-3.100
+      - libdvdread-6.1.1
+      - libmpeg2-0.5.1
+      - xorg-libraries-7
+    req:
+      - ffmpeg-4.3.1
+  transmission-3.00:
+    opt:
+      - doxygen-1.8.19
+      - gdb-9.2
+    rec:
+      - gtk+-3.24.22
+      - qt-5.15.0
+    req:
+      - curl-7.71.1
+      - libevent-2.1.12
   tree-1.8.0: {}
   tripwire-2.4.3.7:
     opt:
@@ -4305,6 +6507,19 @@ packages:
       - capture-tiny-0.48
     req:
       - perl-5.32.0
+  tumbler-0.3.0:
+    opt:
+      - curl-7.71.1
+      - freetype-2.10.2
+      - gdk-pixbuf-2.40.0
+      - gst-plugins-base-1.16.2
+      - gtk-doc-1.32
+      - libjpeg-turbo-2.0.5
+      - libgsf-1.14.47
+      - libpng-1.6.37
+      - poppler-20.08.0
+    req:
+      - glib-2.64.4
   twm-1.0.11:
     rec:
       - xorg-legacy-1
@@ -4397,6 +6612,17 @@ packages:
   user-manager-5.19.4: {}
   util-linux-2.36: {}
   util-macros-1.19.2: {}
+  v4l-utils-1.20.0:
+    opt:
+      - doxygen-1.8.19
+      - sdl2-2.0.12
+    rec:
+      - alsa-lib-1.2.3.2
+      - glu-9.0.1
+      - libjpeg-turbo-2.0.5
+      - qt-5.15.0
+    req:
+      - llvm-10.0.1
   vala-0.48.9:
     opt:
       - dbus-1.12.20
@@ -4425,11 +6651,74 @@ packages:
     rec:
       - gtk+-3.24.22
       - xorg-7
+  vinagre-3.22.0:
+    opt:
+      - avahi-0.8
+    rec:
+      - telepathy-glib-0.24.1
+      - vala-0.48.9
+      - vte-0.60.3
+    req:
+      - gtk-vnc-1.0.0
+      - itstool-2.0.6
+      - libsecret-0.20.3
   virtualenv-20.0.31:
     opt:
       - python-2.7.18
     req:
       - python-3.8.5
+  vlc-3.0.11.1:
+    opt:
+      - aalib-1.4rc5
+      - avahi-0.8
+      - dbus-1.12.20
+      - faad2-2.9.2
+      - flac-1.3.3
+      - fontconfig-2.13.1
+      - freetype-2.10.2
+      - fribidi-1.0.9
+      - gnutls-3.6.14
+      - libarchive-3.4.3
+      - libass-0.14.0
+      - libcddb-1.3.2
+      - libdv-1.0.0
+      - libdvdcss-1.4.2
+      - libdvdnav-6.1.0
+      - libdvdread-6.1.1
+      - libidn-1.36
+      - libmpeg2-0.5.1
+      - libnotify-0.7.9
+      - libogg-1.3.4
+      - libpng-1.6.37
+      - librsvg-2.48.8
+      - libsamplerate-0.1.9
+      - libssh2-1.9.0
+      - libtheora-1.1.1
+      - libva-2.8.0
+      - libvdpau-1.4
+      - libvorbis-1.3.7
+      - libxml2-2.9.10
+      - opencv-4.4.0
+      - opus-1.3.1
+      - pulseaudio-13.0
+      - qt-5.15.0
+      - samba-4.12.6
+      - sdl-1.2.15
+      - speex-1.2.0
+      - taglib-1.11.1
+      - v4l-utils-1.20.0
+      - x264-20200819
+    opt_run:
+      - xdg-utils-1.1.3
+    rec:
+      - alsa-lib-1.2.3.2
+      - desktop-file-utils-0.26
+      - ffmpeg-4.3.1
+      - liba52-0.7.4
+      - libgcrypt-1.8.6
+      - libmad-0.15.1b
+      - lua-5.4.0
+      - xorg-7
   volume-key-0.3.12:
     opt:
       - python-2.7.18
@@ -4440,6 +6729,14 @@ packages:
       - glib-2.64.4
       - gpgme-1.14.0
       - nss-3.55
+  vorbis-tools-1.4.0:
+    opt:
+      - libao-1.2.0
+      - curl-7.71.1
+      - flac-1.3.3
+      - speex-1.2.0
+    req:
+      - libvorbis-1.3.7
   vsftpd-3.0.3:
     opt:
       - libcap-2.42
@@ -4447,6 +6744,25 @@ packages:
       - linux-pam-1.4.0
     req:
       - libnsl-1.2.0
+  vte-0.28.2:
+    opt:
+      - gobject-introspection-1.64.1
+      - gtk-doc-1.32
+      - pygtk-2.24.0
+    req:
+      - gtk+-2.24.32
+  vte-0.60.3:
+    opt:
+      - fribidi-1.0.9
+      - gtk-doc-1.32
+    rec:
+      - gobject-introspection-1.64.1
+      - gnutls-3.6.14
+      - vala-0.48.9
+    req:
+      - gtk+-3.24.22
+      - libxml2-2.9.10
+      - pcre2-10.35
   vulkan-1.2.148.1: {}
   wayland-1.18.0:
     opt:
@@ -4556,9 +6872,28 @@ packages:
     req:
       - xorg-7
   x11perf-1.6.1: {}
+  x264-20200819:
+    rec:
+      - nasm-2.15.03
+  x265-3.4:
+    rec:
+      - nasm-2.15.03
+    req:
+      - cmake-3.18.1
   xapian-1.4.16:
     opt:
       - valgrind-3.16.1
+  xarchiver-0.5.4.15:
+    opt_run:
+      - cpio-2.13
+      - lzo-2.10
+      - p7zip-16.02
+      - unrar-5.9.4
+      - unzip-6.0
+      - zip-3.0
+    req:
+      - gtk+-2.24.32
+      - gtk+-3.24.22
   xauth-1.1: {}
   xbacklight-1.2.3: {}
   xbitmaps-1.1.2:
@@ -4607,12 +6942,155 @@ packages:
   xcursorgen-1.0.7: {}
   xdg-desktop-portal-kde-5.19.4: {}
   xdg-user-dirs-0.17: {}
+  xdg-utils-1.1.3:
+    opt_run:
+      - dbus-1.12.20
+    req:
+      - xmlto-0.0.28
+      - lynx-2.8.9rel.1
+    req_run:
+      - xorg-applications-7
   xdpyinfo-1.3.2: {}
   xdriinfo-1.0.6: {}
   xev-1.2.4: {}
+  xfburn-0.6.2:
+    opt:
+      - gst-plugins-base-1.16.2
+    opt_run:
+      - cdrdao-1.2.4
+    req:
+      - exo-0.12.11
+      - libburn-1.5.2
+      - libisofs-1.5.2
+      - libxfce4ui-4.14.1
+  xfce4-appfinder-4.14.0:
+    req:
+      - garcon-0.7.0
+      - libxfce4ui-4.14.1
+  xfce4-notifyd-0.6.1:
+    req:
+      - libnotify-0.7.9
+      - libxfce4ui-4.14.1
+      - xfce4-panel-4.14.4
+  xfce4-panel-4.14.4:
+    opt:
+      - gtk-doc-1.32
+    req:
+      - exo-0.12.11
+      - garcon-0.7.0
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
+  xfce4-power-manager-1.6.6:
+    req:
+      - libnotify-0.7.9
+      - upower-0.99.11
+      - xfce4-panel-4.14.4
+  xfce4-pulseaudio-plugin-0.4.3:
+    rec:
+      - keybinder-3.0-0.3.2
+    rec_run:
+      - pavucontrol-4.0
+    req:
+      - dbus-glib-0.110
+      - libnotify-0.7.9
+      - pulseaudio-13.0
+      - xfce4-panel-4.14.4
+  xfce4-session-4.14.2:
+    rec:
+      - desktop-file-utils-0.26
+      - shared-mime-info-2.0
+      - polkit-gnome-0.105
+    req:
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
+      - which-2.21
+      - xorg-applications-7
+    req_run:
+      - xfdesktop-4.14.2
+  xfce4-settings-4.14.3:
+    opt:
+      - colord-1.4.4
+      - libinput-1.16.1
+    rec:
+      - libcanberra-0.30
+      - libnotify-0.7.9
+      - libxklavier-5.4
+    req:
+      - exo-0.12.11
+      - garcon-0.7.0
+      - libxfce4ui-4.14.1
+    req_run:
+      - gnome-icon-theme-3.12.0
+      - lxde-icon-theme-0.5.1
+  xfce4-terminal-0.8.9.2:
+    req:
+      - libxfce4ui-4.14.1
+      - vte-0.60.3
+  xfconf-4.14.3:
+    opt:
+      - gtk-doc-1.32
+    req:
+      - libxfce4util-4.14.0
+  xfdesktop-4.14.2:
+    rec:
+      - libnotify-0.7.9
+      - startup-notification-0.12
+      - thunar-1.8.15
+    req:
+      - exo-0.12.11
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
   xfsprogs-5.7.0: {}
+  xfwm4-4.14.5:
+    rec:
+      - startup-notification-0.12
+    req:
+      - libwnck-3.36.0
+      - libxfce4ui-4.14.1
+      - libxfce4util-4.14.0
   xgamma-1.0.6: {}
   xhost-1.0.8: {}
+  xindy-2.5.1:
+    req:
+      - clisp-2.49
+      - texlive-20200406
+  xine-lib-1.2.10:
+    opt:
+      - aalib-1.4rc5
+      - faad2-2.9.2
+      - flac-1.3.3
+      - gdk-pixbuf-2.40.0
+      - glu-9.0.1
+      - imagemagick-7.0.10-27
+      - liba52-0.7.4
+      - libdvdcss-1.4.2
+      - libmad-0.15.1b
+      - libmng-2.0.3
+      - libtheora-1.1.1
+      - libva-2.8.0
+      - libvdpau-1.4
+      - libvorbis-1.3.7
+      - libvpx-1.9.0
+      - mesa-20.1.5
+      - samba-4.12.6
+      - sdl-1.2.15
+      - speex-1.2.0
+      - doxygen-1.8.19
+      - v4l-utils-1.20.0
+    rec:
+      - libdvdnav-6.1.0
+    req:
+      - xorg-7
+      - ffmpeg-4.3.1
+      - alsa-1.2.2
+      - pulseaudio-13.0
+  xine-ui-0.99.12:
+    opt:
+      - curl-7.71.1
+      - aalib-1.4rc5
+    req:
+      - xine-lib-1.2.10
+      - shared-mime-info-2.0
   xinit-1.4.1:
     rec:
       - twm-1.0.11
@@ -4666,6 +7144,15 @@ packages:
   xml-writer-0.625:
     req:
       - perl-5.32.0
+  xmlto-0.0.28:
+    opt:
+      - fop-2.5
+      - links-2.20.2
+      - lynx-2.8.9rel.1
+    req:
+      - docbook-xml-4.5
+      - docbook-xsl-1.79.2
+      - libxslt-1.1.34
   xmodmap-1.0.10: {}
   xorg-7:
     req:
@@ -4894,6 +7381,24 @@ packages:
   xrandr-1.5.1: {}
   xrdb-1.2.0: {}
   xrefresh-1.0.6: {}
+  xsane-0.999:
+    opt:
+      - little-cms-1.19
+      - gimp-2.10.20
+    req:
+      - gtk+-2.24.32
+      - sane-1.0.29
+  xscreensaver-5.44:
+    opt:
+      - gdm-3.36.3
+      - linux-pam-1.4.0
+    opt_run:
+      - xorg-legacy-1
+    rec:
+      - glu-9.0.1
+    req:
+      - libglade-2.6.4
+      - xorg-applications-7
   xset-1.2.4: {}
   xsetroot-1.1.2: {}
   xterm-359:
@@ -4904,6 +7409,9 @@ packages:
     req:
       - xorg-applications-7
   xtrans-1.4.0: {}
+  xvid-1.3.7:
+    opt:
+      - yasm-1.3.0
   xvinfo-1.1.4: {}
   xwd-1.0.7: {}
   xwinfo-1.1.5: {}
@@ -4914,7 +7422,29 @@ packages:
     opt:
       - cython-0.29.21
       - python-2.7.18
+  yelp-3.36.0:
+    opt:
+      - gtk-doc-1.32
+    rec:
+      - desktop-file-utils-0.26
+    req:
+      - gsettings-desktop-schemas-3.36.1
+      - webkitgtk+-2.28.4
+      - yelp-xsl-3.36.0
+  yelp-xsl-3.36.0:
+    req:
+      - libxslt-1.1.34
+      - itstool-2.0.6
   ypbind-2.7.2: {}
+  zenity-3.32.0:
+    opt:
+      - webkitgtk+-2.28.4
+    rec:
+      - libnotify-0.7.9
+      - libxslt-1.1.34
+    req:
+      - gtk+-3.24.22
+      - itstool-2.0.6
   zip-3.0: {}
   zlib-1.2.11: {}
   zsh-5.8:
@@ -4924,1566 +7454,3 @@ packages:
       - pcre-8.44
       - valgrind-3.16.1
   zstd-1.4.5: {}
-  gcr-3.36.0:
-    req:
-      - glib-2.64.4
-      - libgcrypt-1.8.6
-      - p11-kit-0.23.20
-    rec:
-      - gnupg-2.2.21
-      - gobject-introspection-1.64.1
-      - gtk+-3.24.22
-      - libxslt-1.1.34
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-      - valgrind-3.16.1
-  gsettings-desktop-schemas-3.36.1:
-    req:
-      - glib-2.64.4
-      - gobject-introspection-1.64.1
-  libsecret-0.20.3:
-    req:
-      - glib-2.64.4
-    rec:
-      - gobject-introspection-1.64.1
-      - libgcrypt-1.8.6
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - libxslt-1.1.34
-      - valgrind-3.16.1
-      - dbus-python-1.2.16
-      - gjs-1.64.4
-      - pygobject-3.36.1
-    req_run:
-      - gnome-keyring-3.36.0
-  rest-0.8.1:
-    req:
-      - make-ca-1.7
-      - libsoup-2.70.0
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-  totem-pl-parser-3.26.5:
-    req:
-      - libsoup-2.70.0
-    rec:
-      - gobject-introspection-1.64.1
-      - libarchive-3.4.3
-      - libgcrypt-1.8.6
-    opt:
-      - cmake-3.18.1
-      - gtk-doc-1.32
-      - gvfs-1.44.1
-  vte-0.60.3:
-    req:
-      - gtk+-3.24.22
-      - libxml2-2.9.10
-      - pcre2-10.35
-    rec:
-      - gobject-introspection-1.64.1
-      - gnutls-3.6.14
-      - vala-0.48.9
-    opt:
-      - fribidi-1.0.9
-      - gtk-doc-1.32
-  yelp-xsl-3.36.0:
-    req:
-      - libxslt-1.1.34
-      - itstool-2.0.6
-  gconf-3.2.6:
-    req:
-      - dbus-glib-0.110
-      - libxml2-2.9.10
-    rec:
-      - gobject-introspection-1.64.1
-      - gtk+-3.24.22
-      - polkit-0.117
-    opt:
-      - openldap-2.4.51
-  geocode-glib-3.26.2:
-    req:
-      - json-glib-1.4.4
-      - libsoup-2.70.0
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-  gjs-1.64.4:
-    req:
-      - cairo-1.17.2+f93fc72c03e
-      - dbus-1.12.20
-      - gobject-introspection-1.64.1
-      - js-68.11.0
-    rec:
-      - gtk+-3.24.22
-    opt:
-      - valgrind-3.16.1
-  gnome-autoar-0.2.4:
-    req:
-      - libarchive-3.4.3
-      - gtk+-3.24.22
-    rec:
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  gnome-desktop-3.36.5:
-    req:
-      - gsettings-desktop-schemas-3.36.1
-      - gtk+-3.24.22
-      - iso-codes-4.5.0
-      - itstool-2.0.6
-      - libseccomp-2.5.0
-      - libxml2-2.9.10
-      - xkeyboard-config-2.30
-    rec:
-      - bubblewrap-0.4.1
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-  gnome-menus-3.36.0:
-    req:
-      - glib-2.64.4
-    rec:
-      - gobject-introspection-1.64.1
-  gnome-video-effects-0.5.0: {}
-  gnome-online-accounts-3.36.0:
-    req:
-      - gcr-3.36.0
-      - json-glib-1.4.4
-      - rest-0.8.1
-      - vala-0.48.9
-      - webkitgtk+-2.28.4
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-      - mit-kerberos-v5-1.18.2
-      - valgrind-3.16.1
-  grilo-0.3.12:
-    req:
-      - glib-2.64.4
-      - libxml2-2.9.10
-    rec:
-      - gobject-introspection-1.64.1
-      - gtk+-3.24.22
-      - libsoup-2.70.0
-      - totem-pl-parser-3.26.5
-      - vala-0.48.9
-    opt:
-      - avahi-0.8
-      - docbook-utils-0.6.14
-      - liboauth-1.0.3
-      - gtk-doc-1.32
-  libchamplain-0.12.20:
-    req:
-      - clutter-1.26.4
-      - clutter-gtk-1.8.4
-      - gtk+-3.24.22
-      - libsoup-2.70.0
-      - sqlite-3.33.0
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  libgdata-0.17.12:
-    req:
-      - libsoup-2.70.0
-      - gnome-online-accounts-3.36.0
-      - gtk+-3.24.22
-      - json-glib-1.4.4
-      - vala-0.48.9
-    rec:  
-      - gcr-3.36.0
-      - git-2.28.0
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-      - liboauth-1.0.3
-      - uhttpmock-0.5.3
-  libgee-0.20.3:
-    req:
-      - glib-2.64.4
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - vala-0.48.9
-  libgtop-2.40.0:
-    req:
-      - glib-2.64.4
-      - xorg-libraries-7
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-  libgweather-3.36.1:
-    req:
-      - geocode-glib-3.26.2
-      - gtk+-3.24.22
-      - libsoup-2.70.0
-    rec:
-      - gobject-introspection-1.64.1
-      - libxml2-2.9.10
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  libpeas-1.26.0:
-    req:
-      - gobject-introspection-1.64.1
-      - gtk+-3.24.22
-    rec:
-      - libxml2-2.9.10
-      - pygobject-3.36.1
-    opt:
-      - gtk-doc-1.32
-  libwnck-3.36.0:
-    req:
-      - gtk+-3.24.22
-    rec:
-      - gobject-introspection-1.64.1
-      - startup-notification-0.12
-    opt:
-      - gtk-doc-1.32
-  evolution-data-server-3.36.5:
-    req:
-      - berkeley-db-5.3.28
-      - gcr-3.36.0
-      - libical-3.0.8
-      - libsecret-0.20.3
-      - nss-3.55
-      - sqlite-3.33.0
-    rec:
-      - gnome-online-accounts-3.36.0
-      - gobject-introspection-1.64.1
-      - gtk+-3.24.22
-      - icu-67.1
-      - libcanberra-0.30
-      - libgdata-0.17.12
-      - libgweather-3.36.1
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-      - mit-kerberos-v5-1.18.2
-      - sendmail-8.16.1
-      - openldap-2.4.51
-  folks-0.14.0:
-    req:
-      - evolution-data-server-3.36.5
-      - gobject-introspection-1.64.1
-      - libgee-0.20.3
-      - dbusmock-0.19
-      - telepathy-glib-0.24.1
-    rec:
-      - bluez-5.54
-      - vala-0.48.9
-    opt:
-      - tracker-2.3.4
-  gfbgraph-0.2.4:
-    req:
-      - gnome-online-accounts-3.36.0
-      - rest-0.8.1
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-  tracker-2.3.4:
-    req:
-      - json-glib-1.4.4
-      - libseccomp-2.5.0
-      - libsoup-2.70.0
-      - vala-0.48.9
-    rec:
-      - gobject-introspection-1.64.1
-      - icu-67.1
-      - networkmanager-1.26.0
-      - sqlite-3.33.0
-      - upower-0.99.11
-    opt:
-      - gtk-doc-1.32
-      - bash-completion-2.11
-  tracker-miners-2.3.3:
-    req:
-      - gst-plugins-base-1.16.2
-      - tracker-2.3.4
-      - exempi-2.5.2
-      - gexiv2-0.12.1
-    rec:
-      - ffmpeg-4.3.1
-      - flac-1.3.3
-      - giflib-5.2.1
-      - icu-67.1
-      - libexif-0.6.22
-      - libgrss-0.7.0
-      - libgxps-0.3.1
-      - poppler-20.08.0
-    opt:
-      - cmake-3.18.1
-      - dconf-0.36.0
-      - libgsf-1.14.47
-      - libseccomp-2.5.0
-      - taglib-1.11.1
-      - totem-pl-parser-3.26.5
-      - upower-0.99.11
-  gsound-1.0.2:
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  dconf-0.36.0:
-    req:
-      - dbus-1.12.20
-      - glib-2.64.4
-    rec:
-      - libxslt-1.1.34
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  dconf-editor-3.36.4:
-    req:
-      - dconf-0.36.0
-      - gtk+-3.24.22
-      - libxml2-2.9.10
-    opt:
-      - gtk-doc-1.32
-  gnome-backgrounds-3.36.0: {}
-  gvfs-1.44.1:
-    req:
-      - dbus-1.12.20
-      - glib-2.64.4
-      - libusb-1.0.23
-      - libsecret-0.20.3
-      - libsoup-2.70.0
-    rec:
-      - gcr-3.36.0
-      - gtk+-3.24.22
-      - libcdio-2.1.0
-      - libgdata-0.17.12
-      - libgudev-233
-      - systemd-246
-      - udisks-2.9.1
-    opt:
-      - apache-2.4.46
-      - avahi-0.8
-      - bluez-5.54
-      - dbus-glib-0.110
-      - fuse-3.9.3
-      - gnome-online-accounts-3.36.0
-      - gtk-doc-1.32
-      - libarchive-3.4.3
-      - libgcrypt-1.8.6
-      - libxml2-2.9.10
-      - libxslt-1.1.34
-      - openssh-8.3p1
-      - samba-4.12.6
-  gexiv2-0.12.1:
-    req:
-      - exiv2-0.27.3
-    rec:
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-      - python-2.7.18
-  nautilus-3.36.3:
-    req:
-      - bubblewrap-0.4.1
-      - gexiv2-0.12.1
-      - gnome-autoar-0.2.4
-      - gnome-desktop-3.36.5
-      - libnotify-0.7.9
-      - libseccomp-2.5.0
-      - tracker-miners-2.3.3
-    rec:
-      - desktop-file-utils-0.26
-      - exempi-2.5.2
-      - gobject-introspection-1.64.1
-      - gst-plugins-base-1.16.2
-      - libexif-0.6.22
-    opt:
-      - gtk-doc-1.32
-    rec_run:
-      - adwaita-icon-theme-3.36.1
-      - gvfs-1.44.1
-  zenity-3.32.0:
-    req:
-      - gtk+-3.24.22
-      - itstool-2.0.6
-    rec:
-      - libnotify-0.7.9
-      - libxslt-1.1.34
-    opt:
-      - webkitgtk+-2.28.4
-  gnome-bluetooth-3.34.1:
-    req:
-      - gtk+-3.24.22
-      - itstool-2.0.6
-      - libcanberra-0.30
-      - libnotify-0.7.9
-    rec:
-      - gobject-introspection-1.64.1
-    opt:
-      - gtk-doc-1.32
-    req_run:
-      - bluez-5.54
-      - systemd-246
-  gnome-keyring-3.36.0:
-    req:
-      - dbus-1.12.20
-      - gcr-3.36.0
-    rec:
-      - linux-pam-1.4.0
-      - libxslt-1.1.34
-      - openssh-8.3p1
-    opt:
-      - gnupg-2.2.21
-      - valgrind-3.16.1
-  gnome-settings-daemon-3.36.1:
-    req:
-      - colord-1.4.4
-      - fontconfig-2.13.1
-      - gcr-3.36.0
-      - geoclue-2.5.6
-      - geocode-glib-3.26.2
-      - gnome-desktop-3.36.5
-      - little-cms-2.11
-      - libcanberra-0.30
-      - libgweather-3.36.1
-      - libnotify-0.7.9
-      - librsvg-2.48.8
-      - libwacom-1.4.1
-      - pulseaudio-13.0
-      - systemd-246
-      - upower-0.99.11
-      - xorg-wacom-driver-0.39.0
-    rec:
-      - alsa-1.2.2
-      - cups-2.3.3
-      - networkmanager-1.26.0
-      - nss-3.55
-      - wayland-1.18.0
-    opt:
-      - mutter-3.36.5
-      - dbusmock-0.19
-      - umockdev-0.14.2
-  gnome-control-center-3.36.4:
-    req:
-      - accountsservice-0.6.55
-      - clutter-gtk-1.8.4
-      - colord-gtk-0.2.0
-      - gnome-online-accounts-3.36.0
-      - gnome-settings-daemon-3.36.1
-      - grilo-0.3.12
-      - gsound-1.0.2
-      - libgtop-2.40.0
-      - libpwquality-1.4.2
-      - mit-kerberos-v5-1.18.2
-      - shared-mime-info-2.0
-      - udisks-2.9.1
-    rec:
-      - cheese-3.34.0
-      - cups-2.3.3
-      - samba-4.12.6
-      - gnome-bluetooth-3.34.1
-      - ibus-1.5.22
-      - libhandy-0.0.13
-      - modemmanager-1.14.0
-      - libnma-1.8.30
-    opt:
-      - dbusmock-0.19
-    opt_run:
-      - cups-pk-helper-0.2.6
-      - gnome-color-manager-3.36.0
-      - sound-theme-freedesktop-0.8
-  mutter-3.36.5:
-    req:
-      - gnome-desktop-3.36.5
-      - gnome-settings-daemon-3.36.1
-      - graphene-1.10.2
-      - libcanberra-0.30
-      - libwacom-1.4.1
-      - libxkbcommon-0.10.0
-      - pipewire-0.3.9
-      - upower-0.99.11
-      - zenity-3.32.0
-    rec:
-      - desktop-file-utils-0.26
-      - gobject-introspection-1.64.1
-      - startup-notification-0.12
-      - libinput-1.16.1
-      - wayland-1.18.0
-      - wayland-protocols-1.20
-      - xorg-server-1.20.8
-      - gtk+-3.24.22
-  gnome-shell-3.36.5:
-    req:
-      - evolution-data-server-3.36.5
-      - gjs-1.64.4
-      - gnome-autoar-0.2.4
-      - gnome-control-center-3.36.4
-      - mutter-3.36.5
-      - sassc-3.6.1
-      - startup-notification-0.12
-      - systemd-246
-    rec:
-      - asciidoc-9.0.2
-      - desktop-file-utils-0.26
-      - gnome-bluetooth-3.34.1
-      - gst-plugins-base-1.16.2
-      - networkmanager-1.26.0
-    opt:
-      - gtk-doc-1.32
-      - bash-completion-2.11
-    req_run:
-      - adwaita-icon-theme-3.36.1
-      - dconf-0.36.0
-      - gdm-3.36.3
-      - gnome-backgrounds-3.36.0
-      - gnome-menus-3.36.0
-      - telepathy-mission-control-5.16.5
-  gnome-shell-extensions-3.36.3:
-    req:
-      - js-68.11.0
-      - libgtop-2.40.0
-    opt:
-      - sassc-3.6.1
-  gnome-session-3.36.0:
-    req:
-      - dbus-glib-0.110
-      - gnome-desktop-3.36.5
-      - json-glib-1.4.4
-      - mesa-20.1.5
-      - systemd-246
-      - upower-0.99.11
-    opt:
-      - gconf-3.2.6
-      - xmlto-0.0.28
-      - libxslt-1.1.34
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-  gdm-3.36.3:
-    req:
-      - accountsservice-0.6.55
-      - gtk+-3.24.22
-      - iso-codes-4.5.0
-      - itstool-2.0.6
-      - libcanberra-0.30
-      - libdaemon-0.14
-      - linux-pam-1.4.0
-    opt:
-      - keyutils-1.6.1
-    req_run:
-      - systemd-246
-  gnome-user-docs-3.36.2:
-    req:
-      - itstool-2.0.6
-      - libxml2-2.9.10
-  yelp-3.36.0:
-    req:
-      - gsettings-desktop-schemas-3.36.1
-      - webkitgtk+-2.28.4
-      - yelp-xsl-3.36.0
-    rec:
-      - desktop-file-utils-0.26
-    opt:
-      - gtk-doc-1.32
-  baobab-3.34.1:
-    req:
-      - adwaita-icon-theme-3.36.1
-      - gtk+-3.24.22
-      - itstool-2.0.6
-      - vala-0.48.9
-  brasero-3.12.2:
-    req:
-      - gst-plugins-base-1.16.2
-      - itstool-2.0.6
-      - libcanberra-0.30
-      - libnotify-0.7.9
-    rec:
-      - gobject-introspection-1.64.1
-      - libburn-1.5.2
-      - libisoburn-1.5.2
-      - libisofs-1.5.2
-      - nautilus-3.36.3
-      - totem-pl-parser-3.26.5
-    opt:
-      - gtk-doc-1.32
-      - tracker-2.3.4
-    rec_run:
-      - dvd+rw-tools-7.1
-      - gvfs-1.44.1
-    opt_run:
-      - cdrdao-1.2.4
-      - libdvdcss-1.4.2
-      - cdrtools-3.02a09
-  cheese-3.34.0:
-    req:
-      - clutter-gst-3.0.27
-      - clutter-gtk-1.8.4
-      - gnome-desktop-3.36.5
-      - gst-plugins-bad-1.16.2
-      - gst-plugins-good-1.16.2
-      - v4l-utils-1.20.0
-      - libcanberra-0.30
-      - libgudev-233
-    rec:
-      - gnome-video-effects-0.5.0
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-      - libxslt-1.1.34
-  eog-3.36.3:
-    req:
-      - adwaita-icon-theme-3.36.1
-      - exempi-2.5.2
-      - gnome-desktop-3.36.5
-      - itstool-2.0.6
-      - libjpeg-turbo-2.0.5
-      - libpeas-1.26.0
-      - shared-mime-info-2.0
-    rec:
-      - gobject-introspection-1.64.1
-      - little-cms-2.11
-      - libexif-0.6.22
-      - librsvg-2.48.8
-    opt:
-      - gtk-doc-1.32
-  evince-3.36.7:
-    req:
-      - adwaita-icon-theme-3.36.1
-      - gsettings-desktop-schemas-3.36.1
-      - gtk+-3.24.22
-      - itstool-2.0.6
-      - libxml2-2.9.10
-      - openjpeg-2.3.1
-    rec:
-      - gnome-keyring-3.36.0
-      - gobject-introspection-1.64.1
-      - libarchive-3.4.3
-      - libsecret-0.20.3
-      - nautilus-3.36.3
-      - poppler-20.08.0
-    opt:
-      - cups-2.3.3
-      - gnome-desktop-3.36.5
-      - gspell-1.8.3
-      - gst-plugins-base-1.16.2
-      - gtk-doc-1.32
-      - libgxps-0.3.1
-      - libtiff-4.1.0
-      - texlive-20200406
-  evolution-3.36.5:
-    req:
-      - adwaita-icon-theme-3.36.1
-      - evolution-data-server-3.36.5
-      - gnome-autoar-0.2.4
-      - itstool-2.0.6
-      - libgdata-0.17.12
-      - shared-mime-info-2.0
-      - webkitgtk+-2.28.4
-    rec:
-      - bogofilter-1.2.5
-      - enchant-2.2.8
-      - gnome-desktop-3.36.5
-      - gspell-1.8.3
-      - highlight-3.57
-      - libcanberra-0.30
-      - libgweather-3.36.1
-      - libnotify-0.7.9
-      - openldap-2.4.51
-      - seahorse-3.36.2
-    opt:
-      - clutter-gtk-1.8.4
-      - geoclue-2.5.6
-      - geocode-glib-3.26.2
-      - libchamplain-0.12.20
-      - gtk-doc-1.32
-  file-roller-3.36.3:
-    req:
-      - gtk+-3.24.22
-      - itstool-2.0.6
-    rec:
-      - cpio-2.13
-      - desktop-file-utils-0.26
-      - json-glib-1.4.4
-      - libarchive-3.4.3
-      - libnotify-0.7.9
-      - nautilus-3.36.3
-    opt_run:
-      - unrar-5.9.4
-      - unzip-6.0
-      - zip-3.0
-  gnome-calculator-3.36.0:
-    req:
-      - gtk+-3.24.22
-      - gtksourceview4-4.6.1
-      - itstool-2.0.6
-      - libgee-0.20.3
-      - libsoup-2.70.0
-    rec:
-      - vala-0.48.9
-  gnome-color-manager-3.36.0:
-    req:
-      - colord-1.4.4
-      - gtk+-3.24.22
-      - itstool-2.0.6
-      - little-cms-2.11
-      - libcanberra-0.30
-      - libexif-0.6.22
-    rec:
-      - desktop-file-utils-0.26
-    opt:
-      - docbook-utils-0.6.14
-  gnome-disk-utility-3.36.3:
-    req:
-      - gnome-settings-daemon-3.36.1
-      - itstool-2.0.6
-      - libdvdread-6.1.1
-      - libpwquality-1.4.2
-      - libsecret-0.20.3
-      - udisks-2.9.1
-  gnome-logs-3.36.0:
-    req:
-      - gtk+-3.24.22
-      - gsettings-desktop-schemas-3.36.1
-      - itstool-2.0.6
-    opt:
-      - desktop-file-utils-0.26
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-      - libxslt-1.1.34
-  gnome-maps-3.36.4:
-    req:
-      - clutter-gtk-1.8.4
-      - folks-0.14.0
-      - geoclue-2.5.6
-      - geocode-glib-3.26.2
-      - gfbgraph-0.2.4
-      - gjs-1.64.4
-      - libchamplain-0.12.20
-      - libgee-0.20.3
-      - rest-0.8.1
-  gnome-nettool-3.8.1:
-    req:
-      - gtk+-3.24.22
-      - itstool-2.0.6
-      - libgtop-2.40.0
-    req_run:
-      - bind-utilities-9.16.5
-      - nmap-7.80
-      - net-tools-cvs-20101030
-      - traceroute-2.1.0
-      - whois-5.4.3
-  gnome-power-manager-3.32.0:
-    req:
-      - gtk+-3.24.22
-      - upower-0.99.11
-    opt:
-      - docbook-utils-0.6.14
-  gnome-screenshot-3.36.0:
-    req:
-      - gtk+-3.24.22
-      - libcanberra-0.30
-  gnome-system-monitor-3.36.1:
-    req:
-      - adwaita-icon-theme-3.36.1
-      - gtkmm-3.24.2
-      - itstool-2.0.6
-      - libgtop-2.40.0
-      - librsvg-2.48.8
-    opt:
-      - desktop-file-utils-0.26
-  gnome-terminal-3.36.2:
-    req:
-      - dconf-0.36.0
-      - gnome-shell-3.36.5
-      - gsettings-desktop-schemas-3.36.1
-      - itstool-2.0.6
-      - pcre2-10.35
-      - vte-0.60.3
-    rec:
-      - nautilus-3.36.3
-    opt:
-      - desktop-file-utils-0.26
-  gnome-tweaks-3.34.0:
-    req:
-      - gtk+-3.24.22
-      - gsettings-desktop-schemas-3.36.1
-      - libhandy-0.0.13
-      - pygobject-3.36.1
-      - sound-theme-freedesktop-0.8
-  gnome-weather-3.36.1:
-    req:
-      - gjs-1.64.4
-      - libgweather-3.36.1
-  gucharmap-12.0.1:
-    req:
-      - desktop-file-utils-0.26
-      - gtk+-3.24.22
-      - itstool-2.0.6
-      - unzip-6.0
-      - wget-1.20.3
-    rec:
-      - gobject-introspection-1.64.1
-      - vala-0.48.9
-    opt:
-      - gtk-doc-1.32
-  seahorse-3.36.2:
-    req:
-      - gcr-3.36.0
-      - gnupg-2.2.21
-      - gpgme-1.14.0
-      - itstool-2.0.6
-      - libhandy-0.0.13
-      - libpwquality-1.4.2
-      - libsecret-0.20.3
-    rec:
-      - libsoup-2.70.0
-      - p11-kit-0.23.20
-      - openldap-2.4.51
-      - openssh-8.3p1
-      - vala-0.48.9
-    opt:
-      - avahi-0.8
-    req_run:
-      - gnome-keyring-3.36.0
-  vinagre-3.22.0:
-    req:
-      - gtk-vnc-1.0.0
-      - itstool-2.0.6
-      - libsecret-0.20.3
-    rec:
-      - telepathy-glib-0.24.1
-      - vala-0.48.9
-      - vte-0.60.3
-    opt:
-      - avahi-0.8
-  libxfce4util-4.14.0:
-    req:
-      - glib-2.64.4
-    opt:
-      - gtk-doc-1.32
-  xfconf-4.14.3:
-    req:
-      - libxfce4util-4.14.0
-    opt:
-      - gtk-doc-1.32
-  libxfce4ui-4.14.1:
-    req:
-      - gtk+-3.24.22
-      - xfconf-4.14.3
-    rec:
-      - gtk+-2.24.32
-      - startup-notification-0.12
-    opt:
-      - gtk-doc-1.32
-      - html-parser-3.72
-  exo-0.12.11:
-    req:
-      - gtk+-3.24.22
-      - libxfce4ui-4.14.1
-      - libxfce4util-4.14.0
-      - uri-1.76
-    opt:
-      - gtk-doc-1.32
-  garcon-0.7.0:
-    req:
-      - libxfce4ui-4.14.1
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-    opt:
-      - gtk-doc-1.32
-  xfce4-panel-4.14.4:
-    req:
-      - exo-0.12.11
-      - garcon-0.7.0
-      - libwnck-3.36.0
-      - libxfce4ui-4.14.1
-    opt:
-      - gtk-doc-1.32
-  thunar-1.8.15:
-    req:
-      - exo-0.12.11
-      - libxfce4ui-4.14.1
-    req_run:
-      - gnome-icon-theme-3.12.0
-      - lxde-icon-theme-0.5.1
-    rec:
-      - libgudev-233
-      - libnotify-0.7.9
-      - xfce4-panel-4.14.4
-    opt:
-      - gtk-doc-1.32
-      - gvfs-1.44.1
-      - libexif-0.6.22
-      - tumbler-0.3.0
-  thunar-volman-0.9.5:
-    req:
-      - exo-0.12.11
-      - libgudev-233
-      - libxfce4ui-4.14.1
-    rec:
-      - libnotify-0.7.9
-      - startup-notification-0.12
-    rec_run:
-      - gvfs-1.44.1
-      - polkit-gnome-0.105
-  tumbler-0.3.0:
-    req:
-      - glib-2.64.4
-    opt:
-      - curl-7.71.1
-      - freetype-2.10.2
-      - gdk-pixbuf-2.40.0
-      - gst-plugins-base-1.16.2
-      - gtk-doc-1.32
-      - libjpeg-turbo-2.0.5
-      - libgsf-1.14.47
-      - libpng-1.6.37
-      - poppler-20.08.0
-  xfce4-appfinder-4.14.0:
-    req:
-      - garcon-0.7.0
-      - libxfce4ui-4.14.1
-  xfce4-power-manager-1.6.6:
-    req:
-      - libnotify-0.7.9
-      - upower-0.99.11
-      - xfce4-panel-4.14.4
-  xfce4-settings-4.14.3:
-    req:
-      - exo-0.12.11
-      - garcon-0.7.0
-      - libxfce4ui-4.14.1
-    req_run:
-      - gnome-icon-theme-3.12.0
-      - lxde-icon-theme-0.5.1
-    rec:
-      - libcanberra-0.30
-      - libnotify-0.7.9
-      - libxklavier-5.4
-    opt:
-      - colord-1.4.4
-      - libinput-1.16.1
-  xfdesktop-4.14.2:
-    req:
-      - exo-0.12.11
-      - libwnck-3.36.0
-      - libxfce4ui-4.14.1
-    rec:
-      - libnotify-0.7.9
-      - startup-notification-0.12
-      - thunar-1.8.15
-  xfwm4-4.14.5:
-    req:
-      - libwnck-3.36.0
-      - libxfce4ui-4.14.1
-      - libxfce4util-4.14.0
-    rec:
-      - startup-notification-0.12
-  xfce4-session-4.14.2:
-    req:
-      - libwnck-3.36.0
-      - libxfce4ui-4.14.1
-      - which-2.21
-      - xorg-applications-7
-    rec:
-      - desktop-file-utils-0.26
-      - shared-mime-info-2.0
-      - polkit-gnome-0.105
-    req_run:
-      - xfdesktop-4.14.2
-  parole-1.0.5:
-    req:
-      - gst-plugins-base-1.16.2
-      - gst-plugins-good-1.16.2
-      - libxfce4ui-4.14.1
-    rec:
-      - libnotify-0.7.9
-      - taglib-1.11.1
-  xfce4-terminal-0.8.9.2:
-    req:
-      - libxfce4ui-4.14.1
-      - vte-0.60.3
-  xfburn-0.6.2:
-    req:
-      - exo-0.12.11
-      - libburn-1.5.2
-      - libisofs-1.5.2
-      - libxfce4ui-4.14.1
-    opt:
-      - gst-plugins-base-1.16.2
-    opt_run:
-      - cdrdao-1.2.4
-  ristretto-0.10.0:
-    req:
-      - libexif-0.6.22
-      - libxfce4ui-4.14.1
-    opt_run:
-      - tumbler-0.3.0
-  xfce4-notifyd-0.6.1:
-    req:
-      - libnotify-0.7.9
-      - libxfce4ui-4.14.1
-      - xfce4-panel-4.14.4
-  xfce4-pulseaudio-plugin-0.4.3:
-    req:
-      - dbus-glib-0.110
-      - libnotify-0.7.9
-      - pulseaudio-13.0
-      - xfce4-panel-4.14.4
-    rec:
-      - keybinder-3.0-0.3.2
-    rec_run:
-      - pavucontrol-4.0
-  lxmenu-data-0.1.5: {}
-  libfm-extra-1.3.1:
-    req:
-      - glib-2.64.4
-  menu-cache-1.1.0:
-    req:
-      - libfm-extra-1.3.1
-    opt:
-      - gtk-doc-1.32
-      - xdg-utils-1.1.3
-  libfm-1.3.1:
-    req:
-      - gtk+-3.24.22
-      - gtk+-2.24.32
-      - menu-cache-1.1.0
-    rec:
-      - libexif-0.6.22
-      - vala-0.48.9
-      - lxmenu-data-0.1.5
-    opt:
-      - gtk-doc-1.32
-      - dbus-glib-0.110
-      - gvfs-1.44.1
-  pcmanfm-1.3.1:
-    req:
-      - libfm-1.3.1
-    rec:
-      - adwaita-icon-theme-3.36.1
-      - oxygen-icons5-5.73.0
-      - lxde-icon-theme-0.5.1
-      - fribidi-1.0.9
-  libwnck-2.30.7:
-    req:
-      - gtk+-2.24.32
-    rec:
-      - startup-notification-0.12
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-  lxpanel-0.10.0:
-    req:
-      - keybinder-0.3.1
-      - libwnck-2.30.7
-      - lxmenu-data-0.1.5
-      - menu-cache-1.1.0
-    rec:
-      - alsa-lib-1.2.3.2
-      - gnome-screenshot-3.36.0
-      - libxml2-2.9.10
-      - wireless-tools-29
-    opt:
-      - libindicator-12.10.1
-  lxappearance-0.6.3:
-    req:
-      - gtk+-2.24.32
-    rec:
-      - dbus-glib-0.110
-    opt:
-      - libxslt-1.1.34
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-  lxsession-0.5.5:
-    req:
-      - dbus-glib-0.110
-      - libunique-1.1.6
-      - polkit-0.117
-      - vala-0.48.9
-    opt:
-      - lsb-tools-0.7
-      - gtk+-3.24.22
-      - libxslt-1.1.34
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-  lxde-common-0.99.2:
-    req:
-      - lxde-icon-theme-0.5.1
-      - lxpanel-0.10.0
-      - lxsession-0.5.5
-      - pcmanfm-1.3.1
-    req_run:
-      - openbox-3.6.1
-    rec:
-      - desktop-file-utils-0.26
-      - hicolor-icon-theme-0.17
-      - shared-mime-info-2.0
-    opt_run:
-      - notification-daemon-3.20.0
-      - xfce4-notifyd-0.6.1
-      - lxdm-0.5.3
-      - lightdm-1.30.0
-  gpicview-0.2.5:
-    req:
-      - gtk+-2.24.32
-  lxappearance-obconf-0.2.3:
-    req:
-      - lxappearance-0.6.3
-      - openbox-3.6.1
-  lxinput-0.3.5:
-    req:
-      - gtk+-2.24.32
-  lxrandr-0.3.2:
-    req:
-      - gtk+-2.24.32
-      - xrandr-1.5.1
-    opt:
-      - libxslt-1.1.34
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-  lxtask-0.1.9:
-    req:
-      - gtk+-2.24.32
-  vte-0.28.2:
-    req:
-      - gtk+-2.24.32
-    opt:
-      - gobject-introspection-1.64.1
-      - gtk-doc-1.32
-      - pygtk-2.24.0
-  lxterminal-0.3.2:
-    req:
-      - vte-0.28.2
-    opt:
-      - libxslt-1.1.34
-      - docbook-xml-4.5
-      - docbook-xsl-1.79.2
-  abiword-3.0.4:
-    req:
-      - boost-1.74.0
-      - curl-7.71.1
-      - fribidi-1.0.9
-      - goffice-0.10.48
-      - wv-1.2.9
-    rec:
-      - enchant-2.2.8
-    opt:
-      - dbus-glib-0.110
-      - evolution-data-server-3.36.5
-      - gobject-introspection-1.64.1
-      - libchamplain-0.12.20
-      - libgcrypt-1.8.6
-      - libical-3.0.8
-      - libsoup-2.70.0
-      - redland-1.0.17
-      - telepathy-glib-0.24.1
-      - valgrind-3.16.1
-  gnumeric-1.12.48:
-    req:
-      - goffice-0.10.48
-      - itstool-2.0.6
-    rec_run:
-      - adwaita-icon-theme-3.36.1
-      - oxygen-icons5-5.73.0
-      - gnome-icon-theme-3.12.0
-      - xorg-7
-      - yelp-3.36.0
-    opt:
-      - dconf-0.36.0
-      - gobject-introspection-1.64.1
-      - pygobject-3.36.1
-      - valgrind-3.16.1
-      - dblatex-0.3.9
-  libreoffice-7.0.0:
-    req:
-      - archive-zip-1.68
-      - unzip-6.0
-      - wget-1.20.3
-      - which-2.21
-      - zip-3.0
-    rec:
-      - apache-ant-1.10.8
-      - apr-1.7.0
-      - boost-1.74.0
-      - clucene-2.3.3.4
-      - cups-2.3.3
-      - curl-7.71.1
-      - dbus-glib-0.110
-      - libepoxy-1.5.4
-      - libjpeg-turbo-2.0.5
-      - clang-10.0.1
-      - glm-0.9.9.8
-      - glu-9.0.1
-      - gpgme-1.14.0
-      - graphite2-1.3.14
-      - gst-plugins-base-1.16.2
-      - gtk+-3.24.22
-      - harfbuzz-2.7.1
-      - icu-67.1
-      - libatomic-ops-7.6.10
-      - little-cms-2.11
-      - librsvg-2.48.8
-      - libxml2-2.9.10
-      - libxslt-1.1.34
-      - lxml-4.5.2
-      - mesa-20.1.5
-      - neon-0.31.2
-      - nss-3.55
-      - openldap-2.4.51
-      - poppler-20.08.0
-      - postgresql-12.4
-      - redland-1.0.17
-      - serf-1.3.9
-      - unixodbc-2.3.7
-    opt:
-      - avahi-0.8
-      - bluez-5.54
-      - dconf-0.36.0
-      - desktop-file-utils-0.26
-      - doxygen-1.8.19
-      - evolution-data-server-3.36.5
-      - gdb-9.2
-      - gnutls-3.6.14
-      - kde-frameworks-5.73.0
-      - libpaper-1.1.24+nmu5
-      - mariadb-10.5.5
-      - mit-kerberos-v5-1.18.2
-      - nasm-2.15.03
-      - sane-1.0.29
-      - telepathy-glib-0.24.1
-      - valgrind-3.16.1
-      - vlc-3.0.11.1
-      - zenity-3.32.0
-  epiphany-3.36.4:
-    req:
-      - gcr-3.36.0
-      - gnome-desktop-3.36.5
-      - iso-codes-4.5.0
-      - json-glib-1.4.4
-      - libnotify-0.7.9
-      - nettle-3.6
-      - webkitgtk+-2.28.4
-    rec:
-      - libdazzle-3.36.0
-      - libhandy-0.0.13
-    req_run:
-      - gnome-keyring-3.36.0
-      - seahorse-3.36.2
-  falkon-3.1.0:
-    req:
-      - extra-cmake-modules-5.73.0
-      - qtwebengine-5.15.0
-    opt:
-      - gnome-keyring-3.36.0
-      - kde-frameworks-5.73.0
-  firefox-78.2.0:
-    req:
-      - autoconf-2.13
-      - cbindgen-0.14.3
-      - dbus-glib-0.110
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-      - libnotify-0.7.9
-      - nodejs-12.18.3
-      - nss-3.55
-      - pulseaudio-13.0
-      - python-3.8.5
-      - sqlite-3.33.0
-      - startup-notification-0.12
-      - unzip-6.0
-      - yasm-1.3.0
-      - zip-3.0
-    rec:
-      - icu-67.1
-      - libevent-2.1.12
-      - libwebp-1.1.0
-      - nasm-2.15.03
-    opt:
-      - curl-7.71.1
-      - doxygen-1.8.19
-      - ffmpeg-4.3.1
-      - liboauth-1.0.3
-      - openjdk-14.0.1
-      - valgrind-3.16.1
-      - wget-1.20.3
-      - wireless-tools-29
-  seamonkey-2.53.3:
-    req:
-      - autoconf-2.13
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-      - rustc-1.42.0
-      - unzip-6.0
-      - yasm-1.3.0
-      - zip-3.0
-    rec:
-      - icu-67.1
-      - libevent-2.1.12
-      - nspr-4.27
-      - nss-3.55
-      - pulseaudio-13.0
-      - sqlite-3.33.0
-    opt:
-      - alsa-lib-1.2.3.2
-      - curl-7.71.1
-      - dbus-glib-0.110
-      - doxygen-1.8.19
-      - gconf-3.2.6
-      - gst-plugins-base-1.16.2
-      - openjdk-14.0.1
-      - startup-notification-0.12
-      - valgrind-3.16.1
-      - wget-1.20.3
-      - wireless-tools-29
-  balsa-2.5.11:
-    req:
-      - aspell-0.60.8
-      - enchant-2.2.8
-      - gmime-2.6.23
-      - gpgme-1.14.0
-      - gtk+-3.24.22
-      - rarian-0.8.1
-    req_run:
-      - sendmail-8.16.1
-    rec:
-      - pcre-8.44
-    opt:
-      - compface-1.5.2
-      - gcr-3.36.0
-      - gtksourceview-3.24.11
-      - libcanberra-0.30
-      - libnotify-0.7.9
-      - libsecret-0.20.3
-      - mit-kerberos-v5-1.18.2
-      - openldap-2.4.51
-      - procmail-3.22
-      - sqlite-3.33.0
-      - webkitgtk+-2.28.4
-  feh-3.4.1:
-    req:
-      - libpng-1.6.37
-      - imlib2-1.7.0
-      - giflib-5.2.1
-    rec:
-      - curl-7.71.1
-    opt:
-      - libexif-0.6.22
-      - test-command-0.11
-    opt_run:
-      - libjpeg-turbo-2.0.5
-      - imagemagick-7.0.10-27
-  fontforge-20200314:
-    req:
-      - libspiro-20200505
-      - libuninameslist-20200413
-      - libxml2-2.9.10
-    rec:
-      - gtk+-3.24.22
-    opt:
-      - giflib-5.2.1
-      - git-2.28.0
-      - libjpeg-turbo-2.0.5
-      - libtiff-4.1.0
-      - woff-1.0.2
-      - sphinx-3.2.1
-  gimp-2.10.20:
-    req:
-      - gegl-0.3.34
-      - gexiv2-0.12.1
-      - glib-networking-2.64.3
-      - gtk+-2.24.32
-      - harfbuzz-2.7.1
-      - libjpeg-turbo-2.0.5
-      - libmypaint-1.6.1
-      - librsvg-2.48.8
-      - libtiff-4.1.0
-      - python-libxml2-2.9.10
-      - little-cms-2.11
-      - mypaint-brushes-1.3.0
-      - poppler-20.08.0
-      - xorg-7
-    rec:
-      - dbus-glib-0.110
-      - ghostscript-9.52
-      - gvfs-1.44.1
-      - iso-codes-4.5.0
-      - libgudev-233
-      - pygtk-2.24.0
-      - xdg-utils-1.1.3
-    opt:
-      - aalib-1.4rc5
-      - alsa-lib-1.2.3.2
-      - libmng-2.0.3
-      - libwebp-1.1.0
-      - openjpeg-2.3.1
-      - sendmail-8.16.1
-      - gtk-doc-1.32
-  gparted-1.1.0:
-    req:
-      - gtkmm-3.24.2
-      - parted-3.3
-    opt:
-      - btrfs-progs-5.7
-  hexchat-2.14.3:
-    req:
-      - glib-2.64.4
-    rec:
-      - gtk+-2.24.32
-      - libcanberra-0.30
-      - lua-5.4.0
-    opt:
-      - dbus-glib-0.110
-      - iso-codes-4.5.0
-      - libnotify-0.7.9
-      - pciutils-3.7.0
-  inkscape-1.0:
-    req:
-      - boost-1.74.0
-      - double-conversion-3.1.5
-      - gc-8.0.4
-      - gdl-3.34.0
-      - gsl-2.6
-      - gtkmm-3.24.2
-      - libsoup-2.70.0
-      - libxslt-1.1.34
-      - poppler-20.08.0
-      - popt-1.18
-      - wget-1.20.3
-    rec:
-      - imagemagick-7.0.10-27
-      - little-cms-2.11
-      - little-cms-1.19
-      - libcanberra-0.30
-      - potrace-1.16
-    rec_run:
-      - lxml-4.5.2
-      - scour-0.37
-    opt:
-      - aspell-0.60.8
-      - dbus-1.12.20
-      - doxygen-1.8.19
-  pidgin-2.14.1:
-    req:
-      - gtk+-2.24.32
-    rec:
-      - libgcrypt-1.8.6
-      - gstreamer-1.16.2
-      - gnutls-3.6.14
-      - nss-3.55
-    opt:
-      - avahi-0.8
-      - cyrus-sasl-2.1.27
-      - dbus-1.12.20
-      - evolution-data-server-3.36.5
-      - gconf-3.2.6
-      - libidn-1.36
-      - networkmanager-1.26.0
-      - sqlite-3.33.0
-      - startup-notification-0.12
-      - tk-8.6.10
-      - mit-kerberos-v5-1.18.2
-      - mono-6.12.0.90
-    opt_run:
-      - xdg-utils-1.1.3
-  rox-filer-2.11:
-    req:
-      - libglade-2.6.4
-      - shared-mime-info-2.0
-  rxvt-unicode-9.22:
-    req:
-      - xorg-7
-    opt:
-      - gdk-pixbuf-2.40.0
-      - startup-notification-0.12
-  thunderbird-78.1.1:
-    req:
-      - autoconf-2.13
-      - cbindgen-0.14.3
-      - dbus-glib-0.110
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-      - llvm-10.0.1
-      - clang-10.0.1
-      - nodejs-12.18.3
-      - pulseaudio-13.0
-      - python-3.8.5
-      - sqlite-3.33.0
-      - startup-notification-0.12
-      - zip-3.0
-      - unzip-6.0
-      - yasm-1.3.0
-    rec:
-      - icu-67.1
-      - libevent-2.1.12
-      - nspr-4.27
-      - nss-3.55
-    opt:
-      - cyrus-sasl-2.1.27
-      - doxygen-1.8.19
-      - gconf-3.2.6
-      - wget-1.20.3
-      - wireless-tools-29
-  tigervnc-1.10.1:
-    req:
-      - cmake-3.18.1
-      - fltk-1.3.5
-      - gnutls-3.6.14
-      - libgcrypt-1.8.6
-      - libjpeg-turbo-2.0.5
-      - pixman-0.40.0
-      - xorg-applications-7
-      - xorg-legacy-1
-    rec:
-      - imagemagick-7.0.10-27
-      - linux-pam-1.4.0
-  transmission-3.00:
-    req:
-      - curl-7.71.1
-      - libevent-2.1.12
-    rec:
-      - gtk+-3.24.22
-      - qt-5.15.0
-    opt:
-      - doxygen-1.8.19
-      - gdb-9.2
-  xarchiver-0.5.4.15:
-    req:
-      - gtk+-2.24.32
-      - gtk+-3.24.22
-    opt_run:
-      - cpio-2.13
-      - lzo-2.10
-      - p7zip-16.02
-      - unrar-5.9.4
-      - unzip-6.0
-      - zip-3.0
-  xdg-utils-1.1.3:
-    req:
-      - xmlto-0.0.28
-      - lynx-2.8.9rel.1
-    req_run:
-      - xorg-applications-7
-    opt_run:
-      - dbus-1.12.20
-  xscreensaver-5.44:
-    req:
-      - libglade-2.6.4
-      - xorg-applications-7
-    rec:
-      - glu-9.0.1
-    opt:
-      - gdm-3.36.3
-      - linux-pam-1.4.0
-    opt_run:
-      - xorg-legacy-1
-  alsa-1.2.2: {}
-  
