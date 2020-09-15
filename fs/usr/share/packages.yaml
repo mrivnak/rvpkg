@@ -1507,6 +1507,7 @@ packages:
     req:
       - autoconf-2.13
       - cbindgen-0.14.3
+      - clang-10.0.1
       - dbus-glib-0.110
       - gtk+-2.24.32
       - gtk+-3.24.22
