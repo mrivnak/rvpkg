@@ -16,7 +16,7 @@ show_deps = False
 debug = False
 prefix = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fs') if debug else '/'
 config_path = os.path.join(prefix, 'etc', 'rvpkg.yaml')
-db_path = os.path.join(prefix, 'usr', 'share', 'packages.yaml')
+db_path = os.path.join(prefix, 'usr', 'share', 'rvpkg', 'packages.yaml')
 log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
 
 def load_config():
