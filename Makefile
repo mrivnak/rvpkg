@@ -1,7 +1,10 @@
 all:
-	pipenv update --three
+	pipenv update
 	pipenv run pyinstaller src/rvpkg.py --onefile
 
+install:
+	install -v -m 755 dist/rvpkg /usr/bin/rvpkg
+
 clean:
-	pipenv -rm
+	pipenv --rm
 	rm -rf build/ dist/
