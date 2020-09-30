@@ -3,6 +3,26 @@
 meta:
   version: LFS 10.0
 packages:
+  neofetch-7.1.0:
+    req:
+      - bash-5.0
+  pip-20.2.3:
+    req:
+      - python-3.8.5
+    rec:
+      - python-2.7.18
+  neovim-0.5.0:
+    req:
+      - cmake-3.18.1
+      - unzip-6.0
+  which-2.21: {}
+  bdftopcf-1.1: {}
+  font-adobe-100dpi-1.0.3: {}
+  font-adobe-75dpi-1.0.3: {}
+  font-jis-misc-1.0.3: {}
+  font-daewoo-misc-1.0.3: {}
+  font-isas-misc-1.0.3: {}
+  font-misc-misc-1.1.2: {}
   aalib-1.4rc5:
     opt:
       - gpm-1.20.7
@@ -1045,7 +1065,7 @@ packages:
       - libxml2-2.9.10
       - sgml-common-0.6.3
       - unzip-6.0
-  docbook-xsl-nons-1.79.2:
+  docbook-xsl-1.79.2:
     opt_run:
       - apache-ant-1.10.8
       - libxslt-1.1.34
@@ -1091,7 +1111,7 @@ packages:
     opt:
       - clang-10.0.1
       - ghostscript-9.52
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - libxml2-2.9.10
       - llvm-10.0.1
       - python-2.7.18
@@ -1323,7 +1343,7 @@ packages:
   exiv2-0.27.3:
     opt:
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - libssh-0.9.4
       - libxslt-1.1.34
     rec:
@@ -1512,7 +1532,7 @@ packages:
       - gtk+-2.24.32
       - gtk+-3.24.22
       - libnotify-0.7.9
-      - nodejs-12.18.3
+      - nodejs-12.18.4
       - nss-3.55
       - pulseaudio-13.0
       - python-3.8.5
@@ -1630,7 +1650,7 @@ packages:
   fuse-3.9.3:
     opt:
       - doxygen-1.8.19
-      - pytest-6.0.1
+      - pytest-6.0.2
   garcon-0.7.0:
     opt:
       - gtk-doc-1.32
@@ -1743,7 +1763,7 @@ packages:
       - ffmpeg-4.3.1
       - gdk-pixbuf-2.40.0
       - gexiv2-0.12.1
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - gtk-doc-1.32
       - jasper-2.0.14
       - libjpeg-turbo-2.0.5
@@ -1897,7 +1917,7 @@ packages:
       - glib-2.64.4
       - gnutls-3.6.15
       - gsettings-desktop-schemas-3.36.1
-  glibc-2.23: {}
+  glibc-2.32: {}
   glibmm-2.64.2:
     opt:
       - doxygen-1.8.19
@@ -2317,7 +2337,7 @@ packages:
       - clisp-2.49
       - doxygen-1.8.19
       - gnupg-2.2.23
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - python-2.7.18
       - qt-5.15.1
       - swig-4.0.2
@@ -2355,7 +2375,7 @@ packages:
       - texlive-20200406
     req:
       - cmake-3.18.1
-  graphiz-2.44.1:
+  graphviz-2.44.1:
     opt:
       - cairo-1.17.2+f93fc72c03e
       - fontconfig-2.13.1
@@ -2850,7 +2870,7 @@ packages:
       - fftw-3.3.8
       - ghostscript-9.52
       - gimp-2.10.20
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - inkscape-1.0
       - jasper-2.0.14
       - libexif-0.6.22
@@ -2911,7 +2931,7 @@ packages:
       - poppler-20.08.0
       - popt-1.18
       - wget-1.20.3
-  intl-tool-0.51.0: {}
+  intltool-0.51.0: {}
   intlfonts-1.2.1: {}
   io-html-1.001:
     req:
@@ -3086,7 +3106,7 @@ packages:
       - kparts-5.73.0
       - kactivities-5.73.0
       - kdewebkit-5.73.0
-      - syntax-hightlighting-5.73.0
+      - syntax-highlighting-5.73.0
       - ktexteditor-5.73.0
       - kdesignerplugin-5.73.0
       - kwayland-5.73.0
@@ -3426,7 +3446,7 @@ packages:
   libexif-0.6.22:
     opt:
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
   libffcall-2.2: {}
   libffi-3.3: {}
   libfm-1.3.1:
@@ -3948,7 +3968,7 @@ packages:
   libvdpau-1.4:
     opt:
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - texlive-20200406
     req:
       - xorg-libraries-7
@@ -3957,7 +3977,7 @@ packages:
   libvdpau-va-gl-0.4.0:
     opt:
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - texlive-20200406
     req:
       - cmake-3.18.1
@@ -4076,7 +4096,7 @@ packages:
   libxfont2-2.0.4: {}
   libxft-2.3.3: {}
   libxi-1.7.10: {}
-  libxinerama-1.1.3: {}
+  libxinerama-1.1.4: {}
   libxkbcommon-0.10.0:
     opt:
       - doxygen-1.8.19
@@ -4215,7 +4235,7 @@ packages:
     opt:
       - doxygen-1.8.19
       - git-2.28.0
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - libxml2-2.9.10
       - python-2.7.18
       - pyyaml-5.3.1
@@ -4531,7 +4551,7 @@ packages:
     opt_run:
       - dconf-0.36.0
     req:
-      - gtksourceview4-4.6.1
+      - gtksourceview-3.24.11
       - xfconf-4.14.3
   mpc-1.1.0: {}
   mpfr-4.1.0: {}
@@ -4790,7 +4810,7 @@ packages:
       - libpcap-1.9.1
       - lua-5.4.0
       - pcre-8.44
-  nodejs-12.18.3:
+  nodejs-12.18.4:
     opt:
       - http-parser-2.9.4
       - npm-6.14.8
@@ -4878,7 +4898,7 @@ packages:
   openjdk-14.0.1:
     opt:
       - git-2.28.0
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - mercurial-5.5
     rec:
       - giflib-5.2.1
@@ -5174,7 +5194,7 @@ packages:
     opt:
       - valgrind-3.16.1
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - vulkan-1.2.148.1
     req:
       - bluez-5.54
@@ -5488,7 +5508,7 @@ packages:
       - pep8-1.7.1
       - pycairo-1.18.2
       - pyflakes-2.2.0
-      - pytest-6.0.1
+      - pytest-6.0.2
       - python-2.7.18
     req:
       - gobject-introspection-1.64.1
@@ -5508,7 +5528,7 @@ packages:
       - python-2.7.18
   pyopenssl-19.1.0: {}
   pyrad-2.3: {}
-  pytest-6.0.1:
+  pytest-6.0.2:
     rec:
       - python-2.7.18
     req:
@@ -5750,7 +5770,7 @@ packages:
     opt:
       - berkeley-db-5.3.28
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - libyaml-0.2.4
       - tk-8.6.10
       - valgrind-3.16.1
@@ -5764,6 +5784,9 @@ packages:
       - cmake-3.18.1
       - curl-7.71.1
       - libssh2-1.9.0
+  rvpkg-0.2.3:
+    req:
+      - python-3.8.5
   rxvt-unicode-9.22:
     opt:
       - gdk-pixbuf-2.40.0
@@ -5799,7 +5822,7 @@ packages:
       - pbr-5.5.0
       - popt-1.18
       - py-1.9.0
-      - pytest-6.0.1
+      - pytest-6.0.2
       - pytest-cov-2.10.1
       - python-mimeparse-1.6.0
       - python-subunit-1.4.0
@@ -6099,7 +6122,7 @@ packages:
       - boost-1.74.0
   sxhkd-0.6.2: {}
   syndication-5.73.0: {}
-  syntax-hightlighting-5.73.0: {}
+  syntax-highlighting-5.73.0: {}
   sysstat-12.4.0: {}
   systemd-246:
     opt:
@@ -6372,7 +6395,7 @@ packages:
       - gtk+-3.24.22
       - llvm-10.0.1
       - clang-10.0.1
-      - nodejs-12.18.3
+      - nodejs-12.18.4
       - pulseaudio-13.0
       - python-3.8.5
       - sqlite-3.33.0
@@ -6630,7 +6653,7 @@ packages:
       - help2man-1.47.16
       - libxslt-1.1.34
     rec:
-      - graphiz-2.44.1
+      - graphviz-2.44.1
     req:
       - glib-2.64.4
   valgrind-3.16.1:
@@ -6770,7 +6793,7 @@ packages:
       - docbook-xml-4.5
       - docbook-xsl-1.79.2
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
       - libxslt-1.1.34
       - xmlto-0.0.28
     req:
@@ -7224,7 +7247,7 @@ packages:
       - xsetroot-1.1.2
       - xvinfo-1.1.4
       - xwd-1.0.7
-      - xwinfo-1.1.5
+      - xwininfo-1.1.5
       - xwud-1.0.5
   xorg-applications-deps-7:
     opt:
@@ -7283,7 +7306,14 @@ packages:
       - xorg-server-1.20.9
   xorg-legacy-1:
     req:
+      - bdftopcf-1.1
       - xcursor-themes-1.0.6
+      - font-adobe-100dpi-1.0.3
+      - font-adobe-75dpi-1.0.3
+      - font-jis-misc-1.0.3
+      - font-daewoo-misc-1.0.3
+      - font-isas-misc-1.0.3
+      - font-misc-misc-1.1.2
   xorg-libinput-driver-0.30.0:
     req:
       - libinput-1.16.1
@@ -7366,7 +7396,7 @@ packages:
   xorg-wacom-driver-0.39.0:
     opt:
       - doxygen-1.8.19
-      - graphiz-2.44.1
+      - graphviz-2.44.1
     req:
       - xorg-server-1.20.9
   xorgproto-2020.1:
@@ -7415,7 +7445,7 @@ packages:
       - yasm-1.3.0
   xvinfo-1.1.4: {}
   xwd-1.0.7: {}
-  xwinfo-1.1.5: {}
+  xwininfo-1.1.5: {}
   xwud-1.0.5: {}
   xxhash-0.8.0: {}
   xz-5.2.5: {}
