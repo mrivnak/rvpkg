@@ -24,7 +24,7 @@ log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
 
 
 # Add packages to the package list
-def add_pkgs(pkgs: list[Package]) -> None:
+def add_pkgs(pkgs):
     installed_pkgs = []
     for pkg in pkgs:
         if is_installed(pkg.entry):
@@ -46,12 +46,12 @@ def add_pkgs(pkgs: list[Package]) -> None:
 
 
 # Show information about multiple packages
-def check_pkgs(pkgs: list[Package]) -> None:
+def check_pkgs(pkgs: list[Package]):
     print_pkgs(pkgs)
 
 
 # Prompt for confirmation
-def confirm() -> None:
+def confirm():
     if not no_confirm:
         print('Do you want to continue? {}: '.format('[Y/n]' if default_yes else '[y/N]'), end='')
         response = input()
@@ -62,7 +62,7 @@ def confirm() -> None:
 
 
 # Displays number of installed packages
-def count_pkgs() -> None:
+def count_pkgs():
     log = get_log()
 
     uniq_log = list(set(log))
@@ -74,7 +74,7 @@ def count_pkgs() -> None:
 
 
 # Returns the package log as a list of strings
-def get_log() -> list[str]:
+def get_log():
     with open(log_path, 'r') as file:
         log = file.readlines()
 
@@ -88,18 +88,18 @@ def get_log() -> list[str]:
 
 
 # Checks if one package is built with another
-def is_built_with(pkg: Package, deps: list[Package]) -> None:
+def is_built_with(pkg, deps):
     # TODO: rewrite, consider if the package being built is not installed
     pass
 
 
 # Check if a specified package is installed
-def is_installed(pkg: str) -> bool:
+def is_installed(pkg):
     return pkg in get_log()
 
 
 # Displays list of installed packages
-def list_pkgs() -> None:
+def list_pkgs():
     pkgs = list(set(get_log()))
     pkgs.sort()
     for item in pkgs:
@@ -107,7 +107,7 @@ def list_pkgs() -> None:
 
 
 # Load config files
-def load_config() -> None:
+def load_config():
     global verbose, default_yes, no_confirm, runtime, show_deps
 
     with open(config_path, 'r') as file:
@@ -121,7 +121,7 @@ def load_config() -> None:
 
 
 # Split a package entry into name and version
-def name_ver_split(entry: str) -> tuple[str, str]:
+def name_ver_split(entry):
     pattern = re.compile(r'(.*)-((\d+.)*\d+(.*)?)')
     match = pattern.search(entry)
 
@@ -133,7 +133,7 @@ def name_ver_split(entry: str) -> tuple[str, str]:
 
 
 # Add a new package to the database
-def new_package() -> None:
+def new_package():
     print('\nNew package')
     name = input('Name: ')
     version = input('Version: ')
@@ -207,7 +207,7 @@ def new_package() -> None:
 
 
 # Setup argparse
-def parse_args() -> None:
+def parse_args():
     # argparse setup
     global verbose, no_confirm, runtime, show_deps
 
@@ -371,7 +371,7 @@ def parse_args() -> None:
 
 
 # Convert package strings to package objects
-def parse_pkgs(pkgs: list[str]) -> list[Package]:
+def parse_pkgs(pkgs):
     output = []
     data = None
     package = None
@@ -422,7 +422,7 @@ def parse_pkgs(pkgs: list[str]) -> list[Package]:
 
 
 # Display a package and details to the screen
-def print_pkgs(pkgs: list[Package]) -> None:
+def print_pkgs(pkgs):
     table = BeautifulTable()
     table.columns.header = ['Name', 'Version', 'Installed']
 
@@ -445,7 +445,7 @@ def print_pkgs(pkgs: list[Package]) -> None:
 
 
 # Looks for packages with the query in the name
-def search(query: str) -> None:
+def search(query):
     with open(db_path, 'r') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -455,12 +455,12 @@ def search(query: str) -> None:
 
 
 # Displays the last N lines of the package log
-def tail(lines: list[str]) -> None:
+def tail(lines):
     for pkg in get_log()[-lines:]:
         print(pkg)
 
 
-def main() -> None:
+def main():
     load_config()
     cmd, data = parse_args()
     pkgs = None
