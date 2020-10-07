@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 import sys
+from more_termcolor.colors import reverse
 import yaml
 
 from beautifultable import BeautifulTable
@@ -90,8 +91,32 @@ def get_log():
 # Checks if one package is built with another
 def is_built_with(pkg, deps):
     # TODO: rewrite, consider if the package being built is not installed
-    pass
+    if not is_installed(pkg.entry):
+        print(colored(f'Warning: Package "{pkg.entry}" is not installed', 'yellow'))
+        sys.exit(1)
+    else:
+        log = get_log()
+        found = False
+        index = None
 
+        for i, n in enumerate(reversed(log)):
+            if n == pkg.entry:
+                print(f'i: {i}, n: {n}')
+                index = len(log) - 1 - i
+                break
+        
+        print(index)
+        print(log)
+
+        log = log[:index]
+
+        print(log)
+
+        for dep in deps:
+            if dep.entry in log:
+                print(colored(f'\nPackage "{pkg}" is built with "{dep}"', 'green'))
+            else:
+                print(colored(f'\nPackage "{pkg}" is not built with "{dep}"', 'red'))
 
 # Check if a specified package is installed
 def is_installed(pkg):
