@@ -16,7 +16,7 @@ default_yes = True
 runtime = False
 show_deps = False
 
-debug = True
+debug = False
 prefix = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fs') if debug else '/'
 config_path = os.path.join(prefix, 'etc', 'rvpkg.yaml')
 db_path = os.path.join(prefix, 'usr', 'share', 'rvpkg', 'packages.yaml')
