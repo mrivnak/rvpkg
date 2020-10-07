@@ -4184,8 +4184,8 @@ packages:
       - xorg-7
     rec:
       - libevent-2.1.12
-  linux-5.8.9: {}
-  linux-headers-5.8.9: {}
+  linux-5.8.14: {}
+  linux-headers-5.8.14: {}
   linux-pam-1.4.0:
     opt:
       - berkeley-db-5.3.28
@@ -5937,7 +5937,7 @@ packages:
       - libsecret-0.20.3
     req_run:
       - gnome-keyring-3.36.0
-  seamonkey-2.53.3:
+  seamonkey-2.53.4:
     opt:
       - alsa-lib-1.2.3.2
       - curl-7.71.1
@@ -6375,7 +6375,7 @@ packages:
       - exo-0.12.11
       - libgudev-233
       - libxfce4ui-4.14.1
-  thunderbird-78.1.1:
+  thunderbird-78.3.1:
     opt:
       - cyrus-sasl-2.1.27
       - doxygen-1.8.19
@@ -6847,7 +6847,7 @@ packages:
       - libidn-1.36
       - libidn2-2.3.0
   wireless-tools-29: {}
-  wireshark-3.2.6:
+  wireshark-3.2.7:
     opt:
       - brotli-1.0.9
       - c-ares-1.16.1
