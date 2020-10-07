@@ -4,6 +4,9 @@ import re
 import sys
 import yaml
 
+from beautifultable import BeautifulTable
+from more_termcolor import colored
+
 from package import Package
 
 # global configuration
@@ -20,7 +23,91 @@ db_path = os.path.join(prefix, 'usr', 'share', 'rvpkg', 'packages.yaml')
 log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
 
 
-def load_config():
+# Add packages to the package list
+def add_pkgs(pkgs: list[Package]) -> None:
+    installed_pkgs = []
+    for pkg in pkgs:
+        if is_installed(pkg.entry):
+            installed_pkgs.append(pkg.entry)
+
+    if installed_pkgs:
+        print('Package(s) "{}" already tracked, updating dependencies...'.format(
+            ', '.join(installed_pkgs)
+        ))
+    print_pkgs(pkgs)
+
+    confirm()
+
+    with open(log_path, 'a+') as file:
+        for pkg in pkgs:
+            file.write(f'{pkg.entry}\n')
+
+    print('Packages successfully added!')
+
+
+# Show information about multiple packages
+def check_pkgs(pkgs: list[Package]) -> None:
+    print_pkgs(pkgs)
+
+
+# Prompt for confirmation
+def confirm() -> None:
+    if not no_confirm:
+        print('Do you want to continue? {}: '.format('[Y/n]' if default_yes else '[y/N]'), end='')
+        response = input()
+
+        if not (response.lower() == "y" or (response == "" and default_yes)):
+            print("Operation cancelled", file=sys.stderr)
+            sys.exit(1)
+
+
+# Displays number of installed packages
+def count_pkgs() -> None:
+    log = get_log()
+
+    uniq_log = list(set(log))
+
+    if verbose:
+        print(f'{len(uniq_log)} packages currently installed')
+    else:
+        print(len(uniq_log))
+
+
+# Returns the package log as a list of strings
+def get_log() -> list[str]:
+    with open(log_path, 'r') as file:
+        log = file.readlines()
+
+    new_log = []
+    for line in log:
+        new_log.append(line.rstrip('\n'))
+
+    log, new_log = new_log, None
+
+    return log
+
+
+# Checks if one package is built with another
+def is_built_with(pkg: Package, deps: list[Package]) -> None:
+    # TODO: rewrite, consider if the package being built is not installed
+    pass
+
+
+# Check if a specified package is installed
+def is_installed(pkg: str) -> bool:
+    return pkg in get_log()
+
+
+# Displays list of installed packages
+def list_pkgs() -> None:
+    pkgs = list(set(get_log()))
+    pkgs.sort()
+    for item in pkgs:
+        print(item)
+
+
+# Load config files
+def load_config() -> None:
     global verbose, default_yes, no_confirm, runtime, show_deps
 
     with open(config_path, 'r') as file:
@@ -32,7 +119,95 @@ def load_config():
         runtime = data['config']['runtime']
         show_deps = data['config']['show_deps']
 
-def parse_args():
+
+# Split a package entry into name and version
+def name_ver_split(entry: str) -> tuple[str, str]:
+    pattern = re.compile(r'(.*)-((\d+.)*\d+(.*)?)')
+    match = pattern.search(entry)
+
+    if match is None:
+        print(f'Package "{entry}" not recognized! Must match format "<name>-<version>"', file=sys.stderr)
+        sys.exit(1)
+
+    return match.group(1), match.group(2)
+
+
+# Add a new package to the database
+def new_package() -> None:
+    print('\nNew package')
+    name = input('Name: ')
+    version = input('Version: ')
+    print('NOTE: Input dependencies space delimited')
+    req_deps = input('Required Dependencies: ').split()
+    rec_deps = input('Recommended Dependencies: ').split()
+    opt_deps = input('Optional Dependencies: ').split()
+    req_run_deps = input('Required Runtime Dependencies: ').split()
+    rec_run_deps = input('Recommended Runtime Dependencies: ').split()
+    opt_run_deps = input('Optional Runtime Dependencies: ').split()
+
+    print('\nVerify New Package')
+    print(f'Name: {name}')
+    print(f'Version: {version}')
+    if req_deps:
+        print(f'Required Dependencies: {req_deps}')
+    if rec_deps:
+        print(f'Recommended Dependencies: {rec_deps}')
+    if opt_deps:
+        print(f'Optional Dependencies: {opt_deps}')
+    if req_run_deps:
+        print(f'Required Runtime Dependencies: {req_run_deps}')
+    if rec_run_deps:
+        print(f'Recommended Runtime Dependencies: {rec_run_deps}')
+    if opt_run_deps:
+        print(f'Optional Runtime Dependencies: {opt_run_deps}')
+
+    # Could use pyyaml here, easier just with format string
+    db_entry = f'  {name}-{version}:'
+    if (
+        not req_deps
+        and not rec_deps
+        and not opt_deps
+        and not req_run_deps
+        and not rec_run_deps
+        and not opt_run_deps
+    ):
+        db_entry += ' {}'
+    else:
+        db_entry += ''
+        if req_deps:
+            db_entry += '\n    req:'
+            for dep in req_deps:
+                db_entry += f'\n      - {dep}'
+        if rec_deps:
+            db_entry += '\n    rec:'
+            for dep in rec_deps:
+                db_entry += f'\n      - {dep}'
+        if opt_deps:
+            db_entry += '\n    opt:'
+            for dep in opt_deps:
+                db_entry += f'\n      - {dep}'
+        if req_run_deps:
+            db_entry += '\n    req_run:'
+            for dep in req_run_deps:
+                db_entry += f'\n      - {dep}'
+        if rec_run_deps:
+            db_entry += '\n    rec_run:'
+            for dep in rec_run_deps:
+                db_entry += f'\n      - {dep}'
+        if opt_run_deps:
+            db_entry += '\n    opt_run:'
+            for dep in opt_run_deps:
+                db_entry += f'\n      - {dep}'
+    print(db_entry)
+
+    confirm()
+
+    with open(db_path, 'a') as file:
+        file.write(db_entry)
+
+
+# Setup argparse
+def parse_args() -> None:
     # argparse setup
     global verbose, no_confirm, runtime, show_deps
 
@@ -111,6 +286,10 @@ def parse_args():
         'tail',
         help='Displays the last N numbers of the log file'
     )
+    parser_new = subparsers.add_parser(
+        'new',
+        help='Adds a new package to the database'
+    )
 
     # TODO: add new subcommand, interactively adds a package to the database
 
@@ -169,12 +348,16 @@ def parse_args():
     verbose = verbose or args.verbose
     no_confirm = no_confirm or args.no_confirm
     runtime = runtime or args.runtime
-    show_deps = show_deps or args.show_deps or args.add_show_deps or args.check_show_deps
+    show_deps = show_deps or args.show_deps
 
     command = args.command
 
     if command in ['add', 'check']:
         data = args.packages[0]
+        if command == 'add':
+            show_deps = show_deps or args.add_show_deps
+        elif command == 'check':
+            show_deps = show_deps or args.check_show_deps
     elif command == 'search':
         data = [args.query]
     elif command == 'built-with':
@@ -188,7 +371,7 @@ def parse_args():
 
 
 # Convert package strings to package objects
-def parse_pkgs(pkgs):
+def parse_pkgs(pkgs: list[str]) -> list[Package]:
     output = []
     data = None
     package = None
@@ -238,60 +421,31 @@ def parse_pkgs(pkgs):
     return output
 
 
-# Add packages to the package list
-def add_pkgs(pkgs):
-    installed_pkgs = []
+# Display a package and details to the screen
+def print_pkgs(pkgs: list[Package]) -> None:
+    table = BeautifulTable()
+    table.columns.header = ['Name', 'Version', 'Installed']
+
     for pkg in pkgs:
-        if is_installed(pkg.entry):
-            installed_pkgs.append(pkg.entry)
+        table.rows.append([pkg.name, pkg.version, colored('Yes', 'green') if pkg.installed else colored('No', 'red')])
+        if show_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
+            table.rows.append([colored(f'{pkg.name} dependencies', 'bright black'), '', ''])
+            for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
+                name, version = name_ver_split(item)
+                table.rows.append([colored(name, 'bright black'), colored(version, 'bright black'), colored('Yes', 'green') if is_installed(item) else colored('No', 'red')])
 
-    if installed_pkgs:
-        print('Package(s) "{}" already tracked, updating dependencies...'.format(
-            ', '.join(installed_pkgs)
-        ))
-    print_pkgs(pkgs)
+    # Table styling
+    table.columns.alignment = BeautifulTable.ALIGN_LEFT
+    table.set_style(BeautifulTable.STYLE_NONE)
+    table.columns.header.separator = '='
+    table.columns.padding = 2
 
-    confirm()
-
-    with open(log_path, 'a+') as file:
-        for pkg in pkgs:
-            file.write(f'{pkg.entry}\n')
-
-    print('Packages successfully added!')
-
-
-# Show information about multiple packages
-def check_pkgs(pkgs):
-    print_pkgs(pkgs)
-
-
-# Displays number of installed packages
-def count_pkgs():
-    log = get_log()
-
-    uniq_log = list(set(log))
-
-    if verbose:
-        print(f'{len(uniq_log)} packages currently installed')
-    else:
-        print(len(uniq_log))
-
-
-# Displays list of installed packages
-def list_pkgs():
-    pkgs = list(set(get_log()))
-    pkgs.sort()
-    for item in pkgs:
-        print(item)
-
-
-def tail(lines):
-    for pkg in get_log()[-lines:]:
-        print(pkg)
+    print('')
+    print(table)
 
 
 # Looks for packages with the query in the name
-def search(query):
+def search(query: str) -> None:
     with open(db_path, 'r') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -300,95 +454,18 @@ def search(query):
             print(item)
 
 
-# Checks if one package is built with another
-def is_built_with(pkg, deps):
-    # TODO: rewrite, consider if the package being built is not installed
-    pass
+# Displays the last N lines of the package log
+def tail(lines: list[str]) -> None:
+    for pkg in get_log()[-lines:]:
+        print(pkg)
 
 
-def get_log():
-    with open(log_path, 'r') as file:
-        log = file.readlines()
-
-    new_log = []
-    for line in log:
-        new_log.append(line.rstrip('\n'))
-
-    log, new_log = new_log, None
-
-    return log
-
-
-def is_installed(pkg):
-    return pkg in get_log()
-
-
-# Display a package and details to the screen
-def print_pkgs(pkgs):
-    # TODO: scale with terminal width
-    # TODO: print header and footer
-    # TODO: get rid of "has deps" stuff
-    width = min(128, os.get_terminal_size().columns)
-
-    version_width = 0
-    for pkg in pkgs:
-        version_width = max(version_width, len(pkg.version))
-    version_width = max(16, version_width)
-
-    print('\n{}{}{}'.format(
-        'Name',
-        'Version',
-        'Installed'
-    ))
-    print('{}'.format(''.join(['=' for x in range(width)])))
-
-    for pkg in pkgs:
-        print('{}{}{}'.format(
-            pkg.name,
-            pkg.version,
-            'Yes' if pkg.installed else 'No'
-        ))
-        if show_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
-            print(f'{pkg.name} build dependencies:')
-            for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
-                name, version = name_ver_split(item)
-                print('{}{}{}'.format(
-                    name,
-                    version,
-                    'Yes' if is_installed(item) else 'No'
-                ))
-
-    print('{}'.format(''.join(['=' for x in range(width)])))
-
-
-# Prompt for confirmation
-def confirm():
-    if not no_confirm:
-        print('Do you want to continue? {}: '.format('[Y/n]' if default_yes else '[y/N]'), end='')
-        response = input()
-
-        if not (response.lower() == "y" or (response == "" and default_yes)):
-            print("Operation cancelled", file=sys.stderr)
-            sys.exit(1)
-
-
-def name_ver_split(entry):
-    pattern = re.compile(r'(.*)-((\d+.)*\d+(.*)?)')
-    match = pattern.search(entry)
-
-    if match is None:
-        print(f'Package "{entry}" not recognized! Must match format "<name>-<version>"', file=sys.stderr)
-        sys.exit(1)
-
-    return match.group(1), match.group(2)
-
-
-def main():
+def main() -> None:
     load_config()
     cmd, data = parse_args()
     pkgs = None
 
-    if data and cmd != 'search' and cmd != 'tail':
+    if data and cmd != 'search' and cmd != 'tail' and cmd != 'new':
         pkgs = parse_pkgs(data)
 
     if cmd == 'add':
@@ -406,7 +483,7 @@ def main():
     elif cmd == 'tail':
         tail(data[0])
     elif cmd == 'new':
-        pass
+        new_package()
 
 
 if __name__ == '__main__':

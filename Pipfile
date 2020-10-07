@@ -10,6 +10,8 @@ argparse = "*"
 pyyaml = "*"
 pyinstaller = "*"
 flake8 = "*"
+beautifultable = "*"
+more_termcolor = "*"
 
 [requires]
-python_version = "3.9.0"
+python_version = "3"
