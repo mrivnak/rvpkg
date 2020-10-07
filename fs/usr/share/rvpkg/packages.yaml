@@ -5784,7 +5784,7 @@ packages:
       - cmake-3.18.1
       - curl-7.71.1
       - libssh2-1.9.0
-  rvpkg-0.2.3:
+  rvpkg-0.4.0:
     req:
       - python-3.9.0
   rxvt-unicode-9.22:
