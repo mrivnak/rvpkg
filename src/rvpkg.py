@@ -19,12 +19,13 @@ config_path = os.path.join(prefix, 'etc', 'rvpkg.yaml')
 db_path = os.path.join(prefix, 'usr', 'share', 'rvpkg', 'packages.yaml')
 log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
 
+
 def load_config():
     global verbose, default_yes, no_confirm, runtime, show_deps
 
     with open(config_path, 'r') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
-        
+
         verbose = data['config']['verbose']
         default_yes = data['config']['default_yes']
         no_confirm = data['config']['no_confirm']
@@ -145,7 +146,7 @@ def parse_args():
         'lines',
         type=int
     )
-    
+
     parser_add.add_argument(
         '-d',
         '--show-deps',
@@ -164,7 +165,7 @@ def parse_args():
     )
 
     args = parser.parse_args()
-    
+
     verbose = verbose or args.verbose
     no_confirm = no_confirm or args.no_confirm
     runtime = runtime or args.runtime
@@ -184,6 +185,7 @@ def parse_args():
         data = None
 
     return command, data
+
 
 # Convert package strings to package objects
 def parse_pkgs(pkgs):
@@ -213,7 +215,7 @@ def parse_pkgs(pkgs):
 
             try:
                 index = int(input('Package # to add: '))
-            except:
+            except TypeError:
                 print('Error: Invalid selection', file=sys.stderr)
                 sys.exit(1)
 
@@ -223,7 +225,6 @@ def parse_pkgs(pkgs):
             else:
                 print('Error: Invalid selection', file=sys.stderr)
                 sys.exit(1)
-
 
         package.installed = is_installed(package.entry)
 
@@ -263,6 +264,7 @@ def add_pkgs(pkgs):
 def check_pkgs(pkgs):
     print_pkgs(pkgs)
 
+
 # Displays number of installed packages
 def count_pkgs():
     log = get_log()
@@ -274,6 +276,7 @@ def count_pkgs():
     else:
         print(len(uniq_log))
 
+
 # Displays list of installed packages
 def list_pkgs():
     pkgs = list(set(get_log()))
@@ -281,9 +284,11 @@ def list_pkgs():
     for item in pkgs:
         print(item)
 
+
 def tail(lines):
     for pkg in get_log()[-lines:]:
         print(pkg)
+
 
 # Looks for packages with the query in the name
 def search(query):
@@ -294,10 +299,12 @@ def search(query):
         if query in item:
             print(item)
 
+
 # Checks if one package is built with another
 def is_built_with(pkg, deps):
     # TODO: rewrite, consider if the package being built is not installed
     pass
+
 
 def get_log():
     with open(log_path, 'r') as file:
@@ -310,9 +317,11 @@ def get_log():
     log, new_log = new_log, None
 
     return log
-    
+
+
 def is_installed(pkg):
     return pkg in get_log()
+
 
 # Display a package and details to the screen
 def print_pkgs(pkgs):
@@ -351,6 +360,7 @@ def print_pkgs(pkgs):
 
     print('{}'.format(''.join(['=' for x in range(width)])))
 
+
 # Prompt for confirmation
 def confirm():
     if not no_confirm:
@@ -360,6 +370,7 @@ def confirm():
         if not (response.lower() == "y" or (response == "" and default_yes)):
             print("Operation cancelled", file=sys.stderr)
             sys.exit(1)
+
 
 def name_ver_split(entry):
     pattern = re.compile(r'(.*)-((\d+.)*\d+(.*)?)')
@@ -396,7 +407,7 @@ def main():
         tail(data[0])
     elif cmd == 'new':
         pass
-    
+
 
 if __name__ == '__main__':
     main()
