@@ -8,7 +8,7 @@ packages:
       - bash-5.0
   pip-20.2.3:
     req:
-      - python-3.8.5
+      - python-3.9.0
     rec:
       - python-2.7.18
   neovim-0.5.0:
@@ -172,7 +172,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   ark-20.08.0:
     req:
       - kde-frameworks-5.73.0
@@ -777,13 +777,13 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   coreutils-8.32: {}
   coverage-5.2.1:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   cpan-meta-check-0.014:
     rec:
       - test-deep-1.130
@@ -886,7 +886,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   dash-0.5.11.2:
     opt:
       - libedit-3.1
@@ -975,10 +975,10 @@ packages:
     req:
       - dbus-1.12.20
       - glib-2.64.4
-      - python-3.8.5
+      - python-3.9.0
   dbusmock-0.19:
     req:
-      - python-3.8.5
+      - python-3.9.0
     req_run:
       - dbus-python-1.2.16
   dconf-0.36.0:
@@ -999,7 +999,7 @@ packages:
       - libxml2-2.9.10
   decorator-4.4.2:
     req:
-      - python-3.8.5
+      - python-3.9.0
   dejagnu-1.6.2: {}
   desktop-file-utils-0.26:
     opt:
@@ -1081,7 +1081,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   dolphin-20.08.0:
     req:
       - kde-frameworks-5.73.0
@@ -1372,7 +1372,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   extutils-libbuilder-0.08:
     req:
       - module-build-0.4231
@@ -1410,7 +1410,7 @@ packages:
     opt:
       - mit-kerberos-v5-1.18.2
       - py-future-0.16.0
-      - python-3.8.5
+      - python-3.9.0
       - tk-8.6.10
     rec:
       - procmail-3.22
@@ -1535,7 +1535,7 @@ packages:
       - nodejs-12.18.4
       - nss-3.55
       - pulseaudio-13.0
-      - python-3.8.5
+      - python-3.9.0
       - sqlite-3.33.0
       - startup-notification-0.12
       - unzip-6.0
@@ -1545,7 +1545,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   flac-1.3.3:
     opt:
       - libogg-1.3.4
@@ -1619,7 +1619,7 @@ packages:
       - libuninameslist-20200413
       - libxml2-2.9.10
   fonttools-4.14.0:
-    req: python-3.8.5
+    req: python-3.9.0
   fop-2.5:
     opt:
       - xorg-7
@@ -2371,7 +2371,7 @@ packages:
       - fonttools-4.14.0
       - freetype-2.10.2
       - harfbuzz-2.7.1
-      - python-3.8.5
+      - python-3.9.0
       - texlive-20200406
     req:
       - cmake-3.18.1
@@ -2813,7 +2813,7 @@ packages:
   http-parser-2.9.4: {}
   hypothesis-5.32.0:
     req:
-      - python-3.8.5
+      - python-3.9.0
   iana-etc-20200821: {}
   ibus-1.5.22:
     opt:
@@ -2984,7 +2984,7 @@ packages:
   jinja2-2.11.2:
     req:
       - markupsafe-1.1.1
-      - python-3.8.5
+      - python-3.9.0
   joe-4.6: {}
   joypixels-6.0: {}
   js-68.11.0:
@@ -4170,7 +4170,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   lingua-translit-0.28:
     req:
       - perl-5.32.0
@@ -4343,7 +4343,7 @@ packages:
       - python-2.7.18
     req:
       - libxslt-1.1.34
-      - python-3.8.5
+      - python-3.9.0
   lxpanel-0.10.0:
     opt:
       - libindicator-12.10.1
@@ -4406,7 +4406,7 @@ packages:
   mako-1.1.3:
     req:
       - markupsafe-1.1.1
-      - python-3.8.5
+      - python-3.9.0
   malix-12.5:
     opt:
       - mit-kerberos-v5-1.18.2
@@ -4436,7 +4436,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   mc-4.8.25:
     opt:
       - doxygen-1.8.19
@@ -5067,7 +5067,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   pciutils-3.7.0:
     rec:
       - curl-7.71.1
@@ -5092,7 +5092,7 @@ packages:
     rec:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   perl-5.32.0: {}
   perlio-utf8-strict-0.007:
     rec:
@@ -5457,11 +5457,11 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   py-future-0.16.0: {}
   py3c-1.2:
     req:
-      - python-3.8.5
+      - python-3.9.0
   pyatspi2-2.36.0:
     opt:
       - python-2.7.18
@@ -5469,7 +5469,7 @@ packages:
       - at-spi2-core-2.36.0
     req:
       - pygobject-3.36.1
-      - python-3.8.5
+      - python-3.9.0
   pycairo-1.18.2:
     opt:
       - hypothesis-5.32.0
@@ -5481,20 +5481,20 @@ packages:
       - hypothesis-5.32.0
     req:
       - cairo-1.17.2+f93fc72c03e
-      - python-3.8.5
+      - python-3.9.0
   pycryptodome-3.9.8:
     rec:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   pyflakes-2.2.0:
     rec:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   pygments-2.6.1:
     req:
-      - python-3.8.5
+      - python-3.9.0
   pygobject-2.28.7:
     opt:
       - gobject-introspection-1.64.1
@@ -5513,7 +5513,7 @@ packages:
     req:
       - gobject-introspection-1.64.1
       - pycairo-1.19.1
-      - python-3.8.5
+      - python-3.9.0
   pygtk-2.24.0:
     opt:
       - libxslt-1.1.34
@@ -5532,19 +5532,19 @@ packages:
     rec:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   pytest-cov-2.10.1:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   python-2.7.18:
     opt:
       - bluez-5.54
       - sqlite-3.33.0
       - tk-8.6.10
       - valgrind-3.16.1
-  python-3.8.5:
+  python-3.9.0:
     opt:
       - berkeley-db-5.3.28
       - bluez-5.54
@@ -5561,29 +5561,29 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   python-slip-0.6.5:
     req:
       - dbus-python-1.2.16
       - decorator-4.4.2
-      - python-3.8.5
+      - python-3.9.0
       - six-1.15.0
   python-subunit-1.4.0:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   pyxdg-0.25:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   pyyaml-5.3.1:
     opt:
       - python-2.7.18
     req:
       - libyaml-0.2.4
-      - python-3.8.5
+      - python-3.9.0
   qca-2.3.1:
     opt:
       - botan-2.15.0
@@ -5617,7 +5617,7 @@ packages:
       - mesa-20.1.5
       - nettle-3.6
       - pulseaudio-13.0
-      - python-3.8.5
+      - python-3.9.0
       - sdl-1.2.15
       - vte-0.28.2
       - vte-0.60.3
@@ -5786,7 +5786,7 @@ packages:
       - libssh2-1.9.0
   rvpkg-0.2.3:
     req:
-      - python-3.8.5
+      - python-3.9.0
   rxvt-unicode-9.22:
     opt:
       - gdk-pixbuf-2.40.0
@@ -5882,7 +5882,7 @@ packages:
     rec:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
       - six-1.15.0
   screen-4.8.0:
     opt:
@@ -6003,7 +6003,7 @@ packages:
     rec:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   slang-2.3.2:
     opt:
       - libpng-1.6.37
@@ -6294,7 +6294,7 @@ packages:
     req:
       - fixtures-3.0.0
       - python-2.7.18
-      - python-3.8.5
+      - python-3.9.0
       - testtools-2.4.0
   testscenarios-0.5.0:
     req:
@@ -6304,7 +6304,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   texinfo-6.7: {}
   texlive-20200406:
     rec:
@@ -6397,7 +6397,7 @@ packages:
       - clang-10.0.1
       - nodejs-12.18.4
       - pulseaudio-13.0
-      - python-3.8.5
+      - python-3.9.0
       - sqlite-3.33.0
       - startup-notification-0.12
       - zip-3.0
@@ -6446,7 +6446,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   traceroute-2.1.0: {}
   tracker-2.3.4:
     opt:
@@ -6690,7 +6690,7 @@ packages:
     opt:
       - python-2.7.18
     req:
-      - python-3.8.5
+      - python-3.9.0
   vlc-3.0.11.1:
     opt:
       - aalib-1.4rc5
