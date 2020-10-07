@@ -397,7 +397,7 @@ def parse_pkgs(pkgs):
                 print(f'{i + 1}) {pkg}')
 
             try:
-                index = int(input('Package # to add: '))
+                index = int(input('Package # to select: '))
             except TypeError:
                 print('Error: Invalid selection', file=sys.stderr)
                 sys.exit(1)
