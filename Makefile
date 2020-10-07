@@ -1,6 +1,7 @@
 all:
-	pipenv update
-	pipenv run pyinstaller src/rvpkg.py --onefile
+	python3 -m virtualenv venv
+	./venv/bin/pip install -r requirements.txt
+	./venv/bin/pyinstaller src/rvpkg.py --onefile
 
 install:
 	install -v -d -m 755 /usr/share/rvpkg
@@ -12,5 +13,4 @@ install:
 	install -v -m 755 dist/rvpkg /usr/bin/rvpkg
 
 clean:
-	pipenv --rm
-	rm -rf build/ dist/
+	rm -rf build/ dist/ venv/
