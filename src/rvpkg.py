@@ -46,7 +46,7 @@ def add_pkgs(pkgs):
 
 
 # Show information about multiple packages
-def check_pkgs(pkgs: list[Package]):
+def check_pkgs(pkgs):
     print_pkgs(pkgs)
 
 
