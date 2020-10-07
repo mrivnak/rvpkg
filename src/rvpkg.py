@@ -111,11 +111,7 @@ def parse_args():
         help='Displays the last N numbers of the log file'
     )
 
-    # TODO: add tail subcommand
-
     # TODO: add new subcommand, interactively adds a package to the database
-
-    # TODO: add flags to subcommands to make flag placement more flexible
 
     parser_add.add_argument(
         'packages',
@@ -149,13 +145,30 @@ def parse_args():
         'lines',
         type=int
     )
+    
+    parser_add.add_argument(
+        '-d',
+        '--show-deps',
+        action='store_true',
+        dest='add_show_deps',
+        default=False,
+        help='Display package dependencies'
+    )
+    parser_check.add_argument(
+        '-d',
+        '--show-deps',
+        action='store_true',
+        dest='check_show_deps',
+        default=False,
+        help='Display package dependencies'
+    )
 
     args = parser.parse_args()
     
     verbose = verbose or args.verbose
     no_confirm = no_confirm or args.no_confirm
     runtime = runtime or args.runtime
-    show_deps = show_deps or args.show_deps
+    show_deps = show_deps or args.show_deps or args.add_show_deps or args.check_show_deps
 
     command = args.command
 
