@@ -7490,3 +7490,6 @@ packages:
   linux-lts-5.4.70: {}
   linux-lts-headers-5.4.70: {}
   libstdc++-10.2.0: {}
+  dotnet-5.0.0-rc.1:
+    req:
+      - glibc-2.32
