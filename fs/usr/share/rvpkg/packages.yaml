@@ -7485,3 +7485,7 @@ packages:
       - pcre-8.44
       - valgrind-3.16.1
   zstd-1.4.5: {}
+  linux-zen-5.8.14: {}
+  linux-zen-headers-5.8.14: {}
+  linux-lts-5.4.70: {}
+  linux-lts-headers-5.4.70: {}
