@@ -104,13 +104,8 @@ def is_built_with(pkg, deps):
                 print(f'i: {i}, n: {n}')
                 index = len(log) - 1 - i
                 break
-        
-        print(index)
-        print(log)
 
         log = log[:index]
-
-        print(log)
 
         for dep in deps:
             if dep.entry in log:
@@ -187,7 +182,7 @@ def new_package():
         print(f'Optional Runtime Dependencies: {opt_run_deps}')
 
     # Could use pyyaml here, easier just with format string
-    db_entry = f'  {name}-{version}:'
+    db_entry = f'\n  {name}-{version}:'
     if (
         not req_deps
         and not rec_deps
@@ -223,7 +218,6 @@ def new_package():
             db_entry += '\n    opt_run:'
             for dep in opt_run_deps:
                 db_entry += f'\n      - {dep}'
-    print(db_entry)
 
     confirm()
 

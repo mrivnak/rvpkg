@@ -9,6 +9,10 @@ RiVnak Package Manager. Small package organization system for use with my [B]LFS
 - python 3.6+
 - virtualenv
 
+## Usage
+
+TODO: write usage instructions
+
 ## Installation
 
 ```shell
