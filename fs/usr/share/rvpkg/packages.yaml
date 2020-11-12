@@ -6810,6 +6810,10 @@ packages:
       - speex
     req:
       - libvorbis
+  vscodium:
+    req:
+      - nodejs
+      - npm
   vsftpd:
     opt:
       - libcap
