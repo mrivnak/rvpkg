@@ -28,8 +28,8 @@ log_path = os.path.join(prefix, 'var', 'lib', 'rvpkg', 'packages.log')
 def add_pkgs(pkgs):
     installed_pkgs = []
     for pkg in pkgs:
-        if is_installed(pkg.entry):
-            installed_pkgs.append(pkg.entry)
+        if is_installed(pkg.name):
+            installed_pkgs.append(pkg.name)
 
     if installed_pkgs:
         print('Package(s) "{}" already tracked, updating dependencies...'.format(
@@ -41,7 +41,7 @@ def add_pkgs(pkgs):
 
     with open(log_path, 'a+') as file:
         for pkg in pkgs:
-            file.write(f'{pkg.entry}\n')
+            file.write(f'{pkg.name}\n')
 
     print('Packages successfully added!')
 
@@ -90,9 +90,8 @@ def get_log():
 
 # Checks if one package is built with another
 def is_built_with(pkg, deps):
-    # TODO: rewrite, consider if the package being built is not installed
-    if not is_installed(pkg.entry):
-        print(colored(f'Warning: Package "{pkg.entry}" is not installed', 'yellow'))
+    if not is_installed(pkg.name):
+        print(colored(f'Warning: Package "{pkg.name}" is not installed', 'yellow'))
         sys.exit(1)
     else:
         log = get_log()
@@ -100,7 +99,7 @@ def is_built_with(pkg, deps):
         index = None
 
         for i, n in enumerate(reversed(log)):
-            if n == pkg.entry:
+            if n == pkg.name:
                 print(f'i: {i}, n: {n}')
                 index = len(log) - 1 - i
                 break
@@ -139,24 +138,10 @@ def load_config():
         runtime = data['config']['runtime']
         show_deps = data['config']['show_deps']
 
-
-# Split a package entry into name and version
-def name_ver_split(entry):
-    pattern = re.compile(r'(.*)-((\d+.)*\d+(.*)?)')
-    match = pattern.search(entry)
-
-    if match is None:
-        print(f'Package "{entry}" not recognized! Must match format "<name>-<version>"', file=sys.stderr)
-        sys.exit(1)
-
-    return match.group(1), match.group(2)
-
-
 # Add a new package to the database
 def new_package():
     print('\nNew package')
     name = input('Name: ')
-    version = input('Version: ')
     print('NOTE: Input dependencies space delimited')
     req_deps = input('Required Dependencies: ').split()
     rec_deps = input('Recommended Dependencies: ').split()
@@ -167,7 +152,6 @@ def new_package():
 
     print('\nVerify New Package')
     print(f'Name: {name}')
-    print(f'Version: {version}')
     if req_deps:
         print(f'Required Dependencies: {req_deps}')
     if rec_deps:
@@ -182,7 +166,7 @@ def new_package():
         print(f'Optional Runtime Dependencies: {opt_run_deps}')
 
     # Could use pyyaml here, easier just with format string
-    db_entry = f'\n  {name}-{version}:'
+    db_entry = f'\n  {name}:'
     if (
         not req_deps
         and not rec_deps
@@ -407,8 +391,8 @@ def parse_pkgs(pkgs):
             print(f'Package "{pkg}" not found in database. Exiting...', file=sys.stderr)
             sys.exit(1)
         elif len(matches) == 1:
-            name, ver = name_ver_split(matches[0])
-            package = Package(name, ver)
+            name = matches[0]
+            package = Package(name)
         else:
             print(f'\nPackage "{pkg}" has multiple matches')
 
@@ -422,8 +406,8 @@ def parse_pkgs(pkgs):
                 sys.exit(1)
 
             if 1 <= index <= len(matches):
-                name, ver = name_ver_split(matches[index - 1])
-                package = Package(name, ver)
+                name = matches[index - 1]
+                package = Package(name)
             else:
                 print('Error: Invalid selection', file=sys.stderr)
                 sys.exit(1)
@@ -443,15 +427,15 @@ def parse_pkgs(pkgs):
 # Display a package and details to the screen
 def print_pkgs(pkgs):
     table = BeautifulTable()
-    table.columns.header = ['Name', 'Version', 'Installed']
+    table.columns.header = ['Name', 'Type', 'Installed']
 
     for pkg in pkgs:
-        table.rows.append([pkg.name, pkg.version, colored('Yes', 'green') if pkg.installed else colored('No', 'red')])
+        table.rows.append([pkg.name, 'E', colored('Yes', 'green') if pkg.installed else colored('No', 'red')])
         if show_deps and len(pkg.req_deps + pkg.rec_deps + pkg.opt_deps) > 0:
             table.rows.append([colored(f'{pkg.name} dependencies', 'bright black'), '', ''])
             for item in (pkg.req_deps + pkg.rec_deps + pkg.opt_deps):
-                name, version = name_ver_split(item)
-                table.rows.append([colored(name, 'bright black'), colored(version, 'bright black'), colored('Yes', 'green') if is_installed(item) else colored('No', 'red')])
+                name = item
+                table.rows.append([colored(name, 'bright black'), colored('D', 'bright black'), colored('Yes', 'green') if is_installed(item) else colored('No', 'red')])
 
     # Table styling
     table.columns.alignment = BeautifulTable.ALIGN_LEFT

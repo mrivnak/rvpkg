@@ -1,7 +1,6 @@
 class Package:
-    def __init__(self, name, version):
+    def __init__(self, name):
         self.name = name
-        self.version = version
         self.installed = False
         self.req_deps = []
         self.rec_deps = []
@@ -17,7 +16,7 @@ class Package:
         self.has_opt_run_deps = 'None'
 
     def __str__(self):
-        return f'{self.name}-{self.version}'
+        return self.name
 
     @property
     def entry(self):
