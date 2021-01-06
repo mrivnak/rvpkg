@@ -6034,6 +6034,15 @@ packages:
   rvpkg:
     req:
       - python
+      - pyyaml
+      - more-termcolor
+      - beautifultable
+  more-termcolor:
+    req:
+      - python
+  beautifultable:
+    req:
+      - python
   rxvt-unicode:
     opt:
       - gdk-pixbuf
